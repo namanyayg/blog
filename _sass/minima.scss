@@ -1,0 +1,82 @@
+@charset "utf-8";
+
+// Define defaults for each variable.
+
+$base-font-family: 'EB Garamond', Georgia, serif;
+$base-font-size:   1.25rem !default;
+$base-font-weight: 400 !default;
+$small-font-size:  $base-font-size * 0.875 !default;
+$base-line-height: 1.5 !default;
+
+$accent-font-family: 'Lato';
+$accent-font-weight: 700;
+
+$spacing-unit:     2rem !default;
+
+$text-color:       #111 !default;
+$background-color: #fdfdfd !default;
+$brand-color:      #2996ff !default;
+
+$color--highlight: #FFB336;
+$color--alt:       invert($color--highlight);
+
+$grey-color:       #828282 !default;
+$grey-color-light: lighten($grey-color, 40%) !default;
+$grey-color-dark:  darken($grey-color, 25%) !default;
+
+$color-border--dark: #e4eef8;
+$color-border--light: #edf4fa;
+
+$table-text-align: left !default;
+
+$alt--font-family: Europa, Segoe UI, Avenir, Helvetica, monospace;
+
+$color--alt-bg: #19202b;
+$color--alt-bg--dark: #080f25;
+
+$color--alt-bg--border: rgba(white, .05);
+$color--alt-bg-text: #edf4ff;
+$color--alt-bg-subtitle: darken($color--alt-bg-text, 10%);
+$color--alt-bg-text--light: #879bbb;
+$color--alt-bg-title-text: #ffffff;
+
+// Width of the content area
+$content-width:    45em !default;
+
+$on-palm:          30em !default;
+$on-laptop:        45em !default;
+
+// Use media queries like this:
+// @include media-query($on-palm) {
+//   .wrapper {
+//     padding-right: $spacing-unit / 2;
+//     padding-left: $spacing-unit / 2;
+//   }
+// }
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+@mixin relative-font-size($ratio) {
+  font-size: $base-font-size * $ratio;
+}
+
+$site-header-width: 27.5%;
+$post-right: 12.5%;
+
+@mixin post-width($font-size: 1em) {
+  width: 35em / $font-size;
+  float: right;
+  max-width: calc(100% - #{$site-header-width} - #{$post-right});
+  margin: 0 calc(#{$site-header-width} + #{$post-right}) 0 0;
+}
+
+
+// Import partials.
+@import
+  "minima/base",
+  "minima/layout",
+  "minima/syntax-highlighting"
+;

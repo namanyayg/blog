@@ -1,0 +1,96 @@
+---
+layout: default
+---
+
+<!-- Get and assign parseable date -->
+{% assign dateNumeric = page.date | date: "%-d %-m %Y" %}
+{% assign dateSplit = dateNumeric | split: " " %}
+{% assign day = dateSplit[0] | plus: 0 %}
+{% assign month = dateSplit[1] | plus: 0 %}
+{% assign year = dateSplit[2] | plus: 0 %}
+
+<!-- Calculate age -->
+{% assign birthdate = "1998-07-16" %}
+{% assign birthdateSplit = birthdate | split: "-" %}
+{% assign birthYear = birthdateSplit[0] | plus: 0 %}
+{% assign birthMonth = birthdateSplit[1] | plus: 0 %}
+{% assign birthDay = birthdateSplit[2] | plus: 0 %}
+
+{% assign age = year | minus: birthYear %}
+{% if month == birthMonth and day < birthDay %}
+  {% assign age = age | minus: 1 %}
+{% elsif month < birthMonth %}
+  {% assign age = age | minus: 1 %}
+{% endif %}
+
+{% assign ageInWords = "" %}
+{% assign ageMinus10 = age | minus: 10 %}
+{% assign ageWords = "ten,eleven,twelve,thirteen,fourteen,fifteen,sixteen,seventeen,eighteen" | split: "," %}
+{% if age >= 10 and age <= 18 %}
+  {% assign ageInWords = ageWords[ageMinus10] %}
+{% else %}
+  {% assign ageInWords = age | number_to_words | capitalize %}
+{% endif %}
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: "%b %-d, %Y" }}
+      </time>
+      {%- if page.author -%}
+      &middot; <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card"
+          itemprop="name">
+          {% if page.author == "namanyayg" %}
+            Namanyay Goel
+          {% else %}
+            {{ page.author }}
+          {% endif %}
+        </span></span>
+      {%- endif -%}
+    </p>
+  </header>
+
+  <footer>
+    {% if age <= 13 %}
+      <div class="notice--warning">
+          <u>Notice</u>: If you've reached this far, please know that I wrote and published this post when I was <strong>{{ ageInWords }}</strong> years old, and my mind differed greatly. I keep these posts alive, for that was my younger self&rsquo;s wish. My current self likes going back to these and seeing the metamorphosis in my writing style and my thoughts, and I hope you do too.
+      </div>
+    {% elsif age <= 17 %}
+      <div class="notice--warning">
+          Written and published when I was <strong>{{ ageInWords }}</strong> years old. I hope you enjoy seeing my journey and the metamorphosis of my style and thoughts, from then till now.
+      </div>
+    {% endif %}
+  </footer>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {% if age > 13 %}
+  <div class="post-footer">
+    <div class="post-navigation">
+      {% if page.previous %}
+        <div class="previous-link">
+          <a rel="prev" href="{{ page.previous.url | relative_url }}">&larr;&nbsp;{{ page.previous.title }}</a>
+        </div>
+      {% endif %}
+      {% if page.next %}
+        <div class="next-link">
+          <a rel="next" href="{{ page.next.url | relative_url }}">{{ page.next.title }}&nbsp;&rarr;</a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  {% endif %}
+
+
+
+  {%- if site.disqus.shortname -%}
+  {%- include disqus_comments.html -%}
+  {%- endif -%}
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>
