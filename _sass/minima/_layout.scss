@@ -230,11 +230,11 @@
     opacity: .5;
   }
 
-  .previous {
+  .next {
     text-align: left;
   }
 
-  .next {
+  .previous {
     text-align: right;
   }
 
@@ -397,6 +397,10 @@
 
   .next-link {
     padding: 0 0 0 $spacing-unit / 2;
+  }
+
+  .previous-link {
+    align-self: flex-end;
   }
 }
 

@@ -24,25 +24,21 @@ pagination:
       {%- endfor -%}
     </ul>
     <footer class="pagination">
-      {% if paginator.previous_page %}
-        <span class="previous">
-          <a href="{{ paginator.previous_page_path | relative_url }}" class="previous">
-            &larr; Newer Posts
-          </a>
-        </span>
-      {% else %}
-        <span class="previous nolink">&larr; Newer Posts</span>
-      {% endif %}
+      <span class="next">
+        {% if paginator.next_page %}
+          <a href="{{ paginator.next_page_path | relative_url }}" class="next">&larr;&nbsp;Older Posts</a>
+        {% endif %}
+      </span>
       <span class="page_number ">
         Page: {{ paginator.page }} of {{ paginator.total_pages }}
       </span>
-      {% if paginator.next_page %}
-        <span class="next">
-          <a href="{{ paginator.next_page_path | relative_url }}" class="next">Older Posts &rarr;</a>
-        </span>
-      {% else %}
-        <span class="next nolink">Older Posts &rarr;</span>
-      {% endif %}
+      <span class="previous">
+        {% if paginator.previous_page %}
+          <a href="{{ paginator.previous_page_path | relative_url }}" class="previous">
+            Newer Posts&nbsp;&rarr;
+          </a>
+        {% endif %}
+      </span>
     </footer>
 
     <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p> -->
