@@ -50,7 +50,7 @@ permalink: /:title
 show_excerpts: true
 
 # Pagination
-paginate: 14
+paginate: 7
 paginate_path: "/page/:num/"
 
 plugins:

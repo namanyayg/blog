@@ -1,0 +1,50 @@
+---
+layout: default
+pagination:
+  enabled: true
+---
+
+<div class="home">
+    <ul class="post-list">
+      {%- for post in paginator.posts -%}
+      <li>
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        <h3>
+          <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+        </h3>
+        <span class="post-meta">{{ post.date | date: date_format }}</span>
+        <div class="post-excerpt">
+          {%- if site.show_excerpts -%}
+            {{ post.excerpt }}
+          {%- endif -%}
+        </div>
+      </li>
+      {%- endfor -%}
+    </ul>
+    <footer class="pagination">
+      {% if paginator.previous_page %}
+        <span class="previous">
+          <a href="{{ paginator.previous_page_path | relative_url }}" class="previous">
+            &larr; Newer Posts
+          </a>
+        </span>
+      {% else %}
+        <span class="previous nolink">&larr; Newer Posts</span>
+      {% endif %}
+      <span class="page_number ">
+        Page: {{ paginator.page }} of {{ paginator.total_pages }}
+      </span>
+      {% if paginator.next_page %}
+        <span class="next">
+          <a href="{{ paginator.next_page_path | relative_url }}" class="next">Older Posts &rarr;</a>
+        </span>
+      {% else %}
+        <span class="next nolink">Older Posts &rarr;</span>
+      {% endif %}
+    </footer>
+
+    <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p> -->
+
+</div>

@@ -214,6 +214,36 @@
 /**
  * Page content
  */
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: $alt--font-family;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: .75em;
+  margin: $spacing-unit * 3 0 0;
+
+  .nolink.previous,
+  .nolink.next {
+    opacity: .5;
+  }
+
+  .previous {
+    text-align: left;
+  }
+
+  .next {
+    text-align: right;
+  }
+
+  > * {
+    width: 30%;
+    display: block;
+  }
+}
+
 .page-content {
   padding: $spacing-unit 0 $spacing-unit * 3;
   flex: 1;
@@ -360,11 +390,13 @@
   justify-content: space-between;
 
   > * {
-    max-width: calc(50% - $spacing-unit / 4);
+    max-width: 50%;
+    box-sizing: border-box;
+    padding-right: $spacing-unit / 2;
   }
 
   .next-link {
-    padding-left: $spacing-unit / 2;
+    padding: 0 0 0 $spacing-unit / 2;
   }
 }
 

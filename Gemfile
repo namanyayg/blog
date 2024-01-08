@@ -34,3 +34,5 @@ gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
 # Custom plugins
 gem 'jekyll-paginate'
+
+gem "webrick", "~> 1.8"
