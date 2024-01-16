@@ -12,8 +12,8 @@
   position: relative;
 
   a {
+    border: none;
     &:hover {
-      border-bottom-color: transparent;
       color: $color--alt-bg-text;
     }
   }
@@ -64,17 +64,20 @@
   }
 
   .page-link {
-    color: inherit;
+    color: $color--alt-bg-text--light;
     line-height: $base-line-height;
     text-transform: lowercase;
 
     span {
       transition: all .15s ease;
       display: inline-block;
+      color: $color--alt-bg-text--light;
     }
 
     &:hover {
+      color: $color--alt-bg-text--light;
       span {
+        color: $color--alt-bg-text;
         transform: translateY(-.25em);
       }
     }
