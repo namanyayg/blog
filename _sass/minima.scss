@@ -5,7 +5,7 @@
 $base-font-family: 'EB Garamond', Georgia, serif;
 $base-font-size:   1.25rem !default;
 $base-font-weight: 400 !default;
-$small-font-size:  $base-font-size * 0.875 !default;
+$small-font-size:  0.9em !default;
 $base-line-height: 1.5 !default;
 
 $accent-font-family: 'Lato';
@@ -60,7 +60,7 @@ $on-laptop:        45em !default;
 }
 
 @mixin relative-font-size($ratio) {
-  font-size: $base-font-size * $ratio;
+  font-size: 1em * $ratio;
 }
 
 $site-header-width: 27.5%;
