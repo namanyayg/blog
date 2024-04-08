@@ -374,6 +374,35 @@
   }
 }
 
+figure {
+  max-width: 100%;
+  background: #f3f3f3;
+  padding: .5em;
+  margin: 1em auto;
+
+  &.medium {
+    max-width: 70%;
+  }
+
+  &.xlarge {
+    max-width: 120%;
+    width: 120%;
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+
+figcaption {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+  margin-top: .5em;
+}
+
 // Notices
 .notice--warning {
   display: block;

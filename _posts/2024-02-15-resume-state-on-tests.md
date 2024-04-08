@@ -1,7 +1,6 @@
 ---
 title: 'Resumable Tests Save & Load State for Jest and NodeJS'
 layout: post
-date: '2025-02-15T12:00:00+00:00'
 ---
 
 At [Metric](https://metricbooks.in/), my latest accounting AI automation startup, we've built complex interconnected pipelines that query an LLM with multiple transactions and invoices.
