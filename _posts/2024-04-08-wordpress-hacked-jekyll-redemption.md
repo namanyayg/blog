@@ -1,14 +1,19 @@
 ---
 title: 'Hacked WordPress, Lost Rankings: My Jekyll Redemption Story'
 layout: post
+excerpt_separator: <!--more-->
 ---
 
-I've been running multiple WordPress blogs for my friends and family on my own VPS since ~2012. I didn't bother checking them for updates, and _surprise surprise_ they all got hacked. This is my journey of how I fixed it and how the latest version of my blog was born.
+I've been running multiple WordPress blogs for my friends and family on my own VPS since ~2012. I didn't bother checking them for updates, and _surprise surprise_ they all got hacked.
+
+This is my journey of how I fixed it and how the latest version of my blog was born.
 
 <figure class="medium">
 <img src="assets/wp-hacked-directory.png" />
 <figcaption>Hmm, this is not what WordPress is supposed to look like is it?</figcaption>
 </figure>
+
+<!--more-->
 
 ## 0. Initial Discovery
 

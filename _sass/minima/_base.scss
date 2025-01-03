@@ -92,6 +92,7 @@ em {
 html,
 body {
   font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 0; /* 1. */
+  font-variant-ligatures: common-ligatures;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -109,6 +110,7 @@ h1,
 h2,
 h3 {
   font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 1; /* 1. */
+  font-variant-ligatures: discretionary-ligatures;
 }
 
 /* Text-level semantics
