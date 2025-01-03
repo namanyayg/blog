@@ -55,4 +55,4 @@ The technical challenges are significant. But based on the conversations I've ha
 
 I'm building this in public and would love to hear your thoughts. How do you currently maintain project knowledge with AI tools? What aspects of project context do you find most important?
 
-*P.S.: The project is in early development, with the first feature (project context management) already available. If you're interested or want to know more, DM me on X ([@namanyayg](https://x.com/namanyayg)) or email me (hi [at] nmn.gl).*
+*P.S.:* The project is in early development, with the first feature (project context management) already available. If you're interested or want to know more, DM me on X ([@namanyayg](https://x.com/namanyayg)) or email me (hi [at] nmn.gl).
