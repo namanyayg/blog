@@ -1,5 +1,5 @@
 ---
-title: "AI can write perfect code that's perfectly wrong - Here's why"
+title: "When Perfect Code Isn’t Enough: My Journey with AI IDEs"
 layout: post
 date: 2025-01-03
 categories:
