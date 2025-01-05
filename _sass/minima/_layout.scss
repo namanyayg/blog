@@ -406,6 +406,21 @@ figcaption {
   margin-top: .5em;
 }
 
+// Author callout
+.author-callout {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  background-color: #f8f9fa;
+  line-height: 1.6;
+  color: #24292e;
+}
+
+.author-callout p {
+  margin: 0;
+}
+
 // Notices
 .notice--warning {
   display: block;

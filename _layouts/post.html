@@ -69,7 +69,6 @@ layout: default
     {{ content }}
   </div>
 
-  {% if age > 13 %}
   <div class="post-footer">
     <div class="post-share">
       <a href="https://x.com/intent/tweet?text={{ page.title | url_encode }}&url={{ site.url }}{{ page.url | url_encode }}" target="_blank" rel="noopener">
@@ -77,20 +76,24 @@ layout: default
         <span>Discuss on Twitter</span>
       </a>
     </div>
-    <div class="post-navigation">
-      {% if page.previous %}
-        <div class="previous-link">
-          <a rel="prev" href="{{ page.previous.url | relative_url }}">&larr;&nbsp;{{ page.previous.title }}</a>
-        </div>
-      {% endif %}
-      {% if page.next %}
-        <div class="next-link">
-          <a rel="next" href="{{ page.next.url | relative_url }}">{{ page.next.title }}&nbsp;&rarr;</a>
-        </div>
-      {% endif %}
+    <div class="author-callout">
+      <p>Hi, I&rsquo;m <strong>Namanyay</strong> &mdash; a professional developer since the age of fourteen, now building AI tools to enhance human potential. I write about technology, startups, and the future of work. I&rsquo;m active on X and I would <a href="https://x.com/namanyayg" target="_blank" rel="noopener">love to earn your follow</a>.</p>
     </div>
+    {% if age > 13 %}
+      <div class="post-navigation">
+        {% if page.previous %}
+          <div class="previous-link">
+            <a rel="prev" href="{{ page.previous.url | relative_url }}">&larr;&nbsp;{{ page.previous.title }}</a>
+          </div>
+        {% endif %}
+        {% if page.next %}
+          <div class="next-link">
+            <a rel="next" href="{{ page.next.url | relative_url }}">{{ page.next.title }}&nbsp;&rarr;</a>
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
   </div>
-  {% endif %}
 
 
 
