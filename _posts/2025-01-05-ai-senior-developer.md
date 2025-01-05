@@ -19,9 +19,9 @@ Here's what I mean.
 
 ## The Bootcamp vs Senior Mindset
 
-Remember your first day reading production code? You probably did what I did - start at line 1, read every file top to bottom, get lost in the details.
+Remember your first day reading production code? Without any experience with handling mature codebases, you probably quickly get lost in the details.
 
-That's exactly how we feed codebases to AI. We dump entire files in and pray. But watch a senior dev review a massive PR:
+But watch a senior dev review a massive PR:
 
 - They jump straight to the core files
 - Group changes by feature ("all auth changes, all db changes")

@@ -32,8 +32,6 @@ theme: minima
 plugins:
   - jekyll-feed
 
-# google_analytics: 
-
 # Code syntax highlighting
 markdown: kramdown
 highlighter: rouge
