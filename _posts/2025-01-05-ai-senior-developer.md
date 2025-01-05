@@ -19,7 +19,7 @@ Here's what I mean.
 
 ## The Bootcamp vs Senior Mindset
 
-Remember your first day reading production code? Without any experience with handling mature codebases, you probably quickly get lost in the details.
+Remember your first day reading production code? Without any experience with handling mature codebases, you probably quickly get lost in the details<sup>[0]</sup>
 
 But watch a senior dev review a massive PR:
 
@@ -153,3 +153,7 @@ I'm curious if we can teach AI to spot other senior dev instincts:
 - Understanding unwritten team conventions
 
 The problem isn't making AI write more code. It's teaching it to think about code the way experienced developers do.
+
+<small>
+[0] Previously said <em>You probably did what I did - start at line 1, read every file top to bottom, get lost in the details.</em>, edited in response to [feedback from advael](https://news.ycombinator.com/item?id=42602156)
+</small>
