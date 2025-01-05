@@ -1,5 +1,5 @@
 ---
-title: "When Perfect Code Isn’t Enough: My Journey with AI IDEs"
+title: "When perfect code isn’t enough: My journey with AI IDEs"
 layout: post
 date: 2025-01-03
 categories:

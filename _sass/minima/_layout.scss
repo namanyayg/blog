@@ -415,3 +415,27 @@ figcaption {
   background-color: lighten($grey-color-light, 5%);
   background: linear-gradient(lighten($grey-color-light, 5%), lighten($grey-color-light, 3%));
 }
+
+.post-share {
+  margin: $spacing-unit * 2 0;
+  font-size: 1.25em;
+  
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    color: $brand-color;
+    border-bottom: 1px solid $grey-color-light;
+    font-size: inherit;
+    
+    &:hover {
+      border-bottom-color: $brand-color;
+    }
+    
+    svg {
+      width: 1em;
+      height: 1em;
+      fill: currentColor;
+    }
+  }
+}

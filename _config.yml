@@ -21,7 +21,7 @@
 title: N’s Blog
 email: hi@nmn.gl
 description: >- # this means to ignore newlines until "baseurl:"
-  Musings on life, business, design, and code by Namanyay Goel.
+  Life, business, design, and code by Namanyay Goel.
 baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "https://nmn.gl/blog" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: namanyayg
