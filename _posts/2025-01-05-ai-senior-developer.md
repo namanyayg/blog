@@ -91,7 +91,7 @@ const buildGroupPrompt = (group: FileGroup): string => {
 
 ## The Holy Shit Moment
 
-The results broke our benchmark script. We thought it was a bug.
+The results broke our testing scripts. We thought it was a bug.
 
 The AI went from:
 ```
