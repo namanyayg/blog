@@ -123,7 +123,7 @@ The post stayed at #1 through Sunday morning. Here's what that looked like in co
 </figure>
 
 <figure>
-<img src="assets/hn-1-cities.png" style="max-width: 20em" />
+<img src="assets/hn-1-cities.png" style="max-width: 100%; width: 20rem;" />
 <figcaption>Top 10 cities by readers. And thanks for completely deleting #8, Google!</figcaption>
 </figure>
 
