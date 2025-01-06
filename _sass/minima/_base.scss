@@ -250,6 +250,11 @@ dl {
     top: -1px;
     opacity: 0.25;
   }
+
+  ul ul li:before {
+    content: '◦';
+    top: 0;
+  }
 }
 
 dl dt {

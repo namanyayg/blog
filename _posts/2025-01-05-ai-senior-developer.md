@@ -1,7 +1,7 @@
 ---
 title: "The day I taught AI to read code like a Senior Developer"
 layout: post
-date: 2025-01-03
+date: 2025-01-05
 categories:
   - ai
   - dev
