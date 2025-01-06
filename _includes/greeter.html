@@ -1,0 +1,125 @@
+<!-- Greeter Component -->
+<script>
+  const greetings = {
+    'India': 'Namaste',
+    'Japan': 'こんにちは',
+    'China': '你好',
+    'France': 'Bonjour',
+    'Germany': 'Guten Tag',
+    'Italy': 'Ciao',
+    'Spain': 'Hola',
+    'Russia': 'Здравствуйте',
+    'Brazil': 'Olá',
+    'Korea': '안녕하세요'
+  };
+
+  // Map of country names to their ISO codes for flag emojis
+  const countryToCode = {
+    'United States': 'US',
+    'India': 'IN',
+    'Japan': 'JP',
+    'China': 'CN',
+    'France': 'FR',
+    'Germany': 'DE',
+    'Italy': 'IT',
+    'Spain': 'ES',
+    'Russia': 'RU',
+    'Brazil': 'BR',
+    'Korea': 'KR'
+  };
+
+  function getFlag(country) {
+    const code = countryToCode[country] || '';
+    if (!code) return '';
+    
+    // Convert country code to regional indicator symbols
+    return code
+      .toUpperCase()
+      .split('')
+      .map(char => String.fromCodePoint(char.charCodeAt(0) + 127397))
+      .join('');
+  }
+
+  function initGreeter() {
+    const greeterElement = document.getElementById('post-greeter');
+    if (!greeterElement) return;
+
+    const checkReferrer = () => {
+      const referrer = document.referrer;
+      return referrer.includes('news.ycombinator.com') || 
+             referrer.includes('hn.algolia.com');
+    };
+
+    const getLocation = async () => {
+      try {
+        const response = await fetch('https://ipapi.co/json/');
+        const data = await response.json();
+        
+        if (data.error) {
+          throw new Error(data.reason || 'Failed to get location');
+        }
+
+        const isHN = checkReferrer();
+        const country = data.country_name;
+        const flag = getFlag(country);
+        
+        let greeting = '';
+        
+        if (country === 'United States' && isHN) {
+          greeting = `${flag} Hey there, HackerNews reader from America. Thank you for coming to my blog, enjoy the article.`;
+        } else if (country === 'United States') {
+          return; // No greeting for US visitors not from HN
+        } else if (country === 'India' && isHN) {
+          greeting = `${flag} Namaste fellow HackerNews reader, greetings from Delhi. Thank you for coming to my blog, enjoy the article.`;
+        } else if (country === 'India') {
+          greeting = `${flag} Namaste and greetings from Delhi. Thank you for coming to my blog, enjoy the article.`;
+        } else {
+          const localGreeting = greetings[country] || 'Hello';
+          greeting = `${flag} ${localGreeting} ${isHN ? 'HackerNews reader' : 'reader'}. Thank you for coming to my blog, enjoy the article.`;
+        }
+
+        if (greeting) {
+          greeterElement.textContent = greeting;
+          greeterElement.style.display = 'block';
+          if (isHN) {
+            greeterElement.classList.add('hn-visitor');
+          }
+        }
+      } catch (err) {
+        console.error('Geolocation error:', err);
+      }
+    };
+
+    getLocation();
+  }
+
+  // Initialize when DOM is loaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initGreeter);
+  } else {
+    initGreeter();
+  }
+</script>
+
+<style>
+  #post-greeter {
+    display: none;
+    padding: 1em;
+    margin-bottom: 2rem;
+    border-radius: 4px;
+    line-height: 1.5;
+    font-size: .875rem;
+    color: #2c3e50;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    text-align: center;
+    font-style: italic;
+  }
+
+  #post-greeter.hn-visitor {
+    background-color: #fff8f0;
+    border-color: #ffe0b2;
+  }
+</style>
+
+<div id="post-greeter"></div> 
