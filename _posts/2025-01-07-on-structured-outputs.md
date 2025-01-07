@@ -1,7 +1,7 @@
 ---
 title: "“Structured Outputs” are a false promise: Lessons about AI reliability"
 layout: post
-date: 2025-01-08
+date: 2025-01-07
 categories:
   - ai
   - dev
