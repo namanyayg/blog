@@ -1,5 +1,5 @@
 ---
-title: "Engineers doubt AI: Data from 6 hours on HN's Front Page"
+title: "Meta analysis from 6 hours on HN's Front Page"
 layout: post
 date: 2025-01-06
 categories:

@@ -12,6 +12,8 @@ Last week, my AI coding assistant confidently generated a perfectly-structured A
 
 There was just one problem: it was silently swallowing application-specific errors our team had carefully crafted, replacing them with generic error messages. The code was structurally perfect but fundamentally wrong about our application's error handling philosophy.
 
+<!--more-->
+
 ## The Structured Output Trap
 
 The current narrative around structured outputs is compelling. OpenAI, LlamaIndex, and others promote them as the solution to AI reliability. The pitch is seductive: Define a schema, get perfectly formatted responses, never worry about parsing again.
@@ -33,7 +35,7 @@ The code is beautiful. It's type-safe. It handles null checks.
 
 Can you find out the "mistake"?
 
-It's also fundamentally wrong because it strips away all the domain-specific error context our application needs:
+The code is fundamentally wrong because it strips away all the domain-specific error context our application needs:
 
 ```typescript
 // What we actually needed
