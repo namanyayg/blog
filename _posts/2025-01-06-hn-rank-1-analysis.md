@@ -1,5 +1,5 @@
 ---
-title: "My blog hit #1 on HN. Here's what 10,000+ views reveal how HN thinks about AI"
+title: "Engineers doubt AI: Data from 6 hours on HN's Front Page"
 layout: post
 date: 2025-01-06
 categories:
