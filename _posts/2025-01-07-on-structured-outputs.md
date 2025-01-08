@@ -1,5 +1,5 @@
 ---
-title: "“Structured Outputs” are missing the point"
+title: "LLM “Structured Outputs” are Missing the Point"
 layout: post
 date: 2025-01-07
 categories:
