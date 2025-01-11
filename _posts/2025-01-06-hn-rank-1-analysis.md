@@ -1,5 +1,5 @@
 ---
-title: "Meta analysis from 6 hours on HN's Front Page"
+title: "What 6 hours at HN #1 actually does to your traffic"
 layout: post
 date: 2025-01-06
 categories:
