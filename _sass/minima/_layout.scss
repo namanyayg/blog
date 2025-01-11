@@ -424,21 +424,31 @@ figcaption {
 }
 
 .author-callout p {
-  margin: 0 0 .75em;
+  margin: 0 0 .75em !important;
 }
 
 .callout-button {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
   padding: 0.5em 1em;
   border: 1px solid $brand-color;
   text-decoration: none;
   border-radius: 4px;
-}
+  color: $brand-color;
+  transition: all 0.2s ease;
 
-.callout-button:hover {
-  background-color: $brand-color;
-  color: white;
-  border: 1px solid $brand-color;
+  svg {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+  }
+
+  &:hover {
+    background-color: $brand-color;
+    color: white;
+    border: 1px solid $brand-color;
+  }
 }
 
 // Notices
@@ -473,4 +483,29 @@ figcaption {
       fill: currentColor;
     }
   }
+}
+
+.outline-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.5em 1em;
+  border: 1px solid $brand-color;
+  color: $brand-color;
+  text-decoration: none;
+  border-radius: 4px;
+  background: transparent;
+  transition: all 0.2s ease;
+  font-size: inherit;
+
+  &:hover {
+    background-color: $brand-color;
+    color: white;
+    border-color: $brand-color;
+  }
+}
+
+.continue-reading {
+  @extend .outline-button;
+  margin-top: 0.625em;
 }

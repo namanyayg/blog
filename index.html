@@ -18,6 +18,7 @@ pagination:
         <div class="post-excerpt">
           {%- if site.show_excerpts -%}
             {{ post.excerpt }}
+            <a href="{{ post.url | relative_url }}" class="continue-reading">Continue Reading →</a>
           {%- endif -%}
         </div>
       </li>
