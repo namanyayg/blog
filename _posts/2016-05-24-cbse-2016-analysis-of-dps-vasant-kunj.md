@@ -18,7 +18,7 @@ I’ve excluded subjects that have less than 10 students.
 
 Many interesting conclusions can be drawn – I’ll leave those up to you.
 
-<script src="http://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.min.js" markdown="1"></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.min.js" markdown="1"></script>  
 <script src="{{ "static/cbse-2016/dpsvk.js" | relative_url }}" markdown="1"></script>  
 <script markdown="1">  
   var toHundred = [];

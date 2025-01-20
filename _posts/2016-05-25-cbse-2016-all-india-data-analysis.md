@@ -18,7 +18,7 @@ I found many interesting trends, hope you enjoy sifting through the results as w
 
 Special thanks to Aayush Bhasin, Aditya Garg, Tanay Rajoria, Divyansh Sharma, Bhuvesh Mehendiratta.
 
-<script src="http://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.min.js" markdown="1"></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.min.js" markdown="1"></script>  
 <script src="{{ "static/cbse-2016/all.js" | relative_url }}" markdown="1"></script>  
 <script markdown="1">  
   var toHundred = [];
