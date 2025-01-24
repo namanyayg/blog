@@ -32,7 +32,7 @@ Obvious in hindsight, right? This realization led us to completely rewire our an
 
 ## The Experiment 
 
-Instead of dumping files linearly, we built a context-aware grouping system:
+Instead of dumping files linearly, [we built a context-aware grouping system](/blog/giga):
 
 ```typescript
 interface FileGroup {
