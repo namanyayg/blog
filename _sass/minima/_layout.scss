@@ -465,7 +465,7 @@ figcaption {
   margin: $spacing-unit * 2 0;
   font-size: 1.25em;
   
-  a {
+  a, .email {
     display: inline-flex;
     align-items: center;
     gap: 0.5em;
@@ -481,6 +481,16 @@ figcaption {
       width: 1em;
       height: 1em;
       fill: currentColor;
+    }
+  }
+
+  .email {
+    margin-left: 1.5em;
+    cursor: default;
+    color: $grey-color-dark;
+
+    &:hover {
+      border-bottom-color: $grey-color-light;
     }
   }
 }
