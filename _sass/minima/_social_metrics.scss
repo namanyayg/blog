@@ -32,6 +32,16 @@
       color: #fff;
     }
 
+    
+    @media (max-width: 768px) {
+      font-size: 13px;
+      .iconify {
+        width: 10px;
+        height: 10px;
+        font-size: 13px;
+      }
+    }
+
     &.views {
       .iconify {
         background-color: rgba(37, 99, 235, 0.85);
