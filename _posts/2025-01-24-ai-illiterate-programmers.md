@@ -77,3 +77,18 @@ We're creating a generation of developers who can ask AI the right questions but
 
 
 Try coding without AI for just one day. The results might surprise you. 
+
+### Update (01 Feb)
+
+This post resonated a lot with the developer community! I am overjoyed, and frankly, completely humbled. 
+
+Here's some interesting statistics:
+
+* Over 1,250,000 views in one week
+* Covered by ThePrimeagen, an AI educator with 700,000 subscribers, on a 27 minute video on YouTube
+* 2,500 upvotes on Reddit /r/programming, 1,000 on /r/webdev
+* 100 comments on Hacker News
+
+Our industry is changing, and it is important to discuss the implications.
+
+I hope my writing made you think. If you liked it, <a href="javascript:sharePost()">please share it with your friends!</a>
