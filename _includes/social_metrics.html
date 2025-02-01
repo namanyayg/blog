@@ -1,0 +1,25 @@
+{% if page.social_metrics %}
+<div class="social-metrics">
+  {% if page.social_metrics.views %}
+    <span class="metric views">
+      <span class="iconify" data-icon="fa6-solid:eye"></span>
+      {{ page.social_metrics.views }}
+      views
+    </span>
+  {% endif %}
+  
+  {% if page.social_metrics.reddit %}
+    <span class="metric reddit">
+      <span class="iconify" data-icon="fa6-brands:reddit-alien"></span>
+      {{ page.social_metrics.reddit }}
+    </span>
+  {% endif %}
+
+  {% if page.social_metrics.hackernews %}
+    <span class="metric hn">
+      <span class="iconify" data-icon="fa6-solid:y"></span>
+      {{ page.social_metrics.hackernews }}
+    </span>
+  {% endif %}
+</div>
+{% endif %} 

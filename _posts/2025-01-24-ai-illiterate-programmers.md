@@ -8,6 +8,10 @@ excerpt_separator: <!--more-->
 image: /assets/20250124-ai-illiterate-meta.jpeg
 twitter_image: /assets/20250124-ai-illiterate-meta.jpeg
 twitter_card: summary_large_image
+social_metrics:
+  views: "1.25M+"
+  reddit: "3.5k+ votes"
+  hackernews: "100+ comments"
 ---
 
 A couple of days ago, Cursor went down during the ChatGPT outage.

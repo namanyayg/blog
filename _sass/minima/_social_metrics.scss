@@ -1,0 +1,64 @@
+.post-header .social-metrics {
+  margin: -0.75rem 0 -1rem;
+}
+
+.social-metrics {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: -.75rem 0 1.25rem;
+
+  .metric {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: $alt--font-family;
+    color: #666;
+    background: #f5f5f5;
+    border-radius: 6px;
+
+    .iconify {
+      width: 12px;
+      height: 12px;
+      padding: 4px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      color: #fff;
+    }
+
+    &.views {
+      .iconify {
+        background-color: rgba(37, 99, 235, 0.85);
+      }
+    }
+
+    &.reddit {
+      .iconify {
+        background-color: rgba(255, 69, 0, 0.85);
+        font-size: 16px;
+      }
+    }
+
+    &.hn {
+      .iconify {
+        background-color: rgba(255, 102, 0, 0.85);
+        font-size: 14px;
+        font-weight: 900;
+        border-radius: 4px;
+      }
+    }
+
+    .metric-text {
+      opacity: 0.85;
+      font-size: 12px;
+      font-weight: 400;
+      margin-left: 2px;
+    }
+  }
+} 
