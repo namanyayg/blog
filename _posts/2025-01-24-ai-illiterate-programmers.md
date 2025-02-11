@@ -80,7 +80,7 @@ Try coding without AI for just one day. The results might surprise you.
 
 ### Update (01 Feb)
 
-This post resonated a lot with the developer community! I am overjoyed, and frankly, completely humbled. 
+This post resonated a lot with the developer community! I am overjoyed, and frankly, completely humbled.
 
 Here's some interesting statistics:
 
