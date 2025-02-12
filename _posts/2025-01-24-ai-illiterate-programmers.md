@@ -12,6 +12,7 @@ social_metrics:
   views: "1.25M+"
   reddit: "3.5k+ votes"
   hackernews: "100+ comments"
+is_featured: true
 ---
 
 A couple of days ago, Cursor went down during the ChatGPT outage.

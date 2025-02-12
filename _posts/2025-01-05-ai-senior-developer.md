@@ -9,6 +9,7 @@ categories:
 excerpt_separator: <!--more-->
 social_metrics:
   hackernews: "450+ votes"
+is_featured: true
 ---
 
 *A messy experiment that changed how we think about AI code analysis*

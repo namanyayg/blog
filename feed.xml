@@ -4,7 +4,8 @@ layout: null
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"
       xmlns:media="http://search.yahoo.com/mrss/"
-      xmlns:social="http://namanyayg.com/social-metrics/1.0">
+      xmlns:social="http://namanyayg.com/social-metrics/1.0"
+      xmlns:meta="http://namanyayg.com/content-metadata/1.0">
   
   <generator uri="https://jekyllrb.com/" version="{{ jekyll.version }}">Jekyll</generator>
   <link href="{{ site.url }}/feed.xml" rel="self" type="application/atom+xml" />
@@ -15,7 +16,7 @@ layout: null
   <subtitle>{{ site.description | xml_escape }}</subtitle>
 
   {% for post in site.posts limit:10 %}
-    <entry>
+    <entry{% if post.is_featured %} meta:is_featured="true"{% endif %}>
       <title type="html">{{ post.title | xml_escape }}</title>
       <link href="{{ site.url }}{{ post.url }}" rel="alternate" type="text/html" title="{{ post.title | xml_escape }}" />
       <published>{{ post.date | date_to_xmlschema }}</published>
