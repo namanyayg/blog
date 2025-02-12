@@ -1,0 +1,56 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"
+      xmlns:media="http://search.yahoo.com/mrss/"
+      xmlns:social="http://namanyayg.com/social-metrics/1.0">
+  
+  <generator uri="https://jekyllrb.com/" version="{{ jekyll.version }}">Jekyll</generator>
+  <link href="{{ site.url }}/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="{{ site.url }}/" rel="alternate" type="text/html" />
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>{{ site.url }}/feed.xml</id>
+  <title type="html">{{ site.title | xml_escape }}</title>
+  <subtitle>{{ site.description | xml_escape }}</subtitle>
+
+  {% for post in site.posts limit:10 %}
+    <entry>
+      <title type="html">{{ post.title | xml_escape }}</title>
+      <link href="{{ site.url }}{{ post.url }}" rel="alternate" type="text/html" title="{{ post.title | xml_escape }}" />
+      <published>{{ post.date | date_to_xmlschema }}</published>
+      <updated>{{ post.date | date_to_xmlschema }}</updated>
+      <id>{{ site.url }}{{ post.url }}</id>
+      <content type="html" xml:base="{{ site.url }}{{ post.url }}">{{ post.content | xml_escape }}</content>
+
+      <author>
+        <name>{% if post.author %}{{ post.author }}{% endif %}</name>
+      </author>
+
+      {% for cat in post.categories %}
+        <category term="{{ cat }}" />
+      {% endfor %}
+
+      <summary type="html">{{ post.excerpt | strip_html | truncatewords: 50 | xml_escape }}</summary>
+
+      {% if post.image %}
+        <media:thumbnail url="{{ site.url }}{{ post.image }}" />
+        <media:content medium="image" url="{{ site.url }}{{ post.image }}" />
+      {% endif %}
+
+      {% if post.social_metrics %}
+        <social:metrics>
+          {% if post.social_metrics.views %}
+            <social:views>{{ post.social_metrics.views | xml_escape }}</social:views>
+          {% endif %}
+          {% if post.social_metrics.reddit %}
+            <social:reddit>{{ post.social_metrics.reddit | xml_escape }}</social:reddit>
+          {% endif %}
+          {% if post.social_metrics.hackernews %}
+            <social:hackernews>{{ post.social_metrics.hackernews | xml_escape }}</social:hackernews>
+          {% endif %}
+        </social:metrics>
+      {% endif %}
+    </entry>
+  {% endfor %}
+</feed> 
