@@ -1,5 +1,5 @@
 ---
-title: "AI is Killing How Developers Learn. Here's How to Fix It."
+title: "AI is Killing How Developers Learn. Here's How to Fix It"
 layout: post
 date: 2025-02-14
 categories:
@@ -16,6 +16,8 @@ Sure, the code works, but ask why it works that way instead of another way? Cric
 The foundational knowledge that used to come from struggling through problems is just... missing.
 
 We're trading deep understanding for quick fixes, and while it feels great in the moment, we're going to pay for this later.
+
+<!--more-->
 
 ## Back when we had to actually think
 
