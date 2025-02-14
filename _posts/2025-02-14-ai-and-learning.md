@@ -30,13 +30,13 @@ First, google up stuff. Then, hope some desperate soul had posed a similar quest
 Here's [one of the questions I posed 12 years ago](https://stackoverflow.com/questions/12227594/what-is-the-difference-between-unary-plus-numberx-and-parsefloatx):
 
 <figure>
-<img src="assets/so-question-12-years.png" alt="Stack Overflow question" style="max-width: 700px;">
+<img src="assets/so-question-12-years.png" alt="Stack Overflow question" style="width: 700px;">
 </figure>
 
 See the top answer by Nathan Wall (who has earned a whopping 10,000+ points and is apparently a [CTO](https://www.stacksource.com/) since 2015):
 
 <figure>
-<img src="assets/so-answer-12-years.png" alt="Stack Overflow answer" style="max-width: 700px;">
+<img src="assets/so-answer-12-years.png" alt="Stack Overflow answer" style="width: 700px;">
 <figcaption>
 Do yourself a favor and <a href="https://stackoverflow.com/a/13676265/1518029">go read it</a>, you might learn something new.
 </figcaption>
@@ -66,7 +66,7 @@ But, there’s still one reason that StackOverflow was superior:
 Here’s a graph to explain what I mean:
 
 <figure>
-<img src="assets/speed-vs-knowledge.jpg" alt="Speed vs knowledge" style="max-width: 500px;">
+<img src="assets/speed-vs-knowledge.jpg" alt="Speed vs knowledge" style="width: 500px;">
 </figure>
 
 
