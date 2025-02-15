@@ -306,9 +306,6 @@
   line-height: 1.4;
   letter-spacing: -0.5px;
   @include relative-font-size(1.5);
-  @include media-query($on-laptop) {
-    @include relative-font-size(1.75);
-  }
 }
 
 .post-content {
