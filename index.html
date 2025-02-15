@@ -9,14 +9,25 @@ pagination:
       {%- for post in paginator.posts -%}
       <li>
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        {% assign page = post %}
-        {% include social_metrics.html %}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
+        {%- assign page = post -%}
+        <div class="post-header">
+          <h3>
+            <a class="post-link" href="{{ post.url | relative_url }}">
+              {{ post.title | escape }}
+            </a>
+          </h3>
+          <p class="post-meta">
+            <span class="post-author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">
+              Namanyay Goel
+            </span>
+          </span>
+          <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+            {{ page.date | date: "%-d %b, %Y" }}
+            </time>
+          </p>
+          {% include social_metrics.html %}
+        </div>
         <div class="post-excerpt">
           {%- if site.show_excerpts -%}
             {{ post.excerpt }}

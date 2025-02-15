@@ -36,22 +36,17 @@ layout: default
 
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
-    {% include social_metrics.html %}
     <p class="post-meta">
+      <span class="post-author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-author h-card" itemprop="name">
+          Namanyay Goel
+        </span>
+      </span>
       <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {{ page.date | date: "%b %-d, %Y" }}
+        {{ page.date | date: "%-d %b, %Y" }}
       </time>
-      {%- if page.author -%}
-      &middot; <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card"
-          itemprop="name">
-          {% if page.author == "namanyayg" %}
-            Namanyay Goel
-          {% else %}
-            {{ page.author }}
-          {% endif %}
-        </span></span>
-      {%- endif -%}
     </p>
+    {% include social_metrics.html %}
   </header>
 
   <footer>

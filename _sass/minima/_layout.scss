@@ -232,7 +232,7 @@
 }
 
 .post-list {
-  margin-top: $spacing-unit;
+  margin-top: $spacing-unit / 2 !important;
   margin-left: 0;
   padding: 0;
   list-style: none;
@@ -276,17 +276,40 @@
 }
 
 .post-meta {
-  font-size: $small-font-size;
-  color: $grey-color;
-  margin: -$spacing-unit / 3 0 $spacing-unit / 2;
-  display: block;
-  font-family: $accent-font-family;
   font-weight: 400;
+  margin: .5em 0 .75em !important;
+  display: flex;
+  flex-direction: row;
+  font-style: italic;
+  line-height: 1;
+  align-items: center;
+  font-family: $base-font-family;
+  gap: .3em;
+
+  time {
+    color: $grey-color;
+    display: block;
+    font-feature-settings: "tnum" 1;
+    font-variant-numeric: tabular-nums;
+    &:before {
+      content: " on ";
+    }
+  }
+}
+
+.post-author {
+  display: block;
+  span:before {
+    content: "By ";
+  }
 }
 
 .post-link {
   display: block;
   @include relative-font-size(1.5);
+  margin-bottom: 0;
+  letter-spacing: -0.5px;
+
 
   &:hover {
     border-color: transparent;
@@ -302,9 +325,14 @@
   margin-bottom: $spacing-unit;
 }
 
+.post-header h3 {
+  margin: 0;
+}
+
 .post-title {
   line-height: 1.4;
   letter-spacing: -0.5px;
+  margin-bottom: 0;
   @include relative-font-size(1.5);
 }
 
