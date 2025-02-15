@@ -5,6 +5,9 @@ date: 2025-02-14
 categories:
  - ai
 excerpt_separator: <!--more-->
+image: /assets/ai-and-learning-meta.jpeg
+twitter_image: /assets/ai-and-learning-meta.jpeg
+twitter_card: summary_large_image
 ---
 
 *Something's been bugging me about how new devs are learning to code and I need to talk about it.*
