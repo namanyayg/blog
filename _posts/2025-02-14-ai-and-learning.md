@@ -10,7 +10,7 @@ twitter_image: /assets/ai-and-learning-meta.jpeg
 twitter_card: summary_large_image
 ---
 
-*Something's been bugging me about how new devs are learning to code and I need to talk about it.*
+*Something's been bugging me about how new devs and I need to talk about it.*
 
 We're at this weird inflection point in software development. Every junior dev I talk to has Copilot or Claude or GPT running 24/7. They're shipping code faster than ever. But when I dig deeper into their understanding of what they're shipping? That's where things get concerning.
 
