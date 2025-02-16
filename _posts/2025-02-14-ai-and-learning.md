@@ -1,5 +1,5 @@
 ---
-title: "AI is Killing How Developers Learn. Here's How to Fix It"
+title: "New Junior Developers Can’t Actually Code"
 layout: post
 date: 2025-02-14
 categories:
