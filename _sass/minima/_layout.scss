@@ -277,23 +277,20 @@
 
 .post-meta {
   font-weight: 400;
-  margin: .5em 0 .75em !important;
+  margin: 0 !important;
   display: flex;
   flex-direction: row;
-  font-style: italic;
   line-height: 1;
   align-items: center;
   font-family: $base-font-family;
   gap: .3em;
 
   time {
+    font-size: .875em;
     color: $grey-color;
     display: block;
     font-feature-settings: "tnum" 1;
     font-variant-numeric: tabular-nums;
-    &:before {
-      content: " on ";
-    }
   }
 }
 

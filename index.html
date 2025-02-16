@@ -16,17 +16,12 @@ pagination:
               {{ post.title | escape }}
             </a>
           </h3>
+          {% include social_metrics.html %}
           <p class="post-meta">
-            <span class="post-author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            <span class="p-author h-card" itemprop="name">
-              Namanyay Goel
-            </span>
-          </span>
-          <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-            {{ page.date | date: "%-d %b, %Y" }}
+            <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+              {{ page.date | date: "%b %-d %Y" }}
             </time>
           </p>
-          {% include social_metrics.html %}
         </div>
         <div class="post-excerpt">
           {%- if site.show_excerpts -%}
