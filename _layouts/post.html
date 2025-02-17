@@ -64,7 +64,14 @@ layout: default
   </footer>
 
   <div class="post-content e-content" itemprop="articleBody">
-    {{ content }}
+    {% assign content_parts = content | split: '<!-- newsletter_widget -->' %}
+    {% if content_parts.size > 1 %}
+      {{ content_parts[0] }}
+      {% include newsletter_widget.html %}
+      {{ content_parts[1] }}
+    {% else %}
+      {{ content }}
+    {% endif %}
   </div>
 
   <div class="post-footer">

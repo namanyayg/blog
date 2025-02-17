@@ -10,8 +10,8 @@ twitter_image: /assets/ai-and-learning-meta.jpg
 twitter_card: summary_large_image
 social_metrics:
   views: "100k+"
-  reddit: "70+ votes"
-  hackernews: "50+ votes"
+  reddit: "100+ votes"
+  hackernews: "100+ comments"
 is_featured: true
 ---
 
@@ -76,6 +76,8 @@ AI gives you answers, but the knowledge you gain is shallow. With StackOverflow,
 Think about every great developer you know. Did they get that good by copying solutions? No&mdash;they got there by understanding systems deeply and understanding other developers' thought processes. That's exactly what we're losing.
 
 I'm not trying to be that guy who complains about "kids these days." I use AI tools daily. I'm literally [building one](https://nmn.gl/blog/giga). But we need to be honest about what we're trading away for this convenience.
+
+<!-- newsletter_widget -->
 
 ## What can we do?
 

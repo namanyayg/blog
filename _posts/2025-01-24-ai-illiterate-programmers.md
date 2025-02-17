@@ -55,6 +55,8 @@ I won't lie, it sucks. I feel slower, dumber, and more frustrated.
 
 But I can also see the difference. I feel a stronger connection with my code and a sense of ownership, which had slowly disappeared with AI. Plus, I learn a lot more.
 
+<!-- newsletter_widget -->
+
 ## The (Uncomfortable) Truth
 
 We're not becoming 10x developers with AI. 

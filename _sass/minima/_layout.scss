@@ -313,6 +313,39 @@
   }
 }
 
+.formkit-form {
+  margin: 0 auto !important;
+  padding: 0 !important;
+  font-family: $alt--font-family !important;
+  .formkit-header {
+    margin: 0 !important;
+  }
+  .formkit-subheader {
+    margin: 0 !important;
+    p {
+      margin: 5px 0 10px !important;
+    }
+  }
+  .formkit-fields {
+    margin: 0 !important;
+  }
+  div[data-style="minimal"] {
+    padding: 20px !important;
+  }
+  h2 {
+    font-size: 1.5rem !important;
+    text-align: center !important;
+    margin: 0 !important;
+    display: block !important;
+    &:before {
+      content: none !important;
+    }
+  }
+  .formkit-guarantee,
+  .formkit-guarantee p {
+    margin: 0 !important;
+  }
+}
 
 
 /**
