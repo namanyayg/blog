@@ -23,6 +23,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .svg-logo {
@@ -37,6 +38,10 @@
     stroke-width: 40px;
     stroke: $color--alt-bg-text !important;
   }
+}
+
+.site-header {
+  padding: .75em 0;
 }
 
 .site-title {
@@ -60,110 +65,44 @@
 }
 
 .site-nav {
-  line-height: $base-line-height * $base-font-size * 2.25;
-
-  .nav-trigger {
-      display: none;
-  }
-
-  .menu-icon {
-    display: none;
-  }
+  line-height: 1;
+  font-size: 1.5em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1em;
+  position: relative;
+  top: 2px;
+  padding-right: .25em;
 
   .page-link {
-    color: $color--alt-bg-text--light;
-    line-height: $base-line-height;
-    text-transform: lowercase;
+    transition: all .15s ease;
+    display: inline-block;
+    color: rgba($color--alt-bg-text, .8);
 
-    span {
-      transition: all .15s ease;
-      display: inline-block;
-      color: $color--alt-bg-text--light;
+    &--home {
+      transform: scale(1.2);
     }
 
     &:hover {
-      color: $color--alt-bg-text--light;
-      span {
-        color: $color--alt-bg-text;
-        transform: translateY(-.25em);
-      }
-    }
-    // Gaps between nav items, but not on the last one
-    &:not(:last-child) {
-      margin-right: $spacing-unit;
-      &:after {
-        content: "◦";
-        margin-left: $spacing-unit;
-        opacity: .3;
-      }
-    }
-  }
-
-  @include media-query($on-palm) {
-    position: absolute;
-    top: 9px;
-    right: $spacing-unit / 2;
-    border-radius: 5px;
-    text-align: right;
-
-    label[for="nav-trigger"] {
-      display: block;
-      float: right;
-      width: 36px;
-      height: 36px;
-      z-index: 2;
-      cursor: pointer;
-    }
-
-    .menu-icon {
-      display: block;
-      float: right;
-      width: 36px;
-      height: 26px;
-      line-height: 0;
-      padding-top: 10px;
-      text-align: center;
-
-      > svg {
-        fill: $color--alt-bg-text--light;
-      }
-    }
-
-    input ~ .trigger {
-      clear: both;
-      display: none;
-    }
-
-    input:checked ~ .trigger {
-      display: block;
-      padding-bottom: 5px;
-    }
-
-    .page-link {
-      display: block;
-      padding: 5px 10px;
-      margin-left: 20px;
-      font-size: 1rem;
-      text-transform: capitalize;
-
-      &:hover {
-        span {
-          transform: none
-        }
-      }
-
-      &:after {
-        display: none;
-      }
-
-      &:not(:last-child) {
-        margin-right: 0;
-      }
+      color: $color--alt-bg-text;
+      position: relative;
+      animation: float 1s ease-in-out infinite;
     }
   }
 }
 
-
+@keyframes float {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: -3px; 
+  }
+  100% {
+    top: 0;
+  }
+}
 
 /**
  * Site footer
@@ -219,7 +158,7 @@
 }
 
 .page-content {
-  padding: $spacing-unit 0 $spacing-unit * 3;
+  padding: .5em 0 $spacing-unit * 3;
   flex: 1;
 }
 

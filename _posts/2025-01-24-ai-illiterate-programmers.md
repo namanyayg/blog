@@ -9,8 +9,8 @@ image: /assets/20250124-ai-illiterate-meta.jpeg
 twitter_image: /assets/20250124-ai-illiterate-meta.jpeg
 twitter_card: summary_large_image
 social_metrics:
-  views: "1.25M+"
-  reddit: "3.5k+ votes"
+  views: "1,250,000"
+  reddit: "3,500+ votes"
   hackernews: "100+ comments"
 is_featured: true
 ---
