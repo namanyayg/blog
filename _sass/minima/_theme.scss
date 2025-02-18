@@ -1,0 +1,98 @@
+// Theme toggle button styles
+.theme-toggle {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  transition: var(--theme-transition);
+  margin: 1rem 0;
+
+  &:hover {
+    background-color: var(--color-border-light);
+  }
+
+  .theme-toggle-icon {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sun-icon,
+  .moon-icon {
+    position: absolute;
+    transition: transform 0.5s ease, opacity 0.3s ease;
+  }
+
+  .sun-icon {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  .moon-icon {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Dark theme specific styles
+body.dark-theme {
+  .theme-toggle {
+    .sun-icon {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .moon-icon {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+  }
+
+  // Syntax highlighting adjustments for dark theme
+  .highlight {
+    background-color: var(--color-bg-dark);
+    border-color: var(--color-border-dark-theme);
+  }
+
+  // Links and hover states
+  a {
+    &:hover {
+      border-bottom-color: var(--color-border-dark-theme);
+    }
+  }
+
+  // Code blocks
+  pre,
+  code {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--color-border-dark-theme);
+  }
+}
+
+// Global transition
+body {
+  transition: var(--theme-transition);
+}
+
+// Smooth transitions for all relevant elements
+a,
+button,
+input,
+textarea,
+.site-header,
+.site-footer,
+.post-content,
+.highlight {
+  transition: var(--theme-transition);
+} 

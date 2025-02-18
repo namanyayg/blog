@@ -123,6 +123,16 @@
   color: $color--alt-bg-text;
 }
 
+.footer-social {
+  a {
+    color: $color--alt-bg-text--light;
+  }
+  svg {
+    transform: translateY(.2em);
+    margin-right: .25em;
+  }
+}
+
 
 /**
  * Page content
