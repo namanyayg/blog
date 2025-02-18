@@ -9,8 +9,8 @@ image: /assets/ai-and-learning-meta.jpg
 twitter_image: /assets/ai-and-learning-meta.jpg
 twitter_card: summary_large_image
 social_metrics:
-  views: "500k+"
-  reddit: "150+ votes"
+  views: "600k+"
+  reddit: "1500+ votes"
   hackernews: "100+ comments"
 is_featured: true
 ---
