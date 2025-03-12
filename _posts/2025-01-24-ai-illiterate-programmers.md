@@ -55,8 +55,6 @@ I won't lie, it sucks. I feel slower, dumber, and more frustrated.
 
 But I can also see the difference. I feel a stronger connection with my code and a sense of ownership, which had slowly disappeared with AI. Plus, I learn a lot more.
 
-<!-- newsletter_widget -->
-
 ## The (Uncomfortable) Truth
 
 We're not becoming 10x developers with AI. 
@@ -64,6 +62,8 @@ We're not becoming 10x developers with AI.
 We're becoming 10x **dependent** on AI. *There's a difference.*
 
 Every time we let AI solve a problem we could've solved ourselves, we're trading long-term understanding for short-term productivity. We're optimizing for today's commit at the cost of tomorrow's ability.
+
+<!-- promotional_widget -->
 
 I'm not suggesting we abandon AI tools&mdash;that ship has sailed. But we need rules of engagement. Here's some ideas that I have:
 

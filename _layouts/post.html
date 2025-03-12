@@ -64,10 +64,10 @@ layout: default
   </footer>
 
   <div class="post-content e-content" itemprop="articleBody">
-    {% assign content_parts = content | split: '<!-- newsletter_widget -->' %}
+    {% assign content_parts = content | split: '<!-- promotional_widget -->' %}
     {% if content_parts.size > 1 %}
       {{ content_parts[0] }}
-      {% include newsletter_widget.html %}
+      {% include promotional_widget.html %}
       {{ content_parts[1] }}
     {% else %}
       {{ content }}
@@ -86,9 +86,11 @@ layout: default
       </a>
     </div>
     <div class="author-callout">
-      <p>Hi, I&rsquo;m <strong>Namanyay</strong> &mdash; a professional developer since the age of fourteen, now building AI tools to enhance human potential.</p>
-      <p>I write about technology, startups, and the future of work. I&rsquo;m active on X and I would <a href="https://x.com/namanyayg" target="_blank" rel="noopener">love to earn your follow</a>.</p>
-      <p>I welcome opportunities to share insights through podcast appearances and guest posts in these domains. Write to me at hi [at] nmn.gl.</p>
+      <img src="{{ '/assets/namanyay-goel.png' | relative_url }}" alt="Namanyay Goel" class="author-image">
+      <div class="author-content">
+        <p>Hi, I&rsquo;m <strong>Namanyay</strong> &mdash; a professional developer since the age of fourteen, now building AI tools to enhance human potential.</p>
+        <p>I write about technology, startups, and the future of work. <a href="https://x.com/namanyayg" target="_blank" rel="noopener">Find me on X</a>.</p>
+      </div>
     </div>
     {% if age > 13 %}
       <div class="post-navigation">

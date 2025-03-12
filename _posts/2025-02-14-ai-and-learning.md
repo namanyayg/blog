@@ -77,7 +77,7 @@ Think about every great developer you know. Did they get that good by copying so
 
 I'm not trying to be that guy who complains about "kids these days." I use AI tools daily. I'm literally [building one](https://nmn.gl/blog/giga). But we need to be honest about what we're trading away for this convenience.
 
-<!-- newsletter_widget -->
+<!-- promotional_widget -->
 
 ## What can we do?
 
