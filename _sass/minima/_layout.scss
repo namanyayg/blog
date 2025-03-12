@@ -508,11 +508,11 @@ figcaption {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
 
   @media (max-width: 30rem) {
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
   }
 }
 

@@ -6,7 +6,7 @@
   {%- seo -%}
   <link rel='stylesheet' id='fonts-css' href='//brick.a.ssl.fastly.net/EB+Garamond:400,400i/Lato:400,700,900,400i?ver=6.2.2' type='text/css' media='all' />
   <link rel="stylesheet" href="https://use.typekit.net/qfj0txf.css">
-  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  <link rel="stylesheet" href="{{ "/assets/main.css" | cache_bust | relative_url }}">
   {%- feed_meta -%}
   {%- if jekyll.environment == 'production' -%}
     {%- include google-analytics.html -%}
