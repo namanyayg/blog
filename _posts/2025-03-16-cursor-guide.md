@@ -22,7 +22,7 @@ I've been coding with Cursor AI since it was launched now while building my SaaS
 
 The internet seems split between "AI coding is a miracle" and "AI coding is garbage." Honestly, it's somewhere in between.
 
-Some days Cursor helps me compelte tasks in record times. Other days I waste hours fighting its suggestions. 
+Some days Cursor helps me complete tasks in record times. Other days I waste hours fighting its suggestions. 
 
 After learning from my mistakes, I wanted to share what actually works for me as a solo developer.
 
