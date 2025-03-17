@@ -26,7 +26,7 @@ Some days Cursor helps me compelte tasks in record times. Other days I waste hou
 
 After learning from my mistakes, I wanted to share what actually works for me as a solo developer.
 
-<!-- more -->
+<!--more-->
 
 ## Setting Up a `.cursorrules` File That Actually Helps
 
