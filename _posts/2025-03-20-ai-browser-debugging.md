@@ -1,5 +1,5 @@
 ---
-title: "AI Powered Browser Debugging via MCP"
+title: "I cut my browser debugging time in half using AI & MCP"
 layout: post
 date: 2025-03-20
 categories:
