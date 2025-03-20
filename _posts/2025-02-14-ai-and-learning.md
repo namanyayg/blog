@@ -77,8 +77,6 @@ Think about every great developer you know. Did they get that good by copying so
 
 I'm not trying to be that guy who complains about "kids these days." I use AI tools daily. I'm literally [building one](https://nmn.gl/blog/giga). But we need to be honest about what we're trading away for this convenience.
 
-<!-- promotional_widget -->
-
 ## What can we do?
 
 I've been experimenting with ways to fix this (because let's face it, AI isn't going anywhere). Here's what's actually working:
@@ -87,6 +85,8 @@ I've been experimenting with ways to fix this (because let's face it, AI isn't g
 * Next, find your tribe. Reddit, Discord, Mastodon&mdash;wherever the smart people hang out. That's where you'll find the real discussions happening. The ones that make you go "huh, I never thought about it that way."
 * Do code reviews differently. Instead of just checking if the code works, start a conversation with your team. What other approaches did they consider? Why did they pick this one? Make understanding the process as important as the end result.
 * Build things from scratch sometimes. Yes, AI can generate that authentication system for you. But try building one yourself first. You'll write worse code, but you'll understand every line of it. That knowledge compounds.
+
+<!-- promotional_widget -->
 
 ## Looking forward
 
