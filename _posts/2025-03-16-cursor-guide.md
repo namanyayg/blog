@@ -1,7 +1,7 @@
 ---
 title: "My Cursor AI Workflow That Actually Works"
 layout: post
-date: 2025-03-12
+date: 2025-03-16
 categories:
  - ai
  - cursor
