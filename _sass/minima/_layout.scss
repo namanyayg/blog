@@ -305,7 +305,7 @@
   background: linear-gradient(120deg, rgb(249, 250, 251) 0%, rgb(252, 253, 254) 100%);
   border: 1px solid rgba(227, 227, 227, 0.8);
   border-radius: 8px;
-  padding: 32px;
+  padding: 24px;
   margin: 32px 0;
   position: relative;
   overflow: hidden;
@@ -322,7 +322,7 @@
 }
 
 .promotional-header {
-  margin-bottom: 32px;
+  margin-bottom: 18px;
 }
 
 .promotional-widget h2 {
@@ -351,7 +351,7 @@
   display: flex;
   justify-content: center;
   gap: 48px;
-  margin: 24px 0;
+  margin: 12px 0;
   
   .metric {
     display: flex;
@@ -369,6 +369,8 @@
       height: 20px;
       color: #0066ea;
       flex-shrink: 0;
+      position: relative;
+      top: -2px;
       
       svg {
         width: 100%;
@@ -386,11 +388,18 @@
   }
 }
 
+@media (max-width: 768px) {
+  .promotional-metrics {
+    flex-direction: column;
+    gap: 18px;
+  }
+}
+
 .promotional-cta {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 32px 0 24px;
+  margin: 24px 0 0;
 }
 
 .promotional-button {
