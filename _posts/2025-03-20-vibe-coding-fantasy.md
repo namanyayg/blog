@@ -31,11 +31,11 @@ After observing many similar (though less public) security disasters, I've come 
 <img src="{{ '/assets/vibe-coding-security.webp' | relative_url }}">
 </figure>
 
-## Lie of Vibe Coding
+## The Lie of Vibe Coding
 
 Recently, I was working late on a particularly thorny code generation problem when a message from an old SF friend popped up: "Dude, have you seen this? I just launched my side project without writing a single line of code. Just vibe coding!"
 
-He shared his screen with me — a surprisingly polished-looking SaaS product that helped small business with their career path. The UI was clean and the features worked. All built by telling Windsurf what he wanted, occasionally getting frustrated, refining his prompts, and never once understanding the underlying technology.
+He shared his screen with me — a surprisingly polished-looking SaaS product that helped small business with their career path. The UI was clean and the features worked. All built by telling Windsurf what he wanted, occasionally getting frustrated, refining his prompts, and [never once understanding the underlying technology](/blog/ai-and-learning).
 
 "That's great," I said, genuinely impressed. "What security measures did you implement?"
 
@@ -83,11 +83,9 @@ If you're currently building with AI assistance and recognize yourself in this p
 
 2. Second, use AI to educate, not just to implement. When Cursor or ChatGPT or Claude generates code for you, ask it to explain the security implications. Ask it what could go wrong. Ask it what you're missing.
 
-3. Third, implement basic security practices from day one — proper authentication, HTTPS everywhere, environment variables for secrets, and regular backups at minimum.
+3. Third, implement basic security practices from day one — proper authentication, HTTPS everywhere, environment variables for secrets, and regular backups at minimum. I'm writing another guide on "Security Essentials for Vibe Coders". [Tell me on X](https://x.com/NamanyayG) if you want to read it.
 
-4. Finally, consider bringing in expertise for a security review before launching anything that handles sensitive data. Even a few hours with someone who knows what to look for can save you from disaster.
-
-I'm writing another guide on "Security Essentials for Vibe Coders". [Tell me on X](https://x.com/NamanyayG) if you want to read it.
+4. This one won't be possible for many, but, consider bringing in expertise for a security review before launching anything that handles sensitive data. Even a few hours with someone who knows what to look for can save you from disaster. Feel free to email or shoot me a DM on Twitter if you really can't find someone, if I have the time I'll try to help.
 
 ## The Future of Vibe Coding
 
@@ -95,12 +93,12 @@ For every vibe coder reading this who feels defensive or attacked — I get it. 
 
 But democratizing creation means democratizing responsibility too.
 
-The current wave of vibe coding tools optimize for immediate gratification — making something work now. The next generation needs to optimize for sustainable comprehension — making something work reliably over time.
+The current wave of vibe coding tools optimize for immediate gratification: making something work now. The next generation needs to optimize for sustainable comprehension: making something work **reliably over time**.
 
-The most revolutionary aspect of AI coding tools isn't that they let you skip understanding — it's that they compress years of learning into months. They don't replace the journey — they accelerate it.
+The most revolutionary aspect of AI coding tools isn't that they let you skip understanding, it's that they compress years of learning into months. They don't replace the journey — they accelerate it.
 
 Let's embrace that acceleration while rejecting the fantasy that we can outsource understanding entirely. The future belongs to those who use AI as a powerful tool, not a replacement for knowledge.
 
-Not just vibes. Vibes plus knowledge.
+Not just vibes. Vibes *plus* knowledge.
 
 That's how we build things that last.
