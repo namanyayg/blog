@@ -290,11 +290,11 @@ blockquote {
   margin: 1.6em 0 1.6em -1em;
   padding: 0 0 0 1.6em;
   border-left: $color-border--dark 0.4em solid;
+  letter-spacing: -0.3px;
 }
 
 blockquote p {
   margin: 0.8em 0;
-  font-style: italic;
 }
 
 blockquote small {
@@ -438,12 +438,10 @@ a {
  * Blockquotes
  */
 blockquote {
-  color: $grey-color;
+  color: darken($grey-color, 25%);
   border-left: 4px solid $grey-color-light;
   padding-left: $spacing-unit / 2;
   @include relative-font-size(1.125);
-  letter-spacing: -1px;
-  font-style: italic;
 
   > :last-child {
     margin-bottom: 0;
