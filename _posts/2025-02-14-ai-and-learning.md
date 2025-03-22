@@ -86,7 +86,7 @@ I've been experimenting with ways to fix this (because let's face it, AI isn't g
 * Do code reviews differently. Instead of just checking if the code works, start a conversation with your team. What other approaches did they consider? Why did they pick this one? Make understanding the process as important as the end result.
 * Build things from scratch sometimes. Yes, AI can generate that authentication system for you. But try building one yourself first. You'll write worse code, but you'll understand every line of it. That knowledge compounds.
 
-<!-- promotional_widget -->
+<!-- newsletter_widget -->
 
 ## Looking forward
 

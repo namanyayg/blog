@@ -79,7 +79,7 @@ The 10-15 minute setup is worth every second. Start with simple prompts like:
 "Check why this button click isn't working"
 "Analyze network requests to the `/api/users` endpoint"
 
-<!-- promotional_widget -->
+<!-- newsletter_widget -->
 
 ## The future
 

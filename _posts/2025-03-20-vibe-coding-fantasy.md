@@ -73,7 +73,7 @@ But the consequences of security failures are becoming more severe. When that vi
 
 I'm not saying everyone needs to be a security expert or low-level programmer. But there's a minimum viable knowledge required to responsibly deploy software that handles other people's data, and [AI hasn't eliminated that requirement](/blog/ai-illiterate-programmers) — it's just obscured it.
 
-<!-- promotional_widget -->
+<!-- newsletter_widget -->
 
 ## What Vibe Coders Can Actually Do
 

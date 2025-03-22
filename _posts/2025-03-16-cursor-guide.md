@@ -58,7 +58,7 @@ This tiny change made the quality of suggestions way better. The AI suddenly "ge
 
 For larger projects, you need to start giving it more context. Ask it to create rules files inside `.cursor/rules` folder that explain the code from different angles like backend, frontend, etc. This is such a powerful technique that I created a [Cursor extension to do it automatically](https://gigamind.dev/).
 
-<!-- promotional_widget -->
+<!-- newsletter_widget -->
 
 ## My Daily Cursor Workflow
 
