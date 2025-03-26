@@ -301,6 +301,12 @@
 
 /** Promotional widget */
 
+.post-promotion {
+  border-top: 1px solid rgba(227, 227, 227, 0.8);
+  padding-top: 24px;
+  margin-top: 24px;
+}
+
 .promotional-widget {
   background: linear-gradient(120deg, rgb(249, 250, 251) 0%, rgb(252, 253, 254) 100%);
   border: 1px solid rgba(227, 227, 227, 0.8);

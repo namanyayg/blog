@@ -8,9 +8,9 @@ excerpt_separator: <!--more-->
 # image: /assets/ai-and-learning-meta.jpg
 # twitter_image: /assets/ai-and-learning-meta.jpg
 # twitter_card: summary_large_image
-# social_metrics:
-  # views: "1,000,000"
-  # reddit: "2,500+ votes"
+social_metrics:
+  views: "300,000"
+  reddit: "600+ votes"
   # hackernews: "100+ comments"
 is_featured: false
 ---
@@ -63,7 +63,7 @@ When I pointed these out, [he was genuinely confused](/blog/ai-and-learning). "B
 
 This is what I'm calling the **"invisible complexity gap"** of vibe coding — the difference between "it works on my machine" and "it's secure in production." The gap exists because modern development tools, especially AI assistants, are extraordinarily good at hiding complexity and making things seem simpler than they are.
 
-> AI won't warn you about the security holes you don't know to ask about. **The perfect circular trap:** you can't secure what you don't understand, and you don't understand what AI builds for you
+AI won't warn you about the security holes you don't know to ask about. **The perfect circular trap:** you can't secure what you don't understand, and you don't understand what AI builds for you.
 
 ## When Vibe Coding Backfires
 
@@ -83,13 +83,13 @@ If you're currently building with AI assistance and recognize yourself in this p
 
 2. Second, use AI to educate, not just to implement. When Cursor or ChatGPT or Claude generates code for you, ask it to explain the security implications. Ask it what could go wrong. Ask it what you're missing.
 
-3. Third, implement basic security practices from day one — proper authentication, HTTPS everywhere, environment variables for secrets, and regular backups at minimum. I'm writing another guide on "Security Essentials for Vibe Coders". [Tell me on X](https://x.com/NamanyayG) if you want to read it.
+3. Third, implement basic security practices from day one — proper authentication, HTTPS everywhere, environment variables for secrets, and regular backups at minimum.
 
 4. This one won't be possible for many, but, consider bringing in expertise for a security review before launching anything that handles sensitive data. Even a few hours with someone who knows what to look for can save you from disaster. Feel free to email or shoot me a DM on Twitter if you really can't find someone, if I have the time I'll try to help.
 
 ## The Future of Vibe Coding
 
-For every vibe coder reading this who feels defensive or attacked — I get it. You're not wrong for wanting to build. The traditional path of learning to code was unnecessarily exclusionary. AI has democratized creation in beautiful ways.
+For every vibe coder reading this who feels defensive or attacked — I get it. You're not wrong for wanting to build. AI has democratized creation in beautiful ways.
 
 But democratizing creation means democratizing responsibility too.
 
