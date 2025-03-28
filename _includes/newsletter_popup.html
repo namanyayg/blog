@@ -1,0 +1,167 @@
+<div id="newsletter-popup-overlay" class="newsletter-popup-overlay"></div>
+<div id="newsletter-popup" class="newsletter-popup">
+  <button onclick="closeNewsletterPopup()" class="newsletter-popup-close" aria-label="Close popup">&times;</button>
+  {% include newsletter_widget.html %}
+</div>
+
+<style>
+.newsletter-popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 999;
+}
+
+.newsletter-popup-overlay.show {
+  opacity: 1;
+}
+
+.newsletter-popup {
+  display: none;
+  position: fixed;
+  bottom: -20px;
+  right: 30px;
+  max-width: 400px;
+  width: 90%;
+  background: white;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.newsletter-popup.show {
+  opacity: 1;
+  transform: translateY(-30px);
+}
+
+.newsletter-popup-close {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  background: white;
+  border: none;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  color: #333;
+  padding: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+  z-index: 1;
+}
+
+.newsletter-popup-close:hover {
+  background: #f8f8f8;
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .newsletter-popup {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    left: 0;
+    max-width: 92%;
+    width: 92%;
+    margin: 0 auto;
+    bottom: auto;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .newsletter-popup.show {
+    transform: none;
+    transform: translateY(-50%);
+  }
+
+  .newsletter-popup-overlay {
+    background: rgba(0, 0, 0, 0.3);
+  }
+  
+  .newsletter-popup-close {
+    top: -12px;
+    right: -12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+}
+</style>
+
+<script>
+function showNewsletterPopup() {
+  const popup = document.getElementById('newsletter-popup');
+  const overlay = document.getElementById('newsletter-popup-overlay');
+  if (!popup || !overlay) return;
+  
+  // Check last shown timestamp
+  const lastShown = localStorage.getItem('newsletter_popup_last_shown');
+  const now = new Date().getTime();
+  const threeDaysInMs = 3 * 24 * 60 * 60 * 1000;
+  
+  // Don't show if shown in last 3 days
+  if (lastShown && (now - parseInt(lastShown)) < threeDaysInMs) {
+    return;
+  }
+  
+  const isMobile = window.innerWidth <= 768;
+  
+  overlay.style.display = 'block';
+  overlay.offsetHeight; // Force reflow
+  overlay.classList.add('show');
+  
+  popup.style.display = 'block';
+  popup.offsetHeight; // Force reflow
+  popup.classList.add('show');
+  
+  // Store current timestamp
+  localStorage.setItem('newsletter_popup_last_shown', now.toString());
+}
+
+function closeNewsletterPopup() {
+  const popup = document.getElementById('newsletter-popup');
+  const overlay = document.getElementById('newsletter-popup-overlay');
+  if (!popup || !overlay) return;
+  
+  const isMobile = window.innerWidth <= 768;
+  
+  overlay.classList.remove('show');
+  popup.classList.remove('show');
+  
+  setTimeout(() => {
+    overlay.style.display = 'none';
+    popup.style.display = 'none';
+  }, 400);
+}
+
+// Check scroll position
+function checkScrollPosition() {
+  const windowHeight = window.innerHeight;
+  const fullHeight = document.documentElement.scrollHeight;
+  const scrollPosition = window.scrollY;
+  
+  // Show popup when scrolled halfway
+  if (scrollPosition > fullHeight * 0.5 - windowHeight) {
+    showNewsletterPopup();
+    // Remove scroll listener after showing
+    window.removeEventListener('scroll', checkScrollPosition);
+  }
+}
+
+// Add scroll listener
+window.addEventListener('scroll', checkScrollPosition);
+
+// Close on overlay click
+document.getElementById('newsletter-popup-overlay').addEventListener('click', closeNewsletterPopup);
+</script> 
