@@ -1,5 +1,5 @@
 ---
-title: "Hidden Dangers of Karpathy’s ‘Vibe Coding’ Movement"
+title: "Thoughts on Karpathy’s ‘Vibe Coding’ Movement"
 layout: post
 date: 2025-03-27
 categories:
