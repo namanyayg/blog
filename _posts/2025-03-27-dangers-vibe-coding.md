@@ -26,7 +26,7 @@ I have learnt a lot from Karpathy and use AI tools daily, but there's a world of
 
 ## Hidden Costs of Vibing
 
-Last month, I encountered a particularly annoying bug in my payment system. The code looked clean — (since ChatGPT had helped me write it). But when users started reporting random issues with their payments not being recognized, I couldn't just paste the error into an AI and pray. I had to understand the underlying payment management logic, the JWT implementation, and the exact request flow.
+Last month, I encountered a particularly annoying bug in my payment system. The code looked clean — (since ChatGPT had helped me write it). But when users started reporting random issues with their payments not being recognized, I couldn't just paste the error into an AI and pray. I had to understand the underlying payment management logic and the exact request flow to fix it.
 
 This is where "vibe coding" falls apart. The real problem isn't just about reading code — it's about maintaining the intellectual ownership of our systems. When Karpathy says *"The code grows beyond my usual comprehension, I'd have to really read through it for a while,"* he's describing a [fundamental breakdown in engineering responsibility](/blog/ai-illiterate-programmers). 
 
@@ -34,16 +34,13 @@ This is where "vibe coding" falls apart. The real problem isn't just about readi
 
 Technical debt compounds **exponentially** when [you don't understand your code](/blog/ai-and-learning). Each "vibed" solution becomes a black box, and these black boxes multiply. Soon, you're building on top of foundations you don't comprehend.
 
-A recent batching feature I implemented initially took this route. The AI-generated solution worked, but when I needed to optimize it for performance, I was stuck. I couldn't optimize what I didn't understand. I ended up rewriting it from scratch, this time ensuring I understood every line. The performance improved by 20%.
+A recent feature I implemented initially took this route. The AI-generated solution worked, but when I needed to optimize it for performance, I was stuck. I couldn't optimize what I didn't understand. I ended up rewriting it from scratch, this time ensuring I understood every line.
 
 ## Security Nightmares
 
-The [security implications](/blog/vibe-coding-fantasy) of "vibe coding" are... unreal. When you don't understand your code, you can't properly assess its vulnerabilities. I've seen AI-generated code that accidentally exposed API keys in client-side code, implemented broken authentication flows, or created injection vulnerabilities that weren't immediately obvious.
+The [security implications](/blog/vibe-coding-fantasy) of "vibe coding" are... unreal. When you don't understand your code, you can't properly assess its vulnerabilities.
 
 Last week, I reviewed some AI-generated authentication code that looked perfectly fine at first glance. But upon closer inspection, the OpenAI API keys were exposed to anyone who knew how to inspect the network calls. This kind of oversight happens when we trust AI without understanding security best practices.
-
-<!-- newsletter_widget -->
-
 
 ## A Better Path Forward
 
@@ -75,6 +72,7 @@ While coding my AI that makes [software development faster](https://gigamind.dev
   * Verify security implications
   * Ensure proper error handling
 
+<!-- newsletter_widget -->
 
 ## Looking Forward
 
