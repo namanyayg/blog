@@ -1,5 +1,5 @@
 ---
-title: "Thoughts on Karpathy’s ‘Vibe Coding’ Movement"
+title: "Karpathy’s ‘Vibe Coding’ Movement Considered Harmful"
 layout: post
 date: 2025-03-27
 categories:
