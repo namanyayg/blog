@@ -10,8 +10,8 @@ excerpt_separator: <!--more-->
 # twitter_image: /assets/ai-and-learning-meta.jpg
 # twitter_card: summary_large_image
 social_metrics:
-  views: "150,000+"
-  reddit: "350+ votes"
+  views: "250,000+"
+  reddit: "550+ votes"
   # hackernews: "100+ comments"
 is_featured: false
 ---
