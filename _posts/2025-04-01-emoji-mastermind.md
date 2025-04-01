@@ -31,4 +31,6 @@ We finalized our entire theme around the concept of emojis, making the final ver
 
 Check out [Emoji Mastermind on Github](https://github.com/namanyayg/emoji-mastermind), I'd love to have you try it out!
 
+<!-- newsletter_widget -->
+
 By the way, if you're interested in taking your programming skills to the next level, check out the [Recurse Center](https://recurse.com/) and consider applying!
