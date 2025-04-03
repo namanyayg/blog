@@ -5,6 +5,8 @@ date: 2025-04-01
 categories:
  - ai
 excerpt_separator: <!--more-->
+social_metrics:
+  reddit: "200+ votes"
 is_featured: false
 ---
 
