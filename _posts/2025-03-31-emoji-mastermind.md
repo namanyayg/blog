@@ -1,7 +1,7 @@
 ---
 title: "Making an emoji terminal game in an hour"
 layout: post
-date: 2025-04-01
+date: 2025-03-31
 categories:
  - recurse
 excerpt_separator: <!--more-->

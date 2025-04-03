@@ -12,6 +12,8 @@ AI is incredibly powerful, but it needs guidelines. "Vibe coding" might work ini
 
 The current wave of AI tools promises to 10x your development speed. What they don't mention is how they can also 10x your debugging time if implemented poorly. I'm building tools to solve exactly this problem, and I'm sharing some lessons I've learned along the way.
 
+<!--more-->
+
 ## 1. Structure Your AI's Context
 
 The "context" is the only thing the AI knows. If it's incomplete, the [AI will make mistakes](/blog/dangers-vibe-coding). To increase accuracy, you need to provide the AI with as much relevant context as possible.
