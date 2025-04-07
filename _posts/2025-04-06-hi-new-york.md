@@ -39,7 +39,7 @@ It's been a pleasure to stay in both the cities. Some differences:
 
 **Pros:**
 
-* Walkable. The density is amazing, I've got multiple option to shop and eat around me.
+* Walkable. I've got multiple option to shop and eat around me.
 * Global food. There's Chinese, Korean, Polish, Caribbean, Japanese, Italian, and Indian food all within a ten minute walk.
 * Excellent public transport. Haven't felt the need to take an uber once yet, and subway vs cabs usually take similar times.
 * Well lit and busy at night, haven't felt unsafe once.
@@ -54,7 +54,7 @@ It's been a pleasure to stay in both the cities. Some differences:
 
 ## Next?
 
-I think I'm going to be heading back to SFO sometime soon. Despite its cons, it is the best place to build in AI. And the consistently good weather & sunlight is a big plus for my mood and productivity. 
+I think I'm going to be heading back to SFO sometime soon. Despite its cons, it is the best place to build in AI. Plus, the consistently good weather & sunlight is a excellent for my mood and productivity. 
 
 I also have a larger network there, because all the smartest people seem to move there for work.
 
