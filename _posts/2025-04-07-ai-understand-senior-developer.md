@@ -1,5 +1,5 @@
 ---
-title: "The Emperor has No Clothes: why AI Code Generators Fundamentally Fail"
+title: "A Missing Mental Model: Why AI doesn't Understand Codebases"
 layout: post
 date: 2025-04-07
 categories:
