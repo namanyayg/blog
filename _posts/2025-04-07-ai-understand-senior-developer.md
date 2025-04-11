@@ -1,11 +1,12 @@
 ---
-title: "The day I taught AI to think like a Senior Developer"
+title: "The Emperor has No Clothes: why AI Code Generators Fundamentally Fail"
 layout: post
 date: 2025-04-07
 categories:
  - ai
 excerpt_separator: <!--more-->
 is_featured: false
+is_hiding_promotion: true
 ---
 
 *Is it just me, or are the code generation AIs we're all using fundamentally broken?*
@@ -107,7 +108,7 @@ The implications go far beyond fixing basic errors. When AI truly understands yo
 
 There's a darker side as well. As AI gets better at understanding codebases, the value of certain types of programming knowledge decreases: the [mid-level programmer](/blog/ai-illiterate-programmers) who primarily translates requirements into code without architectural insight may find themselves increasingly squeezed.
 
-I've packaged this approach into my tool, [Giga](https://gigamind.dev/). It's been used by hundreds of developers all over the world and they're feeling less frustrated and are seeing productivity gains.
+After experimenting with these techniques for several weeks, I eventually packaged them into a tool called [Giga AI](https://gigamind.dev/) (It's paid, because I need to eat). I built it initially to solve my own frustrations, but other developers kept asking to try it after seeing how it changed my workflow, so I released it after weeks of beta testing. Feedback has been validating — developers report less time spent correcting AI-generated code and feeling less frustrated.
 
 ## Implementation
 

@@ -72,7 +72,9 @@ layout: default
     {% else %}
       {{ content }}
     {% endif %}
-    <p class="post-promotion">P.S. My AI improves code generation in production & helps you ship faster. Loved by developers & teams all over the world. <a href="https://gigamind.dev/">Check  out Giga AI</a>.</p>
+    {% if page.is_hiding_promotion != true %}
+      <p class="post-promotion">P.S. My AI improves code generation in production & helps you ship faster. Loved by developers & teams all over the world. <a href="https://gigamind.dev/">Check  out Giga AI</a>.</p>
+    {% endif %}
   </div>
 
   <div class="post-footer">
