@@ -1,7 +1,7 @@
 ---
 title: "Infantalization at 'Adult Playgrounds' aka Big Tech"
 layout: post
-date: 2025-04-13
+date: 2025-04-15
 categories:
  - life
 excerpt_separator: <!--more-->

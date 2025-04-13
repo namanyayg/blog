@@ -1,5 +1,5 @@
 ---
-title: "A Missing Mental Model: Why AI doesn't Understand Codebases"
+title: "Why LLMs Get Lost in Large Codebases"
 layout: post
 date: 2025-04-07
 categories:
@@ -9,13 +9,13 @@ is_featured: false
 is_hiding_promotion: true
 ---
 
-*Is it just me, or are the code generation AIs we're all using fundamentally broken?*
+*Is it just me, or are the code generation LLMs we're all using not that good?*
 
-For months, I've watched developers praise AI coding tools while silently cleaning up their messes, afraid to admit how much babysitting they actually need. 
+For months, I've watched developers praise LLMs while silently cleaning up their messes, afraid to admit how much babysitting they actually need. 
 
-I realized that AI IDEs don't actually _understand_ codebases — they're just sophisticated autocomplete tools with good marketing. The emperor has no clothes, and I'm tired of pretending otherwise.
+I realized that LLMs don't actually _understand_ codebases — they're just sophisticated autocomplete tools (with good marketing.)
 
-After two years of frustration watching my AI assistants constantly "forget" where files were located, create duplicates, and use completely incorrect patterns, I finally built what the big AI companies couldn't (or wouldn't.)
+After two years of frustration watching my AI assistants constantly "forget" where files were located, create duplicates, and use completely incorrect patterns, I finally built what the big AI companies couldn't — or wouldn't.
 
 I decided to find out: What if I could make AI _actually_ understand how my codebase works?
 
@@ -23,7 +23,7 @@ I decided to find out: What if I could make AI _actually_ understand how my code
 
 ## Illusion of Comprehension
 
-Last December, I hit my breaking point. My supposedly "intelligent" AI assistant kept generating components that didn't follow our established patterns. When I pointed this out, it apologized &mdash; and then proceeded to make the exact same mistake ten minutes later.
+Last December, I hit my breaking point. My supposedly "intelligent" AI kept generating components that didn't follow our established patterns. When I pointed this out, it apologized &mdash; and then proceeded to make the exact same mistake ten minutes later.
 
 This wasn't a one-off. This was the norm.
 
@@ -31,16 +31,21 @@ The problem became clear: these AI tools don't have any actual understanding of 
 
 What makes this particularly frustrating is how the marketing from major AI companies implies their tools "understand" your code. They don't. They're making educated guesses — and the difference becomes painfully obvious on any moderately complex project.
 
-## Universal Truths About Code
+## Junior vs Senior Mindset
 
-While thinking about this problem, I tried to understand the fundamental principles that govern how we organize code. Some "universal truths" I realized:
+While thinking about this problem, I went back to first principles and tried to analyze how senior developers think about a codebase:
 
-* Related files are grouped together in folders, which is a semantic indication of purpose.
-* Sibling folders reflect conceptual similarity.
-* Subfolder structure indicates hierarchical relationships and dependency.
-* Not every line of code is equally "relevant." Codebases contain significant amounts of boilerplate and library code that, while necessary, don't define the project's unique characteristics.
+* Junior developers focus on *"what"* and *"how"* — they look at specific implementation details to solve immediate problems. They can write functioning code, but they often miss the bigger picture.
+* Senior developers focus on *"why"* and *"what if"* — they maintain a mental model of the entire system, understand how components interact, and anticipate ripple effects of changes. They distinguish between code that's incidental versus foundational.
 
-These insights are obvious to experienced developers, but they represent critical semantic knowledge that AI assistants completely miss. 
+I realized LLMs often operate like [junior developers](/blog/ai-and-learning), not senior ones:
+
+* They get lost in large codebases because they lack a high-level understanding.
+* They write duplicate functionality rather than recognizing reuse opportunities.
+* They operate on trial and error, rushing to write code without understanding the complete context.
+* They follow patterns inconsistently, not grasping their underlying purpose.
+
+My goal became clear: could I make AI think more like senior developers by helping improving its model of the codebase?
 
 ## Breakthrough
 
@@ -108,18 +113,20 @@ The implications go far beyond fixing basic errors. When AI truly understands yo
 
 There's a darker side as well. As AI gets better at understanding codebases, the value of certain types of programming knowledge decreases: the [mid-level programmer](/blog/ai-illiterate-programmers) who primarily translates requirements into code without architectural insight may find themselves increasingly squeezed.
 
-After experimenting with these techniques for several weeks, I eventually packaged them into a tool called [Giga AI](https://gigamind.dev/) (It's paid, because I need to eat). I built it initially to solve my own frustrations, but other developers kept asking to try it after seeing how it changed my workflow, so I released it after weeks of beta testing. Feedback has been validating — developers report less time spent correcting AI-generated code and feeling less frustrated.
+<!-- After experimenting with these techniques for several weeks, I eventually packaged them into a tool called [Giga AI](https://gigamind.dev/) (It's paid, because I need to eat). I built it initially to solve my own frustrations, but other developers kept asking to try it after seeing how it changed my workflow, so I released it after weeks of beta testing. Feedback has been validating — developers report less time spent correcting AI-generated code and feeling less frustrated. -->
 
 ## Implementation
 
-Even without my specific tool, you can improve your AI assistant's code understanding:
+<!-- Even without my specific tool, you can improve your AI assistant's code understanding: -->
+
+Here's how you can use AI today to improve your codebase's understanding:
 
 * Create manual summaries of your most important directories and files
 * Ask an AI to further improve your manual documentation
 * Create and ensure multiple documentation files, each from a different "lens", based on your project
 * Include relevant files into AI's context as needed
 
-These approaches won't be as seamless as a purpose-built solution, but they'll dramatically improve your results compared to the default experience.
+These approaches won't be as seamless as a [purpose-built solution](https://gigamind.dev), but they'll dramatically improve your results compared to the default experience.
 
 ## Context is the Future
 
@@ -131,4 +138,4 @@ The future belongs to those who see AI not as a replacement for human developers
 
 And that future starts **now**.
 
-*What frustrations have you experienced with AI coding assistants? I'd love to hear your stories at [hi@nmn.gl](mailto:hi@nmn.gl)*
+*What frustrations have you experienced with AI? I'd love to hear your stories at [hi@nmn.gl](mailto:hi@nmn.gl)*
