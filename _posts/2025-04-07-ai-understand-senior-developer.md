@@ -6,7 +6,6 @@ categories:
  - ai
 excerpt_separator: <!--more-->
 is_featured: false
-is_hiding_promotion: true
 ---
 
 *Is it just me, or are the code generation LLMs we're all using not that good?*
