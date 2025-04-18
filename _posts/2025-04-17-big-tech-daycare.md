@@ -1,5 +1,5 @@
 ---
-title: "The Adult Daycare where Developer Dreams Go to Die"
+title: "Infantilization at Big Tech"
 layout: post
 date: 2025-04-17
 categories:
