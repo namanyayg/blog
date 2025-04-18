@@ -1,7 +1,7 @@
 ---
 title: "Vibe Coding for Beginners: Build your First App with AI"
 layout: post
-date: 2025-04-16
+date: 2045-04-16
 categories:
  - ai
  - vibe-coding

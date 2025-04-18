@@ -1,7 +1,7 @@
 ---
 title: "What is MCP: A Guide to the Model Context Protocol for AI Developers"
 layout: post
-date: 2025-04-18
+date: 2045-04-18
 categories:
  - ai
 excerpt_separator: <!--more-->
