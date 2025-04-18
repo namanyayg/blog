@@ -1,5 +1,5 @@
 ---
-title: "Why LLMs Get Lost in Large Codebases"
+title: "The day I taught AI to understand code like a Senior Developer"
 layout: post
 date: 2025-04-07
 categories:
