@@ -112,7 +112,7 @@ The implications go far beyond fixing basic errors. When AI truly understands yo
 
 There's a darker side as well. As AI gets better at understanding codebases, the value of certain types of programming knowledge decreases: the [mid-level programmer](/blog/ai-illiterate-programmers) who primarily translates requirements into code without architectural insight may find themselves increasingly squeezed.
 
-After experimenting with these techniques for several weeks, I eventually packaged them into a tool called [Giga AI](https://gigamind.dev/) (It's paid, because I need to eat). I built it initially to solve my own frustrations, but other developers kept asking to try it after seeing how it changed my workflow, so I released it after weeks of beta testing. Feedback has been validating — developers report less time spent correcting AI-generated code and feeling less frustrated.
+After experimenting with these techniques for several weeks, I eventually packaged them into a tool called [Giga AI](https://gigamind.dev/). I built it initially to solve my own frustrations, but other developers kept asking to try it after seeing how it changed my workflow. Developers who use Giga report less time spent correcting AI-generated code, are able to ship faster, and feeling less frustrated.
 
 ## Implementation
 
