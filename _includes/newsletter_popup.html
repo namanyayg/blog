@@ -15,6 +15,7 @@
   opacity: 0;
   transition: opacity 0.4s ease;
   z-index: 999;
+  pointer-events: none;
 }
 
 .newsletter-popup-overlay.show {
@@ -89,6 +90,7 @@
 
   .newsletter-popup-overlay {
     background: rgba(0, 0, 0, 0.3);
+    pointer-events: auto;
   }
   
   .newsletter-popup-close {
@@ -115,8 +117,6 @@ function showNewsletterPopup() {
     return;
   }
   
-  const isMobile = window.innerWidth <= 768;
-  
   overlay.style.display = 'block';
   overlay.offsetHeight; // Force reflow
   overlay.classList.add('show');
@@ -127,6 +127,11 @@ function showNewsletterPopup() {
   
   // Store current timestamp
   localStorage.setItem('newsletter_popup_last_shown', now.toString());
+
+  // Add document click listener for desktop click-outside behavior
+  if (window.innerWidth > 768) {
+    document.addEventListener('click', handleClickOutside);
+  }
 }
 
 function closeNewsletterPopup() {
@@ -134,15 +139,24 @@ function closeNewsletterPopup() {
   const overlay = document.getElementById('newsletter-popup-overlay');
   if (!popup || !overlay) return;
   
-  const isMobile = window.innerWidth <= 768;
-  
   overlay.classList.remove('show');
   popup.classList.remove('show');
+  
+  // Remove document click listener
+  document.removeEventListener('click', handleClickOutside);
   
   setTimeout(() => {
     overlay.style.display = 'none';
     popup.style.display = 'none';
   }, 400);
+}
+
+function handleClickOutside(event) {
+  const popup = document.getElementById('newsletter-popup');
+  // If click is outside popup and popup is visible, close it
+  if (popup && !popup.contains(event.target) && popup.classList.contains('show')) {
+    closeNewsletterPopup();
+  }
 }
 
 // Check scroll position
@@ -162,6 +176,10 @@ function checkScrollPosition() {
 // Add scroll listener
 window.addEventListener('scroll', checkScrollPosition);
 
-// Close on overlay click
-document.getElementById('newsletter-popup-overlay').addEventListener('click', closeNewsletterPopup);
+// Close on overlay click (mobile only)
+document.getElementById('newsletter-popup-overlay').addEventListener('click', (e) => {
+  if (window.innerWidth <= 768) {
+    closeNewsletterPopup();
+  }
+});
 </script> 

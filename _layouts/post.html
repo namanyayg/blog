@@ -72,8 +72,13 @@ layout: default
     {% else %}
       {{ content }}
     {% endif %}
-    {% if page.is_hiding_promotion != true %}
-      <p class="post-promotion">P.S. My AI improves code generation in production & helps you ship faster. Loved by developers & teams all over the world. <a href="https://gigamind.dev/">Check  out Giga AI</a>.</p>
+    {% assign post_promotion_type = page.post_promotion_type | default: 'giga-context' %}
+    {% if post_promotion_type != 'hidden' %}
+      {% if post_promotion_type == 'giga-reviewer' %}
+        <p class="post-promotion">P.S. My AI code reviewer reduces PR merge time by 50% and saves 15 hours/week for each senior developer. Used by developers & teams worldwide. <a href="https://gigamind.dev/code-reviewer">Try Giga AI</a> (7 day free trial).</p>
+      {% else %}
+        <p class="post-promotion">P.S. My AI improves code generation in production & helps you ship faster. Loved by developers & teams all over the world. <a href="https://gigamind.dev/">Check out Giga AI</a>.</p>
+      {% endif %}
     {% endif %}
   </div>
 

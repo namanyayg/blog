@@ -13,6 +13,7 @@ social_metrics:
   reddit: "2,500+ votes"
   hackernews: "100+ comments"
 is_featured: true
+post_promotion_type: giga-reviewer
 ---
 
 *Something's been bugging me about how new devs learn and I need to talk about it.*
