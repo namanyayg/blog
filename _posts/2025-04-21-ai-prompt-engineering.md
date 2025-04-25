@@ -6,6 +6,7 @@ categories:
  - ai
 excerpt_separator: <!--more-->
 is_featured: false
+post_promotion_type: giga-reviewer
 ---
 
 You know by now that AI can dramatically speed up your development process ([when used correctly](/blog/ai-and-learning).)

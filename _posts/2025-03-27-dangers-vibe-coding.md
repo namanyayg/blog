@@ -14,6 +14,7 @@ social_metrics:
   reddit: "550+ votes"
   # hackernews: "100+ comments"
 is_featured: false
+post_promotion_type: giga-reviewer
 ---
 
 Last Tuesday at 1 AM, I was debugging a critical production issue in my AI dev tool. As I dug through layers of functions, I suddenly realized — unlike the new generation of developers, I was *grateful* that I could actually understand my codebase. That's when I started thinking more about Karpathy's recent statements on vibe coding.
