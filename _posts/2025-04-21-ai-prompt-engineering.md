@@ -8,7 +8,7 @@ excerpt_separator: <!--more-->
 is_featured: false
 ---
 
-You know by now that AI can dramatically speed up your development process (when used correctly.)
+You know by now that AI can dramatically speed up your development process ([when used correctly](/blog/ai-and-learning).)
 
 _But_ the key is knowing how to communicate with the AI properly. 
 
