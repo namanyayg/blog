@@ -75,9 +75,9 @@ layout: default
     {% assign post_promotion_type = page.post_promotion_type | default: 'giga-context' %}
     {% if post_promotion_type != 'hidden' %}
       {% if post_promotion_type == 'giga-reviewer' %}
-        <p class="post-promotion">P.S. My AI code reviewer saves 15 hours/week per senior developer and cuts PR merge time by half. Used by developers & teams worldwide. <a href="https://gigamind.dev/code-reviewer">Try Giga AI</a> (7 day free trial).</p>
+        <p class="post-promotion">P.S. My AI code reviewer is saving 15 hours/week per developer. Used by developers & teams worldwide. <a href="https://gigamind.dev/code-reviewer?utm_source=blog&utm_medium=post&utm_campaign=post-promotion&utm_content={{ page.title | url_encode }}&utm_term={{ page.url | url_encode }}">Check out Giga AI</a> <b>(7 day free trial)</b>.</p>
       {% else %}
-        <p class="post-promotion">P.S. My AI improves code generation in production & helps you ship faster. Loved by developers & teams all over the world. <a href="https://gigamind.dev/">Check out Giga AI</a>.</p>
+        <p class="post-promotion">P.S. My AI improves code generation in production & helps you ship faster. Loved by developers & teams all over the world. <a href="https://gigamind.dev/?utm_source=blog&utm_medium=post&utm_campaign=post-promotion&utm_content={{ page.title | url_encode }}&utm_term={{ page.url | url_encode }}">Check out Giga AI</a>.</p>
       {% endif %}
     {% endif %}
   </div>
