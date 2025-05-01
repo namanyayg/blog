@@ -89,7 +89,7 @@ With AI, that definition needs to be updated. Much of the lower levels of progra
 Now, a _good programmer_ also needs:
 
 1. Translating business needs into technical specifications that AI understands
-3. Using AI to get results quickly
+3. Using [AI to get results quickly](/blog/building-with-ai)
 4. Reviewing and verifying generated code to ensure usability
 
 If they have been progrmaming for a long time, they'll have both sets of skills. 
@@ -101,7 +101,7 @@ But as time goes on, developers [will start losing the previous set of skills](/
 I've been experimenting with ways to stay relevant in this new reality. Here's what's actually working:
 
 * Ask better questions. The quality of your AI output directly corresponds to your prompt skills. I keep a list of effective prompts for different situations.
-* Build your verification instincts. AI will confidently generate complete nonsense. Getting good at identifying it quickly is a superpower.
+* Build your verification instincts. AI will [confidently generate complete nonsense](/blog/dangers-vibe-coding). Getting good at identifying it quickly is a superpower.
 * Operate at the edge of your abilities. Use AI for the mundane stuff, then apply your creativity to the novel problems AI can't handle yet.
 * Deep dive when things break. The best learning happens at failure points. When AI-generated code breaks, that's your cue to really understand the underlying system.
 
