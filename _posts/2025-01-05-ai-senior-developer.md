@@ -8,7 +8,7 @@ categories:
   - giga
 excerpt_separator: <!--more-->
 social_metrics:
-  hackernews: "450+ votes"
+  hackernews: "500+ votes"
 is_featured: true
 ---
 
