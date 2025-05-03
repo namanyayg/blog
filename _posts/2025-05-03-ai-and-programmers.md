@@ -1,7 +1,7 @@
 ---
 title: "New Programmers Don't Really Have a Choice About AI"
 layout: post
-date: 2025-04-30
+date: 2025-05-03
 categories:
  - ai
 excerpt_separator: <!--more-->
