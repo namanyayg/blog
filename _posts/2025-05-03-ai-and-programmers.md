@@ -103,12 +103,9 @@ It's a completely different mental process to be programming with AI. I've been 
 * Operate at the edge of your abilities. Use AI for the mundane stuff (boilerplate, standard patterns, typical integrations), then apply your creativity to the novel problems AI can't handle yet.
 * Deep dive when things break. The best learning happens at failure points. When AI-generated code breaks, that's your cue to really understand the underlying system. Add logs, use the debugger, manually go through each part of the code flow.
 
-I went through the five stages of grief about these changes. I was angry _(these tools are stealing our jobs)_, in denial _(they'll never replace real programming skill)_, tried to bargain _(maybe I'll just use it for documentation)_. 
+I went through the various stages of grief about these changes. I was angry _(these tools are stealing our jobs)_, in denial _(they'll never replace real programming skill)_, tried to bargain _(maybe I'll just use it for documentation)_. 
 
-But eventually, I accepted it: programming as I knew it is dying. Something new is being born.
-
-And in some ways, it's more interesting than what came before.
-
+But eventually, I accepted it: programming as I knew it is changing. Something new is being born.
 
 The programmers who will survive this transition are the ones who will understand and use AI as the powerful tool that it is.
 
@@ -123,6 +120,7 @@ Here's how I see productivity of programmers using AI vs those who are not:
 
 <figure>
   <img src="{{ '/assets/time-with-and-without-ai.png' | relative_url }}" alt="With and Without AI">
+  <figcaption>Time spent on programming tasks with and without AI</figcaption>
 </figure>
 
 AI makes you better at boilerplate and third party code, but QA takes more time. Still, this is just the start. Over time, this graph will get better in favor of those using AI.
@@ -131,13 +129,7 @@ AI makes you better at boilerplate and third party code, but QA takes more time.
 
 The uncomfortable truth is that AI is not optional for programmers anymore. Just like frameworks, high-level languages, and Stack Overflow before it, AI is now part of the workflow.
 
-Those who adapt will thrive. Those who resist will find themselves slowly lose out.
-
-Is that _fair_? No. 
-
-Is it _reality_? Absolutely.
-
-The developers who adjust to this new reality fastest will have the most interesting careers over the next decade. They'll be working on problems that push the boundaries of what's possible. Think about what you could be building if you weren't wasting time on tasks AI can handle. 
+The developers who adjust to this new reality fastest will have the most interesting careers over the next decade. They'll be working on problems that push the boundaries of what's possible.
 
 The future belongs to the developers who see AI not as a threat to their craft, but as the key that finally lets them build what they've always imagined, but never had the time to create. 
 
