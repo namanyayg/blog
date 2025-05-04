@@ -1,5 +1,5 @@
 ---
-title: "I tried resisting AI. Then I tried using it. Both were painful"
+title: "I tried resisting AI. Then I tried using it. Both were painful."
 layout: post
 date: 2025-05-03
 categories:
@@ -12,7 +12,7 @@ Every day I see another heartfelt post about "resisting AI use" or "keeping the 
 
 Those posts remind me of myself. If you met me two years ago, you'd see me tastefully craft each line and function of the code I write. 
 
-Fast forward to today, and I've let go of control and I let the AI handle a lot of my codebase. Not because I necessarily want to, but because I've realized that programmers _simply don't have a choice anymore._ 
+Fast forward to today, and I've let go of control and I let the AI handle a lot of my codebase. Not because I necessarily want to, but because I feel like we programmers _don't have a choice anymore?_ 
 
 The uncomfortable truth is that AI is changing our work whether we like it or not. And spoiler alert: it's not all productive.
 
@@ -103,7 +103,7 @@ With AI, that definition is outdated. Now, a good programmer needs different ski
 It's a completely different mental process to be programming with AI. I've been experimenting with ways to get comfortable with it. Here's what's actually working:
 
 * Build your verification instincts. When AI outputs code, I learned to spot the red flags: incorrect library usage, not using existing functions or patterns, incorrect domain knowledge.
-* Operate at the edge of your abilities. Use AI for the mundane stuff (boilerplate, standard patterns, typical integrations), then apply your creativity to the novel problems AI can't handle yet.
+* Operate at the edge of your abilities. Use AI for the mundane stuff (boilerplate, standard patterns, typical integrations), then [apply your creativity to the novel problems](/blog/ai-and-learning) AI can't handle yet.
 * Deep dive when things break. The best learning happens at failure points. When AI-generated code breaks, that's your cue to really understand the underlying system. Add logs, use the debugger, manually go through each part of the code flow.
 * Keep a "WTF AI" journal. Document the spectacular failures. It's therapeutic and surprisingly educational.
 
