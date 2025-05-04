@@ -1,5 +1,5 @@
 ---
-title: "New Programmers Don't Really Have a Choice About AI"
+title: "I tried resisting AI. Then I tried using it. Both were painful"
 layout: post
 date: 2025-05-03
 categories:
@@ -8,17 +8,17 @@ excerpt_separator: <!--more-->
 post_promotion_type: giga-reviewer
 ---
 
-Every day I see another heartfelt post on Reddit about "resisting AI use" or "keeping the craft pure." 
+Every day I see another heartfelt post about "resisting AI use" or "keeping the craft pure." 
 
 Those posts remind me of myself. If you met me two years ago, you'd see me tastefully craft each line and function of the code I write. 
 
 Fast forward to today, and I've let go of control and I let the AI handle a lot of my codebase. Not because I necessarily want to, but because I've realized that programmers _simply don't have a choice anymore._ 
 
-The industry has already decided, and it's not [waiting for any of us to catch up](/blog/ai-and-learning).
+The uncomfortable truth is that AI is changing our work whether we like it or not. And spoiler alert: it's not all productive.
 
 <!--more-->
 
-## When `react` was a new thing
+## When I thought I knew everything
 
 In 2016, I had a couple of years experience as a developer and was making sites serving millions of users with _pure_ HTML, CSS, JS, and a little bit of jQuery.
 
@@ -35,9 +35,9 @@ And I wasn't alone. There were a lot of people like me on Reddit, as evidenced b
 
 Convinced, I doubled down on using plain old JS, no framework. I was writing _pure_ code. I was crafting "elegant" solutions. And I knew that the world would eventually see reason, and return to simpler approaches.
 
-_Want to guess how that turned out?_
+## Want to guess how that turned out?
 
-**Spoiler alert:** no one cared about my "pure" code. What actually happened was:
+Here's what actually happened:
 
 * Developers who embraced React shipped more applications faster. 
 * Companies that adopted it could iterate quicker and push features that users actually noticed. 
@@ -45,92 +45,78 @@ _Want to guess how that turned out?_
 
 The industry had simply moved on, while I was busy being "right".
 
-## Economies of Code
+## Hard truth about businesses
 
 Let's take some time to think about _why_ so much code exists in the first place.
-
-Code written for businesses allows executing repeatable processes that increase profits and/or save time. It is a means of delivering specific business objectives, not an "art."
-
-Put another way, when was the last time your manager celebrated your beautiful code architecture? Or, when did your CEO personally thank you for following perfect design patterns?
-
-Never, right? Because from a business perspective, **code is a liability, not an asset**.
-
-The cold, hard truth is that companies don't _want_ more code. The only thing that matters is **results**.
 
 I learned this lesson from my former engineering manager. We were celebrating after a product launch, and I was complaining about some tech debt we'd accumulated.
 
 _"You know what?"_ he said. _"I've never once heard the CEO care about our code quality. The only thing that matters is if we can deliver before deadlines or not. Nobody's getting promoted for clean code if the feature ships late."_
+
+It was disappointing, but also... _enlightening_?
+
+Code written for businesses allows executing repeatable processes that increase profits and/or save time. It is a means of delivering specific business objectives, not an "art."
 
 <figure>
   <img src="{{ '/assets/devs-vs-businesses-art-vs-deadlines.png' | relative_url }}" alt="Devs vs Businesses" style="max-width: 30em">
   <figcaption>What devs prioritize vs what businesses prioritize</figcaption>
 </figure>
 
-It was disappointing, but also... _enlightening_?
 
 As a programmer, since I live _inside_ my codebase, I want to make it perfect exactly the way I want. I still get a dopamine hit when I refactor a messy function into something elegant.
 
 But if I think about this from the perspective of a business, my code is merely a _tool_ to earn profits.
 
-And that's why I feel that we really don't have any choice about using AI. The painful reality is that someone using AI will outpace someone who is not, not by a small margin, but by orders of magnitude. 
+## AI is not your savior
 
-And what employer wants to hire the slower programmer?
+So, I started using AI _heavily_ to get results quicker. After 6 months of daily AI coding, some facts:
 
-## Changing definitions of a "Good Programmer"
+* **It confidently [generates absolute garbage.](/blog/dangers-vibe-coding)** Just last week, it gave me a security vulnerability disguised as a best practice. _Thanks, AI!_
+* **The debugging overhead is real.** Sometimes fixing AI's "solution" takes longer than writing it yourself.
+* **It can't understand complex business logic.** Ask it to implement a multi-tenant authorization system, and watch it fall apart.
 
-Remember what defined a good programmer a few years ago?
+But here's the thing&mdash;and this is important&mdash;despite all these frustrations, I keep using it.
 
-Back when I first started, being "senior" meant you had encyclopedic knowledge of your stack. I paired with a guy recently who could recite the exact syntax for obscure Python functions from memory. Like a programming savant.
+## Why I (still) use AI
 
-You were expected to know your framework's internals so well that you could debug issues without even looking at logs. _"Oh, you're getting that error? That's a known issue with how React handles nested Suspense components."_
+The painful reality is that someone using AI will outpace someone who is not.
 
-And let's not forget the badge of honor that came with using APIs and libraries without needing to look at docs, because you already remember it. 
+Not because AI is perfect, but because:
 
-With AI, that definition needs to be updated. Much of the lower levels of programming is handled by an AI, the developer's role is more of a "orchestrator."
+* The mundane stuff is automated. Writing boilerplate, setting up API endpoints, implementing standard patterns&mdash;AI handles these faster than I can type.
+* The frustration is worth it. Even with the debugging overhead, I'm still faster overall.
+* My PRs are bigger, my features ship faster. The code quality is actually often better because I'm less fatigued from writing repetitive code.
 
-Now, a good programmer needs totally different skills:
+## What a "Good Programmer" means now
 
-1. Translating business needs into technical specifications that AI understands
-1. Then, using [AI to get results quickly](/blog/building-with-ai)
-1. And finally, being an expert at reading and validating code. 
+Remember what defined a good programmer a few years ago? Back when I first started, being "senior" meant you had encyclopedic knowledge of your stack.
+
+With AI, that definition is outdated. Now, a good programmer needs different skills:
+
+* Prompt engineering. This seems obvious, but there's an art to it. The quality of your AI output directly corresponds to your prompt skills. I keep a list of [effective prompts for different situations](/blog/ai-prompt-engineering).
+* Code reviewing. AI will confidently generate nonsense. Getting good at identifying it quickly is necessary now
+* Architecture thinking. AI handles the implementation; you focus on the design.
+* Business translation. Converting vague requirements into precise technical specs that AI can execute.
 
 ## How to Keep Up
 
 It's a completely different mental process to be programming with AI. I've been experimenting with ways to get comfortable with it. Here's what's actually working:
 
-* Ask better questions. This seems obvious, but there's an art to it. The quality of your AI output directly corresponds to your prompt skills. I keep a list of [effective prompts for different situations](/blog/ai-prompt-engineering).
-* Build your verification instincts. AI will [confidently generate complete nonsense](/blog/dangers-vibe-coding). Getting good at identifying it quickly is a superpower.
+* Build your verification instincts. When AI outputs code, I learned to spot the red flags: incorrect library usage, not using existing functions or patterns, incorrect domain knowledge.
 * Operate at the edge of your abilities. Use AI for the mundane stuff (boilerplate, standard patterns, typical integrations), then apply your creativity to the novel problems AI can't handle yet.
 * Deep dive when things break. The best learning happens at failure points. When AI-generated code breaks, that's your cue to really understand the underlying system. Add logs, use the debugger, manually go through each part of the code flow.
+* Keep a "WTF AI" journal. Document the spectacular failures. It's therapeutic and surprisingly educational.
 
-I went through the various stages of grief about these changes. I was angry _(these tools are stealing our jobs)_, in denial _(they'll never replace real programming skill)_, tried to bargain _(maybe I'll just use it for documentation)_. 
+## The Uncomfortable Truth
 
-But eventually, I accepted it: programming as I knew it is changing. Something new is being born.
+AI is not optional for programmers anymore. Just like frameworks, high-level languages, and Stack Overflow before it, AI is now part of the workflow.
 
-The programmers who will survive this transition are the ones who will understand and use AI as the powerful tool that it is.
+The developers who adjust to this new reality fastest will have the most interesting careers over the next decade.
 
-* They're the ones who can identify what AI is terrible at. And trust me, despite all the hype, there are still [plenty of things AI sucks at](/blog/ai-understand-senior-developer).
-* They're the ones who know when to trust and when to verify. (My rule of thumb: trust AI for anything that has clear correctness criteria and standard patterns. Be skeptical of anything security-related, performance-critical, or novel.)
-* Most importantly, they're the ones who focus their limited mental energy on truly novel problems. The parts of programming that require creativity, deep understanding of user needs, or complex system design.
+But let's be real&mdash;it's not all productivity gains. It's frustration, debugging, and occasionally questioning your life choices. AI is a powerful but flawed tool&mdash;one that needs constant supervision, but ultimately lets you build things you never had time to before.
 
+Maybe, just maybe, we'll look back at this era the same way we look at the framework debates. Another tool that felt threatening until it became indispensable.
 
-With AI, I'm spending less time googling errors and more time thinking about the actual problems I'm trying to solve. I don't need to go through pages of docs to implement third party code. My PRs are bigger, my features ship faster, and honestly? The code quality is often better because I'm less fatigued from writing boilerplate.
-
-Here's how I see productivity of programmers using AI vs those who are not:
-
-<figure>
-  <img src="{{ '/assets/time-with-and-without-ai.png' | relative_url }}" alt="With and Without AI">
-  <figcaption>Time spent on programming tasks with and without AI</figcaption>
-</figure>
-
-AI makes you better at boilerplate and third party code, but QA takes more time. Still, this is just the start. Over time, this graph will get better in favor of those using AI.
-
-## What Happens Next
-
-The uncomfortable truth is that AI is not optional for programmers anymore. Just like frameworks, high-level languages, and Stack Overflow before it, AI is now part of the workflow.
-
-The developers who adjust to this new reality fastest will have the most interesting careers over the next decade. They'll be working on problems that push the boundaries of what's possible.
-
-The future belongs to the developers who see AI not as a threat to their craft, but as the key that finally lets them build what they've always imagined, but never had the time to create. 
+Time will tell.
 
 _Thanks to [John](https://www.linkedin.com/in/jmontroy90/), [Cyrene](https://cysabi.github.io/), and [Mikhail](https://www.linkedin.com/in/mikkqu/) for helping me think deeper about these ideas and for sharing feedback on my drafts_
