@@ -1,5 +1,5 @@
 ---
-title: "I tried resisting AI. Then I tried using it. Both were painful."
+title: "I tried resisting LLMs for programming. Then I tried using them. Both were painful."
 layout: post
 date: 2025-05-03
 categories:
