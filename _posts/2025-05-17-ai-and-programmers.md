@@ -14,6 +14,8 @@ The subtext they're forcing on us is clear: _programmers who don't embrace AI wi
 
 But after two years of daily AI coding — from the earliest Cursor version to the latest agentic tools — I've uncovered the truth: AI coding tools are simultaneously terrible _and_ necessary.
 
+<!--more-->
+
 ## Harsh Economies of Code
 
 The industry's embrace of AI makes perfect sense when you follow the money.
