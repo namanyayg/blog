@@ -8,7 +8,7 @@ excerpt_separator: <!--more-->
 post_promotion_type: hidden
 ---
 
-*AI clearly makes a lot of mistakes while generating code. Why are programmers still using it?*
+*AI code generation is error-prone. Why, then, are programmers still using it?*
 
 Everyone from YC partners to Fiverr's CEO has been proclaiming that "90% of code is AI-generated" or that they're becoming "AI-first" companies. 
 
