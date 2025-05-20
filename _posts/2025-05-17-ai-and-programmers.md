@@ -1,5 +1,5 @@
 ---
-title: "AI is destroying and saving programming at the same time"
+title: "Why Good Programmers Use Bad AI"
 layout: post
 date: 2025-05-17
 categories:
@@ -7,6 +7,8 @@ categories:
 excerpt_separator: <!--more-->
 post_promotion_type: hidden
 ---
+
+*AI clearly makes a lot of mistakes while generating code. Why are programmers still using it?*
 
 Everyone from YC partners to Fiverr's CEO has been proclaiming that "90% of code is AI-generated" or that they're becoming "AI-first" companies. 
 
