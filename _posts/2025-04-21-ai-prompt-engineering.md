@@ -6,7 +6,6 @@ categories:
  - ai
 excerpt_separator: <!--more-->
 is_featured: false
-post_promotion_type: giga-reviewer
 social_metrics:
   views: "250,000"
   reddit: "700+ votes"

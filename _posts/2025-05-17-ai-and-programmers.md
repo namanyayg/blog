@@ -5,7 +5,9 @@ date: 2025-05-17
 categories:
  - ai
 excerpt_separator: <!--more-->
-post_promotion_type: hidden
+social_metrics:
+  views: "150,000+"
+  reddit: "70+ votes"
 ---
 
 *AI code generation is error-prone. Why, then, are programmers still using it?*
@@ -68,6 +70,8 @@ The code _worked_, but the AI completely lacked the ability to identify the actu
 ## The Correct Way to Use AI
 
 This reality taught me to [combine AI’s speed with my personal quality](/blog/cursor-guide) standards:
+
+<!--newsletter_widget-->
 
 - I let AI draft the first version.
 - I carve out dedicated review time to catch its blunders.
