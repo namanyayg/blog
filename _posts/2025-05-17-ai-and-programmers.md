@@ -71,7 +71,7 @@ The code _worked_, but the AI completely lacked the ability to identify the actu
 
 This reality taught me to [combine AI’s speed with my personal quality](/blog/cursor-guide) standards:
 
-<!--newsletter_widget-->
+<!-- newsletter_widget -->
 
 - I let AI draft the first version.
 - I carve out dedicated review time to catch its blunders.
