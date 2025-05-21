@@ -60,11 +60,11 @@ Last month I used AI to help with a WebGL project, and it generated code that lo
 
 **Complex business logic.** Last week, I asked AI to refactor a function. The AI happily returned a 'solution' with unnecessary duplication.
 
-The code _worked_, but the AI completely lacked the ability to identify the actual problem and implement an elegant solution.
+The code _worked_, but the AI completely lacked the ability to identify the actual problem and implement an elegant solution. This problem remains because the AI doesn't have a [full context of your entire codebase]((/blog/ai-understand-senior-developer)).
 
 **The debugging overhead is real.** Sometimes fixing AI's "solution" takes longer than writing it yourself.
 
-**Security** is another weak spot. I've had AI confidently [suggest storing API keys in local storage](/blog/dangers-vibe-coding) — essentially leaving my application open for exploits.
+**Security** is another weak spot. I've had AI confidently suggest [storing API keys in local storage](/blog/dangers-vibe-coding) — essentially leaving my application open for exploits.
 
 
 ## The Correct Way to Use AI
