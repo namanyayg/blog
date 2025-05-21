@@ -52,7 +52,7 @@ The solution came to me during a 2 AM coding session, while I was dealing with y
 
 <img src="{{ '/assets/code_graph.png' | relative_url }}" style="width: 20em; margin: 0 auto; display: block;" />
 
-Human developers [don't memorize entire codebases](/blog/ai-senior-developer){:target="_blank"}. We build mental models of how components relate to each other. We understand that some code is boilerplate, while other sections are critical business logic. We naturally view code through different "lenses" depending on what we're trying to accomplish.
+Human developers don't memorize entire codebases. We build mental models of how components relate to each other. We understand that some code is boilerplate, while other sections are critical business logic. We naturally view code through different "lenses" depending on what we're trying to accomplish.
 
 I developed what I call "Ranked Recursive Summarization" (RRS), an algorithm that starts from the leaves of a project's directory tree and recursively builds understanding upward using LLMs:
 
