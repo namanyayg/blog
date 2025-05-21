@@ -25,7 +25,7 @@ Sure, the code works, but ask why it works that way instead of another way? Cric
 
 The foundational knowledge that used to come from struggling through problems is just... missing.
 
-We're trading deep understanding for quick fixes, and while it feels great in the moment, we're going to pay for this later.
+We're trading [deep understanding](/blog/ai-understand-senior-developer) for quick fixes, and while it feels great in the moment, we're going to pay for this later.
 
 <!--more-->
 
@@ -75,9 +75,9 @@ Here’s a graph to explain what I mean:
 
 AI gives you answers, but the knowledge you gain is shallow. With StackOverflow, you had to read multiple expert discussions to get the full picture. It was slower, but you came out understanding not just what worked, but why it worked.
 
-Think about every great developer you know. Did they get that good by copying solutions? No&mdash;they got there by understanding systems deeply and understanding other developers' thought processes. That's exactly what we're losing.
+Think about every great developer you know. Did they get that good by copying solutions? No&mdash;they got there by [understanding systems deeply and understanding other developers' thought processes](/blog/ai-understand-senior-developer). That's exactly what we're losing.
 
-I'm not trying to be that guy who complains about "kids these days." I use AI tools daily. I'm literally [building one](https://nmn.gl/blog/giga). But we need to be honest about what we're trading away for this convenience.
+I'm not trying to be that guy who complains about "kids these days." I use AI tools daily. I'm literally [building one](https://gigamind.dev/context). But we need to be honest about what we're trading away for this convenience.
 
 ## What can we do?
 

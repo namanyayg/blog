@@ -11,7 +11,7 @@ social_metrics:
   reddit: "700+ votes"
 ---
 
-You know by now that AI can dramatically speed up your development process ([when used correctly](/blog/ai-and-learning).)
+You know by now that AI can dramatically speed up your development process ([when used correctly](/blog/ai-understand-senior-developer).)
 
 _But_ the key is knowing how to communicate with the AI properly. 
 
