@@ -79,7 +79,7 @@ If you’re still on the fence, here’s the exact playbook I’ve honed:
 
 * Build your verification instincts. When AI outputs code, I learned to spot the red flags: incorrect library usage, not using existing functions or patterns, incorrect domain knowledge.
 * Operate at the edge of your abilities. Use AI for the mundane stuff (config, boilerplate, standard patterns, typical integrations), then [apply your creativity to the novel problems](/blog/ai-illiterate-programmers) AI can't handle yet.
-* Ask delibrately. Instead of "implement this feature," I break problems into smaller chunks: "Create the data model for this entity," then "Write the validation logic for these fields," and so on.
+* Ask deliberately. Instead of "implement this feature," I break problems into smaller chunks: "Create the data model for this entity," then "Write the validation logic for these fields," and so on.
 * Deep dive when things break. The best learning happens at failure points. When AI-generated code breaks, that's your cue to really understand the underlying system. Add logs, use the debugger, manually go through each part of the code flow.
 * Keep a "WTF AI" journal. Document every spectacular fail—hallucinated API calls, misnamed types, security oversights. Those failures become your internal library of “don’t let it do that again.” It's therapeutic and surprisingly educational.
 
