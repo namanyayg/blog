@@ -14,7 +14,7 @@ For months, I've watched developers praise LLMs while silently cleaning up their
 
 I realized that LLMs don't actually _understand_ codebases — they're just sophisticated autocomplete tools (with good marketing.)
 
-After two years of frustration watching my AI assistants constantly "forget" where files were located, create duplicates, and use completely incorrect patterns, I finally built what the big AI companies couldn't — or wouldn't.
+After two years of frustration watching my AI assistants constantly "forget" where files were located, create duplicates, and use completely incorrect patterns, [I finally built what the big AI companies couldn't](https://gigamind.dev/){:target="_blank"} — or wouldn't.
 
 I decided to find out: What if I could make AI _actually_ understand how my codebase works?
 
@@ -48,7 +48,7 @@ My goal became clear: could I make AI think more like senior developers by helpi
 
 ## Breakthrough
 
-The solution came to me during a 2 AM coding session, while I was dealing with yet another incorrectly generated file: what if we treated the codebase as a **hierarchical knowledge graph** instead of flat files?
+The solution came to me during a 2 AM coding session, while I was dealing with yet another incorrectly generated file: what if we treated the codebase as a [**hierarchical knowledge graph**](https://gigamind.dev/){:target="_blank"} instead of flat files?
 
 <img src="{{ '/assets/code_graph.png' | relative_url }}" style="width: 20em; margin: 0 auto; display: block;" />
 
@@ -72,7 +72,9 @@ def ranked_recursive_summarization(folder):
     return summarize(summaries)
 ```
 
-This worked **shockingly** well, but I soon realized it wasn't enough. Depending on what I was trying to work on, RRS missed certain details. If it had information about architecture and data models, it missed out on frontend components. If it was too focused on UI, it missed out on describing data flow.
+This worked **shockingly** well. I implemented this algorithm and [released it on Reddit](https://gigamind.dev/context){:target="_blank"}, there were hundreds of people asking for access in the same day.
+
+But, I soon realized it wasn't enough. Depending on what I was trying to work on, RRS missed certain details. If it had information about architecture and data models, it missed out on frontend components. If it was too focused on UI, it missed out on describing data flow.
 
 I had to think deeper: what makes a certain part of the code *important*?
 
@@ -99,6 +101,8 @@ The results were undeniable. AI suddenly understood:
 - How to extend existing abstractions instead of creating new ones
 - When to reuse code vs. create new implementations
 
+I updated my code to include PRRS, and the quality of results shot up. Plain RRS doesn't work well on monorepos, but [PRRS is able to clearly understand and explain](https://gigamind.dev/context){:target="_blank"} much larger codebases.
+
 Honestly, the approach isn't particularly complex or compute-intensive. The big AI companies could have implemented something like this from the beginning. But they haven't, because it doesn't align with their incentives of getting results for the lowest token costs.
 
 ## Why This Matters 
@@ -112,7 +116,7 @@ The implications go far beyond fixing basic errors. When AI truly understands yo
 
 There's a darker side as well. As AI gets better at understanding codebases, the value of certain types of programming knowledge decreases: the [mid-level programmer](/blog/ai-illiterate-programmers) who primarily translates requirements into code without architectural insight may find themselves increasingly squeezed.
 
-After experimenting with these techniques for several weeks, I eventually packaged them into a tool called [Giga AI](https://gigamind.dev/context). I built it initially to solve my own frustrations, but other developers kept asking to try it after seeing how it changed my workflow. Developers who use Giga report less time spent correcting AI-generated code, are able to ship faster, and feeling less frustrated.
+After experimenting with these techniques for several weeks, I eventually [packaged them into a tool called Giga AI](https://gigamind.dev/context){:target="_blank"}. I built it initially to solve my own frustrations, but other developers kept asking to try it after seeing how it changed my workflow. Developers who use Giga report less time spent correcting AI-generated code, are able to ship faster, and feeling less frustrated.
 
 ## Implementation
 

@@ -22,7 +22,7 @@ But after two years of daily AI coding — from the earliest Cursor version to t
 
 ## Harsh Economies of Code
 
-The industry's embrace of AI makes perfect sense when you follow the money.
+The [industry's embrace of AI](/blog/ai-illiterate-programmers) makes perfect sense when you follow the money.
 
 I learned this lesson from my former engineering manager. We were celebrating after a product launch, and I was complaining about some tech debt.
 
@@ -44,11 +44,11 @@ And this is cold reality pushing AI adoption: businesses don't care if the code 
 
 ## What AI Is Actually Good For
 
-After two years of using AI coding tools extensively, I've found some areas where it truly shines. Here's what I find most useful with AI:
+After [two years of using AI coding tools](/blog/ai-and-learning) extensively, I've found some areas where it truly shines. Here's what I find most useful with AI:
 
 - **Understanding documentation:** I often have to use libraries that are poorly documented. Last sprint I had to use a Python library with the worst imaginable docs: poorly structured and broken search. I pasted that link into Cursor, let it index the docs, and I was able to find precisely what I needed and ask questions around it within seconds. It would've taken hours of trial and error otherwise.
 - **Boilerplate code:** I don't know about you, but writing repetitive framework code feels like the worst kind of drudgery to me. I know why GraphQL resolvers are needed, or how each component needs loading, error, and success states; but I really don't like writing such code myself. Now I let an agentic AI do the grunt work for me, so I can focus on the fun parts.
-- **Error debugging:** In the past, [the only way to debug](/blog/ai-and-learning) was to search the error string, find information across multiple stackoverflow results, and condense it to a useable answer yourself. Now, the AI can do the search _much quicker_ and write customized solutions by understanding our code. Why not enjoy that?
+- **Error debugging:** In the past, the main way to debug was to search the error string, find information across multiple stackoverflow results, and condense it to a useable answer yourself. Now, the AI can do the search _much quicker_ and write customized solutions by understanding our code. Why not enjoy that?
 
 ## What AI fails at
 
@@ -82,7 +82,8 @@ This reality taught me to [combine AI’s speed with my personal quality](/blog/
 If you’re still on the fence, here’s the exact playbook I’ve honed:
 
 * Build your verification instincts. When AI outputs code, I learned to spot the red flags: incorrect library usage, not using existing functions or patterns, incorrect domain knowledge.
-* Operate at the edge of your abilities. Use AI for the mundane stuff (config, boilerplate, standard patterns, typical integrations), then [apply your creativity to the novel problems](/blog/ai-illiterate-programmers) AI can't handle yet.
+* Operate at the edge of your abilities. Use AI for the mundane stuff (config, boilerplate, standard patterns, typical integrations), then apply your creativity to the novel problems AI can't handle yet.
+* Context is all you need. **Always** make sure to give the AI a proper context of your entire codebase. If you give the [correct context, AI can do magical things](/blog/ai-understand-senior-developer). If not, you will get low quality results and will often be frustrated.
 * Ask deliberately. Instead of "implement this feature," I break problems into smaller chunks: "Create the data model for this entity," then "Write the validation logic for these fields," and so on.
 * Deep dive when things break. The best learning happens at failure points. When AI-generated code breaks, that's your cue to really understand the underlying system. Add logs, use the debugger, manually go through each part of the code flow.
 * Keep a "WTF AI" journal. Document every spectacular fail—hallucinated API calls, misnamed types, security oversights. Those failures become your internal library of “don’t let it do that again.” It's therapeutic and surprisingly educational.
