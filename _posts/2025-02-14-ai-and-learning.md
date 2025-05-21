@@ -13,7 +13,6 @@ social_metrics:
   reddit: "2,500+ votes"
   hackernews: "100+ comments"
 is_featured: true
-post_promotion_type: giga-context
 sharer_type: text-and-buttons
 ---
 
@@ -21,7 +20,7 @@ sharer_type: text-and-buttons
 
 We're at this weird inflection point in software development. Every junior dev I talk to has Copilot or Claude or GPT running 24/7. They're shipping code faster than ever. But when I dig deeper into their understanding of what they're shipping? That's where things get concerning.
 
-Sure, the code works, but ask why it works that way instead of another way? Crickets. Ask about edge cases? Blank stares. 
+Sure, the code works, but ask why it works that way instead of another way? Crickets. Ask about edge cases? [Blank stares](/blog/ai-illiterate-programmers). 
 
 The foundational knowledge that used to come from struggling through problems is just... missing.
 
