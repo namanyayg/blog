@@ -6,6 +6,7 @@ categories:
  - ai
 excerpt_separator: <!--more-->
 is_featured: false
+sharer_type: text-and-buttons
 ---
 
 *Is it just me, or are the code generation LLMs we're all using not that good?*
