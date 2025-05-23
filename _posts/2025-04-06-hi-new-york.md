@@ -1,5 +1,5 @@
 ---
-title: "SF vs NYC as a Solo AI Founder"
+title: "SF vs NYC as a AI Founder"
 layout: post
 date: 2025-04-06
 categories:
