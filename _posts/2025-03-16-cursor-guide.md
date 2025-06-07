@@ -1,5 +1,5 @@
 ---
-title: "My Cursor AI Workflow That Actually Works"
+title: "My Cursor AI Workflow That Actually Works in Production"
 layout: post
 date: 2025-03-16
 categories:
@@ -18,19 +18,17 @@ is_featured: false
 
 *Using AI for coding isn't perfect, but it definitely makes me faster.*
 
-I've been coding with Cursor AI since it was launched now while building my SaaS, and I've got some thoughts. 
-
-The internet seems split between "AI coding is a miracle" and "AI coding is garbage." Honestly, it's somewhere in between.
+I've been coding with Cursor AI since it was launched now while building my SaaS. The internet seems split between "AI coding is a miracle" and "AI coding is garbage." Honestly, it's somewhere in between.
 
 Some days Cursor helps me complete tasks in record times. Other days I waste hours fighting its suggestions. 
 
-After learning from my mistakes, I wanted to share what actually works for me as a solo developer.
+After learning from my mistakes, I wanted to share some **cursor workflows** and best practices that actually work in production.
 
 <!--more-->
 
 ## Setting Up a `.cursorrules` File That Actually Helps
 
-The biggest game-changer for me was creating a `.cursorrules` file. It's basically a set of instructions that tells Cursor how to generate code for your specific project.
+The biggest improvement I made was creating a `.cursorrules` file. It's basically a set of instructions that tells Cursor how to generate code for your specific project.
 
 Mine core file is pretty simple &mdash; just about 10 lines covering the most common issues I've encountered. For example, Cursor kept giving comments rather than writing the actual code. One line in my rules file fixed it forever.
 
@@ -46,7 +44,7 @@ Here's what the start of my file looks like:
 
 Don't overthink your rules file. Start small and add to it whenever you notice Cursor making the same mistake twice. You don't need any long or complicated rules, Cursor is using state of the art models and already knows most of what there is to know.
 
-I continue the rest of the "rules" file with a detailed technical overview of my project. I describe what the project is for, how it works, what important files are there, what are the core algorithms used, and any other details depending on the project. I used to do that manually, but now I just [use my own tool to generate it](https://gigamind.dev/). You can do it using Cursor itself, but I just find it faster to have it done for me with one click.
+I continue the rest of the "rules" file with a detailed technical overview of my project. I describe what the project is for, how it works, what important files are there, what are the core algorithms used, and any other details depending on the project. I used to do that manually, but now I just [use my own tool to generate it](https://gigamind.dev/?utm_source=blog&utm_medium=cursor-guide&utm_campaign=cursor-guide). You can do it using Cursor itself, but I just find it faster to have it done for me with one click.
 
 ## Giving Cursor the Context It Needs
 
@@ -56,7 +54,7 @@ Now instead of just asking "Make a dropdown menu component," I say "Make a dropd
 
 This tiny change made the quality of suggestions way better. The AI suddenly "gets" my coding style and project patterns. I don't even have to tell it exactly what to reference &mdash; just pointing it to similar components helps a ton.
 
-For larger projects, you need to start giving it more context. Ask it to create rules files inside `.cursor/rules` folder that explain the code from different angles like backend, frontend, etc. This is such a powerful technique that I created a [Cursor extension to do it automatically](https://gigamind.dev/).
+For larger projects, you need to start giving it more context. Ask it to create rules files inside `.cursor/rules` folder that explain the code from different angles like backend, frontend, etc. This is such a powerful technique that I created a [Cursor extension to do it automatically](https://gigamind.dev/?utm_source=blog&utm_medium=cursor-guide&utm_campaign=cursor-guide).
 
 <!-- newsletter_widget -->
 
@@ -90,4 +88,9 @@ I've found that being specific, [providing context](https://gigamind.dev/), and 
 The key for me has been setting boundaries. Cursor helps me write code faster, but I'm still the one responsible for making sure that code works correctly.
 
 What about you? If you're using Cursor or similar AI tools, I'd love to hear what's working or not working in your workflow.
+
+## Further Reading
+
+* [Cursor workflows in 2025](/blog/building-with-ai?utm_source=blog&utm_medium=cursor-guide&utm_campaign=cursor-guide)
+* [AI Prompt Playbook (Prompts that Work in Production)](/blog/ai-prompt-engineering?utm_source=blog&utm_medium=cursor-guide&utm_campaign=cursor-guide)
 

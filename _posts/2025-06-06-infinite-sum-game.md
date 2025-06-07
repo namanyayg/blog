@@ -6,10 +6,13 @@ categories:
  - ai
  - startups
 excerpt_separator: <!--more-->
-image: /assets/knowledge-is-music.jpg
-twitter_image: /assets/knowledge-is-music.jpg
+image: /blog/assets/knowledge-is-music.jpg
+twitter_image: /blog/assets/knowledge-is-music.jpg
 twitter_card: summary_large_image
 sharer_type: text-and-buttons
+social_metrics:
+  views: "75,000+"
+  reddit: "650+ votes"
 ---
 
 *A mindset shift that changed the way I think about the world*

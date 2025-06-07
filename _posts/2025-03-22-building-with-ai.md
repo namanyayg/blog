@@ -1,5 +1,5 @@
 ---
-title: "Building SaaS Products with AI: What Actually Works"
+title: "Cursor workflows for building SaaS products in 2025"
 layout: post
 date: 2025-03-22
 categories:
