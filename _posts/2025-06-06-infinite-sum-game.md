@@ -14,23 +14,23 @@ sharer_type: text-and-buttons
 
 *A mindset shift that changed the way I think about the world*
 
-Three months ago, if another founder asked me about my marketing strategy, I'd give them some generic  answer and change the subject. Because in India, knowledge is currency. And you don't share it until there's something in it for you.
+In India, knowledge is currency. Three months ago, if another founder asked me about my marketing strategy, I'd give them some generic answer and change the subject. You don't share knowledge until there's something in it for you.
 
-I recently [moved to San Francisco](https://x.com/NamanyayG/status/1928884952420200649). A CTO of a _unicorn_ startup had read one of my blog articles and we started talking over DMs. When I got to SF, I asked him to meet, and _(surprisingly)_ he agreed.
+I recently [moved to San Francisco](https://x.com/NamanyayG/status/1928884952420200649). A CTO of a unicorn startup had read one of my blog articles and we started talking over DMs. When I got to SF, I asked him to meet, and he agreed.
 
-We met in FiDi for a casual lunch. This guy runs the entire company, and he was treating me — a new founder — like an equal. He was openly sharing his experiences, his journey, and his insights. When we were leaving, he offered to help with connections, fundraising, whatever I need. 
+We met in FiDi for a casual lunch. This guy runs the _entire_ company, and he was treating me — a new founder — like an equal. He was openly sharing his experiences, his journey, and his insights. When we were leaving, he offered to help with connections, fundraising, whatever I need. 
 
 He gave me a _full hour_ of his day, just to shoot the breeze like two developers do.
 
 This was nothing like what I was used to. Back in India, a person with even a 100-person office would have an air of arrogance. They'd guard their knowledge and time, only sharing when there was a clear benefit to them.
 
-It was that day that I understood the infinite sum game of SF.
+It was that day that I understood the beautiful "infinite sum game" being played in SF.
 
 <!--more-->
 
 ## India's Zero-Sum Prison
 
-In India, there's a [specific national exam](https://en.wikipedia.org/wiki/Joint_Entrance_Examination) that all of us strive to (talk to any one of your Indian friends and they'll know exactly what I'm talking about.) We are sold a dream from childhood, if we get a good score in this exam, an entire life from career to friendshipss to marriage is a guranteed success. Because of our population, over a million young minds take the exam every year. But there's only so many good colleges, and only the top ten thousand get in. 
+In India, there's a [specific national exam](https://en.wikipedia.org/wiki/Joint_Entrance_Examination) that all of us strive to (talk to any one of your Indian friends and they'll know exactly what I'm talking about.) We are sold a dream from childhood, if we get a good score in this exam, an entire life from career to friendships to marriage is a guranteed success. Because of our population, over a million young minds take the exam every year. But there's only so many good colleges, and only the top ten thousand get in. 
 
 This perverts young minds. We're taught to hide knowledge because _everyone_ is competing against you. Your goal was _always_ to be smarter, faster, better — with resources you don't tell people about, tutors you don't share, study schedules you keep to yourself.
 
