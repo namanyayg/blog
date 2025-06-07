@@ -6,9 +6,9 @@ categories:
  - ai
  - cursor
 excerpt_separator: <!--more-->
-# image: /assets/ai-and-learning-meta.jpg
-# twitter_image: /assets/ai-and-learning-meta.jpg
-# twitter_card: summary_large_image
+image: /blog/assets/cursor-banner.png
+twitter_image: /blog/assets/cursor-banner.png
+twitter_card: summary_large_image
 social_metrics:
   views: "150,000"
   reddit: "480+ votes"
@@ -91,6 +91,8 @@ What about you? If you're using Cursor or similar AI tools, I'd love to hear wha
 
 ## Further Reading
 
-* [Cursor workflows in 2025](/blog/building-with-ai?utm_source=blog&utm_medium=cursor-guide&utm_campaign=cursor-guide)
+* [The Day I taught AI to think like a Senior Developer](/blog/ai-understand-senior-developer?utm_source=blog&utm_medium=cursor-guide&utm_campaign=cursor-guide)
+* [Context, Structure, Organization: Framework for AI-powered Development](/blog/ai-dev-tips?utm_source=blog&utm_medium=cursor-guide&utm_campaign=cursor-guide)
 * [AI Prompt Playbook (Prompts that Work in Production)](/blog/ai-prompt-engineering?utm_source=blog&utm_medium=cursor-guide&utm_campaign=cursor-guide)
-
+* [Security Checklist & Prompts for Cursor Vibe Coders](/blog/vibe-security-checklist?utm_source=blog&utm_medium=cursor-guide&utm_campaign=cursor-guide)
+* [Cursor Workflows to build SaaS products in 2025](/blog/building-with-ai?utm_source=blog&utm_medium=cursor-guide&utm_campaign=cursor-guide)

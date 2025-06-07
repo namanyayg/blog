@@ -102,3 +102,12 @@ Let's embrace that acceleration while rejecting the fantasy that we can outsourc
 Not just vibes. Vibes *plus* knowledge.
 
 That's how we build things that last.
+
+## Further Reading
+
+* [The Day I taught AI to think like a Senior Developer](/blog/ai-understand-senior-developer?utm_source=blog&utm_medium=vibe-coding-fantasy&utm_campaign=vibe-coding-fantasy)
+* [My Cursor AI Workflow That Actually Works in Production](/blog/cursor-guide?utm_source=blog&utm_medium=vibe-coding-fantasy&utm_campaign=vibe-coding-fantasy)
+* [Context, Structure, Organization: Framework for AI-powered Development](/blog/ai-dev-tips?utm_source=blog&utm_medium=vibe-coding-fantasy&utm_campaign=vibe-coding-fantasy)
+* [AI Prompt Playbook (Prompts that Work in Production)](/blog/ai-prompt-engineering?utm_source=blog&utm_medium=vibe-coding-fantasy&utm_campaign=vibe-coding-fantasy)
+* [Security Checklist & Prompts for Cursor Vibe Coders](/blog/vibe-security-checklist?utm_source=blog&utm_medium=vibe-coding-fantasy&utm_campaign=vibe-coding-fantasy)
+* [Cursor Workflows to build SaaS products in 2025](/blog/building-with-ai?utm_source=blog&utm_medium=vibe-coding-fantasy&utm_campaign=vibe-coding-fantasy)

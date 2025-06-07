@@ -21,15 +21,32 @@
 title: N’s Blog
 email: hi@nmn.gl
 description: Thoughts on AI, startups, and life by Namanyay.
+tagline: Thoughts on AI, startups, and life by Namanyay.
 baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "https://nmn.gl" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: namanyayg
 github_username:  namanyayg
 
+author: namanyayg
+
+twitter:
+  username: namanyayg
+  card: summary
+
+logo: /blog/favicon.png
+
+social:
+  name: "Namanyay Goel"
+  links:
+    - "https://x.com/namanyayg"
+    - "https://www.linkedin.com/in/namanyayg/"
+    - "https://github.com/namanyayg"
+
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
 # Code syntax highlighting
 markdown: kramdown
