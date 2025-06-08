@@ -11,8 +11,8 @@ twitter_image: /blog/assets/knowledge-is-music.jpg
 twitter_card: summary_large_image
 sharer_type: text-and-buttons
 social_metrics:
-  views: "200,000+"
-  reddit: "1500+ votes"
+  views: "220,000+"
+  reddit: "1700+ votes"
 ---
 
 *A mindset shift that changed the way I think about the world*
