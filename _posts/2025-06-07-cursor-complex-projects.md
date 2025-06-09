@@ -6,6 +6,9 @@ categories:
  - ai
  - startups
 excerpt_separator: <!--more-->
+social_metrics:
+  views: "20,000+"
+  reddit: "75+ votes"
 ---
 
 Social media is full of people showing off their perfect little demo apps claiming AI is revolutionary, meanwhile, AI keeps suggesting fixes for files that don't exist or rewrites working code into broken messes.
