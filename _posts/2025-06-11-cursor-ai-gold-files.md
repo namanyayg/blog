@@ -7,8 +7,8 @@ categories:
  - startups
  - ai-in-sf
 excerpt_separator: <!--more-->
-image: /assets/ai-gold-standard-files.jpg
-twitter_image: /assets/ai-gold-standard-files.jpg
+image: /assets/ai-gold-standard-files.jpg?v=2
+twitter_image: /assets/ai-gold-standard-files.jpg?v=2
 twitter_card: summary_large_image
 sharer_type: text-and-buttons
 
@@ -34,7 +34,7 @@ For a typical backend API following a controller-service pattern, you'd maintain
 The key insight: **don't let AI guess what good code looks like. Show it explicitly.**
 
 <figure>
-  <img src="{{ '/assets/ai-gold-standard-files.jpg' | relative_url }}" alt="AI Gold Standard Files" />
+  <img src="{{ '/assets/ai-gold-standard-files.jpg?v=2' | relative_url }}" alt="AI Gold Standard Files" />
 </figure>
 
 ## Setting Up Your Rules File
