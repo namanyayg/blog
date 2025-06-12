@@ -11,7 +11,9 @@ image: /assets/ai-gold-standard-files.jpg?v=2
 twitter_image: /assets/ai-gold-standard-files.jpg?v=2
 twitter_card: summary_large_image
 sharer_type: text-and-buttons
-
+social_metrics:
+  views: "70,000+"
+  reddit: "250+ votes"
 ---
 
 *This is a part of my "AI in SF" series, where I share real AI engineering workflows of SF startups. I recently interviewed an engineer from [Pallet](https://www.pallet.com/) (they're hiring - more on that at the end). Here's an insight that will make your AI-generated code better.*
