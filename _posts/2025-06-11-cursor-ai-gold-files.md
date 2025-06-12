@@ -60,6 +60,8 @@ Use our existing utilities instead of writing new ones.
 - Share with your team: Treat .cursorrules like a .gitignore - everyone should use the same standards.
 - Don't over-provide context: Too many instructions confuse AI. Focus on your most important patterns.
 
+I made something that does all of this for you automatically. If you're interested, [give it a try](https://gigamind.dev/).
+
 ## What Actually Changes
 
 The transformation is immediate. Code reviews become faster because AI-generated code follows your established patterns instead of random internet examples. New code consistently looks like it was written by your senior engineers, not pulled from different tutorials. Junior developers start absorbing good patterns from AI-generated examples, accelerating their learning curve.
