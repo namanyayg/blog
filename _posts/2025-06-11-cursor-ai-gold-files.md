@@ -91,7 +91,7 @@ This isn't revolutionary AI technology. It's just good engineering: showing tool
 
 ## Further Reading
 
-* [My Cursor AI Workflow That Actually Works in Production](/blog/cursor-guide?utm_source=blog&utm_medium=cursor-complex-projects&utm_campaign=cursor-complex-projects)
-* [Context, Structure, Organization: Framework for AI-powered Development](/blog/ai-dev-tips?utm_source=blog&utm_medium=cursor-complex-projects&utm_campaign=cursor-complex-projects)
-* [The day I taught AI to think like a Senior Developer](/blog/ai-understand-senior-developer?utm_source=blog&utm_medium=cursor-complex-projects&utm_campaign=cursor-complex-projects)
-* [AI Prompt Playbook (Prompts that Work in Production)](/blog/ai-prompt-engineering?utm_source=blog&utm_medium=cursor-complex-projects&utm_campaign=cursor-complex-projects)
+* [My Cursor AI Workflow That Actually Works in Production](/blog/cursor-guide?utm_source=blog&utm_medium=cursor-ai-gold-files&utm_campaign=cursor-ai-gold-files)
+* [Context, Structure, Organization: Framework for AI-powered Development](/blog/ai-dev-tips?utm_source=blog&utm_medium=cursor-ai-gold-files&utm_campaign=cursor-ai-gold-files)
+* [The day I taught AI to think like a Senior Developer](/blog/ai-understand-senior-developer?utm_source=blog&utm_medium=cursor-ai-gold-files&utm_campaign=cursor-ai-gold-files)
+* [AI Prompt Playbook (Prompts that Work in Production)](/blog/ai-prompt-engineering?utm_source=blog&utm_medium=cursor-ai-gold-files&utm_campaign=cursor-ai-gold-files)
