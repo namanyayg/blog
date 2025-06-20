@@ -51,7 +51,7 @@ My AI is finally able to remember my preferences, and it uses them to make bette
 If you're tired of the hamster wheel, here's what actually works:
 
 * Question the reset. Why are you starting fresh every time? Your conversation history is data. Your corrections are training examples. Your preferences are valuable.
-* Build incremental context. Instead of massive context dumps, add one new piece of information per conversation. Let the AI learn gradually, like a human would. (Since Giga is still in private beta, you'll have to do this manually for now.)
+* Build incremental context. Instead of massive context dumps, add one new piece of information per conversation. Let the AI learn gradually, like a human would.
 * Think in systems, not conversations. Individual AI chats are tactics. Building persistent AI knowledge is strategy.
 
 ## The Path Forward
