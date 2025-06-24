@@ -12,7 +12,6 @@ social_metrics:
   views: "1,250,000"
   reddit: "3,500+ votes"
   hackernews: "100+ comments"
-is_featured: true
 sharer_type: text-and-buttons
 ---
 

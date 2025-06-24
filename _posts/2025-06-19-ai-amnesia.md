@@ -1,5 +1,5 @@
 ---
-title: "We're Using AI Wrong and It's Making Us Stupid"
+title: "There's a Better Way to Code with AI"
 layout: post
 date: 2025-06-19
 categories:
@@ -7,6 +7,7 @@ categories:
  - startups
 excerpt_separator: <!--more-->
 post_promotion_type: hidden
+is_featured: true
 ---
 
 Every developer I know has the same frustrating ritual. Open Claude Code or Cursor and ask it to do a task. The AI gives you generic code, sometimes useful (but usually not). You correct it. It apologizes. You explain again, with additional context. 
