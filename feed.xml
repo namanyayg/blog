@@ -5,6 +5,7 @@ layout: null
 <feed xmlns="http://www.w3.org/2005/Atom" 
       xmlns:media="http://search.yahoo.com/mrss/"
       xmlns:social="http://namanyayg.com/social-metrics/1.0"
+      xmlns:meta="http://namanyayg.com/content-metadata/1.0"
       {% if site.lang %}xml:lang="{{ site.lang }}"{% endif %}>
   <generator uri="https://jekyllrb.com/" version="{{ jekyll.version }}">Jekyll</generator>
   <link href="{{ '/feed.xml' | absolute_url }}" rel="self" type="application/atom+xml" />
@@ -38,9 +39,9 @@ layout: null
     {% assign posts = posts | where_exp: "post", "post.draft != true" %}
   {% endunless %}
   {% assign posts = posts | sort: "date" | reverse %}
-  {% assign posts_limit = site.feed.posts_limit | default: 100 %}
+  {% assign posts_limit = site.feed.posts_limit | default: 50 %}
   {% for post in posts limit: posts_limit %}
-    <entry{% if post.lang %}{{" "}}xml:lang="{{ post.lang }}"{% endif %}>
+    <entry{% if post.lang %}{{" "}}xml:lang="{{ post.lang }}"{% endif %}{% if post.is_featured %} meta:is_featured="true"{% endif %}>
       {% assign post_title = post.title | smartify | strip_html | normalize_whitespace | xml_escape %}
 
       <title type="html">{{ post_title }}</title>
