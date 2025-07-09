@@ -1,7 +1,7 @@
 ---
 title: "I learnt the Infinite Sum Game on moving to SF from India & I can't stop playing"
 layout: post
-date: 2025-06-06
+date: 2025-08-06
 categories:
  - ai
  - startups
