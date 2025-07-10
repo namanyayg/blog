@@ -45,6 +45,7 @@ GEM
       logger
     faraday-net_http (3.4.0)
       net-http (>= 0.5.0)
+    ffi (1.17.1-arm64-darwin)
     ffi (1.17.1-x64-mingw-ucrt)
     forwardable-extended (2.6.0)
     gemoji (4.1.0)
@@ -55,6 +56,7 @@ GEM
       jekyll-coffeescript (= 1.2.2)
       jekyll-commonmark-ghpages (= 0.5.1)
       jekyll-default-layout (= 0.1.5)
+      jekyll-feed (= 0.17.0)
       jekyll-gist (= 1.5.0)
       jekyll-github-metadata (= 2.16.1)
       jekyll-include-cache (= 0.2.1)
@@ -134,7 +136,6 @@ GEM
       rouge (>= 2.0, < 5.0)
     jekyll-default-layout (0.1.5)
       jekyll (>= 3.0, < 5.0)
-      jekyll (>= 3.7, < 5.0)
     jekyll-feed (0.17.0)
       jekyll (>= 3.7, < 5.0)
     jekyll-gist (1.5.0)
@@ -234,6 +235,8 @@ GEM
     minitest (5.25.4)
     net-http (0.6.0)
       uri
+    nokogiri (1.18.1-arm64-darwin)
+      racc (~> 1.4)
     nokogiri (1.18.1-x64-mingw-ucrt)
       racc (~> 1.4)
     octokit (4.25.1)
@@ -270,10 +273,10 @@ GEM
       tzinfo (>= 1.0.0)
     unicode-display_width (1.8.0)
     uri (1.0.2)
-    wdm (0.2.0)
     webrick (1.9.1)
 
 PLATFORMS
+  arm64-darwin-24
   x64-mingw-ucrt
 
 DEPENDENCIES
@@ -285,7 +288,6 @@ DEPENDENCIES
   minima (~> 2.5)
   tzinfo (>= 1, < 3)
   tzinfo-data
-  wdm (>= 0.1.0)
   webrick (~> 1.8)
 
 BUNDLED WITH

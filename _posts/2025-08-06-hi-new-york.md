@@ -1,7 +1,7 @@
 ---
 title: "SF vs NYC as a AI Founder"
 layout: post
-date: 2025-04-06
+date: 2025-08-06
 categories:
  - life
 excerpt_separator: <!--more-->
