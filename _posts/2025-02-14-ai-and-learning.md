@@ -5,8 +5,8 @@ date: 2025-02-14
 categories:
  - ai
 excerpt_separator: <!--more-->
-image: /assets/ai-and-learning-meta.jpg
-twitter_image: /assets/ai-and-learning-meta.jpg
+image: /assets/ai-and-learning.jpg
+twitter_image: /assets/ai-and-learning.jpg
 twitter_card: summary_large_image
 social_metrics:
   views: "1,000,000"

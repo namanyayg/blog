@@ -1,5 +1,5 @@
 ---
-title: "Uncomfortably simple secrets to building anything great"
+title: "Lessons learnt in my journey to achieve greatness"
 layout: post
 date: 2025-07-16
 categories:
@@ -10,11 +10,9 @@ post_promotion_type: hidden
 is_featured: true
 ---
 
-I celebrate another revolution around the great big ball of fire today. 
+I celebrate another revolution around the great big ball of fire today. This was a big year for me: I founded my first product startup, all solo.
 
-This year, I got to SF and founded my first product startup, all solo. 
-
-I'm doing something really hard but I realize I've never written down my guiding principles. This article is mostly a reminder for me: _on what it takes to achieve greatness._
+I'm doing something really hard but I realize I've never written down my guiding principles about _why_ I do this. This article is mostly a reminder for me: _on what it takes to achieve greatness._
 
 Here's what I've learned so far:
 
@@ -93,3 +91,5 @@ The world doesn't need another perfect product. It needs what happens when you c
 So go be weird. Go fail. Go build something only you would build.
 
 We're all waiting to see what you come up with.
+
+<!-- newsletter_widget -->
