@@ -581,6 +581,11 @@ table {
   // Ensure proper containment within post content
   box-sizing: border-box;
   
+  // Hover flip effect
+  &:hover .figure-flippable__container {
+    transform: rotateY(180deg);
+  }
+  
   // Responsive adjustments
   @include media-query($on-palm) {
     margin: 1.5rem 0;
