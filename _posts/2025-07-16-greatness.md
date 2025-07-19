@@ -1,5 +1,5 @@
 ---
-title: "Lessons learnt in my journey to achieve greatness"
+title: "Lessons from my journey to become the founder I wish I'd met earlier"
 layout: post
 date: 2025-07-16
 categories:
@@ -8,6 +8,10 @@ categories:
 excerpt_separator: <!--more-->
 post_promotion_type: hidden
 is_featured: true
+image: /assets/namanyay-anime-style-dolores-park.png?v=2
+twitter_image: /assets/namanyay-anime-style-dolores-park.png?v=2
+twitter_card: summary_large_image
+sharer_type: text-and-buttons
 ---
 
 I celebrate another revolution around the great big ball of fire today. This was a big year for me: I founded my first product startup, all solo.
@@ -15,6 +19,11 @@ I celebrate another revolution around the great big ball of fire today. This was
 I'm doing something really hard but I realize I've never written down my guiding principles about _why_ I do this. This article is mostly a reminder for me: _on what it takes to achieve greatness._
 
 Here's what I've learned so far:
+
+<figure>
+  <img src="{{ '/assets/namanyay-anime-style-dolores-park.png' | relative_url }}" alt="Namanyay (Stylized) in Dolores Park" />
+  <figcaption>My favorite view of San Francisco: the legendary Dolores Park MUNI Station</figcaption>
+</figure>
 
 <!--more-->
 
