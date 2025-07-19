@@ -6,12 +6,10 @@ categories:
  - life
  - startups
 excerpt_separator: <!--more-->
-post_promotion_type: hidden
 is_featured: true
 image: /assets/namanyay-anime-style-dolores-park.png?v=2
 twitter_image: /assets/namanyay-anime-style-dolores-park.png?v=2
 twitter_card: summary_large_image
-sharer_type: text-and-buttons
 ---
 
 I celebrate another revolution around the great big ball of fire today. This was a big year for me: I founded my first product startup, all solo.
@@ -20,8 +18,17 @@ I'm doing something really hard but I realize I've never written down my guiding
 
 Here's what I've learned so far:
 
-<figure>
-  <img src="{{ '/assets/namanyay-anime-style-dolores-park.png' | relative_url }}" alt="Namanyay (Stylized) in Dolores Park" />
+<figure class="figure-flippable">
+  <div class="figure-flippable__container">
+    <div class="figure-flippable__face figure-flippable__face--front">
+      <img class="figure-flippable__image" src="{{ '/assets/namanyay-anime-style-dolores-park.png' | relative_url }}" alt="Namanyay (Stylized) in Dolores Park" />
+      <button class="figure-flippable__toggle-button">Show Original</button>
+    </div>
+    <div class="figure-flippable__face figure-flippable__face--back">
+      <img class="figure-flippable__image" src="{{ '/assets/namanyay-dolores-park.jpg' | relative_url }}" alt="Namanyay in Dolores Park" />
+      <button class="figure-flippable__toggle-button">Show Stylized</button>
+    </div>
+  </div>
   <figcaption>My favorite view of San Francisco: the legendary Dolores Park MUNI Station</figcaption>
 </figure>
 
