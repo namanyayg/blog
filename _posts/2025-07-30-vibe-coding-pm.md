@@ -1,5 +1,5 @@
 ---
-title: "Vibe Coding for Product Managers: Stop Prototyping, Start Building"
+title: "Vibe Coding for Product Managers: Stop Writing, Start Building"
 layout: post
 date: 2025-07-30
 categories:
