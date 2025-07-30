@@ -5,7 +5,7 @@ date: 2025-07-30
 categories:
  - startups
 excerpt_separator: <!--more-->
-is_syndicated: false
+prevent_syndication: true
 ---
 
 The most successful startup I've worked with shipped their MVP in 6 weeks. 
