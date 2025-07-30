@@ -14,6 +14,8 @@ The least successful one spent 4 months writing specs for a product that never l
 
 Here's what I've learned after helping dozens of teams transition from traditional planning to AI-powered development: writing-first culture made sense when building was expensive and slow. Now it's just _bureaucracy_.
 
+<!--more-->
+
 ## The Old Rules Don't Apply
 
 Traditional product development assumed a simple truth—building costs more than planning. You had to get the requirements right because changing code later meant weeks of developer time. So we created elaborate rituals: PRDs, wireframes, stakeholder reviews, more PRDs.
