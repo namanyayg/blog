@@ -1,7 +1,7 @@
 ---
 title: "I learnt the Infinite Sum Game on moving to SF from India & I can't stop playing"
 layout: post
-date: 2025-08-06
+date: 2025-09-12
 categories:
  - ai
  - startups
@@ -13,6 +13,7 @@ sharer_type: text-and-buttons
 social_metrics:
   views: "500,000+"
   reddit: "3000+ votes"
+prevent_syndication: true
 ---
 
 *A mindset shift that changed the way I think about the world*

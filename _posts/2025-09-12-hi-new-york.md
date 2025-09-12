@@ -1,14 +1,15 @@
 ---
 title: "SF vs NYC as a AI Founder"
 layout: post
-date: 2025-08-06
+date: 2025-09-12
 categories:
  - life
 excerpt_separator: <!--more-->
 is_featured: false
+prevent_syndication: true
 ---
 
-Last week, I moved to New York and joined the [Recurse Center](https://www.recurse.com/){:target="_blank"}. 
+Some months ago, I visited New York and joined the [Recurse Center](https://www.recurse.com/){:target="_blank"}. 
 
 This is after being in San Francisco for a month, staying next to the Embarcadero and attending [On Deck Founders](https://www.joinodf.com/){:target="_blank"}.
 
