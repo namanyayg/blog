@@ -301,12 +301,6 @@
 
 /** Promotional widget */
 
-.post-promotion {
-  border-top: 1px solid rgba(227, 227, 227, 0.8);
-  padding-top: 24px;
-  margin-top: 24px;
-}
-
 .promotional-widget {
   background: linear-gradient(120deg, rgb(249, 250, 251) 0%, rgb(252, 253, 254) 100%);
   border: 1px solid rgba(227, 227, 227, 0.8);
@@ -607,7 +601,6 @@ figcaption {
 // Author callout
 .author-callout {
   margin: 2rem 0;
-  padding: 1rem;
   border: 1px solid #e1e4e8;
   border-radius: 6px;
   background-color: #f8f9fa;
@@ -618,6 +611,7 @@ figcaption {
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  overflow: hidden;
 
   @media (max-width: 30rem) {
     flex-direction: column;
@@ -629,6 +623,32 @@ figcaption {
   width: 80px;
   height: 80px;
   border-radius: 50%;
+}
+
+.link--special {
+  text-decoration: underline;
+}
+.author-image-full {
+  transform: flipY(180deg);
+  /* Fade effect towards the right side */
+  position: relative;
+  overflow: hidden;
+  max-width: 40%;
+  padding-left: 1em;
+
+  &::after {
+    z-index: 99;
+    content: "";
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 4em;
+    pointer-events: none;
+    background: linear-gradient(to right, transparent, #f8f9fa 90%);
+  }
+}
+
+.author-content {
+  padding: 1rem;
 }
 
 .author-callout p {
@@ -751,25 +771,15 @@ figcaption {
 }
 
 .post-share {
-  margin: $spacing-unit 0;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  gap: .75em;
-
-  a {
-    @extend .solid-button;
-  }
-
+  margin-top: 1em;
   .share-button {
+    margin-top: .5em;
+    @extend .solid-button;
     --button-color: #14b860;
   }
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: .5em;
+  svg {
+    position: relative;
+    top: -1px;
   }
 }

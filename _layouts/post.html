@@ -72,39 +72,37 @@ layout: default
     {% else %}
       {{ content }}
     {% endif %}
+    
     {% assign sharer_type = page.sharer_type | default: 'buttons' %}
-    {% if sharer_type == 'text-and-buttons' or sharer_type == 'text' %}
-      <strong>If you found this post useful, </strong>please consider <a href="javascript:void(0)" onclick="sharePost()">sharing it with your friends and colleagues</a>. Your support is my biggest motivation.
-    {% endif %}
-
     {% assign post_promotion_type = page.post_promotion_type | default: 'giga-context' %}
-    {% if post_promotion_type != 'hidden' %}
-      {% if post_promotion_type == 'giga-reviewer' %}
-        <p class="post-promotion">P.S. I made an AI code reviewer that saves 15 hours/week per developer. Used by developers & teams worldwide. <a href="https://gigamind.dev/code-reviewer?utm_source=blog&utm_medium=post&utm_campaign=post-promotion&utm_content={{ page.title | url_encode }}&utm_term={{ page.url | url_encode }}">Check out Giga AI</a>.</p>
-      {% else %}
-        <p class="post-promotion">P.S. AI makes mistakes. I'm fixing that and making AI smarter. Loved by engineers from Google, Uber, and more. <a href="https://gigamind.dev/?utm_source=blog&utm_medium=post&utm_campaign=post-promotion&utm_content={{ page.title | url_encode }}&utm_term={{ page.url | url_encode }}">Check out Giga AI</a>.</p>
-      {% endif %}
-    {% endif %}
+    
+    <footer class="author-callout">
+      <img
+        src="{{ '/assets/202507-namanyay-interview.jpg' | relative_url }}"
+        alt="Namanyay Goel"
+        class="author-image-full"
+      >
+      <div class="author-content">
+        <p><em>Hey, thanks for reading so far!</em></p>
+        <p>Hi there, I&rsquo;m <strong>Namanyay</strong>. I've consulted startups on building great products for over ten years. I write about technology, startups, and AI, <a href="https://x.com/namanyayg" target="_blank" rel="noopener">often on X.</a></p>
+        {% if post_promotion_type != 'hidden' %}
+          <p class="post-promotion">I recently moved to San Francisco to help developers  <strong>ship faster & write higher quality code</strong>. My tool is used by thousands, including engineers from Google and Uber. <a href="https://gigamind.dev/?utm_source=blog&utm_medium=post&utm_campaign=post-promotion&utm_content={{ page.title | url_encode }}&utm_term={{ page.url | url_encode }}" class="link--special"><strong>Learn more about Giga AI</strong></a>.</p>
+        {% endif %}
+      
+        <div class="post-share">
+          <strong>If you enjoyed this post, </strong>please consider sharing it with your friends and colleagues. Your support motivates me: 
+          <div class="share-button-container">
+            <a href="javascript:void(0)" onclick="sharePost()" class="share-button">
+              <svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
+              <span>Share this post</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 
   <div class="post-footer">
-    <div class="post-share">
-      <a href="javascript:void(0)" onclick="sharePost()" class="share-button">
-        <svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
-        <span>Share this post</span>
-      </a>
-      <a href="https://x.com/namanyayg" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        <span>Find me on Twitter</span>
-      </a>
-    </div>
-    <div class="author-callout">
-      <img src="{{ '/assets/namanyay-goel.png' | relative_url }}" alt="Namanyay Goel" class="author-image">
-      <div class="author-content">
-        <p>Hi, I&rsquo;m <strong>Namanyay</strong> &mdash; consulted startups for 10 years, now building the context layer for AI.</p>
-        <p>I write about technology, startups, and the future of work. <a href="https://x.com/namanyayg" target="_blank" rel="noopener">Find me on X</a>.</p>
-      </div>
-    </div>
     {% if age > 13 %}
       <div class="post-navigation">
         {% if page.previous %}
@@ -120,12 +118,6 @@ layout: default
       </div>
     {% endif %}
   </div>
-
-
-
-  {%- if site.disqus.shortname -%}
-  {%- include disqus_comments.html -%}
-  {%- endif -%}
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
   {% include newsletter_popup.html %}
