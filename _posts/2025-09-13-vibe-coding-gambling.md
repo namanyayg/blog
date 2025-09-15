@@ -1,5 +1,5 @@
 ---
-title: "Vibe Coding Is Making Braindead Coders"
+title: "Vibe Coding Is Making Us All Dumber"
 layout: post
 date: 2025-09-13
 categories:
