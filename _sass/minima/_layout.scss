@@ -613,9 +613,33 @@ figcaption {
   gap: 1rem;
   overflow: hidden;
 
+  @media (max-width: 50em) {
+    max-width: 100%;
+
+    .author-image-full {
+      max-width: 60%;
+    }
+
+    .author-content {
+      max-width: 100%;
+    }
+  }
+
   @media (max-width: 30rem) {
     flex-direction: column;
     align-items: center;
+
+    .author-image-full {
+      width: 100%;
+      max-width: 18em;
+      min-width: 0;
+      height: auto;
+      padding-left: 0;
+      padding-right: 0;
+      margin-left: -1rem;
+      margin-right: -1rem;
+      display: block;
+    }
   }
 }
 
@@ -629,8 +653,6 @@ figcaption {
   text-decoration: underline;
 }
 .author-image-full {
-  transform: flipY(180deg);
-  /* Fade effect towards the right side */
   position: relative;
   overflow: hidden;
   max-width: 40%;
