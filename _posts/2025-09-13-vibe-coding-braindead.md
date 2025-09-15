@@ -1,11 +1,12 @@
 ---
-title: "Vibe Coding Is Creating Degenerate Gamblers"
+title: "Vibe Coding Is Making Braindead Coders"
 layout: post
 date: 2025-09-13
 categories:
  - ai
  - startups
 excerpt_separator: <!--more-->
+redirect_from: /vibe-coding-gambling
 # image: /assets/knowledge-is-music.png
 # twitter_image: /assets/knowledge-is-music.png
 # twitter_card: summary_large_image
