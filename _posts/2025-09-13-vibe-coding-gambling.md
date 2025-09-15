@@ -28,7 +28,7 @@ If this is happening to me, someone who learned to code in the pre-AI era, **wha
 At the age of 16, alone in my room in New Delhi, I was completely obsessed with this problem. Want to try solving this with me?
 
 <figure>
-  <img src="{{ '/assets/euler-lattice-paths.png' | relative_url }}" alt="Project Euler 'Lattice Paths' problem" style="max-width: 30em">
+  <img src="{{ '/assets/euler-lattice-paths.png' | relative_url }}" alt="Project Euler 'Lattice Paths' problem" style="max-width: 30em; width: 100%;">
 </figure>
 
 
@@ -61,7 +61,7 @@ A few months ago I was dealing with some gnarly state management bug. Of course,
 Then (and this is the part where it starts to go wrong) _I alt-tab to Twitter while it thinks._
 
 <figure>
-  <img src="{{ '/assets/xkcd-ai-generating.webp' | relative_url }}" alt="XKCD `AI Generating`" style="max-width: 30em">
+  <img src="{{ '/assets/xkcd-ai-generating.webp' | relative_url }}" alt="XKCD `AI Generating`" style="max-width: 30em; width: 100%;">
   <figcaption>
     There's always a relevant XKCD... but this is a revision of 
     <a href="https://xkcd.com/303/" target="_blank">Compiling</a>, 
