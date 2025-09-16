@@ -10,8 +10,8 @@ excerpt_separator: <!--more-->
 # twitter_image: /assets/knowledge-is-music.png
 # twitter_card: summary_large_image
 social_metrics:
-#   views: "500,000+"
-  reddit: "200+ votes"
+  views: "100,000+"
+  reddit: "400+ votes"
 # prevent_syndication: true
 ---
 
