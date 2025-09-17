@@ -6,9 +6,9 @@ categories:
  - ai
  - startups
 excerpt_separator: <!--more-->
-# image: /assets/knowledge-is-music.png
-# twitter_image: /assets/knowledge-is-music.png
-# twitter_card: summary_large_image
+image: /assets/vibe-coding-gambling.png
+twitter_image: /assets/vibe-coding-gambling.png
+twitter_card: summary_large_image
 social_metrics:
   views: "150,000+"
   reddit: "400+ votes"
