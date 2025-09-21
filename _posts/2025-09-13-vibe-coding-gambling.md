@@ -10,8 +10,8 @@ image: /assets/vibe-coding-gambling.png
 twitter_image: /assets/vibe-coding-gambling.png
 twitter_card: summary_large_image
 social_metrics:
-  views: "350,000+"
-  reddit: "1000+ votes"
+  views: "500,000+"
+  reddit: "1900+ votes"
 # prevent_syndication: true
 ---
 
