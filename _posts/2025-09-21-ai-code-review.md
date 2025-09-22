@@ -86,6 +86,16 @@ It builds on my previous work helping [AI understand codebases](https://nmn.gl/b
 
 When you ask AI to add user notifications, it notices if AI is bypassing your existing `User` service. When AI writes new database queries, it checks if similar functionality already exists. **When patterns start diverging, you know immediately.**
 
+It's also tuned to focus specifically on the kind of mistakes that AI generated code makes: issues of repetition, misusing existing code, and architectural problems. Here's an example of what that looks like:
+
+
+<figure>
+  <img src="{{ '/assets/giga-review.png' | relative_url }}" alt="Giga IDE Review" style="max-width: 30em; width: 100%;">
+  <figcaption>
+    With Giga, it's easy to review AI generated code right inside your IDE.
+  </figcaption>
+</figure>
+
 If you've been facing this same problem of AI-generated tech debt, you might like what I made—[Learn more about Giga&nbsp;AI](https://gigamind.dev/?utm_source=blog&utm_medium=ai-code-review&utm_campaign=ai-code-review&utm_content=inline).
 
 ## The Other Side
