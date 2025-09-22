@@ -33,23 +33,51 @@ layout: default
 {% endif %}
 
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <meta itemprop="headline" content="{{ page.title | escape }}">
+  <meta itemprop="description" content="{{ page.excerpt | strip_html | truncate: 160 }}">
+  <meta itemprop="url" content="{{ page.url | absolute_url }}">
+  <meta itemprop="dateModified" content="{{ page.last_modified_at | default: page.date | date_to_xmlschema }}">
+  <meta itemprop="publisher" itemscope itemtype="http://schema.org/Organization" content="N's Blog">
+  <div itemprop="publisher" itemscope itemtype="http://schema.org/Organization" style="display: none;">
+    <meta itemprop="name" content="N's Blog">
+    <meta itemprop="url" content="https://nmn.gl/blog">
+    <div itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <meta itemprop="url" content="https://nmn.gl/blog/favicon.png">
+    </div>
+  </div>
+  {% if page.image %}
+  <meta itemprop="image" content="{{ page.image | absolute_url }}">
+  {% endif %}
 
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
     {% include social_metrics.html %}
-    <p class="post-meta"></p>
-      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+    <div class="post-meta" style="display: none;">
+      <div class="post-author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-author h-card" itemprop="name">Namanyay Goel</span>
+        <meta itemprop="url" content="https://nmn.gl">
+        <meta itemprop="image" content="https://nmn.gl/blog/assets/202507-namanyay-interview.jpg">
+        <meta itemprop="jobTitle" content="Software Engineer & Entrepreneur">
+        <meta itemprop="worksFor" content="Giga AI">
+        <meta itemprop="sameAs" content="https://x.com/namanyayg">
+        <meta itemprop="sameAs" content="https://www.linkedin.com/in/namanyayg/">
+        <meta itemprop="sameAs" content="https://github.com/namanyayg">
+      </div>
+    </div>
+  </header>
+
+  <div class="post-author-simple">
+    <img src="https://gigamind.dev/namanyay_goel_2025.jpg" alt="Namanyay Goel" class="author-avatar">
+    <div class="author-info">
+      <div class="author-byline">
+        By <a href="#author-callout" onclick="scrollToAuthor(event)" class="author-link">Namanyay Goel</a>
+      </div>
+      <time class="dt-published post-date" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
         {{ page.date | date: "%b %-d %Y" }}
       </time>
-    </p>
-    <p class="post-meta" style="display: none;">
-      <span class="post-author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span class="p-author h-card" itemprop="name">
-          Namanyay Goel
-        </span>
-      </span>
-    </p>
-  </header>
+    </div>
+    <button onclick="showSubscribePopup(); return false;" class="subscribe-btn" id="subscribe-button">Subscribe</button>
+  </div>
 
   <footer>
     {% if age <= 13 %}
@@ -76,7 +104,7 @@ layout: default
     {% assign sharer_type = page.sharer_type | default: 'buttons' %}
     {% assign post_promotion_type = page.post_promotion_type | default: 'giga-context' %}
     
-    <footer class="author-callout">
+    <footer id="author-callout" class="author-callout">
       <img
         src="{{ '/assets/202507-namanyay-interview.jpg' | relative_url }}"
         alt="Namanyay Goel"
@@ -118,4 +146,5 @@ layout: default
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
   {% include newsletter_popup.html %}
+  {% include subscribe_popup.html %}
 </article>

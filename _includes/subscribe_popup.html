@@ -1,0 +1,53 @@
+<div id="subscribe-popup-overlay" class="newsletter-popup-overlay"></div>
+<div id="subscribe-popup" class="newsletter-popup newsletter-popup-modal">
+  <button onclick="closeSubscribePopup()" class="newsletter-popup-close" aria-label="Close modal">&times;</button>
+  {% include newsletter_widget.html %}
+</div>
+
+<style>
+/* Modal-specific positioning for subscribe popup */
+#subscribe-popup-overlay.newsletter-popup-overlay {
+  background: rgba(0, 0, 0, 0.6) !important;
+  pointer-events: auto !important;
+}
+
+.newsletter-popup-modal {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: translate(-50%, -50%) scale(0.9) !important;
+  max-width: 500px !important;
+  width: 90% !important;
+  max-height: 80vh !important;
+  border-radius: 12px !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+  background: white !important;
+}
+
+.newsletter-popup-modal.show {
+  transform: translate(-50%, -50%) scale(1) !important;
+}
+
+@media (max-width: 768px) {
+  .newsletter-popup-modal {
+    width: 95% !important;
+    max-width: 95% !important;
+    border-radius: 8px !important;
+  }
+}
+</style>
+
+<script>
+// Reuse existing generic popup functions - DRY principle
+function showSubscribePopup() {
+  // Use generic popup function for subscribe popup
+  showPopup('subscribe-popup', 'subscribe-popup-overlay');
+}
+
+function closeSubscribePopup() {
+  // Use generic popup close function
+  closePopup('subscribe-popup', 'subscribe-popup-overlay');
+}
+</script>

@@ -18,4 +18,86 @@
   {%- else -%}
     <meta name="og:title" content="{{ page.title | append: ' | ' | append: site.title }}">
   {%- endif -%}
+
+  <!-- Enhanced SEO and Social Media Meta Tags -->
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  {% if page.image %}
+  <meta property="og:image" content="{{ page.image | absolute_url }}">
+  <meta name="twitter:image" content="{{ page.image | absolute_url }}">
+  {% else %}
+  <meta property="og:image" content="{{ '/assets/202507-namanyay-interview.jpg' | absolute_url }}">
+  <meta name="twitter:image" content="{{ '/assets/202507-namanyay-interview.jpg' | absolute_url }}">
+  {% endif %}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@{{ site.twitter_username }}">
+  <meta name="twitter:creator" content="@{{ site.twitter_username }}">
+  {% if page.layout == 'post' %}
+  <meta property="article:author" content="https://nmn.gl">
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+  <meta property="article:modified_time" content="{{ page.last_modified_at | default: page.date | date_to_xmlschema }}">
+  {% if page.categories %}{% for category in page.categories %}
+  <meta property="article:section" content="{{ category }}">
+  {% endfor %}{% endif %}
+  {% endif %}
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://nmn.gl/#person",
+        "name": "Namanyay Goel",
+        "url": "https://nmn.gl",
+        "image": "https://nmn.gl/blog/assets/202507-namanyay-interview.jpg",
+        "jobTitle": "Software Engineer & Entrepreneur",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Giga AI",
+          "url": "https://gigamind.dev"
+        },
+        "sameAs": [
+          "https://x.com/namanyayg",
+          "https://www.linkedin.com/in/namanyayg/",
+          "https://github.com/namanyayg"
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://nmn.gl/blog/#organization",
+        "name": "N's Blog",
+        "url": "https://nmn.gl/blog",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://nmn.gl/blog/favicon.png"
+        },
+        "publisher": "https://nmn.gl/#person"
+      }{% if page.layout == 'post' %},
+      {
+        "@type": "BlogPosting",
+        "headline": {{ page.title | jsonify }},
+        "description": {{ page.excerpt | strip_html | normalize_whitespace | truncate: 160 | jsonify }},
+        "url": "{{ page.url | absolute_url }}",
+        "datePublished": "{{ page.date | date_to_xmlschema }}",
+        "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+        "author": {
+          "@id": "https://nmn.gl/#person"
+        },
+        "publisher": {
+          "@id": "https://nmn.gl/blog/#organization"
+        }{% if page.image %},
+        "image": {
+          "@type": "ImageObject",
+          "url": "{{ page.image | absolute_url }}"
+        }{% endif %}{% if page.categories %},
+        "keywords": [{% for category in page.categories %}"{{ category }}"{% unless forloop.last %},{% endunless %}{% endfor %}]{% endif %}
+      }{% endif %}
+    ]
+  }
+  </script>
 </head>

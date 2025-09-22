@@ -102,52 +102,84 @@
 </style>
 
 <script>
-function showNewsletterPopup() {
-  const popup = document.getElementById('newsletter-popup');
-  const overlay = document.getElementById('newsletter-popup-overlay');
+// Generic popup show function - reusable for any popup
+function showPopup(popupId, overlayId, forced = false) {
+  const popup = document.getElementById(popupId);
+  const overlay = document.getElementById(overlayId);
   if (!popup || !overlay) return;
-  
-  // Check last shown timestamp
-  const lastShown = localStorage.getItem('newsletter_popup_last_shown');
-  const now = new Date().getTime();
-  const threeDaysInMs = 3 * 24 * 60 * 60 * 1000;
-  
-  // Don't show if shown in last 3 days
-  if (lastShown && (now - parseInt(lastShown)) < threeDaysInMs) {
-    return;
+
+  // For newsletter popup, check cooldown unless forced
+  if (popupId === 'newsletter-popup' && !forced) {
+    const lastShown = localStorage.getItem('newsletter_popup_last_shown');
+    const now = new Date().getTime();
+    const threeDaysInMs = 3 * 24 * 60 * 60 * 1000;
+
+    if (lastShown && (now - parseInt(lastShown)) < threeDaysInMs) {
+      return;
+    }
   }
-  
+
   overlay.style.display = 'block';
   overlay.offsetHeight; // Force reflow
   overlay.classList.add('show');
-  
+
   popup.style.display = 'block';
   popup.offsetHeight; // Force reflow
   popup.classList.add('show');
-  
-  // Store current timestamp
-  localStorage.setItem('newsletter_popup_last_shown', now.toString());
 
-  // Add document click listener for desktop click-outside behavior
-  if (window.innerWidth > 768) {
-    document.addEventListener('click', handleClickOutside);
+  // Store popup info for event handlers
+  popup.dataset.popupId = popupId;
+  popup.dataset.overlayId = overlayId;
+
+  // For newsletter popup, handle forced/timing logic
+  if (popupId === 'newsletter-popup') {
+    popup.dataset.forcedShow = forced.toString();
+    if (!forced) {
+      const now = new Date().getTime();
+      localStorage.setItem('newsletter_popup_last_shown', now.toString());
+    }
   }
+
+  // Set newsletter popup cooldown for any popup
+  if (popupId === 'subscribe-popup') {
+    const now = new Date().getTime();
+    localStorage.setItem('newsletter_popup_last_shown', now.toString());
+  }
+
+  // Add event listeners
+  document.addEventListener('click', handleGenericClickOutside);
+  document.addEventListener('keydown', handleGenericEscapeKey);
+
+  // Prevent body scroll
+  document.body.style.overflow = 'hidden';
+}
+
+function showNewsletterPopup(forced = false) {
+  showPopup('newsletter-popup', 'newsletter-popup-overlay', forced);
 }
 
 function closeNewsletterPopup() {
   const popup = document.getElementById('newsletter-popup');
   const overlay = document.getElementById('newsletter-popup-overlay');
   if (!popup || !overlay) return;
-  
+
+  // If this was a forced show (subscribe button), set the timestamp now
+  if (popup.dataset.forcedShow === 'true') {
+    const now = new Date().getTime();
+    localStorage.setItem('newsletter_popup_last_shown', now.toString());
+  }
+
   overlay.classList.remove('show');
   popup.classList.remove('show');
-  
+
   // Remove document click listener
   document.removeEventListener('click', handleClickOutside);
-  
+
   setTimeout(() => {
     overlay.style.display = 'none';
     popup.style.display = 'none';
+    // Clear the forced show flag
+    delete popup.dataset.forcedShow;
   }, 400);
 }
 
@@ -156,6 +188,63 @@ function handleClickOutside(event) {
   // If click is outside popup and popup is visible, close it
   if (popup && !popup.contains(event.target) && popup.classList.contains('show')) {
     closeNewsletterPopup();
+  }
+}
+
+// Generic popup functions - reusable for any popup (DRY principle)
+function closePopup(popupId, overlayId) {
+  const popup = document.getElementById(popupId);
+  const overlay = document.getElementById(overlayId);
+  if (!popup || !overlay) return;
+
+  // For newsletter popup, handle forced show timing
+  if (popupId === 'newsletter-popup' && popup.dataset.forcedShow === 'true') {
+    const now = new Date().getTime();
+    localStorage.setItem('newsletter_popup_last_shown', now.toString());
+  }
+
+  overlay.classList.remove('show');
+  popup.classList.remove('show');
+
+  // Remove event listeners
+  document.removeEventListener('click', handleGenericClickOutside);
+  document.removeEventListener('keydown', handleGenericEscapeKey);
+
+  // Restore body scroll
+  document.body.style.overflow = '';
+
+  setTimeout(() => {
+    overlay.style.display = 'none';
+    popup.style.display = 'none';
+    // Clear datasets
+    delete popup.dataset.forcedShow;
+    delete popup.dataset.popupId;
+    delete popup.dataset.overlayId;
+  }, 400);
+}
+
+function handleGenericClickOutside(event) {
+  // Find any open popup by checking which one has the 'show' class
+  const popups = document.querySelectorAll('[id$="-popup"].show');
+  popups.forEach(popup => {
+    const overlayId = popup.dataset.overlayId;
+    const overlay = document.getElementById(overlayId);
+
+    // If click is on overlay (outside popup content), close it
+    if (event.target === overlay) {
+      closePopup(popup.id, overlayId);
+    }
+  });
+}
+
+function handleGenericEscapeKey(event) {
+  if (event.key === 'Escape') {
+    // Find any open popup and close it
+    const popups = document.querySelectorAll('[id$="-popup"].show');
+    popups.forEach(popup => {
+      const overlayId = popup.dataset.overlayId;
+      closePopup(popup.id, overlayId);
+    });
   }
 }
 
