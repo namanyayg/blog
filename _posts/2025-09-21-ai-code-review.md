@@ -1,5 +1,5 @@
 ---
-title: "Rethinking Code Reviews in an AI-first World"
+title: "Code Reviews for an AI-first World"
 layout: post
 date: 2025-09-21
 categories:
@@ -26,6 +26,8 @@ But, diving deeper and reviewing the code, I noticed a glaring problem: Turns ou
 The feature worked fine, but at the end of it, I had two different ways to look up users scattered across my codebase. <em>Thanks, I guess?</em>
 
 This has happened to me a lot, from GPT 3.5 to Sonnet 4. So that's why, a few weeks ago, I decided to dive deeper and solve it for once and for all.
+
+<!--more-->
 
 ## The Problem
 
