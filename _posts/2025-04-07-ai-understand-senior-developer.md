@@ -7,6 +7,9 @@ categories:
 excerpt_separator: <!--more-->
 is_featured: false
 sharer_type: text-and-buttons
+image: /assets/ai-understand-senior-developer.png
+twitter_image: /assets/ai-understand-senior-developer.png
+twitter_card: summary_large_image
 ---
 
 *Is it just me, or are the code generation LLMs we're all using not that good?*
