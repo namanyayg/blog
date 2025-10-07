@@ -175,6 +175,9 @@ function closeNewsletterPopup() {
   // Remove document click listener
   document.removeEventListener('click', handleClickOutside);
 
+  // Restore body scroll
+  document.body.style.overflow = '';
+
   setTimeout(() => {
     overlay.style.display = 'none';
     popup.style.display = 'none';
