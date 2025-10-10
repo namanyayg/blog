@@ -153,7 +153,7 @@ I'm curious if we can teach AI to spot other senior dev instincts:
 - Identifying tech debt before it happens
 - Suggesting architectural improvements
 - Catching security issues from usage patterns
-- Understanding unwritten team conventions
+- [Understanding unwritten team conventions](https://gigamind.dev/blog/ellie-ai-case-study)
 
 The problem isn't making AI write more code. It's teaching it to think about code the way experienced developers do.
 

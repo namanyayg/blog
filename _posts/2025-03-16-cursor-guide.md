@@ -75,7 +75,7 @@ When Cursor suggests something, I often ask "Can you explain why you did it this
 If you're trying Cursor for the first time, here's what I wish I'd known:
 
 * Be super cautious with AI suggestions for authentication, payment processing, or security features. I manually review these character by character.
-* When debugging with Cursor, always ask it to explain its reasoning. I've had it confidently "fix" bugs by introducing even worse ones.
+* When debugging with Cursor, always ask it to explain its reasoning. I've had it [confidently "fix" bugs](https://gigamind.dev/blog/prompt-method-debugging-ai-code) by introducing even worse ones.
 * Keep your questions specific. "Fix this component" won't work. "Update the onClick handler to prevent form submission" works much better.
 * Take breaks from AI assistance. I often code without Cursor and came back with a better sense of when to use it.
 

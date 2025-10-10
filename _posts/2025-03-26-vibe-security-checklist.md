@@ -40,7 +40,7 @@ I also wrote up a "vibe security prompt" at the bottom of the article. Give that
 
 ### Protect Environment Variables
 
-**What to do:** Add `.env.local` and similar files to your `.gitignore` immediately and manage sensitive information properly.
+**What to do:** Add `.env.local` and similar files to your `.gitignore` immediately and [manage sensitive information properly](https://gigamind.dev/blog/vibe-code-security-app-prompts){:target="_blank"}.
 
 **Why it matters:** Exposed credentials are among the most common causes of security breaches. A single leaked API key can compromise your entire system or result in unexpected bills.
 
