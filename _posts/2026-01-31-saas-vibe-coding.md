@@ -1,7 +1,7 @@
 ---
 title: "SaaS Companies Need to Let Their Customers Vibe Code on Top of Their Tools"
 layout: post
-date: 2026-02-01
+date: 2026-01-31
 categories:
  - saas
  - ai
