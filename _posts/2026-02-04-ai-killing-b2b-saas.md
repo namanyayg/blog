@@ -37,7 +37,7 @@ The actual problem is that customers can get _something_ working with vibe codin
 
 Whatever they build _simply works_. It takes some wrangling to get there (one Series C VP listed **eleven different** vibe coding tools they've tried and the pros and cons between each on a phone call once), but productivity gains are immediate. 
 
-And vibe coding is fun. Even [Bret Taylor, OpenAI's chair](https://www.businessinsider.com/openai-chair-vibe-coding-not-endgame-bret-taylor-2026-1), acknowledges it's become a legitimate development approach. Whatever anyone says about AI code generation, it's an unparalleled experience to vibe code your first tool and start using it in your own company. You feel like a mad wizard using the right incantation [^3] to get this magical new silicon intelligence to do exactly what you want. It looks and feel exactly like you want it to.
+And vibe coding is fun. Whatever anyone says about AI code generation, it's an unparalleled experience to vibe code your first tool and start using it in your own company. You feel like a mad wizard using the right incantation [^3] to get this magical new silicon intelligence to do exactly what you want. It looks and feel exactly like you want it to.
 
 There's also some incomplete knowledge about building reliable software: They don't know what actually goes into making data models and systems that work reliably for all scenarios. And that _incomplete knowledge_ is a bit dangerous. 
 
