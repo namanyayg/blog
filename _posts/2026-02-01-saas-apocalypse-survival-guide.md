@@ -11,143 +11,126 @@ excerpt_separator: <!--more-->
 # twitter_card: summary_large_image
 ---
 
-Software stocks had a brutal start to 2026. [Bloomberg called it](https://www.bloomberg.com/news/articles/2026-01-18/-no-reasons-to-own-software-stocks-sink-on-fear-of-new-ai-tool) "'No Reasons to Own'" — and the data backs that up.
+Three times this month, I've been in calls where customers asked the same question: "Could we just build this ourselves?"
 
-Morgan Stanley's SaaS basket has lagged the Nasdaq 100 by ~40 percentage points since December 2024. HubSpot and Klaviyo? Both down roughly 30% this month alone. [Reuters reports](https://www.reuters.com/business/us-software-stocks-slide-after-sap-servicenow-results-fuel-ai-disruption-fears-2026-01-29/) that AI disruption fears are driving a sector-wide selloff while semiconductors and memory stocks benefit from the same AI trade.
-
-**The market is pricing in extinction for traditional SaaS.**
+A year ago, that was a joke. Engineering would laugh, explain the complexity, and everyone would renew. Now? Engineering is building POCs with Claude Code, and the laughter has stopped.
 
 <!--more-->
 
-And honestly? They might be right — for vendors who don't adapt.
+## The Pattern I'm Seeing
 
-## What the Market Sees That You Don't
+The first time it happened, I thought it was an outlier. A particularly technical customer, frustrated with slow feature delivery, decided to spin up their own dashboard. Saved them $50K annually on a reporting tool. No big deal.
 
-[Finimize puts it bluntly](https://finimize.com/content/investors-have-been-kicking-saas-and-taking-names): "2026 is shaping up to be a hard year for software."
+The second time was more concerning. A mid-market company replaced their entire approval workflow system. Not with another SaaS product—with a weekend project their senior engineer built using AI assistance. The system works. It's not pretty, but it matches their exact workflow in ways the $200K/year SaaS product never did.
 
-The AI disruption isn't theoretical anymore. It's showing up in quarterly results, guidance cuts, and customer conversations. The market is asking: **if customers can build their own tools with AI, why pay for your rigid platform?**
+The third time, I realized this wasn't random. It's a pattern.
 
-This isn't just analyst fear-mongering. Look at what's actually happening:
+[Bloomberg called software stocks](https://www.bloomberg.com/news/articles/2026-01-18/-no-reasons-to-own-software-stocks-sink-on-fear-of-new-ai-tool) "'No Reasons to Own'" in January. Morgan Stanley's SaaS basket lagged the Nasdaq by 40 percentage points since December. HubSpot and Klaviyo are both down roughly 30% this month.
 
-[AI coding tools are shifting buy vs build calculus](https://www.businessinsider.com/ai-coding-tools-buy-versus-build-software-saas-netlify-bolt-2025-6). Tasks that required engineering teams now take hours with AI assistance. [Even OpenAI's chair acknowledges](https://www.businessinsider.com/openai-chair-vibe-coding-not-endgame-bret-taylor-2026-1) that "vibe coding" — building functional software through AI prompts — is a legitimate development approach now.
+The market sees something most SaaS vendors don't want to admit: **the build vs buy calculus just changed.**
 
-Your customers are doing the math: **"Do we pay $500K annually for a platform that doesn't match our workflow, or do we build exactly what we need?"**
+## What's Actually Happening
 
-If your platform forces them to choose between "our way or no way," they're increasingly choosing "build our own way."
+[AI coding tools shifted the economics](https://www.businessinsider.com/ai-coding-tools-buy-versus-build-software-saas-netlify-bolt-2025-6). Tasks that needed engineering teams now take an afternoon. [Even OpenAI's chair acknowledged](https://www.businessinsider.com/openai-chair-vibe-coding-not-endgame-bret-taylor-2026-1) that "vibe coding"[^1] is legitimate now.
 
-## The Two Types of SaaS Companies in 2027
+I'm seeing renewal conversations that didn't exist before:
 
-In 12 months, the SaaS landscape will split into two categories:
+"You want to raise our price by 15%? Let me ask engineering how long it would take to build what we actually use."
 
-**Vendors who survived:**
-- Became platforms customers *build on top of*, not just *use*
-- Enabled rapid customization without engineering bottlenecks
-- Created ecosystems where customers feel ownership, not vendor lock-in
-- Proved ROI by matching actual workflows, not forcing adoption of rigid ones
+"We only use 30% of your features, and they don't match our workflow anyway. Why not build the 30% we need?"
 
-**Vendors who got replaced:**
-- Kept telling customers "that feature is on the roadmap"
-- Watched utilization rates decline as AI-built alternatives emerged
-- Lost renewals to "good enough" custom tools that fit workflows perfectly
-- Discovered too late that "enterprise grade" isn't a moat when customers can build what they need
+"Your roadmap timeline is 9 months. Our engineer said he can have a working version in two weeks."
 
-The difference isn't product features. **It's whether customers can make your platform theirs.**
+These aren't hypotheticals anymore. They're real conversations happening right now.
 
-## What the Survivors Are Already Doing
+## The Economics Problem
 
-The playbook is already visible if you look at who's adapting:
+[Reuters reports](https://www.reuters.com/business/us-software-stocks-slide-after-sap-servicenow-results-fuel-ai-disruption-fears-2026-01-29/) this is a sector-wide selloff, not isolated companies missing earnings. The market is repricing the entire category.
 
-[ServiceNow has Creator Workflows](https://www.servicenow.com/workflows/creator-workflows.html) — letting customers build custom apps on their platform using low-code tools. [Salesforce opened up Agentforce](https://www.itpro.com/business/business-strategy/salesforce-announces-huge-partner-program-revamp-with-agentforce-360-launch) for partners to build and package custom agents. [Gartner predicted](https://www.gartner.com/en/newsroom/press-releases/2021-11-10-gartner-says-cloud-will-be-the-centerpiece-of-new-digital-experiences) that 70% of new apps would use low-code/no-code by 2025 — and they were right.
+Here's why: SaaS valuations are built on two assumptions—fast growth and high net revenue retention (NRR). Both are breaking.
 
-The pattern is clear: **platform + ecosystem beats standalone product.**
+New customer growth is slowing because prospects can build alternatives. That's a problem, but it's not the fatal one.
 
-[Salesforce's ecosystem generates economic impact](https://www.salesforce.com/blog/salesforce-ecosystem-explained/) far beyond their core product revenue. Why? Because when customers and partners build on top of your platform, they're invested in your success. They're not evaluating alternatives every renewal cycle — they've built their business on top of yours.
+The fatal one is NRR erosion. Existing customers are the profit engine of SaaS. They expand into higher tiers, add more seats, drive margin. When they start replacing parts of your platform with internal tools, your NRR drops below 100%. When NRR drops, your valuation model collapses.
 
-But here's what most SaaS vendors miss: the low-code/no-code wave wasn't enough. It solved the "technical barrier" problem but created a new one: **complexity**.
+I've watched this happen twice this quarter. Not companies churning completely—just migrating 80% of their users off the platform but keeping the core data. They're still technically customers, but they went from $200K/year to $30K/year.
 
-Building low-code apps still requires learning proprietary tooling, understanding your data model, and maintaining custom code. That's why most low-code initiatives fail — they shift the bottleneck from engineering to a different team with different constraints.
+The SaaS company lost the revenue but still has to maintain the account. That's not consolidation—it's slow death.
 
-## The AI-Native Solution
+## What Actually Has a Moat
 
-AI changes the game because it eliminates the learning curve.
+Not everything is vulnerable. Some categories are genuinely hard to replace:
 
-Instead of "learn our low-code platform," it's "describe what you need." Instead of "understand our data model," it's "it figures out the schema." Instead of "maintain custom code," it's "the AI refactors when your platform changes."
+Anything requiring serious uptime and SLAs. Getting to four or five 9s is hard. You're not replacing Stripe with an agent and a spare afternoon.
 
-This is what I call **business vibe coding** — customer-facing teams building functional custom apps through AI assistance, governed by your platform's constraints.
+High-volume systems and data infrastructure. Building distributed systems that handle millions of requests isn't trivial. The specialized knowledge required is scarce.
 
-Not end-users doing amateur coding. Not IT building shadow IT. *Your CS, Sales, Implementation, and Solutions teams* delivering workflow customizations that drive adoption and expansion without touching engineering.
+Strong network effects. You're not replacing Slack when everyone external to your org is already on it. Communication platforms with broad adoption are safe.
 
-Here's why this matters for surviving the SaaS-pocalypse:
+Proprietary datasets. If you have unique data that can't be replicated, you're protected. Financial data, sales intelligence, industry-specific datasets—these stay valuable.
 
-**1. It defends against "we'll build it ourselves"**
+Regulation and compliance. Industries with serious regulatory requirements aren't moving fast. The compliance overhead protects incumbents.
 
-When a customer says "we can just build this with AI now," you say "build it *on our platform* — we'll give your team the tools to create exactly what you need, with our security, compliance, and integrations built in."
+What's vulnerable? Back-office tools that are basically CRUD operations on the customer's own data. Simple dashboards. Workflow tools that don't quite match how anyone actually works.
 
-You're not competing with their AI-built tools. You're enabling them.
+If your product is "a SQL wrapper with a billing system," you now have thousands of competitors: every engineer at every customer with an AI agent and a Friday afternoon.
 
-**2. It turns customization from cost center to revenue driver**
+## The Pattern Among Survivors
 
-Right now, every custom workflow request is a cost — engineering time, roadmap prioritization, technical debt.
+I'm watching a different pattern among SaaS companies that aren't panicking:
 
-With AI-enabled customer app creation, customization becomes an expansion opportunity. "You need custom approval routing? Here's how to build it on our platform. Need it across 50 departments? That's an enterprise tier feature."
+[ServiceNow built Creator Workflows](https://www.servicenow.com/workflows/creator-workflows.html) so customers can build custom apps on their platform. [Salesforce opened Agentforce](https://www.itpro.com/business/business-strategy/salesforce-announces-huge-partner-program-revamp-with-agentforce-360-launch) to let partners build custom agents. [Gartner predicted](https://www.gartner.com/en/newsroom/press-releases/2021-11-10-gartner-says-cloud-will-be-the-centerpiece-of-new-digital-experiences) 70% of new apps would use low-code/no-code by 2025—turns out they were right.
 
-**3. It creates switching costs without vendor lock-in**
+The insight: instead of fighting "we'll build it ourselves," they're enabling it.
 
-When customers build their workflows as apps on your platform, they're invested. But unlike traditional vendor lock-in (which breeds resentment), this is *value lock-in* — they stay because your platform makes them more capable, not because migration is painful.
+When a customer says "we can build this with AI now," the response isn't "but our product is better." It's "build it on our platform—we'll give you the tools, security, compliance, and integrations. Build exactly what you need."
 
-**4. It proves ROI faster than competitors**
+You're not competing with their AI-built tools. You're the foundation they build on.
 
-When every dollar is under scrutiny and [buyers demand outcome-based pricing](https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-net-revenue-retention-advantage-driving-success-in-b2b-tech), the vendor who can demonstrate value in weeks (not quarters) wins.
+[Salesforce's ecosystem generates economic value](https://www.salesforce.com/blog/salesforce-ecosystem-explained/) far beyond core product revenue. When customers build on your platform, they're invested. They're not evaluating competitors every renewal—they've built their workflows on top of you.
 
-Your competitor says "we'll build that workflow in Q3." You say "your team can build it this week."
+That's not vendor lock-in. That's value alignment.
 
-## What This Actually Looks Like
+## The AI-Native Approach
 
-Let me get specific about implementation:
+Low-code platforms solved the technical barrier but created complexity. You still need to learn proprietary tooling, understand data models, maintain custom code.
 
-**For an ERP vendor:**
-Your Implementation team discovers that 30 customers need custom approval workflows. Instead of filing feature requests, they build an approval workflow *template* using AI-assisted tools. Deploy it across those 30 customers in a week. Each customer then customizes it to their needs. Adoption improves, expansion conversations start.
+AI eliminates that friction. Instead of "learn our platform," it's "describe what you need." Instead of "understand our schema," it's "the AI figures it out." Instead of "maintain custom code," it's "refactors automatically when things change."
 
-**For a CRM vendor:**
-Your Sales Engineer is in a deal with custom requirements. Instead of "we can build that in 6 months," they use AI to generate a working prototype during the POC. Customer sees it matches their workflow. Deal closes. You productize the pattern for the next 50 similar deals.
+I've seen this work: customer-facing teams (CS, Sales, Implementation) building functional apps through AI assistance, governed by the platform's constraints. Not shadow IT—officially supported customization without engineering bottlenecks.
 
-**For an ITSM vendor:**
-Your CS team identifies renewal risk because the platform doesn't match evolved workflows. They use AI to build custom incident routing logic in days. Customer sees immediate value improvement. Renewal secured. You add the pattern to your template library.
+An Implementation team discovers 30 customers need similar approval workflows. They build a template using AI-assisted tools. Deploy across all 30 customers in a week. Each customizes to their needs. Adoption improves. Expansion starts.
 
-This isn't theoretical. The technology exists today. The question is whether you'll deploy it before your customers deploy it *against* you.
+A Sales Engineer faces custom requirements in a deal. Instead of "we'll build that in Q3," they prototype it during the POC using AI. Customer sees it matches their workflow. Deal closes. Pattern gets reused for the next 50 deals.
 
-## The Urgency You're Underestimating
+This isn't theoretical. <a href="#" onclick="showDemoPopup(); return false;">I've been building this</a>.
 
-Read the [Reuters piece](https://www.reuters.com/business/us-software-stocks-slide-after-sap-servicenow-results-fuel-ai-disruption-fears-2026-01-29/) again: "AI disruption fears" are driving sector-wide moves. This isn't one company missing earnings. This is the market repricing the entire category.
+## The Maintenance Question
 
-**The market believes AI will disrupt traditional SaaS.** The question is whether you'll be disrupted *by* AI or empowered *through* AI.
+The obvious objection: "Who maintains these apps?"
 
-Vendors who embrace AI-enabled customer customization will emerge stronger. They'll have higher adoption rates, better retention, faster expansion, and genuine differentiation in a crowded market.
+Which is valid. Software has bugs, security issues, scale problems.
 
-Vendors who cling to "our roadmap determines what gets built" will find themselves competing with free, AI-generated alternatives that match customer workflows perfectly — even if they're technically inferior.
+But consider what maintenance looks like now. Most SaaS is poorly maintained—expensive platforms with stale UIs, slow support, security incidents. The attack surface often comes from external third parties accessing internal data. Moving everything behind your existing security layer reduces risk.
 
-Because in 2026, **"good enough and fits my workflow" beats "powerful but rigid"** every single time.
+AI also lowers maintenance cost dramatically. Library deprecation, API changes, code updates—tasks that used to require deep knowledge are now significantly easier, especially with typed languages. The biggest fear—one person knowing everything, then leaving—doesn't apply. AI doesn't leave. With good documentation, anyone can understand and maintain the codebase.
 
-## The Path Forward
+SaaS has maintenance problems too. I watched a friend deal with a vendor deprecating their API and moving to new endpoints that don't have feature parity. Essential system, huge disruption, enormous resource drain. That's maintenance overhead too.
 
-If you're a B2B SaaS vendor reading this and feeling the pressure, here's what survival looks like:
+## What This Means
 
-1. **Enable your customer-facing teams to deliver customizations directly** — CS, Sales, Implementation, Solutions teams should be able to build workflow customizations without engineering dependencies
+I'm not suggesting every company is about to replace their entire SaaS stack. That's not happening.
 
-2. **Build AI-assisted creation tools into your platform** — make it trivially easy for customers (or your teams on their behalf) to extend your product
+What I am seeing: companies with some technical capability are scrutinizing their SaaS spend more critically. The math changed. The "it would cost more to build" argument isn't as clear anymore.
 
-3. **Create governance and templates, not barriers** — the system should enforce constraints while enabling creativity
+When renewal comes and the price increased 15%, and you only use 40% of the features, and they don't quite match your workflow anyway, and your engineering team could build what you need in two weeks—the conversation is different now.
 
-4. **Measure what drives adoption** — track which custom workflows improve utilization and make those patterns available to other customers
+The market has priced this in. Software stocks are down. [Finimize says](https://finimize.com/content/investors-have-been-kicking-saas-and-taking-names) "2026 is shaping up to be a hard year for software."
 
-5. **Price for value creation, not just seats** — when customization drives expansion, capture that value
+The survivors will be platforms customers build on, not just use. The ones who embrace "build on our platform" instead of fighting "we'll build it ourselves."
 
-The technology exists. The market pressure is real. The vendors who adapt will survive the SaaS-pocalypse.
-
-The ones who don't will become case studies in what happens when you force customers to choose between your rigid platform and AI-enabled alternatives.
-
-**The market has already made its bet. What's yours?**
+The market made its bet. The question is whether SaaS companies are paying attention.
 
 ---
 
-*We help B2B SaaS vendors enable business vibe coding for their customer-facing teams. If you're feeling the pressure and want to talk strategy, reach out at [mail@namanyayg.com](mailto:mail@namanyayg.com)*
+[^1]: Yes, "vibe coding" is now a technical term that OpenAI's chairman uses with a straight face. We've officially entered the timeline where describing software development with the word "vibes" is considered serious business discourse. What a time to be alive.

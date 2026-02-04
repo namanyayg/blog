@@ -12,6 +12,7 @@
   left: 0;
   right: 0;
   bottom: 0;
+  background: transparent;
   opacity: 0;
   transition: opacity 0.4s ease;
   z-index: 999;
@@ -29,6 +30,9 @@
   right: 30px;
   max-width: 400px;
   width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   background: white;
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
   border-radius: 8px;
@@ -45,28 +49,27 @@
 
 .newsletter-popup-close {
   position: absolute;
-  top: -12px;
-  right: -12px;
-  background: white;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: none;
   border: none;
-  font-size: 24px;
+  font-size: 1.5rem;
   line-height: 1;
   cursor: pointer;
-  color: #333;
-  padding: 0;
-  width: 28px;
-  height: 28px;
+  color: #666;
+  padding: 0.25rem;
+  width: auto;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   transition: all 0.2s ease;
   z-index: 1;
+  font-weight: 300;
 }
 
 .newsletter-popup-close:hover {
-  background: #f8f8f8;
+  color: #333;
   transform: scale(1.1);
 }
 
@@ -78,9 +81,11 @@
     left: 0;
     max-width: 92%;
     width: 92%;
+    max-height: 85vh;
     margin: 0 auto;
     bottom: auto;
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.25);
+    overflow-y: auto;
   }
 
   .newsletter-popup.show {
@@ -89,14 +94,13 @@
   }
 
   .newsletter-popup-overlay {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.4);
     pointer-events: auto;
   }
   
   .newsletter-popup-close {
-    top: -12px;
-    right: -12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    top: 0.75rem;
+    right: 0.75rem;
   }
 }
 </style>
@@ -119,9 +123,15 @@ function showPopup(popupId, overlayId, forced = false) {
     }
   }
 
-  overlay.style.display = 'block';
-  overlay.offsetHeight; // Force reflow
-  overlay.classList.add('show');
+  // Check if mobile (768px breakpoint)
+  const isMobile = window.innerWidth <= 768;
+
+  // Show overlay only on mobile
+  if (isMobile) {
+    overlay.style.display = 'block';
+    overlay.offsetHeight; // Force reflow
+    overlay.classList.add('show');
+  }
 
   popup.style.display = 'block';
   popup.offsetHeight; // Force reflow
@@ -150,8 +160,10 @@ function showPopup(popupId, overlayId, forced = false) {
   document.addEventListener('click', handleGenericClickOutside);
   document.addEventListener('keydown', handleGenericEscapeKey);
 
-  // Prevent body scroll
-  document.body.style.overflow = 'hidden';
+  // Prevent body scroll only on mobile
+  if (isMobile) {
+    document.body.style.overflow = 'hidden';
+  }
 }
 
 function showNewsletterPopup(forced = false) {
@@ -159,39 +171,8 @@ function showNewsletterPopup(forced = false) {
 }
 
 function closeNewsletterPopup() {
-  const popup = document.getElementById('newsletter-popup');
-  const overlay = document.getElementById('newsletter-popup-overlay');
-  if (!popup || !overlay) return;
-
-  // If this was a forced show (subscribe button), set the timestamp now
-  if (popup.dataset.forcedShow === 'true') {
-    const now = new Date().getTime();
-    localStorage.setItem('newsletter_popup_last_shown', now.toString());
-  }
-
-  overlay.classList.remove('show');
-  popup.classList.remove('show');
-
-  // Remove document click listener
-  document.removeEventListener('click', handleClickOutside);
-
-  // Restore body scroll
-  document.body.style.overflow = '';
-
-  setTimeout(() => {
-    overlay.style.display = 'none';
-    popup.style.display = 'none';
-    // Clear the forced show flag
-    delete popup.dataset.forcedShow;
-  }, 400);
-}
-
-function handleClickOutside(event) {
-  const popup = document.getElementById('newsletter-popup');
-  // If click is outside popup and popup is visible, close it
-  if (popup && !popup.contains(event.target) && popup.classList.contains('show')) {
-    closeNewsletterPopup();
-  }
+  // Use generic close function for consistency
+  closePopup('newsletter-popup', 'newsletter-popup-overlay');
 }
 
 // Generic popup functions - reusable for any popup (DRY principle)
@@ -213,7 +194,7 @@ function closePopup(popupId, overlayId) {
   document.removeEventListener('click', handleGenericClickOutside);
   document.removeEventListener('keydown', handleGenericEscapeKey);
 
-  // Restore body scroll
+  // Restore body scroll (was only locked on mobile)
   document.body.style.overflow = '';
 
   setTimeout(() => {
@@ -227,6 +208,10 @@ function closePopup(popupId, overlayId) {
 }
 
 function handleGenericClickOutside(event) {
+  // Only handle overlay clicks on mobile
+  const isMobile = window.innerWidth <= 768;
+  if (!isMobile) return;
+
   // Find any open popup by checking which one has the 'show' class
   const popups = document.querySelectorAll('[id$="-popup"].show');
   popups.forEach(popup => {
@@ -268,10 +253,5 @@ function checkScrollPosition() {
 // Add scroll listener
 window.addEventListener('scroll', checkScrollPosition);
 
-// Close on overlay click (mobile only)
-document.getElementById('newsletter-popup-overlay').addEventListener('click', (e) => {
-  if (window.innerWidth <= 768) {
-    closeNewsletterPopup();
-  }
-});
+// Close on overlay click handled by handleGenericClickOutside
 </script> 

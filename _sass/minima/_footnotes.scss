@@ -1,0 +1,159 @@
+// Footnotes - Gwern-style hover tooltips
+// Semantic HTML with elegant, mobile-responsive design
+
+// Kramdown generates: <sup id="fnref:X"><a href="#fn:X">X</a></sup>
+// JS adds .footnote-ref class to sup elements
+.footnote-ref,
+sup[id^="fnref:"] {
+  position: relative;
+  display: inline-block;
+  overflow: visible;
+
+  a.footnote,
+  a[href^="#fn:"] {
+    text-decoration: none;
+    color: $brand-color;
+    font-weight: 700;
+    padding: 0 0.1em;
+
+    &::before {
+      content: '[';
+    }
+
+    &::after {
+      content: ']';
+    }
+
+    &:hover {
+      color: lighten($brand-color, 10%);
+    }
+  }
+}
+
+// The tooltip/popup that appears on hover
+// Appended to body via JS to avoid inheriting sup styles
+.footnote-tooltip {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+
+  // Content box
+  padding: 1rem 1.25rem;
+
+  // Styling
+  background: #ffffff;
+  border: 1px solid $color-border--dark;
+  border-radius: 0.25rem;
+  box-shadow:
+    0 0.25rem 0.5rem rgba(0, 0, 0, 0.08),
+    0 0.5rem 1rem rgba(0, 0, 0, 0.12);
+
+  // Typography
+  font-size: 1.125em;
+  line-height: 1.5;
+  color: $text-color;
+  text-align: left;
+
+  // Width constraints
+  width: max-content;
+  max-width: min(22rem, 45vw);
+  min-width: 12rem;
+
+  // Show when visible class is added
+  &.footnote-tooltip--visible {
+    display: block;
+    animation: footnote-fade-in 0.15s ease-out;
+  }
+
+  // Nested elements
+  p {
+    margin: 0 !important;
+
+    &:not(:last-child) {
+      margin-bottom: 0.75rem !important;
+    }
+  }
+
+  a {
+    color: $brand-color;
+    border-bottom: 1px solid rgba($brand-color, 0.3);
+
+    &:hover {
+      color: lighten($brand-color, 7%);
+      border-bottom-color: $brand-color;
+    }
+  }
+
+  code {
+    font-size: 0.875em;
+  }
+}
+
+@keyframes footnote-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// Dark theme support
+body.dark-theme {
+  .footnote-tooltip {
+    background: #2a2a2a;
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #e0e0e0;
+  }
+}
+
+// Tablet adjustments
+@include media-query($on-laptop) {
+  .footnote-tooltip {
+    max-width: min(20rem, 60vw);
+  }
+}
+
+// Mobile responsive adjustments
+@include media-query($on-palm) {
+  .footnote-tooltip {
+    // JS handles positioning, but ensure proper sizing
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0;
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+}
+
+// Fallback footnotes section at bottom of page
+// JS removes the hr kramdown generates before this section
+.footnotes {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid $color-border--dark;
+  font-size: 0.9em;
+  color: lighten($text-color, 15%);
+
+  ol {
+    padding-left: 2rem;
+  }
+
+  li {
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    margin: 0.5em 0 !important;
+  }
+
+  .reversefootnote {
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 0.25rem;
+
+    &:hover {
+      color: $brand-color;
+    }
+  }
+}

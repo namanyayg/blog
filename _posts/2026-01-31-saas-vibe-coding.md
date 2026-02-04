@@ -11,185 +11,144 @@ excerpt_separator: <!--more-->
 # twitter_card: summary_large_image
 ---
 
-I've spent the last few months talking to B2B SaaS vendors and I noticed a common pattern: "Our product is more powerful than ever, but customers aren't using half of it."
+I've been in three demo calls this month where prospects said "this looks great, but..." and then described a workflow that doesn't exist in the product. Sales promised "we can customize that." Engineering said "Q3 at the earliest."
 
-**This is the silent crisis in B2B SaaS right now.** You're losing deals and renewals not because your product lacks features, but because customers can't make your rigid platform match their actual processes.
+None of those deals closed.
 
 <!--more-->
 
-## The Consolidation Wave You're Not Ready For
+## The Pattern That's Everywhere
 
-The average enterprise now manages 275 SaaS applications at $49M in annual spend, [according to Zylo's data](https://zylo.com/reports/2025-saas-management-index/). That's a 9.3% year-over-year increase in spending while portfolios only grew 2.2%.
+Last week I talked to a Customer Success lead at a $50M ARR ERP company. They're bleeding renewals. Not because the product is bad—because it's inflexible.
 
-Read that again: **vendors raised prices 4x faster than companies added new tools.**
+A customer needs five approval stages. The product supports three. Engineering won't prioritize it because only 15 customers need it. Those 15 customers represent $2M in ARR. They're all at renewal risk.
 
-CFOs are noticing. CIOs are noticing. And when renewal season comes, they're asking one question that should terrify every B2B SaaS vendor:
+The CS team knows exactly what needs to be built. They've documented the requirements. They've validated it with customers. They just can't build it themselves.
 
-**"What's our actual utilization rate on this platform?"**
+So they file tickets that die in the backlog while customers churn.
 
-If the answer is "60% of licenses are active but users only touch 30% of the features because our workflows don't match theirs," you're toast. You're the first thing cut when consolidation pressure hits.
+This isn't one company. I'm seeing this pattern everywhere in B2B SaaS right now.
 
-## The Engineering Death Spiral
+## The Death Spiral
 
-Here's what's killing you: every customer has slightly different workflows. Your ERP works great if you do approvals *exactly* the way you designed it. Your CRM is powerful if you follow your opinionated process.
+Here's how it plays out:
 
-But no two enterprises run the same way. Customer A needs three approval stages. Customer B needs five, with different routing logic. Customer C needs to pull data from systems you've never heard of.
+Your platform has an opinionated workflow. It works great if customers do things exactly your way. But no two enterprises run the same way.
 
-So what happens?
+Sales closes deals by promising customization. Implementation discovers it needs engineering. Engineering says "next quarter." Next quarter becomes next year.
 
-Your sales team promises "we can customize that" to close the deal. Then your customer-facing teams discover the customization requires engineering work. Engineering says "we'll prioritize it for Q3." Q3 becomes Q1 next year. Meanwhile, the customer is manually working around your rigid workflows, adoption tanks, and at renewal they say "we're not getting value."
+Meanwhile, the customer is working around your rigid workflows. Adoption stays low. At renewal, they say "we're not getting value."
 
-**You're caught in a death spiral:**
-1. Rigid platform → low adoption
-2. Low adoption → customers request workflow changes
-3. Changes require engineering → long wait times
-4. Long wait times → deals stall, adoption suffers, renewals at risk
-5. Lost revenue → pressure to raise prices on remaining customers
-6. Higher prices + same adoption problems = more churn
+You raise prices to compensate for churn. Higher prices with the same adoption problems accelerate churn. You're in a death spiral.
 
-And the worst part? **Your competitors who solve this problem will eat your customers during the consolidation wave.**
+[Zylo's data shows](https://zylo.com/reports/2025-saas-management-index/) enterprises now manage 275 SaaS apps at $49M annual spend. Spending increased 9.3% while portfolios grew 2.2%.
 
-## The ROI Measurement Problem
+Vendors raised prices 4x faster than companies added new tools.
 
-[McKinsey reports](https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-net-revenue-retention-advantage-driving-success-in-b2b-tech) that B2B buyers are increasingly demanding performance guarantees and outcome-based pricing. They're done paying for "powerful platforms" that sit mostly unused.
+When CFOs scrutinize that $49M portfolio, they're asking "what's our utilization rate?" If the answer is "60% of licenses are active but users only touch 30% of features," you're the first thing cut.
 
-When a CFO scrutinizes that $49M SaaS portfolio, underutilized platforms get axed. Period.
+## Where the Bottleneck Actually Is
 
-The problem is that your platform *could* drive massive ROI—if customers could actually adapt it to their workflows without waiting 8 months for engineering. But they can't, so adoption stays low, and low adoption reads as "no ROI" when renewal comes.
+The people who know what needs to be built aren't the ones who can build it.
 
-You're losing deals not because your product is bad, but because **you can't prove ROI fast enough in a world where every SaaS dollar is under scrutiny.**
+Your CS, Sales, Implementation, and Solutions teams understand customer workflows. They have relationships with stakeholders. They know what's blocking adoption and expansion. They see the same patterns across multiple customers.
 
-## The Customer-Facing Team Bottleneck
+But they can't deliver solutions. They can only file feature requests.
 
-Here's the answer nobody wants to hear: **your customer-facing teams need to deliver workflow customizations directly.**
+Customer needs a workflow adjustment? File a ticket. Customer wants custom approval routing? Add to backlog. Customer struggling because your UI doesn't match their process? Send them "best practices" docs and watch the deal stall.
 
-Not engineering. Not after a 6-month roadmap process. *Directly.*
+The people measured on retention, growth, and deal velocity are blocked from doing their job by engineering capacity constraints.
 
-Your Customer Success, Solutions, Implementation, and Sales teams are the ones who:
-- Actually understand customer workflows
-- Have relationships with customer stakeholders
-- Know exactly what's blocking adoption and expansion
-- Are already measured on retention, growth, and deal velocity
-- See the same workflow patterns across multiple customers
+I watched this kill an expansion deal last month. A customer needed a custom dashboard to justify expanding from 100 to 500 seats. Implementation knew exactly what to build. Engineering timeline was 6 months. Customer stayed at 100 seats.
 
-Right now, these teams are glorified ticket filers. Customer needs a workflow adjustment? File a feature request. Customer wants custom approval routing? Add it to the backlog. Customer struggling with adoption because your UI doesn't match their process? Send them "best practices" documentation.
+That's $200K ARR lost because the team who could have closed it couldn't build what was needed.
 
-Then they watch the deal stall, the renewal at risk, the expansion conversation die—all because engineering won't prioritize a workflow change that affects 15 customers when there's core product work to ship.
+## What Happens When You Remove the Bottleneck
 
-**This is what's killing your growth.** The people who can drive adoption, expansion, and retention are blocked from doing their job by engineering capacity constraints.
+I've seen a few companies figure this out. They gave customer-facing teams the ability to deliver workflow customizations directly—not through engineering, not after a roadmap process.
 
-What if when your Implementation team discovered that 20 customers struggle with the same workflow, they could *deliver a solution* in days instead of filing a request that dies in the backlog?
+An Implementation team discovered 30 customers struggling with the same approval workflow. Instead of filing requests, they built a template using AI-assisted tools. Deployed it across all 30 customers in a week. Each customer customized it to their needs.
 
-This is what **business vibe coding** enables.
+Adoption improved. Expansion conversations started.
 
-While "vibe coding" has become synonymous with amateurs building weekend projects through AI prompts, business vibe coding brings that speed to enterprise—governed, audited, and built by customer-facing professionals who understand business requirements. It's customer-facing teams delivering custom apps that sit on top of your platform, dramatically improving adoption without touching your engineering roadmap.
+A Sales Engineer was in a deal that needed custom routing logic. Instead of "we can build that in Q3," they prototyped it during the POC using AI. Customer saw it matched their workflow. Deal closed. They reused the pattern for 50 similar deals.
 
-## What This Unlocks
+A CS team identified renewal risk because workflows didn't match evolved processes. They delivered adjustments in days. Customer renewed.
 
-Let me get specific about the outcomes this enables:
+This is what happens when you remove the engineering bottleneck from customization.
 
-**Faster deal velocity:**
-Your Sales Engineer discovers a prospect needs custom approval routing to close the deal. Instead of "we can build that in Q3," they deliver a working solution during the POC. Deal closes.
+## The AI Piece
 
-**Higher adoption rates:**
-Your Implementation team sees customers struggling with a 12-click process. They build a 2-click shortcut that matches the customer's actual workflow. Adoption improves, expansion conversations start.
+This wasn't possible a year ago. Building workflow customizations required engineering knowledge, understanding data models, writing maintainable code.
 
-**Retention defense:**
-Your Customer Success team identifies renewal risk because the platform doesn't match the customer's evolved process. They deliver workflow adjustments in days instead of waiting for engineering. Customer renews.
+AI changed that calculation.
 
-**Expansion without headcount:**
-Your Solutions team builds workflow patterns once, deploys across 50 similar customers. You scale delivery without linearly scaling professional services headcount.
+[Gartner predicted](https://www.gartner.com/en/newsroom/press-releases/2021-11-10-gartner-says-cloud-will-be-the-centerpiece-of-new-digital-experiences) 70% of new apps would use low-code/no-code by 2025. They were right, but low-code still had a learning curve—proprietary tooling, data model complexity, maintenance overhead.
 
-This isn't about who builds it. It's about **unlocking your customer-facing teams to deliver the customizations that drive revenue without engineering dependencies.**
+AI eliminates most of that. Instead of "learn our platform," it's "describe what you need." Instead of "understand our schema," the AI figures it out. Instead of "maintain custom code," it refactors when things change.
 
-For an ERP, that's custom approval workflows and dashboard views. For a CRM, it's deal review shortcuts and custom scoring logic. For ITSM, it's incident playbooks and routing automation.
+Customer-facing teams can now build functional apps through AI assistance, governed by platform constraints. Not shadow IT—officially supported customization without engineering dependencies.
 
-None of it requires your core engineering team. None of it takes months. But all of it directly impacts adoption, expansion, and retention—the metrics that determine whether you survive consolidation.
+[Even OpenAI's chair acknowledged](https://www.businessinsider.com/openai-chair-vibe-coding-not-endgame-bret-taylor-2026-1) that "vibe coding" is a legitimate development approach now. The technology barrier is gone.
 
-## The Maintenance Question
+## The Maintenance Objection
 
-"Won't this create technical debt?"
+The obvious question: "Won't this create unmaintainable sprawl?"
 
-Only if you build it wrong.
+Which is valid. But consider what you have now.
 
-The system itself should enforce constraints, since most workflow customizations follow predictable patterns. Quote approvals. Deal reviews. Incident routing. The first customer's custom workflow becomes a template for the next 50. **You're building a library, not bespoke software for each customer.**
+Customers are already working around your rigid workflows—spreadsheets, manual processes, undocumented workarounds. That's invisible technical debt you can't track or improve.
 
-And unlike the invisible complexity you have now—spreadsheet workarounds, undocumented processes, one-off feature requests—this is visible, governed, and measurable. You can track what drives adoption, deprecate what doesn't, and scale what works.
+With a proper system, customizations are visible, governed, and measurable. You can track what drives adoption, deprecate what doesn't, scale what works.
 
-## Why Now Is Urgent
+Most workflow customizations follow predictable patterns anyway. Quote approvals. Deal reviews. Incident routing. The first customer's custom workflow becomes a template for the next 50. You're building a library, not bespoke software for each customer.
 
-Two forces are colliding that make this not just possible, but *necessary for survival*:
+And AI dramatically lowers maintenance cost. Library deprecation, API changes, code updates—tasks that used to require specialized knowledge are now significantly easier. The "one person knows everything, then leaves" problem doesn't apply when AI can explain the codebase to anyone.
 
-**1. Market pressure makes slow customization lethal**
+## Where This Doesn't Work
 
-You're raising prices 10-20% annually while budgets grow at 2.8%. Every dollar is under scrutiny. Underutilized platforms get cut, and "we'll add that workflow in Q3" isn't good enough when competitors can deliver it in a week.
+Not every SaaS category needs this. If you have strong network effects, proprietary datasets, or genuine technical complexity (high-volume systems, serious compliance requirements), you're probably fine.
 
-The consolidation wave is here. Vendors who can't prove ROI quickly will lose customers to those who can.
+But if your product is workflow software that sits on top of the customer's own data? If the main value is "we built the UI so you don't have to"? That value proposition is eroding fast when customers can build UIs that match their exact workflow in an afternoon.
 
-**2. AI makes customer-facing team delivery actually viable**
+The companies most at risk are ones where customer requests are consistently "can you make this work like X instead of Y?" If you're constantly saying "that's on the roadmap," you're vulnerable.
 
-[Gartner's prediction](https://www.gartner.com/en/newsroom/press-releases/2021-11-10-gartner-says-cloud-will-be-the-centerpiece-of-new-digital-experiences) that 70% of new apps would use low-code/no-code by 2025 landed right as AI-assisted development exploded.
+## The Economics
 
-Customer-facing teams can now build functional workflow solutions without engineering degrees. The tooling has caught up to the need. [Even OpenAI's chair acknowledges](https://www.businessinsider.com/openai-chair-vibe-coding-not-endgame-bret-taylor-2026-1) that "vibe coding" is here to stay as a legitimate development approach.
+[McKinsey reports](https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-net-revenue-retention-advantage-driving-success-in-b2b-tech) that B2B buyers increasingly demand performance guarantees and outcome-based pricing. They're done paying for "powerful platforms" that sit mostly unused.
 
-Your customer-facing teams can either keep filing feature requests that die in the backlog, or they can start delivering solutions. The technology barrier is gone.
+When prices rise 10-20% annually while budgets grow 2.8%, every dollar is scrutinized. Underutilized platforms get cut.
 
-## From Blocker to Accelerator
+Your platform could drive massive ROI—if customers could adapt it to their workflows without waiting 8 months. But they can't, so adoption stays low, and low adoption reads as "no ROI" when renewal comes.
 
-Here's the business model shift: [customer-facing teams are evolving](https://media.trustradius.com/product-downloadables/ZZ/AH/VWHXTSL23TP3.pdf) from order-takers to value delivery engines.
+The vendors who survive will be the ones who make it easy for customers to prove value quickly. Not in quarters—in weeks.
 
-Right now, these teams are bottlenecked. Sales can't close deals that need workflow customization. Implementation can't drive adoption when your platform doesn't match customer processes. CS can't defend renewals when workflow friction kills utilization.
+## What's Emerging
 
-The workflow that's killing you:
-1. Customer needs workflow adjustment to get value
-2. Customer-facing team files feature request
-3. Engineering prioritizes it for "next quarter"
-4. Deal stalls / adoption tanks / renewal at risk
+I'm watching a shift happen. Customer-facing teams are evolving from order-takers to value delivery engines.
 
-The workflow that wins:
-1. Customer-facing team identifies workflow need
-2. Team delivers working solution in days
-3. Customer sees immediate value
-4. Deal closes / adoption improves / expansion conversation starts
+[ServiceNow built Creator Workflows](https://www.servicenow.com/workflows/creator-workflows.html). [Salesforce opened Agentforce](https://www.itpro.com/business/business-strategy/salesforce-announces-huge-partner-program-revamp-with-agentforce-360-launch) for partners to build custom agents. The pattern is clear: instead of fighting "we'll build it ourselves," they're enabling it.
 
-One Solutions Engineer can build workflow patterns that unlock revenue across hundreds of customers. One Implementation specialist can solve adoption blockers that would otherwise take quarters to address.
+When a customer says "we can build this with AI now," the winning response isn't "but our product is better." It's "build it on our platform—we'll give you the tools, security, and integrations. Build exactly what you need."
 
-Your competitors with rigid platforms and 6-month engineering cycles can't compete with that. Their customers get told "we'll add that to the roadmap." Your customers get working solutions before the next renewal cycle.
+You're not competing with their AI-built tools. You're the foundation they build on.
 
-## The Vendors Who Survive Consolidation
+The companies getting this right have one Solutions Engineer building patterns that unlock revenue across hundreds of customers. One Implementation specialist solving adoption blockers that would otherwise take quarters to address.
 
-In three years, the B2B SaaS landscape will look very different.
+Their competitors with rigid platforms and 6-month engineering cycles can't compete. Their customers get told "we'll add that to the roadmap." These customers get working solutions before the next renewal cycle.
 
-There will be vendors who:
-- Prove ROI in weeks instead of quarters
-- Scale CS without linearly scaling headcount
-- Turn adoption problems into expansion opportunities
-- Defend against churn with actual workflow value, not just contracts
+## What Changes
 
-And there will be vendors who:
-- Keep telling customers "we'll add that to the roadmap"
-- Watch adoption metrics slowly decline
-- See renewal rates erode as CFOs scrutinize utilization
-- Get replaced by competitors who adapted faster
+When customer-facing teams can deliver customizations directly:
 
-**The difference isn't product features. It's workflow flexibility.**
+Deal velocity improves. Sales doesn't lose deals because "we can't do that workflow."
 
-When SaaS portfolios are under intense budget scrutiny, when prices are rising 4x faster than budgets, when every dollar needs to justify itself—the vendors who win are the ones who make it *trivially easy* for customers to prove ROI.
+Adoption increases. Implementation solves friction points in days instead of watching customers struggle.
 
-And you can't prove ROI when your platform forces customers to choose between "our rigid workflow" and "don't use the platform."
+Renewals defend. CS delivers adjustments that match evolved processes instead of watching utilization decline.
 
-## What This Gets You
+Expansion happens without headcount. Build once, deploy to 50 customers, each customized to their needs.
 
-Business vibe coding is about **enabling the people who understand customer requirements to deliver custom apps that drive adoption, expansion, and retention without engineering dependencies.**
+The technology exists today. The market pressure is real. Vendors raising prices while budgets shrink need to prove value faster than ever.
 
-It's about turning customizations from a blocker into a competitive advantage.
-
-It's about surviving the consolidation wave that's coming for every B2B SaaS vendor who can't prove they're worth keeping.
-
-The technology exists. The market pressure is real. 
-
-The question is: whether you'll adapt, or will your customers choose a vendor who already did.
-
----
-
-*We're help B2B SaaS vendors enable business vibe coding for their customer-facing teams. If this resonates, reach out at [mail@namanyayg.com](mailto:mail@namanyayg.com)*
+The question is whether you remove the engineering bottleneck before customers build their own workarounds—or before they build their own replacement.

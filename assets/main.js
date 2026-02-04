@@ -46,6 +46,112 @@ function scrollToAuthor(event) {
   }
 }
 
+// Initialize footnote hover tooltips
+function initializeFootnotes() {
+  // Remove the hr kramdown generates before footnotes section
+  const footnotesSection = document.querySelector('.footnotes');
+  if (footnotesSection && footnotesSection.previousElementSibling && footnotesSection.previousElementSibling.tagName === 'HR') {
+    footnotesSection.previousElementSibling.remove();
+  }
+
+  // Match kramdown's output: <sup id="fnref:X"><a href="#fn:X" class="footnote">X</a></sup>
+  const footnoteSups = document.querySelectorAll('sup[id^="fnref:"]');
+
+  footnoteSups.forEach(function(sup) {
+    const link = sup.querySelector('a.footnote, a[href^="#fn:"]');
+    if (!link) return;
+
+    // Add class for styling
+    sup.classList.add('footnote-ref');
+
+    // Get the footnote ID from the href
+    const footnoteId = link.getAttribute('href');
+    if (!footnoteId) return;
+
+    // Find the corresponding footnote content
+    // Escape the colon in the ID selector (kramdown uses fn:1 format)
+    const escapedId = footnoteId.replace(/:/g, '\\:');
+    const footnoteContent = document.querySelector(escapedId);
+    if (!footnoteContent) return;
+
+    // Clone the footnote content (excluding the back reference)
+    const content = footnoteContent.cloneNode(true);
+    const backrefs = content.querySelectorAll('.reversefootnote, a[href^="#fnref"]');
+    backrefs.forEach(function(ref) { ref.remove(); });
+
+    // Create tooltip element - append to body to avoid inheriting sup styles
+    const tooltip = document.createElement('div');
+    tooltip.className = 'footnote-tooltip';
+    tooltip.innerHTML = content.innerHTML;
+    document.body.appendChild(tooltip);
+
+    // Position and show tooltip on mouseenter
+    sup.addEventListener('mouseenter', function() {
+      var supRect = sup.getBoundingClientRect();
+      var tooltipWidth = tooltip.offsetWidth || 350;
+      var viewportWidth = window.innerWidth;
+
+      // Mobile: fixed at bottom
+      if (viewportWidth <= 640) {
+        tooltip.style.position = 'fixed';
+        tooltip.style.left = '1rem';
+        tooltip.style.right = '1rem';
+        tooltip.style.bottom = '1rem';
+        tooltip.style.top = 'auto';
+      } else {
+        // Desktop: position next to footnote
+        tooltip.style.position = 'fixed';
+        tooltip.style.top = supRect.top + 'px';
+        tooltip.style.bottom = 'auto';
+
+        // Check if tooltip would go off the right edge
+        if (supRect.right + tooltipWidth + 20 > viewportWidth) {
+          // Position on left
+          tooltip.style.left = 'auto';
+          tooltip.style.right = (viewportWidth - supRect.left + 8) + 'px';
+        } else {
+          // Position on right
+          tooltip.style.left = (supRect.right + 8) + 'px';
+          tooltip.style.right = 'auto';
+        }
+      }
+
+      tooltip.classList.add('footnote-tooltip--visible');
+    });
+
+    sup.addEventListener('mouseleave', function(e) {
+      // Don't hide if moving to the tooltip itself
+      if (e.relatedTarget === tooltip || tooltip.contains(e.relatedTarget)) return;
+      tooltip.classList.remove('footnote-tooltip--visible');
+    });
+
+    tooltip.addEventListener('mouseleave', function(e) {
+      // Don't hide if moving back to the sup
+      if (e.relatedTarget === sup || sup.contains(e.relatedTarget)) return;
+      tooltip.classList.remove('footnote-tooltip--visible');
+    });
+
+    // Prevent default link behavior when clicking on mobile
+    link.addEventListener('click', function(e) {
+      if (window.innerWidth <= 640) {
+        e.preventDefault();
+        tooltip.classList.toggle('footnote-tooltip--visible');
+      }
+    });
+  });
+
+  // Close mobile tooltips when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.footnote-ref') && !e.target.closest('.footnote-tooltip')) {
+      document.querySelectorAll('.footnote-tooltip').forEach(function(tooltip) {
+        if (window.innerWidth <= 640) {
+          tooltip.classList.remove('footnote-tooltip--visible');
+        }
+      });
+    }
+  });
+}
+
 // Subscribe button and other functionality
 document.addEventListener('DOMContentLoaded', function() {
   // Subscribe button functionality
@@ -59,6 +165,9 @@ document.addEventListener('DOMContentLoaded', function() {
       return false;
     });
   }
+
+  // Footnote hover tooltips
+  initializeFootnotes();
 
   // Flippable figure functionality
   const flippables = document.querySelectorAll('.figure-flippable');
