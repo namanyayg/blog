@@ -6,6 +6,7 @@ categories:
  - saas
  - ai
 excerpt_separator: <!--more-->
+post_promotion_type: giga-catalyst
 ---
 
 SaaS is the most profitable business model on Earth.[^1] It's easy to understand why: build once, sell the same thing again ad infinitum, and don't suffer any marginal costs on more sales.
@@ -14,7 +15,11 @@ I have been writing software for more than half my life. In the last year itself
 
 And everyone is constantly talking about the threat looming over the industry, that has changed how our entire industry thinks an operates: agentic AI a.k.a. your very own overzelous intern that always listens to you, available almost as cheaply as drinking water from a tap[^2]
 
+This isn't just talk -- the market is pricing it in. Morgan Stanley's SaaS basket has [lagged the Nasdaq by 40 points](https://www.bloomberg.com/news/articles/2026-01-18/-no-reasons-to-own-software-stocks-sink-on-fear-of-new-ai-tool) since December. HubSpot and Klaviyo are down ~30%. Analysts are writing notes titled "No Reasons to Own" software stocks.
+
 This is bringing an existential threat to a lot of B2B SaaS executives: How to keep asking customers for renewal, when every customer _feels_ they can get something better built with vibe-coded AI products?
+
+<!--more-->
 
 ## Wait, can users actually vibe code a B2B SaaS?
 
@@ -22,15 +27,15 @@ Short answer: Not really -- but that doesn't matter in this case.
 
 The actual problem is that customers can get _something_ working with vibe coding. There are tens of vibe coding "internal tool" services that promise to connect to every integration in the world to pump out CRUD and workflow apps.
 
-Whatever they build _simply works_. It takes some wrangling to get there (one Series C VP listed **11 different** vibe coding tools they've tried and the pros and cons between each on a phone call once), but productivity gains are immediate. 
+Whatever they build _simply works_. It takes some wrangling to get there (one Series C VP listed **eleven different** vibe coding tools they've tried and the pros and cons between each on a phone call once), but productivity gains are immediate. 
 
-And vibe coding is fun. Whatever anyone says about AI code generation, it's an unparalleled experience to vibe code your first tool and start using it in your own company. You feel like a mad wizard using the right incantation [^3] to get this magical new silicon intelligence to do exactly what you want. It looks and feel exactly like you want it to.
+And vibe coding is fun. Even [Bret Taylor, OpenAI's chair](https://www.businessinsider.com/openai-chair-vibe-coding-not-endgame-bret-taylor-2026-1), acknowledges it's become a legitimate development approach. Whatever anyone says about AI code generation, it's an unparalleled experience to vibe code your first tool and start using it in your own company. You feel like a mad wizard using the right incantation [^3] to get this magical new silicon intelligence to do exactly what you want. It looks and feel exactly like you want it to.
 
-But there's some incomplete knowledge about building reliable software: They don't know what actually goes into making data models and systems that work reliably for all scenarios. And that _incomplete knowledge_ is a bit dangerous. 
+There's also some incomplete knowledge about building reliable software: They don't know what actually goes into making data models and systems that work reliably for all scenarios. And that _incomplete knowledge_ is a bit dangerous. 
 
 A poorly architected system will fail, eventually. Some patching will work, but anyone who's got experience with maintaining their own custom Linux installation in the 2010s knows how painful it is to maintain and debug software that you rely on day-to-day as it gets more complex and interconnected. As every senior programmer (eventually) understands, our job is complex because we have to understand the relationships in the real world, the processes involved, and the workflows needed, and representing it in a robust way to create a stable system. AI can't do that.
 
-Non-programmers don't know that, though. One Series E CEO told me that they're re-evaluating the quarterly renewal of their engineering productivity software because they along with an engineer reimplemented something using Github and Notion APIs. They were paying $X0,000 to a popular tool[^4] **and they were not going to renew anymore.**
+Non-programmers don't know any of this nuance, though. One Series E CEO told me that they're re-evaluating the quarterly renewal of their engineering productivity software because they along with an engineer reimplemented something using Github and Notion APIs. They were paying $X0,000 to a popular tool[^4] **and they were not going to renew anymore.**
 
 ## How does it impact B2B sales?
 
@@ -69,71 +74,23 @@ How I'm solving this is essentially a whitelabelled vibe-coding platform with in
 
 Now, the IC technician is exposed to just those parts of the SaaS that they care about i.e. creating maintenance work orders. The executives get what they want too, vibe coding custom reports exactly the way they want vs going through complicated BI config. They are able to build exactly what they want and feel like digital gods while doing it.
 
-Usage for that account was under 35%, and is now over 70%. They are now working closely with me to vibe code new "micro-apps" that works according to all of their customer workflows and to do exactly what they need. And the best part? This is all on top of their existing SaaS which works as a system of record and handles security, authentication, and supports lock-in by being a data and a UI moat.
+Usage for that account was under 35%, and is now over 70%. They are now working closely with me to vibe code new "micro-apps" that work according to all of their customer workflows. And the best part? This is all on top of their existing SaaS which works as a system of record and handles security, authentication, and supports lock-in by being a data and a UI moat.
 
-**This basically guarantees renewal and expansion**, because no other SaaS was able to offer the customer this level of flexibility.My customers tell me that letting their users vibe code is the best way to increase retention, usage, and expansion in 2026. <a href="#" onclick="showDemoPopup()">If you are interested in giving your end-users a way to do that on top of your platform, let's chat</a>. 
+This is exactly what I'm building: a way for SaaS companies to let their end-users vibe code on top of their platform. My customers tell me it's the best thing they've done for retention, engagement, and expansion in 2026 -- because when your users are building on your platform, they're not evaluating your competitors. <a href="#" onclick="showDemoPopup(event)">If you want to see how it works, I'll show you a demo</a>.
 
+## The Real Shift
 
+Here's what I've realized after hundreds of conversations with founders and operators: AI isn't killing B2B SaaS. It's killing B2B SaaS **that refuses to evolve**.
 
-<!--more-->
+The SaaS model was built on a simple premise: we build it once, you pay forever. That worked when building software was hard. But now your customers have tasted what's possible. They've seen their finance team whip up a custom dashboard in an afternoon. They've watched a non-technical PM build an internal tool that actually fits their workflow.
 
-### Market/Stock Analysis
+You can't unsee that. You can't go back to paying $X0,000/year for software that almost does what you need.
 
-- **Bloomberg - "No Reasons to Own" Software Stocks**
-  https://www.bloomberg.com/news/articles/2026-01-18/-no-reasons-to-own-software-stocks-sink-on-fear-of-new-ai-tool
-  Software stocks sinking on AI disruption fears. Morgan Stanley's SaaS basket lagged Nasdaq by 40 points since December. HubSpot and Klaviyo down ~30%.
+The survivors won't be the SaaS companies with the best features. They'll be the ones who become platforms -- who let customers build _on top of_ them instead of _instead of_ them. When I showed a well-known VC what I was building to help SaaS companies do exactly this, he said: "This is the future of marketplaces and software companies."
 
-- **Reuters - Sector-Wide Selloff**
-  https://www.reuters.com/business/us-software-stocks-slide-after-sap-servicenow-results-fuel-ai-disruption-fears-2026-01-29/
-  US software stocks slide after SAP/ServiceNow results fuel AI disruption fears. Market repricing the entire SaaS category.
+Maybe. Or maybe this is just another cycle and traditional SaaS will adapt like it always has. But I know this: the companies I'm talking to aren't waiting around to find out. They're already rebuilding their relationship with customers from "use our product" to "build on our platform."
 
-- **Finimize - 2026 Hard Year for Software**
-  https://finimize.com/content/investors-have-been-kicking-saas-and-taking-names
-  "2026 is shaping up to be a hard year for software." Investors dumping SaaS stocks.
-
-### AI Coding / Build vs Buy
-
-- **Business Insider - AI Coding Tools Shift Economics**
-  https://www.businessinsider.com/ai-coding-tools-buy-versus-build-software-saas-netlify-bolt-2025-6
-  AI coding tools shifting the build vs buy economics. Tasks that needed engineering teams now take an afternoon.
-
-- **Business Insider - OpenAI Chair on Vibe Coding**
-  https://www.businessinsider.com/openai-chair-vibe-coding-not-endgame-bret-taylor-2026-1
-  Bret Taylor (OpenAI chair) acknowledges "vibe coding" is legitimate now. Not the endgame, but a real development approach.
-
-- **Martin Alderson - AI Agents Eating SaaS (Inspiration)**
-  https://martinalderson.com/posts/ai-agents-are-starting-to-eat-saas/
-  Hit HN article. Observer tone, personal examples, hedged claims. Finance team built their own reporting, accountant used Claude for QuickBooks workaround.
-
-### SaaS Data / Trends
-
-- **Zylo - 2025 SaaS Management Index**
-  https://zylo.com/reports/2025-saas-management-index/
-  Enterprises manage 275 SaaS apps at $49M annual spend. Spending up 9.3% while portfolios grew only 2.2%. Vendors raised prices 4x faster than companies added tools.
-
-- **McKinsey - NRR Advantage in B2B Tech**
-  https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-net-revenue-retention-advantage-driving-success-in-b2b-tech
-  B2B buyers increasingly demand performance guarantees and outcome-based pricing. Done paying for unused "powerful platforms."
-
-- **Gartner - Low-Code/No-Code Prediction**
-  https://www.gartner.com/en/newsroom/press-releases/2021-11-10-gartner-says-cloud-will-be-the-centerpiece-of-new-digital-experiences
-  Predicted 70% of new apps would use low-code/no-code by 2025. They were right.
-
-### Platform Strategy (Survivors)
-
-- **ServiceNow - Creator Workflows**
-  https://www.servicenow.com/workflows/creator-workflows.html
-  Lets customers build custom apps on ServiceNow platform. "Become the platform they build on, not just the product they use."
-
-- **Salesforce - Agentforce Launch**
-  https://www.itpro.com/business/business-strategy/salesforce-announces-huge-partner-program-revamp-with-agentforce-360-launch
-  Partners can build custom agents. Enabling "build it yourself" instead of fighting it.
-
-- **Salesforce - Ecosystem Value**
-  https://www.salesforce.com/blog/salesforce-ecosystem-explained/
-  Ecosystem generates value beyond core product. When customers build on your platform, they're invested—not evaluating competitors every renewal.
-
-
+The question isn't whether AI will eat your SaaS. It's whether you'll be the one holding the fork. <a href="#" onclick="showDemoPopup(event)">I can show you how we're helping SaaS companies do exactly that</a> -- but regardless of how you get there, the clock is ticking. 
 
 ---
 

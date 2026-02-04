@@ -111,8 +111,13 @@ layout: default
         class="author-image-full"
       >
       <div class="author-content">
+        {% if post_promotion_type == 'giga-context' %}
         <p class="post-promotion">I'm building <a href="https://gigamind.dev/context?utm_source=blog&utm_medium=post&utm_campaign=post-promotion&utm_content={{ page.title | url_encode }}&utm_term={{ page.url | url_encode }}" class="link--special"><strong>Giga&nbsp;Context</strong></a>. We help thousands of developers use AI better to ship faster & write higher quality code. <a href="https://gigamind.dev/context?utm_source=blog&utm_medium=post&utm_campaign=post-promotion&utm_content={{ page.title | url_encode }}&utm_term={{ page.url | url_encode }}" class="link--special">Have&nbsp;a&nbsp;look?</a></p>
         <p>I&rsquo;m <strong>Namanyay</strong> by the way. Programming is my first love and I've been writing code since I was a teenager.</p>
+        {% elsif post_promotion_type == 'giga-catalyst' %}
+        <p class="post-promotion">I'm building <a href="https://gigamind.dev/catalyst?utm_source=blog&utm_medium=post&utm_campaign=post-promotion&utm_content={{ page.title | url_encode }}&utm_term={{ page.url | url_encode }}" class="link--special"><strong>Giga&nbsp;Catalyst</strong></a> to let your users vibe code and increase retention and engagement. Fill out this form <a href="#" onclick="showDemoPopup()">and I'll show you a custom demo</a>.</p>
+        <p>I&rsquo;m <strong>Namanyay</strong> by the way. Programming is my first love and I've been writing code since I was a teenager.</p>
+        {% endif %}
       
         <div class="post-share">
           If you enjoyed this post, maybe <a href="javascript:void(0)" onclick="sharePost()">share it with your friends or colleagues</a> who would like it too! 
