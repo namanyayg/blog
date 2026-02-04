@@ -18,7 +18,7 @@
             <input class="formkit-input" aria-label="Email" name="email" required placeholder="Email Address" type="email">
           </div>
           <div class="formkit-field">
-            <input class="formkit-input" aria-label="Phone" name="phone" required placeholder="Phone" type="tel">
+            <input class="formkit-input" aria-label="Phone" name="phone" placeholder="Phone (optional)" type="tel">
           </div>
           <button type="submit" class="formkit-submit">
             <div class="formkit-spinner">
@@ -362,7 +362,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const data = {
       name: formData.get('name'),
       email: formData.get('email'),
-      phone: formData.get('phone'),
+      phone: formData.get('phone') || 'Not provided',
       company: 'Not provided',
       industry: 'Not provided'
     };
