@@ -88,7 +88,7 @@ Now, the IC technician is exposed to just those parts of the SaaS that they care
 
 **Usage for that account was under 35%, and is now over 70%.** They are now working closely with me to vibe code new "micro-apps" that work according to all of their customer workflows. And the best part? This is all on top of their existing SaaS which works as a system of record and handles security, authentication, and supports lock-in by being a data and a UI moat.
 
-This is exactly what I'm building: a way for SaaS companies to let their end-users vibe code on top of their platform. My customers tell me it's the best thing they've done for retention, engagement, and expansion in 2026 -- because when your users are building on your platform, they're not evaluating your competitors. (Self-plug: I'm working on solving exactly this problem. If you want to see how it works, <a href="#" onclick="showDemoPopup(event)">I can show you what I've made)</a>.
+This is exactly what I'm building: a way for SaaS companies to let their end-users vibe code on top of their platform (More on that below). My customers tell me it's the best thing they've done for retention, engagement, and expansion in 2026 -- because when your users are building on your platform, they're not evaluating your competitors.
 
 ## The Real Shift
 
@@ -106,9 +106,9 @@ The question isn't whether AI will eat your SaaS. It's whether you'll be the one
 
 ---
 
-**Self-plug: I'm solving exactly this problem with a whitelabelled AI platform for B2B SaaS companies**, so your customers can "vibe code" customized workflows on top of their existing system of record. 
+**I'm solving exactly this problem with a whitelabelled AI platform for B2B SaaS companies**, so your users can vibe code customized workflows on top of their existing system of record. 
 
-My customers tell me this is the **best way to support retention, engagement, and expansion** in 2026. If this sounds interesting to you or someone you know, write to me on <a href="mailto:hi@nmn.gl">hi@nmn.gl</a> or click here to <a href="https://gigamind.dev/catalyst">learn more about Giga Catalyst</a>.
+My customers tell me this is the **best way to support retention, engagement, and expansion** in 2026. If this sounds interesting to you or someone you know, <a href="javascript:void(0)" onclick="showDemoPopup()">I can reach out with a custom demo</a> or you can <a target="_blank" href="https://gigamind.dev/catalyst">learn more about Giga Catalyst</a>.
 
 ---
 
