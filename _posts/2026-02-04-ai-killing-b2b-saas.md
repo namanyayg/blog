@@ -16,7 +16,7 @@ SaaS is the most profitable business model on Earth.[^1] It's easy to understand
 
 I have been writing software for more than half my life. In the last year itself, I've talked to hundreds of founders and operators in SF, from preseed to Series E companies. 
 
-And everyone is constantly talking about the threat looming over the industry, that has changed how our entire industry thinks an operates: agentic AI a.k.a. your very own overzelous intern that always listens to you, available almost as cheaply as drinking water from a tap[^2]
+And everyone is constantly talking about the threat looming over the industry, that has changed how our entire industry thinks an operates: agentic AI a.k.a. your very own overzealous intern that always listens to you, available almost as cheaply as drinking water from a tap[^2]
 
 This isn't just talk -- the market is pricing it in. Morgan Stanley's SaaS basket has [lagged the Nasdaq by 40 points](https://www.bloomberg.com/news/articles/2026-01-18/-no-reasons-to-own-software-stocks-sink-on-fear-of-new-ai-tool) since December. HubSpot and Klaviyo are down ~30%. Analysts are writing notes titled "No Reasons to Own" software stocks.
 
