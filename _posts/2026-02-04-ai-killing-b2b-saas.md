@@ -118,6 +118,6 @@ My customers tell me this is the **best way to support retention, engagement, an
 
 [^3]: a.k.a. "prompt engineering" which is not engineering at all but that's a different blog post.
 
-[^4]: I won't name any names, but the company's named after an invertebrate animal that a certain fictional sponge likes to catch.
+[^4]: I won't name any names, but the company's named after an invertebrate animal.
 
 [^5]: And who can blame them -- I still feel a pang of anxiety when I look at my sales CRM. 
