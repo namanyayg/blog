@@ -18,13 +18,7 @@
             <input class="formkit-input" aria-label="Email" name="email" required placeholder="Email Address" type="email">
           </div>
           <div class="formkit-field">
-            <input class="formkit-input" aria-label="Company" name="company" required placeholder="Company" type="text">
-          </div>
-          <div class="formkit-field">
             <input class="formkit-input" aria-label="Phone" name="phone" required placeholder="Phone" type="tel">
-          </div>
-          <div class="formkit-field">
-            <input class="formkit-input" aria-label="Industry" name="industry" required placeholder="Industry (e.g., SaaS, Finance, Healthcare)" type="text">
           </div>
           <button type="submit" class="formkit-submit">
             <div class="formkit-spinner">
@@ -368,9 +362,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const data = {
       name: formData.get('name'),
       email: formData.get('email'),
-      company: formData.get('company'),
-      phone: formData.get('phone'),
-      industry: formData.get('industry')
+      phone: formData.get('phone')
     };
 
     try {
