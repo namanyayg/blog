@@ -10,6 +10,8 @@ post_promotion_type: giga-catalyst
 image: /assets/saas-stocks.png
 twitter_image: /assets/saas-stocks.png
 twitter_card: summary_large_image
+social_metrics:
+  hackernews: "40+ votes"
 ---
 
 SaaS is the most profitable business model on Earth.[^1] It's easy to understand why: build once, sell the same thing again ad infinitum, and don't suffer any marginal costs on more sales.
