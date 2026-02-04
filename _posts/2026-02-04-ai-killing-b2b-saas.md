@@ -11,18 +11,16 @@ image: /assets/saas-stocks.png
 twitter_image: /assets/saas-stocks.png
 twitter_card: summary_large_image
 social_metrics:
-  hackernews: "40+ votes"
+  hackernews: "50+ votes"
 ---
 
 SaaS is the most profitable business model on Earth.[^1] It's easy to understand why: build once, sell the same thing again ad infinitum, and don't suffer any marginal costs on more sales.
 
 I have been writing software for more than half my life. In the last year itself, I've talked to hundreds of founders and operators in SF, from preseed to Series E companies. 
 
-And everyone is constantly talking about the threat looming over the industry, that has changed how our entire industry thinks an operates: agentic AI a.k.a. your very own overzealous intern that always listens to you, available almost as cheaply as drinking water from a tap[^2]
+AI is bringing an existential threat to a lot of B2B SaaS executives: How to keep asking customers for renewal, when every customer _feels_ they can get something better built with vibe-coded AI products?
 
-This isn't just talk -- the market is pricing it in. Morgan Stanley's SaaS basket has [lagged the Nasdaq by 40 points](https://www.bloomberg.com/news/articles/2026-01-18/-no-reasons-to-own-software-stocks-sink-on-fear-of-new-ai-tool) since December. HubSpot and Klaviyo are down ~30%. Analysts are writing notes titled "No Reasons to Own" software stocks.
-
-This is bringing an existential threat to a lot of B2B SaaS executives: How to keep asking customers for renewal, when every customer _feels_ they can get something better built with vibe-coded AI products?
+And the market is pricing it in. Morgan Stanley's SaaS basket has [lagged the Nasdaq by 40 points](https://www.bloomberg.com/news/articles/2026-01-18/-no-reasons-to-own-software-stocks-sink-on-fear-of-new-ai-tool) since December. HubSpot and Klaviyo are down ~30%. Analysts are writing notes titled "No Reasons to Own" software stocks.
 
 <figure>
   <img src="{{ '/assets/saas-stocks.png' | relative_url }}">
@@ -31,21 +29,17 @@ This is bringing an existential threat to a lot of B2B SaaS executives: How to k
 
 <!--more-->
 
-## Wait, can users actually vibe code a B2B SaaS?
+## The relation between vibe coding and B2B SaaS sales
 
-Short answer: Not really -- but that doesn't matter in this case.
-
-The actual problem is that customers can get _something_ working with vibe coding. There are tens of vibe coding "internal tool" services that promise to connect to every integration in the world to pump out CRUD and workflow apps.
+The new problem for B2B SaaS is that with AI, customers can get _something_ working with vibe coding. There are tens of vibe coding "internal tool" services that promise to connect to every integration in the world to pump out CRUD and workflow apps.
 
 Whatever they build _simply works_. It takes some wrangling to get there (one Series C VP listed **eleven different** vibe coding tools they've tried and the pros and cons between each on a phone call once), but productivity gains are immediate. 
 
-And vibe coding is fun. Whatever anyone says about AI code generation, it's an unparalleled experience to vibe code your first tool and start using it in your own company. You feel like a mad wizard using the right incantation [^3] to get this magical new silicon intelligence to do exactly what you want. It looks and feel exactly like you want it to.
+And vibe coding is fun. You feel like a mad wizard using the right incantation [^3] to get this magical new silicon intelligence to do exactly what you want.
 
-There's also some incomplete knowledge about building reliable software: They don't know what actually goes into making data models and systems that work reliably for all scenarios. And that _incomplete knowledge_ is a bit dangerous. 
+What they don't know, though, is that a poorly architected system will fail, eventually. As every senior programmer (eventually) understands, our job is complex because we have to understand the relationships in the real world, the processes involved, and the workflows needed, and representing it in a robust way to create a stable system. AI can't do that.
 
-A poorly architected system will fail, eventually. Some patching will work, but anyone who's got experience with maintaining their own custom Linux installation in the 2010s knows how painful it is to maintain and debug software that you rely on day-to-day as it gets more complex and interconnected. As every senior programmer (eventually) understands, our job is complex because we have to understand the relationships in the real world, the processes involved, and the workflows needed, and representing it in a robust way to create a stable system. AI can't do that.
-
-Non-programmers don't know any of this nuance, though. One Series E CEO told me that they're re-evaluating the quarterly renewal of their engineering productivity software because they along with an engineer reimplemented something using Github and Notion APIs. They were paying $X0,000 to a popular tool[^4] **and they were not going to renew anymore.**
+Non-programmers don't know any of this nuance. One Series E CEO told me that they're re-evaluating the quarterly renewal of their engineering productivity software because they along with an engineer reimplemented something using Github and Notion APIs. They were paying $30,000 to a popular tool[^4] **and they were not going to renew anymore.**
 
 ## How does it impact B2B sales?
 
@@ -57,18 +51,18 @@ This week itself I was on a phone call with a Series B AE talk about how they're
 
 ## How to survive
 
-### 1. Be a System of Record, not just a Wrapper&trade;
+### 1. Be a System of Record
 
 If the entire company's workflows operates on your platform, i.e. you're a line-of-business SaaS, you are integrated into their existing team already. They know your UI and rely on you on the day to day. 
 
-This is compared to a simpler wrapper product. Now, to create a data visualization I won't seek any SaaS but I'll just code one myself using many of the popular vibe coding tools (my team actually did that and it's vastly more flexible than what we'd get off-the-shelf).
+For example, to create a data visualization I won't seek any SaaS. I'll just code one myself using many of the popular vibe coding tools _(my team actually did that and it's vastly more flexible than what we'd get off-the-shelf)._
 
 Being a "System of Record" means you're embedded so deeply that there's no choice but to win. My prediction is that we'll see more SaaS companies go from the application layer to offering their robust SoR as their primary selling point.
 
 
 ### 2. Security, authentication, and robustness
 
-These are the hard parts of getting software that works right. Unfortunately, the customers don't know it yet. This needs to be communicated to continue retention, while also working on #1 and #2 so customers have no reason to start thinking about switching.
+These are the hard parts of getting software that works right. Unfortunately, the customers don't know it yet. This needs to be communicated to continue retention, while also working on #1 and #3 so customers have no reason to start thinking about switching.
 
 ### 3. Adapt to the customer, not the other way around
 
@@ -84,7 +78,7 @@ How I'm solving this is essentially a whitelabelled vibe-coding platform with in
 
 Now, the IC technician is exposed to just those parts of the SaaS that they care about i.e. creating maintenance work orders. The executives get what they want too, vibe coding custom reports exactly the way they want vs going through complicated BI config. They are able to build exactly what they want and feel like digital gods while doing it.
 
-Usage for that account was under 35%, and is now over 70%. They are now working closely with me to vibe code new "micro-apps" that work according to all of their customer workflows. And the best part? This is all on top of their existing SaaS which works as a system of record and handles security, authentication, and supports lock-in by being a data and a UI moat.
+**Usage for that account was under 35%, and is now over 70%.** They are now working closely with me to vibe code new "micro-apps" that work according to all of their customer workflows. And the best part? This is all on top of their existing SaaS which works as a system of record and handles security, authentication, and supports lock-in by being a data and a UI moat.
 
 This is exactly what I'm building: a way for SaaS companies to let their end-users vibe code on top of their platform. My customers tell me it's the best thing they've done for retention, engagement, and expansion in 2026 -- because when your users are building on your platform, they're not evaluating your competitors. (Self-plug: I'm working on solving exactly this problem. If you want to see how it works, <a href="#" onclick="showDemoPopup(event)">click here and share your details and I'll show you what I've made)</a>.
 
