@@ -24,6 +24,7 @@ This is bringing an existential threat to a lot of B2B SaaS executives: How to k
 
 <figure>
   <img src="{{ '/assets/saas-stocks.png' | relative_url }}">
+  <figcaption>The market is reflecting our new reality (Source: Bloomberg)</figcaption>
 </figure>
 
 <!--more-->
@@ -83,7 +84,7 @@ Now, the IC technician is exposed to just those parts of the SaaS that they care
 
 Usage for that account was under 35%, and is now over 70%. They are now working closely with me to vibe code new "micro-apps" that work according to all of their customer workflows. And the best part? This is all on top of their existing SaaS which works as a system of record and handles security, authentication, and supports lock-in by being a data and a UI moat.
 
-The pattern is clear: when your users are building on your platform, they're not evaluating your competitors.
+This is exactly what I'm building: a way for SaaS companies to let their end-users vibe code on top of their platform. My customers tell me it's the best thing they've done for retention, engagement, and expansion in 2026 -- because when your users are building on your platform, they're not evaluating your competitors. <a href="#" onclick="showDemoPopup(event)">If you want to see how it works, I'll show you a demo</a>.
 
 ## The Real Shift
 
@@ -93,11 +94,11 @@ The SaaS model was built on a simple premise: we build it once, you pay forever.
 
 You can't unsee that. You can't go back to paying $X0,000/year for software that almost does what you need.
 
-The survivors won't be the SaaS companies with the best features. They'll be the ones who become platforms -- who let customers build _on top of_ them instead of _instead of_ them.
+The survivors won't be the SaaS companies with the best features. They'll be the ones who become platforms -- who let customers build _on top of_ them instead of _instead of_ them. When I showed a well-known VC what I was building to help SaaS companies do exactly this, he said: "This is the future of marketplaces and software companies."
 
 Maybe. Or maybe this is just another cycle and traditional SaaS will adapt like it always has. But I know this: the companies I'm talking to aren't waiting around to find out. They're already rebuilding their relationship with customers from "use our product" to "build on our platform."
 
-The question isn't whether AI will change your SaaS business. It's whether you'll adapt before your customers start building without you. 
+The question isn't whether AI will eat your SaaS. It's whether you'll be the one holding the fork. <a href="#" onclick="showDemoPopup(event)">I can show you how we're helping SaaS companies do exactly that</a> -- but regardless of how you get there, the clock is ticking. 
 
 ---
 
