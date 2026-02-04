@@ -98,7 +98,7 @@ The survivors won't be the SaaS companies with the best features. They'll be the
 
 Maybe. Or maybe this is just another cycle and traditional SaaS will adapt like it always has. But I know this: the companies I'm talking to aren't waiting around to find out. They're already rebuilding their relationship with customers from "use our product" to "build on our platform."
 
-The question isn't whether AI will eat your SaaS. It's whether you'll be the one holding the fork. <a href="https://gigamind.dev/catalyst">(Self-plug: We're helping SaaS companies do exactly that)</a> -- but regardless of how you get there, the clock is ticking. 
+The question isn't whether AI will eat your SaaS. It's whether you'll be the one holding the fork. <a href="https://gigamind.dev/catalyst" target="_blank">*(Self-plug: we're helping SaaS vendors do exactly that)*</a>. Regardless of how you get there, the clock is ticking. 
 
 ---
 
