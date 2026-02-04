@@ -122,7 +122,7 @@
 
 .demo-form .formkit-input {
   background: #ffffff;
-  font-size: 1rem;
+  font-size: max(1rem, 16px);
   padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 0.25rem;
@@ -362,7 +362,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const data = {
       name: formData.get('name'),
       email: formData.get('email'),
-      phone: formData.get('phone')
+      phone: formData.get('phone'),
+      company: 'Not provided',
+      industry: 'Not provided'
     };
 
     try {
