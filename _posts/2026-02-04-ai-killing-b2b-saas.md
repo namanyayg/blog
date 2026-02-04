@@ -47,7 +47,7 @@ If customers feel like they aren't being served exactly like they want to, they 
 
 Previously, you would change _your company_ to fit what your ERP and pay them hundreds of thousands of dollars. Now, everyone can see that agentic coding makes an unprecedented level of flexibility possible. And customers are demanding that flexibility, and if they don't get it, they'll leave.
 
-This week itself I was on a phone call with a Series B AE talk about how they're potentially losing an $X00,000 account just because the customer can't use a specific failure reporting workflow in the SaaS. They're now working with me to build what the customer needs and retain them.
+This week itself I was on a phone call with a Series B AE talking about how they're potentially losing an $X00,000 account just because the customer can't use a specific failure reporting workflow in the SaaS. They're now working with me to build what the customer needs and retain them.
 
 ## How to survive
 
@@ -62,7 +62,15 @@ Being a "System of Record" means you're embedded so deeply that there's no choic
 
 ### 2. Security, authentication, and robustness
 
-These are the hard parts of getting software that works right. Unfortunately, the customers don't know it yet. This needs to be communicated to continue retention, while also working on #1 and #3 so customers have no reason to start thinking about switching.
+This is where vibe-coded apps silently fail — and where established SaaS platforms earn their keep.
+
+When a non-technical team vibe-codes an internal tool, they're not thinking about environment keys, XSS vulnerabilities or API keys hardcoded in client-side JavaScript. They're not implementing rate limiting, audit logs, or proper session management. They're definitely not thinking about SOC 2 compliance, GDPR data residency requirements, or HIPAA audit trails.
+
+I've seen it firsthand: a finance team built a "quick" expense approval tool that stored unencrypted reports in a public S3 bucket. A sales ops team created a commission calculator that anyone with the URL could access — no auth required. These aren't edge cases. They're the norm when software is built without security as a foundational concern.
+
+Enterprise SaaS platforms have spent years (and millions) solving these problems: role-based access control, encryption at rest and in transit, penetration testing, compliance certifications, incident response procedures. Your customers may not consciously value this — until something breaks.
+
+The challenge is that security is invisible when it works. You need to communicate this value proactively: remind customers that the "simple" tool they could vibe-code themselves would require them to also handle auth, permissions, backups, uptime, and compliance.
 
 ### 3. Adapt to the customer, not the other way around
 
@@ -80,7 +88,7 @@ Now, the IC technician is exposed to just those parts of the SaaS that they care
 
 **Usage for that account was under 35%, and is now over 70%.** They are now working closely with me to vibe code new "micro-apps" that work according to all of their customer workflows. And the best part? This is all on top of their existing SaaS which works as a system of record and handles security, authentication, and supports lock-in by being a data and a UI moat.
 
-This is exactly what I'm building: a way for SaaS companies to let their end-users vibe code on top of their platform. My customers tell me it's the best thing they've done for retention, engagement, and expansion in 2026 -- because when your users are building on your platform, they're not evaluating your competitors. (Self-plug: I'm working on solving exactly this problem. If you want to see how it works, <a href="#" onclick="showDemoPopup(event)">click here and share your details and I'll show you what I've made)</a>.
+This is exactly what I'm building: a way for SaaS companies to let their end-users vibe code on top of their platform. My customers tell me it's the best thing they've done for retention, engagement, and expansion in 2026 -- because when your users are building on your platform, they're not evaluating your competitors. (Self-plug: I'm working on solving exactly this problem. If you want to see how it works, <a href="#" onclick="showDemoPopup(event)">I can show you what I've made)</a>.
 
 ## The Real Shift
 
@@ -96,7 +104,9 @@ Maybe. Or maybe this is just another cycle and traditional SaaS will adapt like 
 
 The question isn't whether AI will eat your SaaS. It's whether you'll be the one holding the fork. 
 
-Self-plug: **I'm solving exactly this problem with a whitelabelled vibe coding platform for B2B SaaS companies**, so your customers can create customized workflows on top of their existing system of record. 
+---
+
+**Self-plug: I'm solving exactly this problem with a whitelabelled AI platform for B2B SaaS companies**, so your customers can "vibe code" customized workflows on top of their existing system of record. 
 
 My customers tell me this is the **best way to support retention, engagement, and expansion** in 2026. If this sounds interesting to you or someone you know, write to me on <a href="mailto:hi@nmn.gl">hi@nmn.gl</a> or click here to <a href="https://gigamind.dev/catalyst">learn more about Giga Catalyst</a>.
 
