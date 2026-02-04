@@ -84,7 +84,7 @@ Now, the IC technician is exposed to just those parts of the SaaS that they care
 
 Usage for that account was under 35%, and is now over 70%. They are now working closely with me to vibe code new "micro-apps" that work according to all of their customer workflows. And the best part? This is all on top of their existing SaaS which works as a system of record and handles security, authentication, and supports lock-in by being a data and a UI moat.
 
-This is exactly what I'm building: a way for SaaS companies to let their end-users vibe code on top of their platform. My customers tell me it's the best thing they've done for retention, engagement, and expansion in 2026 -- because when your users are building on your platform, they're not evaluating your competitors. (Self-plug: I'm working on solving exactly this problem. If you want to see how it works, <a href="#" onclick="showDemoPopup(event)">click here to add your contact details and I'll show you what I've made)</a>.
+This is exactly what I'm building: a way for SaaS companies to let their end-users vibe code on top of their platform. My customers tell me it's the best thing they've done for retention, engagement, and expansion in 2026 -- because when your users are building on your platform, they're not evaluating your competitors. (Self-plug: I'm working on solving exactly this problem. If you want to see how it works, <a href="#" onclick="showDemoPopup(event)">click here and share your details and I'll show you what I've made)</a>.
 
 ## The Real Shift
 
