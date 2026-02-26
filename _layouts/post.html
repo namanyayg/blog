@@ -115,7 +115,7 @@ layout: default
         <p class="post-promotion">I'm building <a href="https://gigamind.dev/context?utm_source=blog&utm_medium=post&utm_campaign=post-promotion&utm_content={{ page.title | url_encode }}&utm_term={{ page.url | url_encode }}" class="link--special"><strong>Giga&nbsp;Context</strong></a>. We help thousands of developers use AI better to ship faster & write higher quality code. <a href="https://gigamind.dev/context?utm_source=blog&utm_medium=post&utm_campaign=post-promotion&utm_content={{ page.title | url_encode }}&utm_term={{ page.url | url_encode }}" class="link--special">Have&nbsp;a&nbsp;look?</a></p>
         <p>I&rsquo;m <strong>Namanyay</strong> by the way. Programming is my first love and I've been writing code since I was a teenager.</p>
         {% elsif post_promotion_type == 'giga-catalyst' %}
-        <p class="post-promotion">I'm building <a href="https://gigamind.dev/catalyst?utm_source=blog&utm_medium=post&utm_campaign=post-promotion&utm_content={{ page.title | url_encode }}&utm_term={{ page.url | url_encode }}" class="link--special"><strong>Giga&nbsp;Catalyst</strong></a> to let your users vibe code and increase retention and engagement. Fill out this form <a href="#" onclick="showDemoPopup()">and I'll show you a custom demo</a>.</p>
+        <p class="post-promotion">I'm building <a href="https://gigamind.dev/catalyst?utm_source=blog&utm_medium=post&utm_campaign=post-promotion&utm_content={{ page.title | url_encode }}&utm_term={{ page.url | url_encode }}" class="link--special"><strong>Giga&nbsp;Catalyst</strong></a> to let your users vibe code so you can get more sales.<a href="#" onclick="showDemoPopup()">Want a demo?</a></p>
         <p>I&rsquo;m <strong>Namanyay</strong> by the way. Programming is my first love and I've been writing code since I was a teenager.</p>
         {% endif %}
       
@@ -150,7 +150,9 @@ layout: default
   </div>
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+  {% if page.post_promotion_type != 'giga-catalyst' %}
+    {% include subscribe_popup.html %}
+  {% endif %}
   {% include newsletter_popup.html %}
-  {% include subscribe_popup.html %}
   {% include demo_popup.html %}
 </article>

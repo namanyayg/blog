@@ -43,6 +43,10 @@ sub, sup {
 sup { top: -0.5em; }
 sub { bottom: -0.25em; }
 img { border: 0; }
+.img-medium {
+  width: 30em;
+  max-width: 100%;
+}
 svg:not(:root) { overflow: hidden; }
 figure { margin: 0; }
 fieldset {
@@ -108,8 +112,7 @@ body {
 h1,
 h2,
 h3 {
-  font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 1; /* 1. */
-  font-variant-ligatures: discretionary-ligatures;
+  font-feature-settings: "kern" 1, "liga" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0; /* 1. */
 }
 
 /* Text-level semantics
