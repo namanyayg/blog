@@ -1,5 +1,5 @@
 ---
-title: "Vibe Coding Might Just be the Future of B2B SaaS"
+title: "Vibe Coding is the Future of B2B SaaS"
 layout: post
 date: 2026-02-26
 categories:
