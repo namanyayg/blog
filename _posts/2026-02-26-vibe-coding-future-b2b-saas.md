@@ -1,5 +1,5 @@
 ---
-title: "Vibe Coding is the Future of B2B SaaS"
+title: "B2B SaaS + Vibe Coding = $1,000,000 ARR"
 layout: post
 date: 2026-02-26
 categories:
