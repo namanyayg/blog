@@ -12,6 +12,17 @@ twitter_image: /assets/saas-stocks.png
 twitter_card: summary_large_image
 ---
 
+
+I know you've read 1000s of articles about "Vibe Coding" and how it changes lives (or ruins them) already, but this one is going to be slightly different. After spending a year in this industry, I've realized that there's two different types of vibe coding:
+
+1. Vibe coding by individuals -- usually done to chase startup dreams, 99% of which will never materialize. Characterized by a lack of domain insight or a real, pressing business problem to solve. I'll call this "Unguided Vibe Coding" for the rest of the article.
+
+2. Vibe coding by businesses, done for other business -- a.k.a. "B2B Vibe Coding". This is characterized by *real business value* created because it's being done to solve a specific problem and uses domain knowledge from how a company operates. Traditionally, this was done by engineers, but as agentic AI is making advances, there's a lot of time saved by doing it in an AI-first way.
+
+I'm gonna talk about the second one in this one.
+
+<!--more-->
+
 Monday.com just launched their fastest product to **$1M ARR.**
 
 And it just took them **2.5 months.**
@@ -27,8 +38,6 @@ From all the disdain we're seeing about vibe coding lately, it's astonishing wha
 Three weeks ago, I wrote about how [AI is killing B2B SaaS](https://nmn.gl/blog/ai-killing-b2b-saas). Stocks were (and still are) down 30%. The thesis was simple: customers can vibe code alternatives themselves, so why pay for inflexible SaaS?
 
 Turns out, Monday.com figured out the answer. And it's not what you'd expect.
-
-<!--more-->
 
 ## The Anti-Product Product
 
