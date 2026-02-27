@@ -19,15 +19,15 @@ I know you've read 1000s of articles about "Vibe Coding" and how it changes live
 
 2. Vibe coding by businesses, done for other business -- a.k.a. "B2B Vibe Coding". This is characterized by *real business value* created because it's being done to solve a specific problem and uses domain knowledge from how a company operates. Traditionally, this was done by engineers, but as agentic AI is making advances, there's a lot of time saved by doing it in an AI-first way.
 
-I'm gonna talk about the second one in this one.
+I'm going to talk about the second kind in this one.
 
 <!--more-->
 
-Monday.com just launched their fastest product to **$1M ARR.**
+So, Monday.com just launched their fastest product to **$1M ARR.**
 
-And it just took them **2.5 months.**
+..and it just took them **2.5 months.**
 
-The kicker is that the product actually doesn't _do_ anything by itself -- it just lets customers _vibe code_ whatever they want on top of Monday's platform.
+The kicker is that the product actually doesn't _do_ anything by itself in the traditional sense of the term -- it just lets customers _vibe code_ whatever they want on top of Monday's platform.
 
 From all the disdain we're seeing about vibe coding lately, it's astonishing what this one company has accomplished in such a short time.
 
