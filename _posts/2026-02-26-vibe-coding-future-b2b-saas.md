@@ -155,7 +155,7 @@ The survivors won't be the SaaS companies with the best features. They'll be the
 
 Thanks for reading this far! I'm Namanyay and I'm **solving exactly this problem with a  <a href="javascript:void(0)" onclick="showDemoPopup()">whitelabelled AI platform for B2B SaaS companies</a>**, so your users can vibe code customized workflows on top of their existing system of record.
 
-My customers tell me this is the **best way to get sales and retention** in 2026. If this sounds interesting to you or someone you know, <a href="javascript:void(0)" onclick="showDemoPopup()">I can reach out with a demo</a> or you can <a target="_blank" href="https://gigamind.dev/catalyst">learn more about Giga Catalyst</a>.
+My customers tell me this is the **best way to get sales and retention** in 2026. If this sounds interesting to you or someone you know, <a href="javascript:void(0)" onclick="showDemoPopup()">I can reach out with a demo</a> or you can <a target="_blank" href="https://gigacatalyst.com">learn more about Gigacatalyst</a>.
 
 ---
 

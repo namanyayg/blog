@@ -111,7 +111,7 @@ It's whether you'll be the one holding the fork.
 
 **I'm solving exactly this problem with a whitelabelled AI platform for B2B SaaS companies**, so your users can vibe code customized workflows on top of their existing system of record. 
 
-My customers tell me this is the **best way to support retention, engagement, and expansion** in 2026. If this sounds interesting to you or someone you know, <a href="javascript:void(0)" onclick="showDemoPopup()">I can reach out with a custom demo</a> or you can <a target="_blank" href="https://gigamind.dev/catalyst">learn more about Giga Catalyst</a>.
+My customers tell me this is the **best way to support retention, engagement, and expansion** in 2026. If this sounds interesting to you or someone you know, <a href="javascript:void(0)" onclick="showDemoPopup()">I can reach out with a custom demo</a> or you can <a target="_blank" href="https://gigacatalyst.com">learn more about Gigacatalyst</a>.
 
 ---
 
