@@ -1,5 +1,5 @@
 ---
-title: "Is Vibe Coding is an Existential Threat to B2B SaaS?"
+title: "Vibe Coding is an Existential Threat to B2B SaaS"
 layout: post
 date: 2026-04-03
 categories:
