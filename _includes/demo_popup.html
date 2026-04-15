@@ -298,6 +298,9 @@ function showDemoPopup(event) {
   const overlay = document.getElementById('demo-popup-overlay');
   if (!popup || !overlay) return;
 
+  // Store the trigger time in localStorage
+  localStorage.setItem('demoPopupLastShown', Date.now().toString());
+
   // Show overlay
   overlay.style.display = 'block';
   overlay.offsetHeight; // Force reflow
@@ -342,6 +345,42 @@ function handleDemoEscapeKey(event) {
     closeDemoPopup();
   }
 }
+
+// Automatic popup trigger at 50% scroll for giga-catalyst posts
+(function() {
+  const postPromotionType = '{{ post_promotion_type }}';
+
+  if (postPromotionType === 'giga-catalyst') {
+    let hasTriggered = false;
+
+    function checkScrollAndTrigger() {
+      if (hasTriggered) return;
+
+      // Calculate scroll percentage
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercent = (scrollTop / scrollHeight) * 100;
+
+      // Check if scrolled past 50%
+      if (scrollPercent >= 50) {
+        // Check if popup was shown in the last hour
+        const lastShown = localStorage.getItem('demoPopupLastShown');
+        const now = Date.now();
+        const oneHour = 60 * 60 * 1000; // 1 hour in milliseconds
+
+        if (!lastShown || (now - parseInt(lastShown)) > oneHour) {
+          hasTriggered = true;
+          showDemoPopup();
+          // Remove scroll listener after triggering
+          window.removeEventListener('scroll', checkScrollAndTrigger);
+        }
+      }
+    }
+
+    // Add scroll listener
+    window.addEventListener('scroll', checkScrollAndTrigger);
+  }
+})();
 
 // Waitlist form submission
 document.addEventListener('DOMContentLoaded', function() {
