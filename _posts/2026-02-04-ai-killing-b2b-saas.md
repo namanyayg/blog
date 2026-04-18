@@ -7,6 +7,7 @@ categories:
  - ai
 excerpt_separator: <!--more-->
 post_promotion_type: giga-catalyst
+auto_show_post_promotion_popup: true 
 image: /assets/saas-stocks.png
 twitter_image: /assets/saas-stocks.png
 twitter_card: summary_large_image
@@ -79,7 +80,7 @@ The times of asking customers to change how they work are gone. Now, SaaS vendor
 
 How? It's the most powerful secret to increase usage. We've all heard the classic SaaS problem where the software is sold at the beginning of the year, but no one actually ends up using it because of how inflexible it is and the amount of training needed. 
 
-And if a SaaS is underutilized, it gets noticed. And that leads to churn.
+And if a SaaS is underutilized, it gets noticed. And that leads to churn. And just adding [random AI features to your SaaS](/https://gigacatalyst.com/blog/three-levels-of-adding-ai-to-your-saas){:target="_blank"} won't cut it.
 
 This is the case with one of my customers, they have a complex SaaS for maintenance operations. But turns out, this was not being used at the technician level because they found the UI too complex[^5]. 
 

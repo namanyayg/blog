@@ -349,8 +349,9 @@ function handleDemoEscapeKey(event) {
 // Automatic popup trigger at 50% scroll for giga-catalyst posts
 (function() {
   const postPromotionType = '{{ post_promotion_type }}';
+  const autoShowPopup = '{{ auto_show_post_promotion_popup }}' === 'true';
 
-  if (postPromotionType === 'giga-catalyst') {
+  if (postPromotionType === 'giga-catalyst' && autoShowPopup) {
     let hasTriggered = false;
 
     function checkScrollAndTrigger() {
