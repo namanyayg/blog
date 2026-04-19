@@ -12,9 +12,10 @@ image: /assets/open-source-killed-ai/theo-vs-bailey.png
 twitter_image: /assets/open-source-killed-ai/theo-vs-bailey.png
 ---
 
-Today, I find myself as a Y Combinator backed B2B SaaS founder, stuff that used to be the dream for a 12-year-old me, fangirling to Zuck.
 
-But to run a business, you have to use B2B software tools. And I don't know if you've noticed, but there's something very wrong with the Salesforces, SAPs, and Jiras of this world. I set all of them up for my business, but I dreaded using them so much that I figured out a new way forward for myself.
+To run a business, you have to use B2B software tools. And I don't know if you've noticed, but there's something very wrong with the Salesforces, SAPs, and Jiras of this world.
+
+Today, I find myself as a Y Combinator backed B2B SaaS founder, stuff that used to be the dream for a 12-year-old me, fangirling to Zuck. I set all of them up for my business, but I dreaded using them so much that I figured out a new way forward for myself.
 
 <figure>
     <img src="{{ '/assets/open-source-killed-ai/theo-vs-bailey.png' | relative_url }}"/>
