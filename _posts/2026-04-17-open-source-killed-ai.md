@@ -1,5 +1,5 @@
 ---
-title: "Open Source SaaS is Dead, AI Killed It"
+title: "AI is Killing Open Source SaaS Too"
 layout: post
 date: 2026-02-17
 categories:
