@@ -8,6 +8,8 @@ categories:
 excerpt_separator: <!--more-->
 post_promotion_type: giga-catalyst
 twitter_card: summary_large_image
+image: /assets/open-source-killed-ai/theo-vs-bailey.png
+twitter_image: /assets/open-source-killed-ai/theo-vs-bailey.png
 ---
 
 Today, I find myself as a Y Combinator backed B2B SaaS founder, stuff that used to be the dream for a 12-year-old me, fangirling to Zuck.
