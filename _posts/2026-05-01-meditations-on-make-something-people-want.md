@@ -1,5 +1,5 @@
 ---
-title: "14 Years of Mistakes to \"Make Something People Want\""
+title: "How I Got Into Y Combinator after 14 Years of Building"
 layout: post
 date: 2026-05-01
 categories:
