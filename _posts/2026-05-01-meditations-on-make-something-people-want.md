@@ -18,7 +18,7 @@ post_promotion_type: giga-catalyst
 I just got accepted into Y Combinator. It feels like a dream, because their motto is something I've been turning over in my head since I was a kid reading Paul Graham's essays on a CRT monitor.
 
 <figure>
-  <img src="{{ '/assets/make-something-people-want/namanyay-ycombinator-sign-gigacatalyst.jpeg' | relative_url }}" alt="Namanyay Goel's Gigacatalyst in Y Combinator" style="max-width: 30em">
+  <img src="{{ '/assets/make-something-people-want/namanyay-ycombinator-sign-gigacatalyst.jpeg' | relative_url }}" alt="Namanyay Goel's Gigacatalyst in Y Combinator" style="max-width: 30em; width: 100%;>
 </figure>
 
 "Make something people want" sounds like simple four words, but it took me 14 years to unravel their deepest meaning.
@@ -114,7 +114,7 @@ Over a series of three pivots, six product launches, 20,000 people served, I'm f
 When it's done right, when you finally make something that people want, the momentum feels unbelievable. And that's why I was accepted into Y Combinator.
 
 <figure>
-  <img src="{{ '/assets/make-something-people-want/namanyay-gigacatalyst-linkedin.png' | relative_url }}" alt="Namanyay Goel's Gigacatalyst in Y Combinator on LinkedIn" style="max-width: 30em">
+  <img src="{{ '/assets/make-something-people-want/namanyay-gigacatalyst-linkedin.png' | relative_url }}" alt="Namanyay Goel's Gigacatalyst in Y Combinator on LinkedIn" style="max-width: 30em; width: 100%;>
 </figure>
 
 So now I'm in San Francisco, building a platform that lets software companies give users the power to build on top of them. 
