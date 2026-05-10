@@ -31,7 +31,7 @@ _"You know what?"_ he said. _"I've never once heard the CEO care about our code 
 It was disappointing, but also... _enlightening_?
 
 <figure>
-  <img src="{{ '/assets/devs-vs-businesses-art-vs-deadlines.png' | relative_url }}" alt="Devs vs Businesses" style=max-width: 30em; width: 100%;">
+  <img src="{{ '/assets/devs-vs-businesses-art-vs-deadlines.png' | relative_url }}" alt="Devs vs Businesses" style="max-width: 30em; width: 100%;">
   <figcaption>What devs prioritize vs what businesses prioritize</figcaption>
 </figure>
 
