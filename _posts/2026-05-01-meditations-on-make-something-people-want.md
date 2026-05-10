@@ -1,5 +1,5 @@
 ---
-title: "How I Got Into Y Combinator after 14 Years of Building"
+title: "The Mindset Shift that Finally Unlocked Y Combinator for Me"
 layout: post
 date: 2026-05-01
 categories:
