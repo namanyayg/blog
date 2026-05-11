@@ -1,5 +1,5 @@
 ---
-title: "The Mindset Shift that Finally Unlocked Y Combinator for Me"
+title: "Meditations on How I Got Into Y Combinator"
 layout: post
 date: 2026-05-01
 categories:
@@ -7,9 +7,9 @@ categories:
  - ai
 excerpt_separator: <!--more-->
 post_promotion_type: giga-catalyst
-# image: /assets/XXX.png
-# twitter_image: /assets/XXX.png
-# twitter_card: summary_large_image
+image: /assets/make-something-people-want/namanyay-ycombinator-sign-gigacatalyst.jpeg
+twitter_image: /assets/make-something-people-want/namanyay-ycombinator-sign-gigacatalyst.jpeg
+twitter_card: summary_large_image
 # social_metrics:
 #   hackernews: "XXX+ votes"
 #   views: "XXX"
