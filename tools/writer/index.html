@@ -1,0 +1,1626 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Writing</title>
+<style>
+  :root {
+    --bg: #fbfaf8;
+    --panel: #f3f1ed;
+    --line: rgba(0,0,0,.10);
+    --ink: #1b1a18;
+    --ink-soft: #6b6862;
+    --ink-faint: #a6a29a;
+    --accent: #9a5b32;
+    --code-bg: rgba(0,0,0,.045);
+    --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+    --serif: ui-serif, "New York", "Iowan Old Style", Palatino, Georgia, serif;
+    --mono: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    display: flex;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  input, textarea, button, select { font: inherit; color: inherit; }
+
+  /* ------------------------------------------------------------- sidebar */
+  aside {
+    width: 19rem;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+    background: var(--panel);
+    border-right: 0.0625rem solid var(--line);
+  }
+  .side-top { padding: 0.75rem 0.875rem 0.5rem; display: flex; gap: 0.5rem; align-items: center; }
+  #search {
+    flex: 1; min-width: 0;
+    padding: 0.375rem 0.625rem;
+    border: 0.0625rem solid var(--line);
+    border-radius: 0.5rem;
+    background: var(--bg);
+    font-size: 0.8125rem;
+  }
+  #search:focus { outline: 0.125rem solid var(--accent); outline-offset: -0.0625rem; }
+  .icon-btn {
+    flex: none; width: 1.875rem; height: 1.875rem;
+    border: 0.0625rem solid var(--line);
+    border-radius: 0.5rem;
+    background: var(--bg);
+    cursor: pointer; font-size: 1.0625rem; line-height: 1; color: var(--ink-soft);
+  }
+  .icon-btn:hover { color: var(--ink); }
+
+  #list { flex: 1; overflow-y: auto; padding: 0.25rem 0.5rem 2rem; }
+  .group {
+    font-size: 0.6875rem; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink-faint); padding: 0.875rem 0.5rem 0.375rem;
+  }
+  .item { padding: 0.4375rem 0.5rem; border-radius: 0.5rem; cursor: pointer; line-height: 1.3; }
+  .item:hover { background: rgba(127,127,127,.10); }
+  .item.active { background: rgba(127,127,127,.18); }
+  .item .t {
+    font-size: 0.8125rem;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .item .d { font-size: 0.6875rem; color: var(--ink-faint); margin-top: 0.125rem; }
+
+  /* -------------------------------------------------------------- editor */
+  main { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+  .bar {
+    height: 2.75rem; flex: none;
+    display: flex; align-items: center; gap: 0.5rem;
+    padding: 0 0.875rem;
+    border-bottom: 0.0625rem solid var(--line);
+    font-size: 0.75rem; color: var(--ink-soft);
+  }
+  .bar .spacer { flex: 1; }
+  .pill { padding: 0.1875rem 0.5rem; border-radius: 62.5rem; border: 0.0625rem solid var(--line); font-size: 0.6875rem; }
+  .pill.post { color: var(--accent); border-color: currentColor; }
+  button.action {
+    padding: 0.3125rem 0.75rem; border-radius: 0.5rem;
+    border: 0.0625rem solid var(--line); background: var(--bg);
+    cursor: pointer; font-size: 0.75rem;
+  }
+  button.action:hover { border-color: var(--ink-faint); }
+  button.action.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  button.action.primary:hover { filter: brightness(1.08); }
+  button.action.ghost { border-color: transparent; color: var(--ink-faint); }
+  button.action.ghost:hover { border-color: var(--line); color: var(--ink); }
+  .pill.live { color: #3f7d4e; border-color: currentColor; }
+  .pill.pending { color: var(--accent); border-color: currentColor; }
+  #dirty { color: var(--accent); font-size: 1.125rem; line-height: 1; visibility: hidden; }
+  #dirty.on { visibility: visible; }
+
+  .scroll { flex: 1; overflow-y: auto; }
+  .sheet { max-width: 42rem; margin: 0 auto; padding: 3rem 1.5rem 60vh; }
+
+  #title {
+    width: 100%; border: none; background: none; resize: none; overflow: hidden;
+    font-family: var(--serif); font-size: 2rem; line-height: 1.2; font-weight: 600;
+    letter-spacing: -0.01em; padding: 0; margin-bottom: 1.25rem;
+  }
+  #title::placeholder { color: var(--ink-faint); }
+  #title:focus { outline: none; }
+
+  /* live-preview surface: the text is the raw markdown, styling is decoration */
+  #body {
+    font-family: var(--serif);
+    font-size: 1.125rem;
+    line-height: 1.7;
+    outline: none;
+    white-space: pre-wrap;
+    word-break: break-word;
+    caret-color: var(--accent);
+    min-height: 40vh;
+  }
+  #body.empty::before {
+    content: "Write…";
+    color: var(--ink-faint);
+    pointer-events: none;
+  }
+  .ln { min-height: 1.7em; }
+  .ln.h { font-weight: 600; letter-spacing: -0.01em; line-height: 1.3; margin: 0.6em 0 0.2em; }
+  .ln.h1 { font-size: 1.7em; }
+  .ln.h2 { font-size: 1.4em; }
+  .ln.h3 { font-size: 1.18em; }
+  .ln.h4, .ln.h5, .ln.h6 { font-size: 1.05em; }
+  .ln.quote { border-left: 0.1875rem solid var(--line); padding-left: 0.75rem; color: var(--ink-soft); font-style: italic; }
+  .ln.code, .ln.html {
+    font-family: var(--mono); font-size: 0.8125em; line-height: 1.55;
+    color: var(--ink-soft); background: var(--code-bg);
+    padding: 0 0.375rem;
+  }
+  .ln.img {
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    border-radius: 0.25rem;
+  }
+  /* a preview line is not code: drop the grey slab and the text indent */
+  .ln.img, .ln.vid { background-color: transparent; padding-left: 0; padding-right: 0; }
+  /* folded markup: hidden text, but a click target that says what is there */
+  .ln.folded:not(.caret) > .src { display: none; }
+  /* :not(.img):not(.vid) matters — the `background` shorthand would reset
+     background-repeat and tile the preview across the line. */
+  .ln.folded.html:not(.caret):not(.img):not(.vid) { padding: 0; background: none; }
+  .ln.folded:not(.caret):not(.img):not(.vid)::after {
+    content: "⌗ markup";
+    font-family: var(--sans); font-size: 0.6875rem; color: var(--ink-faint);
+    cursor: text;
+  }
+  .ln.vid { position: relative; }
+  .ln .preview {
+    position: absolute; left: 0; bottom: 0.5rem;
+    max-width: 100%; border-radius: 0.25rem; background: #000;
+  }
+  .ln.fndef { font-size: 0.9em; color: var(--ink-soft); }
+  .fn {
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 0.75em;
+    vertical-align: 0.25em;
+    cursor: pointer;
+  }
+  .ln.fndef .fn { vertical-align: baseline; font-size: 0.85em; }
+  .mk { color: var(--ink-faint); font-weight: 400; font-style: normal; }
+  .ln code { font-family: var(--mono); font-size: 0.85em; background: var(--code-bg); border-radius: 0.1875rem; }
+  .lnk { color: var(--accent); }
+  .url { color: var(--ink-faint); font-family: var(--mono); font-size: 0.8em; }
+  .liquid { color: var(--ink-faint); font-family: var(--mono); font-size: 0.8em; }
+  .tag { color: var(--ink-faint); font-family: var(--mono); font-size: 0.8em; }
+
+  /* ------------------------------------------------------------ metadata */
+  .meta {
+    width: 20rem; flex: none;
+    border-left: 0.0625rem solid var(--line);
+    background: var(--panel);
+    overflow-y: auto;
+    padding: 1rem 1.125rem 3rem;
+  }
+  .meta.hidden { display: none; }
+  .meta h3 {
+    font-size: 0.6875rem; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink-faint); margin: 0 0 0.75rem; font-weight: 600;
+  }
+  .field { margin-bottom: 0.875rem; }
+  .field label { display: block; font-size: 0.6875rem; color: var(--ink-soft); margin-bottom: 0.25rem; }
+  .field input, .field select, .field textarea {
+    width: 100%; padding: 0.375rem 0.5rem;
+    border: 0.0625rem solid var(--line); border-radius: 0.4375rem;
+    background: var(--bg); font-size: 0.8125rem;
+  }
+  .field textarea { font-family: var(--mono); font-size: 0.75rem; line-height: 1.5; resize: vertical; }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: 0.09375rem solid var(--accent); outline-offset: -0.0625rem; }
+  .field .hint { font-size: 0.6875rem; color: var(--ink-faint); margin-top: 0.1875rem; }
+  .row { display: flex; gap: 0.5rem; }
+  .row > * { flex: 1; min-width: 0; }
+  details summary {
+    cursor: pointer; font-size: 0.6875rem; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink-faint); margin: 1.25rem 0 0.75rem;
+  }
+  .toast {
+    position: fixed; left: 50%; bottom: 1.5rem;
+    transform: translateX(-50%) translateY(1rem);
+    background: var(--ink); color: var(--bg);
+    padding: 0.5rem 0.9375rem; border-radius: 62.5rem; font-size: 0.8125rem;
+    opacity: 0; transition: opacity .18s, transform .18s; pointer-events: none;
+  }
+  .toast.on { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  .rename {
+    position: fixed; left: 50%; bottom: 1.5rem; transform: translateX(-50%);
+    background: var(--panel); color: var(--ink);
+    border: 0.0625rem solid var(--line); border-radius: 0.625rem;
+    box-shadow: 0 0.5rem 2rem rgba(0,0,0,.18);
+    padding: 0.75rem 0.875rem; width: 26rem; max-width: calc(100vw - 3rem);
+    z-index: 10;
+  }
+  .rn-label { font-size: 0.6875rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.375rem; }
+  .rn-row { display: flex; align-items: center; gap: 0.25rem; }
+  #rn-input {
+    flex: 1; min-width: 0;
+    padding: 0.375rem 0.5rem;
+    border: 0.0625rem solid var(--line); border-radius: 0.4375rem;
+    background: var(--bg); font-family: var(--mono); font-size: 0.8125rem;
+  }
+  #rn-input:focus { outline: 0.09375rem solid var(--accent); outline-offset: -0.0625rem; }
+  .rn-ext { font-family: var(--mono); font-size: 0.8125rem; color: var(--ink-faint); }
+  .rn-hint { font-size: 0.6875rem; color: var(--ink-faint); margin-top: 0.375rem; }
+  #dp-files {
+    max-height: 12rem; overflow-y: auto; margin: 0.5rem 0 0;
+    font-family: var(--mono); font-size: 0.6875rem; line-height: 1.6;
+    color: var(--ink-soft); white-space: pre-wrap;
+  }
+  button.pill { cursor: pointer; background: var(--bg); font-family: inherit; }
+  button.pill:hover { border-color: var(--ink-faint); color: var(--ink); }
+
+  .chip {
+    position: fixed; z-index: 9;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.6875rem;
+    border: 0.0625rem solid var(--line); border-radius: 62.5rem;
+    background: var(--panel); color: var(--ink-soft);
+    cursor: pointer;
+    box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,.12);
+  }
+  .chip:hover { color: var(--ink); border-color: var(--ink-faint); }
+  button.action.ok { color: var(--accent); border-color: var(--accent); }
+  button.action.primary.ok { background: var(--accent); color: #fff; }
+  #savedAt { color: var(--ink-faint); }
+  body.dragging::after {
+    content: "Drop image or clip";
+    position: fixed; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(127,127,127,.15);
+    font-size: 1.25rem; color: var(--ink); pointer-events: none;
+  }
+</style>
+</head>
+<body>
+
+<aside>
+  <div class="side-top">
+    <input id="search" type="search" placeholder="Search" autocomplete="off">
+    <button class="icon-btn" id="new" title="New draft (⌘N)">+</button>
+  </div>
+  <div id="list"></div>
+</aside>
+
+<main>
+  <div class="bar">
+    <span id="dirty">•</span>
+    <button class="pill" id="statePill" title="Where this file lives">draft</button>
+    <span id="filename" style="font-family:var(--mono);font-size:.6875rem;color:var(--ink-faint)"></span>
+    <button class="action ghost" id="fnBtn" title="Add a footnote (⌘⇧F)">+ note</button>
+    <span class="spacer"></span>
+    <span id="count"></span>
+    <span id="savedAt"></span>
+    <button class="action" id="toggleMeta" title="Metadata (⌘I)">Details</button>
+    <button class="action" id="previewBtn" title="See it rendered locally">Preview</button>
+    <button class="action" id="shareBtn" title="Send to Notion for feedback">Share</button>
+    <button class="action" id="publishBtn" title="Put it live on nmn.gl">Publish…</button>
+    <button class="action primary" id="save" title="Write changes to disk (⌘S)">Save</button>
+  </div>
+  <div class="scroll">
+    <div class="sheet">
+      <textarea id="title" placeholder="Title" rows="1" spellcheck="true" autocorrect="off" autocapitalize="off"></textarea>
+      <div id="body" contenteditable="plaintext-only" spellcheck="true" autocorrect="off" autocapitalize="off"></div>
+    </div>
+  </div>
+</main>
+
+<div class="meta hidden" id="meta">
+  <h3>Metadata</h3>
+  <div class="field">
+    <label for="f-slug">Slug</label>
+    <input id="f-slug" autocomplete="off">
+    <div class="hint" id="urlHint"></div>
+  </div>
+  <div class="row">
+    <div class="field">
+      <label for="f-date">Date</label>
+      <input id="f-date" type="date">
+    </div>
+    <div class="field">
+      <label for="f-layout">Layout</label>
+      <input id="f-layout" placeholder="post">
+    </div>
+  </div>
+  <div class="field">
+    <label for="f-categories">Categories</label>
+    <input id="f-categories" placeholder="ai, startups" autocomplete="off">
+  </div>
+  <div class="field">
+    <label for="f-tags">Tags</label>
+    <input id="f-tags" placeholder="comma separated" autocomplete="off">
+  </div>
+  <div class="field">
+    <label for="f-image">Header image</label>
+    <input id="f-image" placeholder="/assets/…" autocomplete="off">
+    <div class="hint">Also used for the Twitter card.</div>
+  </div>
+  <div class="field">
+    <label for="f-promo">Promotion</label>
+    <select id="f-promo">
+      <option value="">(default)</option>
+      <option value="giga-catalyst">giga-catalyst</option>
+      <option value="giga-reviewer">giga-reviewer</option>
+      <option value="hidden">hidden</option>
+    </select>
+  </div>
+  <div class="field">
+    <label><input type="checkbox" id="f-more" style="width:auto"> Use <code>&lt;!--more--&gt;</code> excerpt cut</label>
+  </div>
+
+  <details>
+    <summary>Advanced</summary>
+    <div class="field">
+      <label for="f-permalink">Permalink</label>
+      <input id="f-permalink" autocomplete="off">
+    </div>
+    <div class="field">
+      <label for="f-twitter-card">Twitter card</label>
+      <input id="f-twitter-card" placeholder="summary_large_image" autocomplete="off">
+    </div>
+    <div class="field">
+      <label for="f-extra">Other frontmatter (raw YAML)</label>
+      <textarea id="f-extra" rows="6" spellcheck="false"></textarea>
+      <div class="hint">Preserved as-is on save.</div>
+    </div>
+    <div class="field" id="unpublishField" hidden>
+      <button class="action" id="unpublish" style="width:100%">Move back to drafts</button>
+      <div class="hint">Takes the post out of <code>_posts/</code>. It stops being published.</div>
+    </div>
+  </details>
+</div>
+
+<button class="chip" id="mediaChip" hidden>Rename file</button>
+
+<div class="rename" id="deployPanel" hidden style="width:32rem">
+  <div class="rn-label" id="dp-label">Deploy to GitHub Pages</div>
+  <div class="rn-row" id="dp-row"><input id="dp-message" autocomplete="off" placeholder="Commit message"></div>
+  <pre id="dp-files"></pre>
+  <div class="rn-hint" id="dp-hint">↩ commit &amp; push · esc cancel — <code>_drafts/</code> is gitignored and never leaves this machine.</div>
+</div>
+
+<div class="rename" id="rename" hidden>
+  <div class="rn-label" id="rn-label">Name this image</div>
+  <div class="rn-row">
+    <input id="rn-input" autocomplete="off" spellcheck="false">
+    <span class="rn-ext" id="rn-ext"></span>
+  </div>
+  <div class="rn-hint">↩ rename · esc keep</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const api = async (url, opts) => {
+  const r = await fetch(url, opts);
+  const j = await r.json();
+  if (j.error) throw new Error(j.error);
+  return j;
+};
+
+let files = [];
+let doc = null;      // { path, type, slug, known, extra, body }
+let dirty = false;
+
+/* ============================================================== the editor ==
+ * The contenteditable holds the raw markdown, one <div class="ln"> per source
+ * line. Formatting is decoration only — syntax markers stay in the text, just
+ * dimmed — so what you edit is always exactly what lands in the .md file.
+ * Images are painted as the line's background, which keeps them out of the
+ * text model entirely.
+ */
+
+const ed = $('body');
+let text = '';                 // the single source of truth
+let renderedLines = null;      // last rendered line array, for minimal re-render
+
+const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const mk = (s) => '<span class="mk">' + esc(s) + '</span>';
+
+// Inline spans: footnotes, links, images, bold, italic, code, liquid, raw HTML.
+function inline(s) {
+  const re = /(\[\^[^\]\s]+\])(?!:)|(!?\[)([^\]]*)(\]\()([^)]*)(\))|(\*\*|__)([^]+?)\7|(\*|_)([^*_\n]+?)\9|(`+)([^`]+?)\11|(\{\{[^]*?\}\}|\{%[^]*?%\})|(<\/?[A-Za-z][^>]*>)/g;
+  let out = '', i = 0, m;
+  while ((m = re.exec(s))) {
+    out += esc(s.slice(i, m.index));
+    if (m[1] !== undefined) {
+      out += '<span class="fn">' + esc(m[1]) + '</span>';
+    } else if (m[2] !== undefined) {
+      out += mk(m[2]) + '<span class="lnk">' + esc(m[3]) + '</span>' + mk(m[4]) +
+             '<span class="url">' + esc(m[5]) + '</span>' + mk(m[6]);
+    } else if (m[7] !== undefined) {
+      out += mk(m[7]) + '<b>' + esc(m[8]) + '</b>' + mk(m[7]);
+    } else if (m[9] !== undefined) {
+      out += mk(m[9]) + '<i>' + esc(m[10]) + '</i>' + mk(m[9]);
+    } else if (m[11] !== undefined) {
+      out += mk(m[11]) + '<code>' + esc(m[12]) + '</code>' + mk(m[11]);
+    } else if (m[13] !== undefined) {
+      out += '<span class="liquid">' + esc(m[13]) + '</span>';
+    } else {
+      out += '<span class="tag">' + esc(m[14]) + '</span>';
+    }
+    i = re.lastIndex;
+  }
+  return out + esc(s.slice(i));
+}
+
+// The media a line points at, whether markdown, HTML or Liquid-wrapped.
+function mediaUrl(raw) {
+  const m =
+    /!\[[^\]]*\]\(\s*(?:\{\{\s*'([^']+)'[^}]*\}\}|([^)\s]+))/.exec(raw) ||
+    /<(?:img|video|source)[^>]*\ssrc\s*=\s*["']\s*(?:\{\{\s*'([^']+)'[^}]*\}\}|([^"'\s]+))/.exec(raw);
+  if (!m) return null;
+  const url = m[1] || m[2] || '';
+  if (/\.(png|jpe?g|gif|webp|avif|svg|heic)(\?|$)/i.test(url)) return { url, kind: 'image' };
+  if (/\.(mp4|webm|mov|m4v)(\?|$)/i.test(url)) return { url, kind: 'video' };
+  return null;
+}
+
+function lineHtml(raw, st) {
+  let cls = 'ln', html;
+  if (st.fence) {
+    cls += ' code';
+    html = esc(raw);
+    if (/^\s*```/.test(raw)) st.fence = false;
+  } else if (/^\s*```/.test(raw)) {
+    st.fence = true;
+    cls += ' code';
+    html = esc(raw);
+  } else {
+    const h = /^(#{1,6})(\s+)(.*)$/.exec(raw);
+    const q = /^(\s*>\s?)(.*)$/.exec(raw);
+    const li = /^(\s*(?:[-*+]|\d+\.)\s+)(.*)$/.exec(raw);
+    const fd = /^(\[\^[^\]\s]+\]:\s?)(.*)$/.exec(raw);
+    if (fd) { cls += ' fndef'; html = '<span class="fn">' + esc(fd[1]) + '</span>' + inline(fd[2]); }
+    else if (h) { cls += ' h h' + h[1].length; html = mk(h[1] + h[2]) + inline(h[3]); }
+    else if (q) { cls += ' quote'; html = mk(q[1]) + inline(q[2]); }
+    else if (li) { cls += ' li'; html = mk(li[1]) + inline(li[2]); }
+    else if (/^\s*<\/?[A-Za-z!]/.test(raw)) { cls += ' html'; html = inline(raw); }
+    else html = inline(raw);
+  }
+  return { cls, html: html === '' ? '<br>' : html };
+}
+
+const mediaHeights = {};   // url → displayed height in rem, measured once
+
+const fitHeight = (w, h) => {
+  const maxW = (ed.clientWidth || 560) / 16, maxH = 16;   // rem
+  const scale = Math.min(maxW / (w / 16), maxH / (h / 16), 1);
+  return Math.round((h / 16) * scale * 100) / 100;
+};
+
+// Previews live in space reserved below the line — as the line's background for
+// images, as an absolutely positioned <video> for clips — so they never enter
+// the text model. The source stays byte-for-byte what you typed.
+function paintMedia(div, url, kind) {
+  const src = /^https?:/.test(url) ? url : url.replace(/^\/blog/, '');
+  div.classList.add(kind === 'video' ? 'vid' : 'img');
+  const h = mediaHeights[src];
+
+  if (kind === 'video') {
+    const v = document.createElement('video');
+    v.src = src;
+    v.controls = true; v.muted = true; v.loop = true; v.playsInline = true;
+    v.setAttribute('contenteditable', 'false');
+    v.className = 'preview';
+    if (h !== undefined) v.style.height = h + 'rem';
+    v.onloadedmetadata = () => {
+      mediaHeights[src] = fitHeight(v.videoWidth, v.videoHeight);
+      v.style.height = mediaHeights[src] + 'rem';
+      div.style.paddingBottom = mediaHeights[src] + 1 + 'rem';
+    };
+    v.onerror = () => { div.classList.remove('vid'); v.remove(); div.style.paddingBottom = ''; };
+    div.appendChild(v);
+    div.style.paddingBottom = (h !== undefined ? h + 1 : 2) + 'rem';
+    return;
+  }
+
+  div.style.backgroundImage = `url("${src}")`;
+  const size = (rem) => {
+    div.style.paddingBottom = rem + 1 + 'rem';
+    div.style.backgroundSize = 'auto ' + rem + 'rem';
+  };
+  if (h !== undefined) return size(h);
+  div.style.paddingBottom = '1rem';
+  const im = new Image();
+  im.onload = () => {
+    mediaHeights[src] = fitHeight(im.naturalWidth, im.naturalHeight);
+    for (const el of ed.querySelectorAll('.ln.img')) {
+      if (el.style.backgroundImage.includes(src)) {
+        el.style.paddingBottom = mediaHeights[src] + 1 + 'rem';
+        el.style.backgroundSize = 'auto ' + mediaHeights[src] + 'rem';
+      }
+    }
+  };
+  im.onerror = () => { div.classList.remove('img'); div.style.backgroundImage = ''; div.style.paddingBottom = ''; };
+  im.src = src;
+}
+
+function renderLineInto(div, raw, st) {
+  const { cls, html } = lineHtml(raw, st);
+  div.className = cls;
+  // Figure/Liquid markup is folded away until the caret enters the line. The
+  // text is still in the DOM (display:none does not touch textContent), so the
+  // file on disk is unaffected — you just stop reading plumbing.
+  const media = mediaUrl(raw);
+  const foldable = (media || cls.includes('html')) && !/^\s*<!--/.test(raw);
+  if (foldable) div.classList.add('folded');
+  div.innerHTML = foldable ? '<span class="src">' + html + '</span>' : html;
+  div.style.backgroundImage = '';
+  div.style.backgroundSize = '';
+  div.style.paddingBottom = '';
+  if (media) paintMedia(div, media.url, media.kind);
+}
+
+function render(force) {
+  const lines = text.split('\n');
+  const st = { fence: false };
+
+  // Cheap path: same line count, so only rewrite the lines that actually changed.
+  if (!force && renderedLines && renderedLines.length === lines.length && ed.children.length === lines.length) {
+    let fenceDirty = false;
+    for (let i = 0; i < lines.length; i++) {
+      const changed = lines[i] !== renderedLines[i];
+      if (changed && /```/.test(lines[i] + renderedLines[i])) fenceDirty = true;
+      if (changed || fenceDirty) renderLineInto(ed.children[i], lines[i], st);
+      else if (/^\s*```/.test(lines[i])) st.fence = !st.fence;
+    }
+  } else {
+    const frag = document.createDocumentFragment();
+    for (const raw of lines) {
+      const div = document.createElement('div');
+      renderLineInto(div, raw, st);
+      frag.appendChild(div);
+    }
+    ed.replaceChildren(frag);
+    caretLine = null;
+  }
+  renderedLines = lines;
+  ed.classList.toggle('empty', text === '');
+}
+
+// Which line the caret sits in, so folded markup can unfold under it.
+let caretLine = null;
+function markCaretLine() {
+  const sel = getSelection();
+  let node = sel.rangeCount ? sel.anchorNode : null;
+  while (node && node.parentNode !== ed) node = node.parentNode;
+  if (node === caretLine) return;
+  if (caretLine) caretLine.classList.remove('caret');
+  caretLine = node && node.classList && node.classList.contains('ln') ? node : null;
+  if (caretLine) caretLine.classList.add('caret');
+}
+document.addEventListener('selectionchange', () => {
+  if (document.activeElement === ed) markCaretLine();
+});
+
+/* ------------------------------------------------------------- caret ↔ offset */
+
+function readText() {
+  const kids = [...ed.childNodes];
+  if (kids.length && kids.every((n) => n.nodeType === 1 && n.classList.contains('ln'))) {
+    return kids.map((n) => n.textContent).join('\n');
+  }
+  return ed.innerText.replace(/\n$/, '');   // after a native edit the DOM may drift
+}
+
+function fragText(container) {
+  const parts = [];
+  for (const n of container.childNodes) parts.push(n.nodeType === 3 ? n.data : n.textContent);
+  return parts.join('\n');
+}
+
+function caretOffset() {
+  const sel = getSelection();
+  if (!sel.rangeCount || !ed.contains(sel.anchorNode)) return null;
+  const r = sel.getRangeAt(0);
+  const pre = document.createRange();
+  pre.selectNodeContents(ed);
+  pre.setEnd(r.endContainer, r.endOffset);
+  const holder = document.createElement('div');
+  holder.appendChild(pre.cloneContents());
+  return fragText(holder).length;
+}
+
+function setCaret(offset) {
+  if (offset == null) return;
+  let remaining = offset;
+  for (const div of ed.children) {
+    const len = div.textContent.length;
+    if (remaining <= len) {
+      const walker = document.createTreeWalker(div, NodeFilter.SHOW_TEXT);
+      let node, seen = 0;
+      while ((node = walker.nextNode())) {
+        if (seen + node.data.length >= remaining) {
+          const r = document.createRange();
+          r.setStart(node, remaining - seen);
+          r.collapse(true);
+          const sel = getSelection();
+          sel.removeAllRanges();
+          sel.addRange(r);
+          return;
+        }
+        seen += node.data.length;
+      }
+      const r = document.createRange();      // empty line
+      r.setStart(div, 0);
+      r.collapse(true);
+      const sel = getSelection();
+      sel.removeAllRanges();
+      sel.addRange(r);
+      return;
+    }
+    remaining -= len + 1;
+  }
+}
+
+function setText(value, caret) {
+  text = value;
+  render();
+  if (caret != null) setCaret(caret);
+  markCaretLine();
+  updateCount();
+}
+
+// Replace [from, to) in the source and put the caret at the end of the insert.
+function replaceText(from, to, insert) {
+  pushUndo();
+  setText(text.slice(0, from) + insert + text.slice(to), from + insert.length);
+  setDirty(true);
+}
+
+/* ------------------------------------------------------------------- undo */
+
+let undoStack = [], redoStack = [], lastUndoAt = 0;
+
+function pushUndo(force) {
+  const now = Date.now();
+  const top = undoStack[undoStack.length - 1];
+  if (!force && top && top.text === text) return;
+  if (!force && now - lastUndoAt < 500 && top) return;
+  undoStack.push({ text, caret: caretOffset() });
+  if (undoStack.length > 300) undoStack.shift();
+  redoStack = [];
+  lastUndoAt = now;
+}
+
+function undo() {
+  const prev = undoStack.pop();
+  if (!prev) return;
+  redoStack.push({ text, caret: caretOffset() });
+  setText(prev.text, prev.caret);
+  setDirty(true);
+}
+
+function redo() {
+  const next = redoStack.pop();
+  if (!next) return;
+  undoStack.push({ text, caret: caretOffset() });
+  setText(next.text, next.caret);
+  setDirty(true);
+}
+
+/* ---------------------------------------------------------- editor events */
+
+// macOS "smart dashes" rewrites -- into an em dash as you type. Spot exactly
+// that edit and put the dashes back; em dashes you type yourself are untouched.
+function dashRevert(prev, next) {
+  if (!/[—–]/.test(next) || next.length >= prev.length) return null;
+  let s = 0;
+  while (s < prev.length && s < next.length && prev[s] === next[s]) s++;
+  let e = 0;
+  while (e < prev.length - s && e < next.length - s &&
+         prev[prev.length - 1 - e] === next[next.length - 1 - e]) e++;
+  const was = prev.slice(s, prev.length - e);
+  const now = next.slice(s, next.length - e);
+  return /^-{2,3}$/.test(was) && /^[—–]$/.test(now) ? { text: prev, caret: s + was.length } : null;
+}
+
+ed.addEventListener('beforeinput', () => pushUndo());
+
+ed.addEventListener('input', () => {
+  const caret = caretOffset();
+  const next = readText();
+  const reverted = dashRevert(text, next);
+  text = reverted ? reverted.text : next;
+  render(Boolean(reverted));   // a revert leaves the DOM ahead of the model
+  setCaret(reverted ? reverted.caret : caret);
+  markCaretLine();
+  updateCount();
+  setDirty(true);
+});
+
+ed.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && !e.metaKey && !e.ctrlKey) {
+    e.preventDefault();
+    const at = caretOffset();
+    const lineStart = text.lastIndexOf('\n', at - 1) + 1;
+    const current = text.slice(lineStart, at);
+    const li = /^(\s*(?:[-*+]|\d+\.)\s+)/.exec(current);
+    if (li && current.trim() === li[1].trim()) {
+      replaceText(lineStart, at, '');   // empty bullet: leave the list
+      return;
+    }
+    const prefix = li ? li[1].replace(/^(\s*)(\d+)\./, (_, sp, n) => sp + (Number(n) + 1) + '.') : '';
+    replaceText(at, at, '\n' + prefix);
+    return;
+  }
+  if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'z') {
+    e.preventDefault();
+    e.shiftKey ? redo() : undo();
+  }
+  if (e.key === 'Escape') {
+    const at = caretOffset();
+    if (at != null && /^\[\^[^\]\s]+\]:/.test(text.slice(text.lastIndexOf('\n', at - 1) + 1))) {
+      e.preventDefault();
+      footnote();     // back to the reference
+    }
+  }
+});
+
+// Plain-text paste, so nothing arrives carrying rich formatting.
+ed.addEventListener('paste', (e) => {
+  const dt = e.clipboardData;
+  if (!dt) return;
+  if (dt.files && [...dt.files].some(isMedia)) {
+    e.preventDefault();
+    return void handleMedia(dt.files);
+  }
+  const plain = dt.getData('text/plain');
+  if (plain) {
+    e.preventDefault();
+    const sel = getSelection();
+    const at = caretOffset();
+    const start = at - String(sel.toString()).length;
+    replaceText(Math.min(start, at), at, plain);
+  }
+});
+
+/* --------------------------------------------------------------- sidebar */
+
+async function refresh(keepSelection = true) {
+  files = (await api('/api/list')).files;
+  renderList();
+  if (!keepSelection && files.length) open(files[0].path);
+}
+
+// Reopen whatever was on screen last time, at the same scroll position.
+async function restore() {
+  const s = loadSession();
+  notionCfg = await api('/api/notion').catch(() => null);
+  if (s.search) { $('search').value = s.search; }
+  if (s.meta) $('meta').classList.remove('hidden');
+  files = (await api('/api/list')).files;
+  renderList();
+  const wanted = s.path && files.some((f) => f.path === s.path) ? s.path : files[0] && files[0].path;
+  if (!wanted) return;
+  await open(wanted);
+  restoreScroll(s.scroll || 0);
+}
+
+// The page is short until every image preview has measured itself, so keep
+// re-applying the offset until it sticks — and stop the moment you scroll.
+function restoreScroll(to) {
+  const sc = document.querySelector('.scroll');
+  if (!to) return;
+  const done = () => {
+    clearInterval(tick);
+    clearTimeout(giveUp);
+    sc.removeEventListener('wheel', done);
+    window.removeEventListener('keydown', done);
+  };
+  sc.addEventListener('wheel', done, { passive: true });
+  window.addEventListener('keydown', done);
+  const tick = setInterval(() => {
+    if (Math.abs(sc.scrollTop - to) > 2) sc.scrollTop = to;
+    if (Math.abs(sc.scrollTop - to) <= 2) done();
+  }, 100);
+  const giveUp = setTimeout(done, 5000);
+}
+
+function renderList() {
+  const q = $('search').value.trim().toLowerCase();
+  const match = (f) =>
+    !q || f.title.toLowerCase().includes(q) || f.name.toLowerCase().includes(q) ||
+    f.categories.join(' ').toLowerCase().includes(q);
+
+  const el = $('list');
+  el.innerHTML = '';
+  for (const [type, label] of [['draft', 'Drafts'], ['post', 'Published']]) {
+    const group = files.filter((f) => f.type === type && match(f));
+    if (!group.length) continue;
+    const h = document.createElement('div');
+    h.className = 'group';
+    h.textContent = `${label} · ${group.length}`;
+    el.appendChild(h);
+    for (const f of group) {
+      const d = document.createElement('div');
+      d.className = 'item' + (doc && doc.path === f.path ? ' active' : '');
+      d.innerHTML = '<div class="t"></div><div class="d"></div>';
+      d.querySelector('.t').textContent = f.title;
+      d.querySelector('.d').textContent = [f.date, f.categories.join(', ')].filter(Boolean).join(' · ');
+      d.onclick = () => open(f.path);
+      el.appendChild(d);
+    }
+  }
+}
+
+/* ------------------------------------------------------------------- open */
+
+async function open(path) {
+  if (!(await confirmDiscard())) return;
+  doc = await api('/api/file?path=' + encodeURIComponent(path));
+  closeDeploy();          // a panel about the previous file is worse than none
+  fill();
+  refreshGit();
+  setDirty(false);
+  renderList();
+}
+
+// Local calendar date, not UTC — a UTC date rolls over hours early.
+function today() {
+  const d = new Date();
+  return [d.getFullYear(), String(d.getMonth() + 1).padStart(2, '0'), String(d.getDate()).padStart(2, '0')].join('-');
+}
+
+async function newDraft() {
+  if (!(await confirmDiscard())) return;
+  doc = {
+    path: null,
+    type: 'draft',
+    slug: '',
+    known: { layout: 'post', date: today(), categories: [] },
+    extra: '',
+    body: '',
+  };
+  fill();
+  setDirty(false);
+  renderList();
+  $('title').focus();
+}
+
+async function confirmDiscard() {
+  if (!dirty) return true;
+  return confirm('Discard unsaved changes?');
+}
+
+/* -------------------------------------------------------------- form <-> doc */
+
+function fill() {
+  const k = doc.known;
+  $('title').value = k.title || '';
+  prevTitle = $('title').value;
+  undoStack = []; redoStack = [];
+  setText(doc.body || '', null);
+  $('f-slug').value = doc.slug || '';
+  delete $('f-slug').dataset.touched;
+  // Some drafts carry placeholder dates like 2026-04-XX, which <input type=date> rejects.
+  const rawDate = k.date || '';
+  const isoDate = /^\d{4}-\d{2}-\d{2}$/.test(rawDate.slice(0, 10));
+  $('f-date').type = isoDate || !rawDate ? 'date' : 'text';
+  $('f-date').value = isoDate ? rawDate.slice(0, 10) : rawDate;
+  $('f-layout').value = k.layout || '';
+  $('f-categories').value = (k.categories || []).join(', ');
+  $('f-tags').value = (k.tags || []).join(', ');
+  $('f-image').value = k.image || '';
+  $('f-promo').value = k.post_promotion_type || '';
+  $('f-more').checked = !!k.excerpt_separator;
+  $('f-permalink').value = k.permalink || '';
+  $('f-twitter-card').value = k.twitter_card || '';
+  $('f-extra').value = doc.extra || '';
+  $('filename').textContent = doc.path || '(unsaved)';
+  // A published post only needs Save; Publish is the one-way trip out of drafts.
+  $('unpublishField').hidden = doc.type !== 'post';
+  paintPill();
+  $('savedAt').textContent = '';
+  autosizeTitle();
+  updateHint();
+}
+
+const splitList = (s) => s.split(',').map((x) => x.trim()).filter(Boolean);
+
+function collect(type) {
+  const k = { ...doc.known };
+  k.title = $('title').value.trim();
+  k.date = $('f-date').value || k.date;
+  k.layout = $('f-layout').value.trim() || (type === 'post' ? 'post' : k.layout || 'post');
+  k.categories = splitList($('f-categories').value);
+  k.tags = splitList($('f-tags').value);
+  k.image = $('f-image').value.trim();
+  k.post_promotion_type = $('f-promo').value;
+  k.permalink = $('f-permalink').value.trim();
+  k.twitter_card = $('f-twitter-card').value.trim();
+  k.excerpt_separator = $('f-more').checked ? '<!--more-->' : '';
+  if (k.image) {
+    k.twitter_image = k.image;
+    if (!k.twitter_card) k.twitter_card = 'summary_large_image';
+  } else {
+    k.twitter_image = '';
+  }
+  const slugUntouched = $('f-slug').value.trim() === (doc.slug || '');
+  const dateUntouched = (k.date || '') === (doc.known.date || '');
+  return {
+    path: doc.path,
+    type,
+    crlf: Boolean(doc.crlf),
+    keepPath: Boolean(doc.path) && slugUntouched && dateUntouched && type === doc.type,
+    slug: $('f-slug').value.trim() || k.title,
+    known: k,
+    extra: $('f-extra').value,
+    body: text,
+  };
+}
+
+function flash(btn, label) {
+  btn.classList.add('ok');
+  const was = btn.textContent;
+  btn.textContent = label;
+  setTimeout(() => { btn.textContent = was; btn.classList.remove('ok'); }, 1600);
+}
+
+async function save(type) {
+  if (!doc) return;
+  const payload = collect(type);
+  if (!payload.known.title) { toast('Give it a title first'); $('title').focus(); return; }
+
+  const moving = type !== doc.type;
+  const btn = moving ? (type === 'post' ? $('publishBtn') : $('unpublish')) : $('save');
+  const idleLabel = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = moving ? (type === 'post' ? 'Publishing…' : 'Moving…') : 'Saving…';
+
+  try {
+    const r = await api('/api/save', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    doc = { ...payload, path: r.path, type: r.type, slug: slugify(payload.slug) };
+    setDirty(false);
+    fill();
+    await refresh();
+    const now = new Date();
+    $('savedAt').textContent = 'saved ' + now.getHours() + ':' + String(now.getMinutes()).padStart(2, '0');
+    refreshGit();
+    toast((moving ? (type === 'post' ? 'Published → ' : 'Moved → ') : 'Saved → ') + r.path);
+    btn.textContent = idleLabel;
+    flash($('save'), moving ? (type === 'post' ? 'Published ✓' : 'Moved ✓') : 'Saved ✓');
+  } catch (err) {
+    toast('Save failed: ' + err.message);
+    btn.textContent = idleLabel;
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+/* -------------------------------------------------------------- footnotes */
+
+const FN_REF = /\[\^([^\]\s]+)\](?!:)/g;
+
+function nextFootnote() {
+  const used = [...text.matchAll(/\[\^(\d+)\]/g)].map((m) => Number(m[1]));
+  return used.length ? Math.max(...used) + 1 : 1;
+}
+
+// ⌘⇧F inserts [^n] and drops you at its definition; press it again down there
+// (or Esc) to jump back to where you were writing.
+function footnote() {
+  const at = caretOffset() ?? text.length;
+  const lineStart = text.lastIndexOf('\n', at - 1) + 1;
+  const inDef = /^\[\^([^\]\s]+)\]:/.exec(text.slice(lineStart));
+  if (inDef) {
+    const ref = new RegExp('\\[\\^' + inDef[1].replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\](?!:)').exec(text);
+    if (ref) { ed.focus(); setCaret(ref.index + ref[0].length); }
+    return;
+  }
+  const n = nextFootnote();
+  const ref = `[^${n}]`;
+  const withRef = text.slice(0, at) + ref + text.slice(at);
+  const trimmed = withRef.replace(/\s+$/, '');
+  const next = trimmed + '\n\n' + `[^${n}]: `;
+  pushUndo(true);
+  setText(next, next.length);
+  ed.focus();
+  setCaret(next.length);
+  setDirty(true);
+}
+
+ed.addEventListener('click', (e) => {
+  const fn = e.target.closest('.fn');
+  if (!fn || fn.parentElement.classList.contains('fndef')) return;
+  const id = /\[\^([^\]\s]+)\]/.exec(fn.textContent);
+  if (!id) return;
+  const def = new RegExp('^\\[\\^' + id[1].replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\]:\\s?', 'm').exec(text);
+  if (def) setTimeout(() => setCaret(def.index + def[0].length), 0);
+});
+
+/* -------------------------------------------------------- media: paste & drop */
+
+const IMG_SNIPPET = (url, alt) =>
+  `<figure><img src="{{ '${url}' | relative_url }}" alt="${alt}" class="img-medium"></figure>`;
+
+// `figure img` is centred by the site stylesheet; video needs it spelled out.
+const VIDEO_SNIPPET = (url) =>
+  `<figure><video src="{{ '${url}' | relative_url }}" class="img-medium" style="display: block; margin: 0 auto;" controls muted loop playsinline></video></figure>`;
+
+const slugify = (s) =>
+  String(s).toLowerCase().replace(/['’]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+function currentSlug() {
+  return slugify($('f-slug').value || $('title').value) || 'inline';
+}
+
+// A pasted screenshot has no meaningful name; a dragged file does.
+const GENERIC = /^(image|screen ?shot|clipboard|pasted|untitled)/i;
+
+// Name a pasted file after the section it lands in — falling back to the post.
+function suggestName(at) {
+  const heading = [...text.slice(0, at).matchAll(/^#{1,6}\s+(.+)$/gm)].pop();
+  const from = heading ? heading[1].replace(/[*_`\[\]]/g, '') : ($('title').value || currentSlug());
+  const words = slugify(from).split('-').filter(Boolean).slice(0, 6).join('-');
+  return words || currentSlug();
+}
+
+/* ------------------------------------------------------------ renaming files */
+
+let renaming = null;   // { url, ext }
+
+function openRename(url, label) {
+  const file = url.split('/').pop();
+  const ext = file.includes('.') ? file.slice(file.lastIndexOf('.')) : '';
+  renaming = { url, ext };
+  $('rn-label').textContent = label || 'Rename file';
+  $('rn-ext').textContent = ext;
+  $('rn-input').value = file.slice(0, file.length - ext.length);
+  $('rename').hidden = false;
+  $('rn-input').focus();
+  $('rn-input').select();
+}
+
+function closeRename() {
+  renaming = null;
+  $('rename').hidden = true;
+  ed.focus();
+}
+
+async function commitRename() {
+  if (!renaming) return;
+  const { url } = renaming;
+  const to = $('rn-input').value.trim();
+  if (!to) return closeRename();
+  try {
+    const body = { from: url, to, exceptPath: doc && doc.path };
+    let r = await api('/api/rename-asset', {
+      method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body),
+    });
+    if (r.needsConfirm) {
+      const ok = confirm(`${r.refs.length} other post(s) reference this file:\n\n${r.refs.join('\n')}\n\nRename anyway? They will need fixing by hand.`);
+      if (!ok) return closeRename();
+      r = await api('/api/rename-asset', {
+        method: 'POST', headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ ...body, force: true }),
+      });
+    }
+    if (!r.unchanged) {
+      pushUndo(true);
+      const caret = caretOffset();
+      setText(text.split(url).join(r.url), caret);
+      setDirty(true);
+      toast('Renamed → ' + r.url);
+    }
+  } catch (err) {
+    toast(err.message);
+    return;
+  }
+  closeRename();
+}
+
+$('rn-input').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') { e.preventDefault(); commitRename(); }
+  if (e.key === 'Escape') { e.preventDefault(); closeRename(); }
+});
+$('rn-input').addEventListener('blur', () => { if (renaming) closeRename(); });
+
+// Hovering a preview offers a Rename chip. It lives outside the editable so it
+// can never leak into the text; clicking the preview itself works too.
+const chip = $('mediaChip');
+let chipFor = null;
+
+function previewUnder(e) {
+  const ln = e.target.closest && e.target.closest('.ln.img, .ln.vid');
+  if (!ln) return null;
+  const pad = parseFloat(ln.style.paddingBottom || '0') * 16;
+  const rect = ln.getBoundingClientRect();
+  if (e.clientY < rect.bottom - pad) return null;    // that's the text, not the preview
+  const media = mediaUrl(ln.textContent);
+  return media ? { ln, rect, pad, url: media.url } : null;
+}
+
+ed.addEventListener('mousemove', (e) => {
+  const hit = previewUnder(e);
+  if (!hit) return hideChip();
+  chipFor = hit.url;
+  chip.hidden = false;
+  chip.style.top = (hit.rect.bottom - hit.pad) / 16 + 0.25 + 'rem';
+  chip.style.left = hit.rect.left / 16 + 0.5 + 'rem';
+});
+function hideChip() {
+  if (chip.matches(':hover')) return;
+  chip.hidden = true;
+  chipFor = null;
+}
+ed.addEventListener('mouseleave', hideChip);
+chip.addEventListener('click', () => { if (chipFor) openRename(chipFor, 'Rename file'); });
+
+ed.addEventListener('click', () => markCaretLine());
+ed.addEventListener('mousedown', (e) => {
+  const hit = previewUnder(e);
+  if (!hit) return;
+  e.preventDefault();
+  openRename(hit.url, 'Rename file');
+});
+
+const isMedia = (f) => f.type.startsWith('image/') || f.type.startsWith('video/') || /\.(mp4|webm|mov|m4v)$/i.test(f.name || '');
+
+async function handleMedia(fileList) {
+  const files = [...fileList].filter(isMedia);
+  if (!files.length || !doc) return false;
+
+  for (const file of files) {
+    const at = caretOffset() ?? text.length;
+    const marker = `<!-- uploading ${file.name || 'image'}… -->`;
+    const pad = at > 0 && !text.slice(0, at).endsWith('\n\n') ? (text.slice(0, at).endsWith('\n') ? '\n' : '\n\n') : '';
+    replaceText(at, at, pad + marker + '\n\n');
+    const from = at + pad.length;
+    try {
+      const dataBase64 = await new Promise((resolve, reject) => {
+        const r = new FileReader();
+        r.onload = () => resolve(String(r.result).split(',')[1]);
+        r.onerror = reject;
+        r.readAsDataURL(file);
+      });
+      const r = await api('/api/upload', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          slug: currentSlug(),
+          name: file.name && !GENERIC.test(file.name) ? file.name : suggestName(at),
+          mime: file.type,
+          dataBase64,
+        }),
+      });
+      const alt = ($('title').value || currentSlug()).replace(/"/g, "'");
+      const snippet = r.kind === 'video' ? VIDEO_SNIPPET(r.url) : IMG_SNIPPET(r.url, alt);
+      setText(text.slice(0, from) + snippet + text.slice(from + marker.length), from + snippet.length);
+      setDirty(true);
+      toast(`${Math.round(r.bytes / 1024)} KB → ${r.url}`);
+      openRename(r.url, `Name this ${r.kind}`);
+    } catch (err) {
+      setText(text.slice(0, from) + text.slice(from + marker.length), from);
+      toast('Upload failed: ' + err.message);
+    }
+  }
+  return true;
+}
+
+let dragDepth = 0;
+document.addEventListener('dragenter', (e) => {
+  if (!e.dataTransfer || ![...e.dataTransfer.types].includes('Files')) return;
+  dragDepth++;
+  document.body.classList.add('dragging');
+});
+document.addEventListener('dragleave', () => {
+  if (--dragDepth <= 0) { dragDepth = 0; document.body.classList.remove('dragging'); }
+});
+document.addEventListener('dragover', (e) => {
+  if (e.dataTransfer && [...e.dataTransfer.types].includes('Files')) e.preventDefault();
+});
+document.addEventListener('drop', (e) => {
+  if (!e.dataTransfer || !e.dataTransfer.files.length) return;
+  e.preventDefault();
+  dragDepth = 0;
+  document.body.classList.remove('dragging');
+  handleMedia(e.dataTransfer.files);
+});
+
+/* --------------------------------------------------------- preview & deploy */
+
+// Jekyll's permalink here is /:title, so a post or draft lives at /blog/<slug>.
+function siteUrl(origin) {
+  const slug = slugify(($('f-slug').value || '').replace(/^\d{4}-\d{2}-\d{2}-/, ''));
+  const permalink = $('f-permalink').value.trim();
+  const p = permalink || '/' + slug;
+  return origin + '/blog' + (p.startsWith('/') ? p : '/' + p);
+}
+
+async function preview() {
+  const btn = $('previewBtn');
+  const url = siteUrl('http://localhost:4000');
+  const state = await api('/api/preview', { method: 'POST', headers: { 'content-type': 'application/json' }, body: '{}' });
+  if (state.ready) return void window.open(url, 'writer-preview');
+
+  btn.disabled = true;
+  btn.textContent = 'Building…';
+  toast('jekyll serve --drafts --unpublished — first build takes a while');
+  for (let i = 0; i < 120; i++) {
+    await new Promise((r) => setTimeout(r, 1000));
+    const s = await api('/api/preview');
+    if (s.ready) {
+      btn.disabled = false;
+      btn.textContent = 'Preview';
+      return void window.open(url, 'writer-preview');
+    }
+    if (s.buildError) {
+      btn.disabled = false;
+      btn.textContent = 'Preview';
+      showPanel('Jekyll could not build the site', s.buildError, 'esc to close');
+      return;
+    }
+  }
+  btn.disabled = false;
+  btn.textContent = 'Preview';
+  toast('Jekyll did not come up — check the terminal running the writer');
+}
+
+let panelAction = null;      // what ↩ does while the panel is open
+let panelAltAction = null;   // what "f" does (read feedback)
+
+// The panel doubles as a read-only report (build errors, deploy output).
+function showPanel(label, body, hint) {
+  panelAction = null;
+  panelAltAction = null;
+  $('dp-label').textContent = label;
+  $('dp-files').textContent = body;
+  $('dp-hint').textContent = hint;
+  $('dp-row').hidden = true;
+  $('deployPanel').hidden = false;
+}
+
+/**
+ * One "make it live" flow. Publishing a draft and deploying an edit are the
+ * same intent — get this onto nmn.gl — so they are one button: move the file
+ * into _posts/ if it is still a draft, then commit and push.
+ */
+async function openPublish() {
+  const panel = $('deployPanel');
+  panelAction = runPublish;
+  $('dp-message').placeholder = 'Commit message';
+  $('dp-row').hidden = false;
+  $('dp-files').textContent = 'checking…';
+  panel.hidden = false;
+
+  const st = await refreshGit();
+  const draft = doc.type !== 'post';
+  const liveUrl = 'https://nmn.gl/blog/' + slugify($('f-slug').value);
+  const mine = st ? st.files.filter((f) => f.path === doc.path) : [];
+  const nothingToDo = !draft && !mine.length && st && !st.ahead;
+
+  $('dp-label').textContent = draft ? 'Publish this draft' : nothingToDo ? 'Already live' : 'Push changes live';
+  $('dp-files').textContent = nothingToDo
+    ? `${liveUrl}\n\nNothing changed since the last deploy.`
+    : [
+        draft
+          ? `1. move  ${doc.path}\n     →   _posts/${($('f-date').value || '').slice(0, 10)}-${slugify($('f-slug').value)}.md`
+          : `1. commit  ${doc.path}`,
+        `2. push to origin/${st ? st.branch : 'master'} — GitHub Pages rebuilds`,
+        `3. live at  ${liveUrl}`,
+        st && st.files.length > 1
+          ? `\nalso committed:\n` + st.files.filter((f) => f.path !== doc.path).map((f) => `   ${f.path}`).join('\n')
+          : '',
+        st && st.other.length ? `\nleft out (${st.other.length} non-content file(s))` : '',
+      ].filter(Boolean).join('\n');
+  $('dp-hint').textContent = nothingToDo ? 'esc to close' : '↩ publish · esc cancel';
+  if (nothingToDo) { $('dp-row').hidden = true; panelAction = null; return; }
+
+  $('dp-message').value = (draft ? 'publish ' : 'update ') + $('title').value.trim();
+  $('dp-message').focus();
+  $('dp-message').select();
+}
+
+async function runPublish() {
+  const btn = $('publishBtn');
+  btn.disabled = true;
+  btn.textContent = 'Publishing…';
+  try {
+    if (doc.type !== 'post') {
+      $('dp-files').textContent = 'moving into _posts/…';
+      await save('post');
+    }
+    await runDeploy();
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Publish…';
+  }
+}
+
+function closeDeploy() {
+  $('deployPanel').hidden = true;
+  panelAction = panelAltAction = null;
+  ed.focus();
+}
+
+async function runDeploy() {
+  const btn = $('publishBtn');
+  const msg = $('dp-message').value.trim();
+  $('dp-files').textContent = 'committing and pushing…';
+  btn.disabled = true;
+  btn.textContent = 'Deploying…';
+  try {
+    const r = await api('/api/deploy', {
+      method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ message: msg }),
+    });
+    $('dp-files').textContent = r.log.join('\n\n');
+    toast(r.pushed ? 'Pushed — GitHub Pages will rebuild in a minute' : r.log[0]);
+    refreshGit();
+    if (r.pushed) setTimeout(closeDeploy, 1500);
+  } catch (err) {
+    $('dp-files').textContent = err.message;
+    toast('Deploy failed');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Deploy';
+  }
+}
+
+$('dp-message').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') { e.preventDefault(); if (panelAction) panelAction(); }
+  if (e.key === 'Escape') { e.preventDefault(); closeDeploy(); }
+});
+
+/* -------------------------------------------------------- notion: share & feedback */
+
+let notionCfg = null;
+
+async function share() {
+  if (!doc) return;
+  // Sharing needs a file on disk to key the Notion page against — nothing more.
+  // No commit, no publish: just save it for you and carry on.
+  if (!doc.path || dirty) {
+    if (!$('title').value.trim()) { toast('Give it a title first'); $('title').focus(); return; }
+    await save(doc.type);
+  }
+
+  notionCfg = await api('/api/notion');
+  if (!notionCfg.hasToken) {
+    return showPanel('Notion not connected',
+      'Put NOTION_TOKEN=… in tools/writer/.env and restart the writer.\n\n' +
+      'That file is gitignored, so the token never reaches the public repo.', 'esc to close');
+  }
+
+  if (!notionCfg.board) {
+    $('dp-label').textContent = 'Create the Notion board';
+    $('dp-hint').textContent = '↩ create · esc cancel';
+    $('dp-row').hidden = false;
+    $('dp-message').placeholder = 'Paste a Notion page URL to create the board inside';
+    $('dp-message').value = '';
+    $('dp-files').textContent =
+      'Notion integrations cannot create pages at the top level, so pick the page\n' +
+      'this board should live under. Any page shared with the integration works.';
+    $('deployPanel').hidden = false;
+    panelAction = createBoard;
+    $('dp-message').focus();
+    return;
+  }
+
+  const known = notionCfg.pages[doc.path];
+  $('dp-label').textContent = known ? 'On Notion — resend or read feedback' : 'Send to Notion';
+  $('dp-hint').textContent = known ? '↩ resend · f read feedback · esc close' : '↩ send · esc cancel';
+  $('dp-row').hidden = true;
+  $('dp-files').textContent = known
+    ? `${known.url}\n\nlast sent ${new Date(known.syncedAt).toLocaleString()}\n\n` +
+      'Press f to pull the comments down.\n\n' +
+      'Resending replaces every block on that page, and any inline comments\n' +
+      'anchored to them go with it — read the feedback first.'
+    : `Creates a page on “${notionCfg.board.title}” with the text and images,\n` +
+      'so people can read and comment. Nothing is committed and nothing goes live.';
+  $('deployPanel').hidden = false;
+  panelAction = pushToNotion;
+  panelAltAction = known ? fetchFeedback : null;
+}
+
+async function createBoard() {
+  const parent = $('dp-message').value.trim();
+  if (!parent) return;
+  $('dp-files').textContent = 'creating…';
+  try {
+    const board = await api('/api/notion/board', {
+      method: 'POST', headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ parent, title: 'Blog Drafts' }),
+    });
+    showPanel('Board created', board.url + '\n\nHit Share again to send this post.', 'esc to close');
+    panelAction = null;
+  } catch (err) {
+    $('dp-files').textContent = err.message;
+  }
+}
+
+async function pushToNotion() {
+  const btn = $('shareBtn');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  $('dp-files').textContent = 'uploading text and images…';
+  try {
+    const r = await api('/api/notion/push', {
+      method: 'POST', headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        path: doc.path,
+        title: $('title').value.trim(),
+        slug: $('f-slug').value.trim(),
+        body: text,
+        status: 'In review',   // sharing is asking for feedback, whatever the file's state
+      }),
+    });
+    showPanel('On Notion', r.url + `\n\n${r.blocks} blocks sent` + (r.replaced ? `, ${r.replaced} replaced` : ''),
+      'esc to close');
+    await navigator.clipboard.writeText(r.url).catch(() => {});
+    toast('Link copied to clipboard');
+  } catch (err) {
+    showPanel('Could not send to Notion', err.message, 'esc to close');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Share';
+    panelAction = null;
+  }
+}
+
+async function fetchFeedback() {
+  if (!doc || !doc.path) return;
+  showPanel('Feedback', 'reading comments from Notion…', 'esc to close');
+  try {
+    const r = await api('/api/notion/comments?path=' + encodeURIComponent(doc.path));
+    const body = r.comments.length
+      ? r.comments.map((c) => `on “${c.on}”\n   ${c.text}\n   — ${new Date(c.at).toLocaleString()}`).join('\n\n')
+      : 'No comments yet.';
+    showPanel(`Feedback · ${r.comments.length}`, body + '\n\n' + r.url, 'esc to close');
+  } catch (err) {
+    showPanel('Could not read comments', err.message, 'esc to close');
+  }
+}
+
+/* ------------------------------------------------------------- live-or-not */
+
+let gitState = null;
+
+async function refreshGit() {
+  gitState = await api('/api/git/status').catch(() => null);
+  paintPill();
+  return gitState;
+}
+
+// "published" used to mean "sits in _posts/", which reads as "it is on the
+// internet". It is only live once it is committed and pushed — say that.
+function paintPill() {
+  if (!doc) return;
+  const pill = $('statePill');
+  if (doc.type !== 'post') {
+    pill.textContent = 'draft';
+    pill.className = 'pill draft';
+    pill.title = 'In _drafts/ — not on the site. Click to publish.';
+    return;
+  }
+  const uncommitted = gitState && gitState.files.some((f) => f.path === doc.path);
+  const unpushed = gitState && gitState.ahead > 0;
+  if (uncommitted || unpushed || !gitState) {
+    pill.textContent = 'not live yet';
+    pill.className = 'pill pending';
+    pill.title = 'In _posts/ but not deployed. Hit Publish to put it on nmn.gl.';
+  } else {
+    pill.textContent = 'live';
+    pill.className = 'pill live';
+    pill.title = 'Deployed to nmn.gl. Click to take it back to drafts.';
+  }
+}
+
+/* --------------------------------------------------------- session memory */
+
+const SESSION_KEY = 'writer:session';
+
+function saveSession() {
+  try {
+    localStorage.setItem(SESSION_KEY, JSON.stringify({
+      path: doc && doc.path,
+      scroll: document.querySelector('.scroll').scrollTop,
+      meta: !$('meta').classList.contains('hidden'),
+      search: $('search').value,
+    }));
+  } catch { /* private mode, never mind */ }
+}
+
+function loadSession() {
+  try { return JSON.parse(localStorage.getItem(SESSION_KEY) || '{}'); } catch { return {}; }
+}
+
+let scrollTimer;
+document.querySelector('.scroll').addEventListener('scroll', () => {
+  clearTimeout(scrollTimer);
+  scrollTimer = setTimeout(saveSession, 250);
+});
+window.addEventListener('beforeunload', saveSession);
+
+/* ------------------------------------------------------------------ chrome */
+
+function setDirty(v) {
+  dirty = v;
+  $('dirty').classList.toggle('on', v);
+}
+function autosizeTitle() {
+  const el = $('title');
+  el.style.height = 'auto';
+  el.style.height = el.scrollHeight + 'px';
+}
+function updateCount() {
+  const words = text.replace(/<[^>]*>/g, ' ').trim().split(/\s+/).filter(Boolean).length;
+  $('count').textContent = words ? `${words} words · ${Math.max(1, Math.round(words / 220))} min` : '';
+}
+function updateHint() {
+  const slug = slugify($('f-slug').value);
+  $('urlHint').textContent = slug ? '/blog/' + slug : '';
+}
+let toastTimer;
+function toast(msg) {
+  const t = $('toast');
+  t.textContent = msg;
+  t.classList.add('on');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('on'), 2600);
+}
+
+document.querySelectorAll('.meta input, .meta select, .meta textarea, #title').forEach((el) => {
+  el.addEventListener('input', () => setDirty(true));
+});
+$('f-slug').addEventListener('input', () => { $('f-slug').dataset.touched = '1'; updateHint(); });
+let prevTitle = '';
+$('title').addEventListener('input', () => {
+  const rev = dashRevert(prevTitle, $('title').value);
+  if (rev) {
+    $('title').value = rev.text;
+    $('title').setSelectionRange(rev.caret, rev.caret);
+  }
+  prevTitle = $('title').value;
+  autosizeTitle();
+  if (doc && !doc.path && !$('f-slug').dataset.touched) {
+    $('f-slug').value = slugify($('title').value);
+    updateHint();
+  }
+});
+$('title').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') { e.preventDefault(); ed.focus(); setCaret(0); }
+});
+$('search').addEventListener('input', () => { renderList(); saveSession(); });
+$('new').onclick = newDraft;
+$('save').onclick = () => save(doc.type);
+$('unpublish').onclick = () => {
+  if (confirm('Move this post back to _drafts/? It will stop being published.')) save('draft');
+};
+$('previewBtn').onclick = preview;
+$('shareBtn').onclick = share;
+$('publishBtn').onclick = openPublish;
+// The state pill is the two-way switch between _drafts/ and _posts/.
+$('statePill').onclick = () => {
+  if (!doc) return;
+  if (doc.type === 'post') {
+    if (confirm('Move this post back to _drafts/? It will stop being published.')) save('draft');
+  } else if (confirm('Publish this draft to _posts/?')) {
+    save('post');
+  }
+};
+$('toggleMeta').onclick = () => { $('meta').classList.toggle('hidden'); saveSession(); };
+$('fnBtn').onclick = () => { ed.focus(); footnote(); };
+
+document.addEventListener('keydown', (e) => {
+  if (!$('deployPanel').hidden) {
+    if (e.key === 'Escape') { e.preventDefault(); return closeDeploy(); }
+    if (e.key === 'Enter' && $('dp-row').hidden && panelAction) { e.preventDefault(); return void panelAction(); }
+    if (e.key.toLowerCase() === 'f' && $('dp-row').hidden && panelAltAction) { e.preventDefault(); return void panelAltAction(); }
+  }
+  if (!(e.metaKey || e.ctrlKey)) return;
+  const k = e.key.toLowerCase();
+  if (k === 'f' && e.shiftKey) { e.preventDefault(); footnote(); return; }
+  if (k === 's') { e.preventDefault(); save(doc.type); }
+  if (k === 'n') { e.preventDefault(); newDraft(); }
+  if (k === 'i') { e.preventDefault(); $('meta').classList.toggle('hidden'); }
+  if (k === 'k') { e.preventDefault(); $('search').focus(); $('search').select(); }
+});
+
+window.addEventListener('beforeunload', (e) => {
+  if (dirty) { e.preventDefault(); e.returnValue = ''; }
+});
+
+restore();
+</script>
+</body>
+</html>
