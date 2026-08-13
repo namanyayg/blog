@@ -1,0 +1,406 @@
+{% assign form_name = include.form_name | default: 'blog-lead-form' %}
+{% assign form_id = include.form_id | default: 'catalyst-lead' %}
+{% assign heading = include.heading | default: 'Want this running for your team?' %}
+{% assign blurb = include.blurb | default: 'Leave your work email and I&rsquo;ll show you how Multiplier does this for you.' %}
+{% assign product_url = include.product_url | default: 'https://gigacatalyst.com/multiplier' %}
+{% assign booking_url = include.booking_url | default: 'https://cal.com/namanyayg/25m' %}
+{% assign utm = '?utm_source=blog&utm_medium=post&utm_campaign=' | append: form_name %}
+
+<section class="mx-lead" id="{{ form_id }}" data-form-name="{{ form_name }}">
+  <div class="mx-lead__head">
+    <h3 class="mx-lead__title">{{ heading }}</h3>
+    <p class="mx-lead__sub">{{ blurb }}</p>
+  </div>
+
+  <div class="mx-lead__grid">
+    <div class="mx-lead__card">
+      <form class="mx-lead__form" data-lead-form>
+        <div class="mx-lead__field">
+          <label class="mx-lead__label" for="{{ form_id }}-email">Work email</label>
+          <input
+            class="mx-lead__input"
+            id="{{ form_id }}-email"
+            name="email"
+            type="email"
+            inputmode="email"
+            autocomplete="email"
+            placeholder="you@company.com"
+            required
+          >
+        </div>
+
+        <div class="mx-lead__field">
+          <label class="mx-lead__label" for="{{ form_id }}-phone">Phone <span class="mx-lead__opt">optional</span></label>
+          <input
+            class="mx-lead__input"
+            id="{{ form_id }}-phone"
+            name="phone"
+            type="tel"
+            autocomplete="tel"
+            placeholder="+1 555 123 4567"
+          >
+        </div>
+
+        <button type="submit" class="mx-lead__submit" data-lead-submit>Show me Multiplier&nbsp;<span aria-hidden="true">&rarr;</span></button>
+        <p class="mx-lead__error" data-lead-error hidden role="alert"></p>
+        <p class="mx-lead__note">No newsletter, no spam. I read every one of these myself.</p>
+      </form>
+
+      <div class="mx-lead__done" data-lead-success hidden>
+        <p class="mx-lead__doneline"><strong>Got it.</strong> Grab a slot below and I&rsquo;ll walk you through it &mdash; 25 minutes, no slides.</p>
+        <a class="mx-lead__book" href="{{ booking_url }}" target="_blank" rel="noopener">
+          <img src="https://gigacatalyst.com/namanyay_goel_2025.jpg" alt="" class="mx-lead__avatar" width="28" height="28">
+          Book 25 minutes
+        </a>
+        <p class="mx-lead__note">Or just reply to the email I&rsquo;ll send you.</p>
+      </div>
+    </div>
+
+    <aside class="mx-lead__card mx-lead__card--founder" data-lead-founder>
+      <h4 class="mx-lead__foundertitle">Talk to Founder</h4>
+      <p class="mx-lead__foundercopy">Book a call and I&rsquo;ll walk you through how <a href="{{ product_url }}{{ utm }}" target="_blank" rel="noopener">Multiplier</a> would work for your business.</p>
+      <a class="mx-lead__book" href="{{ booking_url }}" target="_blank" rel="noopener" data-lead-book>
+        <img src="https://gigacatalyst.com/namanyay_goel_2025.jpg" alt="Namanyay Goel" class="mx-lead__avatar" width="28" height="28">
+        Book a Call
+      </a>
+    </aside>
+  </div>
+</section>
+
+<style>
+.mx-lead {
+  margin: 2.5rem 0;
+  padding: 1.75rem;
+  border-radius: 1rem;
+  background: #0a0d13;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+/* `display: flex` below would otherwise beat the `hidden` attribute. */
+.mx-lead [hidden] { display: none !important; }
+
+.mx-lead__head {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.mx-lead__title {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+
+.mx-lead__sub {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.mx-lead__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.mx-lead__card {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: #1a1a1a;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.35);
+}
+
+.mx-lead__card--founder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.mx-lead__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mx-lead__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.mx-lead__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.mx-lead__opt {
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.mx-lead__input {
+  min-height: 3.25rem;
+  padding: 0 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.045);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.75rem;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.mx-lead__input::placeholder { color: rgba(255, 255, 255, 0.3); }
+.mx-lead__input:focus { border-color: rgba(159, 178, 255, 0.45); }
+
+.mx-lead__submit {
+  min-height: 3.25rem;
+  margin-top: 0.25rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: #0a0d13;
+  background: #fff;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.mx-lead__submit:hover { background: #dfe5ff; }
+.mx-lead__submit[disabled] { opacity: 0.7; cursor: default; }
+
+.mx-lead__book {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #000;
+  background: #fff;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.mx-lead__book:hover { background: #e5e7eb; color: #000; }
+
+.mx-lead__avatar {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.mx-lead__foundertitle {
+  margin: 0 0 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.mx-lead__foundercopy {
+  margin: 0 0 1.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #9ca3af;
+}
+
+.mx-lead__foundercopy a { color: #bdc9ff; }
+
+.mx-lead__error {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #fca5a5;
+}
+
+.mx-lead__note {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.mx-lead__done { text-align: center; }
+
+.mx-lead__doneline {
+  margin: 0 0 1.25rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.mx-lead__done .mx-lead__note { margin-top: 1rem; }
+
+@media (max-width: 40rem) {
+  .mx-lead { padding: 1.25rem; }
+  .mx-lead__grid { grid-template-columns: 1fr; }
+  .mx-lead__card { padding: 1.25rem; }
+  .mx-lead__submit, .mx-lead__book { width: 100%; justify-content: center; text-align: center; }
+}
+</style>
+
+<script>
+(function () {
+  var root = document.getElementById('{{ form_id }}');
+  if (!root) return;
+
+  var API_BASE = 'https://giga-api.nmn.gl';
+  var FORM_NAME = root.getAttribute('data-form-name');
+  var STORAGE_KEY = 'lead_id_' + FORM_NAME;
+
+  var form = root.querySelector('[data-lead-form]');
+  var success = root.querySelector('[data-lead-success]');
+  var founder = root.querySelector('[data-lead-founder]');
+  var errorEl = root.querySelector('[data-lead-error]');
+  var submitBtn = root.querySelector('[data-lead-submit]');
+  var emailInput = form.querySelector('input[name="email"]');
+  var phoneInput = form.querySelector('input[name="phone"]');
+
+  var grid = root.querySelector('.mx-lead__grid');
+  var leadId = null;
+  var creating = null;
+
+  try { leadId = sessionStorage.getItem(STORAGE_KEY); } catch (e) {}
+
+  function showSuccess() {
+    form.hidden = true;
+    success.hidden = false;
+    if (founder) founder.hidden = true;
+    grid.style.gridTemplateColumns = '1fr';
+  }
+
+  try {
+    if (sessionStorage.getItem(STORAGE_KEY + '_done') === '1') showSuccess();
+  } catch (e) {}
+
+  function attribution() {
+    var params = new URLSearchParams(window.location.search);
+    var keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'fbclid'];
+    var out = {};
+    keys.forEach(function (key) {
+      var value = params.get(key);
+      if (value) out[key] = value;
+    });
+    return out;
+  }
+
+  function context() {
+    var attr = attribution();
+    return {
+      form_name: FORM_NAME,
+      landing_url: window.location.href,
+      referrer: document.referrer || undefined,
+      posthog_distinct_id: window.posthog && window.posthog.get_distinct_id ? window.posthog.get_distinct_id() : undefined,
+      posthog_session_id: window.posthog && window.posthog.get_session_id ? window.posthog.get_session_id() : undefined,
+      utm_source: attr.utm_source,
+      utm_medium: attr.utm_medium,
+      utm_campaign: attr.utm_campaign,
+      utm_term: attr.utm_term,
+      utm_content: attr.utm_content,
+      fbclid: attr.fbclid,
+      attribution: attr
+    };
+  }
+
+  // Fires the moment someone touches the form, so a half-filled form is never lost.
+  function createLead() {
+    if (leadId) return Promise.resolve(leadId);
+    if (creating) return creating;
+
+    var payload = { industry: 'catalyst', company: 'Multiplier interest — nmn.gl blog' };
+    var body = context();
+    for (var key in body) if (body[key] !== undefined) payload[key] = body[key];
+
+    creating = fetch(API_BASE + '/api/v1/waitlist-leads', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function (res) {
+      return res.ok ? res.json() : null;
+    }).then(function (data) {
+      if (data && typeof data.id === 'string') {
+        leadId = data.id;
+        try { sessionStorage.setItem(STORAGE_KEY, leadId); } catch (e) {}
+      }
+      return leadId;
+    }).catch(function () {
+      return null;
+    });
+
+    return creating;
+  }
+
+  function updateLead(id, fields, keepalive) {
+    return fetch(API_BASE + '/api/v1/waitlist-leads/' + id, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(fields),
+      keepalive: keepalive === true
+    }).then(function (res) { return res.ok; }).catch(function () { return false; });
+  }
+
+  [emailInput, phoneInput].forEach(function (input) {
+    input.addEventListener('focus', function () { createLead(); }, { once: true });
+  });
+
+  // Save a typed email even if they never hit submit (Slack only pings on completion).
+  emailInput.addEventListener('blur', function () {
+    var email = emailInput.value.trim();
+    if (!email || !emailInput.checkValidity()) return;
+    createLead().then(function (id) {
+      if (id) updateLead(id, { email: email });
+    });
+  });
+
+  root.querySelector('[data-lead-book]').addEventListener('click', function () {
+    createLead();
+  });
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    var email = emailInput.value.trim();
+    if (!email) return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    errorEl.hidden = true;
+
+    createLead().then(function (id) {
+      if (!id) return false;
+      return updateLead(id, {
+        email: email,
+        phone: phoneInput.value.trim() || undefined,
+        completed: true
+      });
+    }).then(function (ok) {
+      if (!ok) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Show me Multiplier&nbsp;<span aria-hidden="true">&rarr;</span>';
+        errorEl.textContent = 'That didn’t go through. Try again, or email me at nmn@nmn.gl.';
+        errorEl.hidden = false;
+        return;
+      }
+      showSuccess();
+      try {
+        sessionStorage.removeItem(STORAGE_KEY);
+        sessionStorage.setItem(STORAGE_KEY + '_done', '1');
+      } catch (e) {}
+    });
+  });
+})();
+</script>
