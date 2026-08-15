@@ -84,7 +84,7 @@ I spent careful time designing the architecture, data model, and observability -
    form_id="lead-10k-lines"
    modal=true
    heading="psst... sneak peek"
-   blurb="Multiplier runs the whole loop I just described — find buyers, test messages, ping you on Slack when someone replies. Leave your work email and I'll show you how it'd work for you." %}
+   blurb="If you're interested in the loop I described — find buyers, test messages, and get pinged on Slack when someone replies. Leave your work email and I'll show you how it'd work for you." %}
 
 ## Customer-Specific Work
 

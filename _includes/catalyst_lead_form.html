@@ -1,7 +1,7 @@
 {% assign form_name = include.form_name | default: 'blog-lead-form' %}
 {% assign form_id = include.form_id | default: 'catalyst-lead' %}
 {% assign heading = include.heading | default: 'Want this running for your team?' %}
-{% assign blurb = include.blurb | default: 'Leave your work email and I&rsquo;ll show you how Multiplier does this for you.' %}
+{% assign blurb = include.blurb | default: 'Leave your work email and I&rsquo;ll show you how it would work for you.' %}
 {% assign product_url = include.product_url | default: 'https://gigacatalyst.com/multiplier' %}
 {% assign booking_url = include.booking_url | default: 'https://cal.com/namanyayg/25m' %}
 {% assign utm = '?utm_source=blog&utm_medium=post&utm_campaign=' | append: form_name %}
@@ -49,9 +49,8 @@
           >
         </div>
 
-        <button type="submit" class="mx-lead__submit" data-lead-submit>Show me Multiplier&nbsp;<span aria-hidden="true">&rarr;</span></button>
+        <button type="submit" class="mx-lead__submit" data-lead-submit>Get Access&nbsp;<span aria-hidden="true">&rarr;</span></button>
         <p class="mx-lead__error" data-lead-error hidden role="alert"></p>
-        <p class="mx-lead__note">No newsletter, no spam. I read every one of these myself.</p>
       </form>
 
       <div class="mx-lead__done" data-lead-success hidden>
@@ -66,7 +65,7 @@
 
     <aside class="mx-lead__card mx-lead__card--founder" data-lead-founder>
       <h4 class="mx-lead__foundertitle">Talk to Founder</h4>
-      <p class="mx-lead__foundercopy">Book a call and I&rsquo;ll walk you through how <a href="{{ product_url }}{{ utm }}" target="_blank" rel="noopener">Multiplier</a> would work for your business.</p>
+      <p class="mx-lead__foundercopy">Book a call and I&rsquo;ll walk you through <a href="{{ product_url }}{{ utm }}" target="_blank" rel="noopener">how it would work</a> for your business.</p>
       <a class="mx-lead__book" href="{{ booking_url }}" target="_blank" rel="noopener" data-lead-book>
         <img src="https://gigacatalyst.com/namanyay_goel_2025.jpg" alt="Namanyay Goel" class="mx-lead__avatar" width="28" height="28">
         Book a Call
@@ -96,7 +95,7 @@
 .mx-lead-modal__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(6, 8, 12, 0.72);
+  background: rgba(17, 17, 17, 0.42);
   backdrop-filter: blur(0.15rem);
 }
 .mx-lead-modal__panel {
@@ -119,13 +118,13 @@
   z-index: 1;
   border: 0;
   background: none;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(17, 17, 17, 0.4);
   font-size: 1.75rem;
   line-height: 1;
   padding: 0.25rem 0.5rem;
   cursor: pointer;
 }
-.mx-lead-modal__x:hover { color: #fff; }
+.mx-lead-modal__x:hover { color: #111; }
 /* Two classes deep so it wins regardless of where .mx-lead is declared below. */
 .mx-lead-modal .mx-lead { margin: 0; }
 @media (prefers-reduced-motion: reduce) {
@@ -136,33 +135,37 @@
   margin: 2.5rem 0;
   padding: 1.75rem;
   border-radius: 1rem;
-  background: #0a0d13;
-  border: 0.0625rem solid rgba(255, 255, 255, 0.08);
-  color: #fff;
+  background: #fdfdfd;
+  border: 0.0625rem solid rgba(17, 17, 17, 0.12);
+  color: #111;
 }
 
 /* `display: flex` below would otherwise beat the `hidden` attribute. */
 .mx-lead [hidden] { display: none !important; }
+
+/* The post stylesheet sets `p, ul, ol, dl { margin: 1.5em 0 !important }`, which
+   no specificity can beat — so the card restates its own spacing the same way. */
+.mx-lead p { margin: 0 !important; }
 
 .mx-lead__head {
   margin-bottom: 1.5rem;
   text-align: center;
 }
 
-.mx-lead__title {
+.mx-lead .mx-lead__title {
   margin: 0 0 0.5rem;
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: -0.01em;
-  color: #fff;
+  color: #111;
 }
 
-.mx-lead__sub {
+.mx-lead .mx-lead__sub {
   margin: 0;
   font-size: 1rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(17, 17, 17, 0.62);
 }
 
 .mx-lead__grid {
@@ -175,9 +178,9 @@
 .mx-lead__card {
   padding: 1.5rem;
   border-radius: 1rem;
-  background: #1a1a1a;
-  border: 0.0625rem solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.35);
+  background: #fff;
+  border: 0.0625rem solid rgba(17, 17, 17, 0.1);
+  box-shadow: 0 0.5rem 1.5rem rgba(17, 17, 17, 0.06);
 }
 
 .mx-lead__card--founder {
@@ -203,12 +206,12 @@
 .mx-lead__label {
   font-size: 0.75rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(17, 17, 17, 0.7);
 }
 
 .mx-lead__opt {
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(17, 17, 17, 0.45);
 }
 
 .mx-lead__input {
@@ -218,16 +221,16 @@
   box-sizing: border-box;
   font-size: 1rem;
   font-family: inherit;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.045);
-  border: 0.0625rem solid rgba(255, 255, 255, 0.12);
+  color: #111;
+  background: #fff;
+  border: 0.0625rem solid rgba(17, 17, 17, 0.18);
   border-radius: 0.75rem;
   outline: none;
   transition: border-color 0.15s ease;
 }
 
-.mx-lead__input::placeholder { color: rgba(255, 255, 255, 0.3); }
-.mx-lead__input:focus { border-color: rgba(159, 178, 255, 0.45); }
+.mx-lead__input::placeholder { color: rgba(17, 17, 17, 0.35); }
+.mx-lead__input:focus { border-color: #0066ea; box-shadow: 0 0 0 0.1875rem rgba(0, 102, 234, 0.15); }
 
 .mx-lead__submit {
   min-height: 3.25rem;
@@ -236,15 +239,15 @@
   font-size: 1rem;
   font-weight: 600;
   font-family: inherit;
-  color: #0a0d13;
-  background: #fff;
+  color: #fff;
+  background: #111;
   border: none;
   border-radius: 0.75rem;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
-.mx-lead__submit:hover { background: #dfe5ff; }
+.mx-lead__submit:hover { background: #0066ea; }
 .mx-lead__submit[disabled] { opacity: 0.7; cursor: default; }
 
 .mx-lead__book {
@@ -254,14 +257,15 @@
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   font-weight: 500;
-  color: #000;
+  color: #111;
   background: #fff;
+  border: 0.0625rem solid rgba(17, 17, 17, 0.18);
   border-radius: 0.5rem;
   text-decoration: none;
   transition: background-color 0.2s ease;
 }
 
-.mx-lead__book:hover { background: #e5e7eb; color: #000; }
+.mx-lead__book:hover { background: #f4f4f4; color: #111; }
 
 .mx-lead__avatar {
   width: 1.75rem;
@@ -270,45 +274,45 @@
   object-fit: cover;
 }
 
-.mx-lead__foundertitle {
+.mx-lead .mx-lead__foundertitle {
   margin: 0 0 0.75rem;
   font-size: 1.125rem;
   font-weight: 500;
-  color: #fff;
+  color: #111;
 }
 
-.mx-lead__foundercopy {
-  margin: 0 0 1.5rem;
+.mx-lead .mx-lead__foundercopy {
+  margin: 0 0 1.5rem !important;
   font-size: 1rem;
   line-height: 1.6;
-  color: #9ca3af;
+  color: rgba(17, 17, 17, 0.62);
 }
 
-.mx-lead__foundercopy a { color: #bdc9ff; }
+.mx-lead__foundercopy a { color: #0066ea; }
 
-.mx-lead__error {
+.mx-lead .mx-lead__error {
   margin: 0;
   font-size: 0.875rem;
-  color: #fca5a5;
+  color: #b91c1c;
 }
 
-.mx-lead__note {
+.mx-lead .mx-lead__note {
   margin: 0;
   font-size: 0.875rem;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(17, 17, 17, 0.55);
 }
 
 .mx-lead__done { text-align: center; }
 
-.mx-lead__doneline {
-  margin: 0 0 1.25rem;
+.mx-lead .mx-lead__doneline {
+  margin: 0 0 1.25rem !important;
   font-size: 1rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(17, 17, 17, 0.8);
 }
 
-.mx-lead__done .mx-lead__note { margin-top: 1rem; }
+.mx-lead__done .mx-lead__note { margin-top: 1rem !important; }
 
 @media (max-width: 40rem) {
   .mx-lead { padding: 1.25rem; }
@@ -488,7 +492,7 @@
     }).then(function (ok) {
       if (!ok) {
         submitBtn.disabled = false;
-        submitBtn.innerHTML = 'Show me Multiplier&nbsp;<span aria-hidden="true">&rarr;</span>';
+        submitBtn.innerHTML = 'Get Access&nbsp;<span aria-hidden="true">&rarr;</span>';
         errorEl.textContent = 'That didn’t go through. Try again, or email me at nmn@nmn.gl.';
         errorEl.hidden = false;
         return;
