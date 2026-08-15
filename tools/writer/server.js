@@ -351,6 +351,22 @@ for (const sig of ['SIGINT', 'SIGTERM', 'SIGHUP']) {
   process.on(sig, () => { if (jekyll) jekyll.kill(); process.exit(0); });
 }
 
+/* --------------------------------------------------------------- build check */
+
+// `jekyll build` is the same thing GitHub Pages runs. Failing here means the
+// site would break once pushed — worth the wait before a deploy.
+function buildSite() {
+  return new Promise((resolve) => {
+    execFile('bundle', ['exec', 'jekyll', 'build', '--drafts'], { cwd: ROOT, maxBuffer: 1e7 },
+      (err, stdout, stderr) => {
+        const output = String(stdout || '') + String(stderr || '');
+        const lines = output.split('\n').filter(Boolean);
+        resolve(err ? { ok: false, error: buildError(lines), output: lines.slice(-25).join('\n') }
+                    : { ok: true, output: lines.slice(-6).join('\n') });
+      });
+  });
+}
+
 /* ------------------------------------------------------------- deploy (git) */
 
 // raw: keep leading whitespace — porcelain status lines start with a space.
@@ -557,8 +573,16 @@ const server = http.createServer(async (req, res) => {
       return json(res, 200, await gitStatus());
     }
 
+    if (req.method === 'POST' && url.pathname === '/api/build') {
+      return json(res, 200, await buildSite());
+    }
+
     if (req.method === 'POST' && url.pathname === '/api/deploy') {
-      return json(res, 200, await deploy(await readBody(req)));
+      const body = await readBody(req);
+      // Never push a site that does not build.
+      const build = await buildSite();
+      if (!build.ok) return json(res, 200, { ok: false, build, log: ['Build failed — nothing was committed or pushed.'] });
+      return json(res, 200, { ...(await deploy(body)), build });
     }
 
     if (req.method === 'POST' && url.pathname === '/api/rename-asset') {

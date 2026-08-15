@@ -95,6 +95,7 @@
   button.action.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
   button.action.primary:hover { filter: brightness(1.08); }
   button.action.ghost { border-color: transparent; color: var(--ink-faint); }
+  button.action.warn { color: var(--accent); border-color: currentColor; }
   button.action.ghost:hover { border-color: var(--line); color: var(--ink); }
   .pill.live { color: #3f7d4e; border-color: currentColor; }
   .pill.pending { color: var(--accent); border-color: currentColor; }
@@ -282,6 +283,7 @@
     <span id="filename" style="font-family:var(--mono);font-size:.6875rem;color:var(--ink-faint)"></span>
     <button class="action ghost" id="fnBtn" title="Add a footnote (⌘⇧F)">+ note</button>
     <span class="spacer"></span>
+    <button class="action warn" id="fnFix" hidden></button>
     <span id="count"></span>
     <span id="savedAt"></span>
     <button class="action" id="toggleMeta" title="Metadata (⌘I)">Details</button>
@@ -989,6 +991,87 @@ async function save(type) {
 
 /* -------------------------------------------------------------- footnotes */
 
+// Footnotes get renumbered as you shuffle prose around. Read the current
+// state: refs in order of appearance, definitions, and anything mismatched.
+function footnoteState(src = text) {
+  const defRe = /^\[\^([^\]\s]+)\]:/gm;
+  const defs = [];
+  let m;
+  while ((m = defRe.exec(src))) defs.push(m[1]);
+
+  const refs = [];
+  const refRe = /\[\^([^\]\s]+)\](?!:)/g;
+  while ((m = refRe.exec(src))) refs.push({ id: m[1], at: m.index });
+
+  const seen = [];
+  for (const r of refs) if (!seen.includes(r.id)) seen.push(r.id);
+
+  const orphanRefs = seen.filter((id) => !defs.includes(id));
+  const orphanDefs = defs.filter((id) => !seen.includes(id));
+  const outOfOrder = seen.some((id, i) => id !== String(i + 1));
+  return { refs, defs, seen, orphanRefs, orphanDefs, outOfOrder,
+           tidy: !outOfOrder && !orphanRefs.length && !orphanDefs.length };
+}
+
+/**
+ * Renumber footnotes 1..n by order of first appearance, moving each definition
+ * to match. A marker with no note is left exactly as it is and reported — it is
+ * usually a typo, and inventing an empty note would hide it. Notes nobody cites
+ * keep their text and go to the end.
+ */
+function renumberFootnotes() {
+  const st = footnoteState();
+  if (st.tidy) return toast('Footnotes are already 1…' + st.seen.length + ' in order');
+
+  const cited = st.seen.filter((id) => st.defs.includes(id));
+  const mapping = new Map(cited.map((id, i) => [id, String(i + 1)]));
+  let next = cited.length;
+  for (const id of st.orphanDefs) mapping.set(id, String(++next));
+
+  // Pull the definitions out, keyed by their old id.
+  const defBody = new Map();
+  const lines = text.split('\n');
+  const kept = [];
+  let current = null;
+  for (const line of lines) {
+    const d = /^\[\^([^\]\s]+)\]:\s?([^]*)$/.exec(line);
+    if (d) { current = d[1]; defBody.set(current, d[2]); continue; }
+    if (current !== null && line.trim() === '') { current = null; kept.push(line); continue; }
+    if (current !== null) { defBody.set(current, defBody.get(current) + '\n' + line); continue; }
+    kept.push(line);
+  }
+
+  // Renumber the inline markers.
+  let body = kept.join('\n').replace(/\[\^([^\]\s]+)\](?!:)/g, (whole, id) =>
+    mapping.has(id) ? `[^${mapping.get(id)}]` : whole);
+
+  const order = [...mapping.entries()].sort((a, b) => Number(a[1]) - Number(b[1]));
+  const rebuilt = order
+    .filter(([oldId]) => defBody.has(oldId))
+    .map(([oldId, newId]) => `[^${newId}]: ${defBody.get(oldId).trim()}`);
+
+  body = body.replace(/\n+$/, '') + '\n\n' + rebuilt.join('\n\n') + '\n';
+  pushUndo(true);
+  setText(body, null);
+  setDirty(true);
+
+  const notes = [`renumbered ${cited.length} footnote${cited.length === 1 ? '' : 's'}`];
+  if (st.orphanRefs.length) notes.push(`left ${st.orphanRefs.map((r) => '[^' + r + ']').join(' ')} alone — no note for it`);
+  if (st.orphanDefs.length) notes.push(`${st.orphanDefs.length} uncited note(s) at the end`);
+  toast(notes.join(' · '));
+}
+
+function paintFootnoteChip() {
+  const chip = $('fnFix');
+  const st = footnoteState();
+  chip.hidden = st.tidy || !st.seen.length;
+  if (chip.hidden) return;
+  const why = st.orphanRefs.length ? `${st.orphanRefs.map((r) => '[^' + r + ']').join(' ')} has no note`
+    : st.orphanDefs.length ? 'uncited notes'
+    : 'out of order';
+  chip.textContent = `footnotes: ${why} — fix`;
+}
+
 const FN_REF = /\[\^([^\]\s]+)\](?!:)/g;
 
 function nextFootnote() {
@@ -1336,13 +1419,17 @@ function closeDeploy() {
 async function runDeploy() {
   const btn = $('publishBtn');
   const msg = $('dp-message').value.trim();
-  $('dp-files').textContent = 'committing and pushing…';
+  $('dp-files').textContent = 'building the site to check it compiles…';
   btn.disabled = true;
   btn.textContent = 'Deploying…';
   try {
     const r = await api('/api/deploy', {
       method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ message: msg }),
     });
+    if (r.ok === false) {
+      showPanel('Build failed — nothing pushed', r.build.error + '\n\n' + r.build.output, 'esc to close');
+      return;
+    }
     $('dp-files').textContent = r.log.join('\n\n');
     toast(r.pushed ? 'Pushed — GitHub Pages will rebuild in a minute' : r.log[0]);
     refreshGit();
@@ -1543,6 +1630,7 @@ function autosizeTitle() {
   el.style.height = el.scrollHeight + 'px';
 }
 function updateCount() {
+  paintFootnoteChip();
   const words = text.replace(/<[^>]*>/g, ' ').trim().split(/\s+/).filter(Boolean).length;
   $('count').textContent = words ? `${words} words · ${Math.max(1, Math.round(words / 220))} min` : '';
 }
@@ -1600,6 +1688,7 @@ $('statePill').onclick = () => {
 };
 $('toggleMeta').onclick = () => { $('meta').classList.toggle('hidden'); saveSession(); };
 $('fnBtn').onclick = () => { ed.focus(); footnote(); };
+$('fnFix').onclick = renumberFootnotes;
 
 document.addEventListener('keydown', (e) => {
   if (!$('deployPanel').hidden) {

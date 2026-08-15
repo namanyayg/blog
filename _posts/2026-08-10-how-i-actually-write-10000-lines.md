@@ -15,27 +15,27 @@ twitter_card: summary_large_image
 
 [^6]<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/what-do-the-13-000-lines.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" class="img-medium"></figure>
 
-pg recently [retweeted](https://xcancel.com/paulg/status/2086976755718664253) this from when he posted this last year, which made me check out how much lines of code I ship. Here it is below:
+pg recently [retweeted](https://xcancel.com/paulg/status/2086976755718664253) this from when he posted this last year, which made me check out how much lines of code I ship. 
 
-To be honest, I focus on growth as a CEO, so this isn't something I'd consider very high. But I still got a chuckle out of seeing 12,000/day. 
-
-Only a couple of years ago this would’ve been a good LoC count for a month!
+I've attached a picture below. Only a couple of years ago this would’ve been a good LoC count for a month!
 
 <figure><img src="{{ '/assets/how-i-actually-write-10000-lines/what-do-the-13-000-lines-3.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" class="img-medium"></figure>
 
-Of course, shipping tens of thousands of lines of code is considered the "new normal" these days. But I notice a lot of discourse on HackerNews about this, so I'll tell you a little bit about what I actually ship in a day.
+To be honest, I focus on growth as a CEO, so this isn't something I'd consider very high. But I still got a chuckle out of seeing 12,000/day.
+
+Of course, shipping tens of thousands of lines of code is considered the "new normal" these days. But I notice a lot of people on HackerNews being skeptical (rightfully so), so I'll tell you a little bit about what I actually ship in a day.
 
 <!--more-->
 
 ## Tooling
 
+Using AI as an effective tool for code generation vs blindly vibing means you have to pay close attention to context and testing harnesses. That’s where I invest ~10% of my development time and have countless skills and scripts built over the last year.
+
 I usually have 3 or 4 sessions of Codex in the ChatGPT app, and 4 terminals of Claude on Ghostty.
 
-I don't use an orchestrator, I tried some of them last year and they left a sour taste in my mouth because they were so buggy and slow.
+I don't use an orchestrator, I tried some of them last year and they were buggy and slow. That entire category left a sour taste in my mouth.
 
-We also use Devin because it has the best browser automation, so the AI is able to do UI work and testing on the cloud.
-
-Using AI as an effective tool for code generation vs blindly vibing means you have to pay close attention to context and testing harnesses. That’s where I invest ~10% of my development time and have countless skills and scripts built over the last year.
+We also use Devin because it has great browser automation with cloud agents, so the AI is able to do UI work and testing on the cloud.
 
 ## Product Work
 
@@ -45,81 +45,76 @@ These days, I'm taking the time to think from first principles and really improv
 
 <figure><img src="{{ '/assets/how-i-actually-write-10000-lines/product-work-2.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" class="img-medium"></figure>
 
-If you're a programmer, you know how it works: you create the MVP product with some assumptions, but when your users actually use it, you realize that there are so many things you misunderstood.
+If you're a programmer, you know how it works: you create the MVP product with some assumptions, but when your users actually use it, you realize that there are so many things you misunderstood while designing the original architecture.
 
-For us, since we have real customers, we were able to generate a lot of synthetic test cases and scenarios modeled after the real world. Using that as a reference, I was able to get AI to generate reliable code. With the correct restraints and plans, it's really impressive to fire off agents overnight and see them come up with working solutions!
+Since we have real customers, we are able to generate a lot of synthetic test cases and scenarios modeled from our real-world usage. Using that as a reference and strict testing, we are able to get AI to generate reliable code. With the correct restraints and plans, it's really impressive to fire off agents overnight and still see them come up with working solutions!
 
-So while this month has been about a refactor, I think I'm really seeing [Jevons paradox](https://en.wikipedia.org/wiki/Jevons_paradox)[^2] play out in action. We'd probably would've chugged along for longer in our old codebase without AI -- but because we can write more code with confidence, we are braving a refactor.
+I'm really seeing [Jevons paradox](https://en.wikipedia.org/wiki/Jevons_paradox)[^2] play out in action. This refactor wouldn't exist in a pre-AI world. We'd probably would've chugged along for longer in our old codebase without AI -- but because we can write more code with confidence, we are braving a refactor.
 
 ## GTM Engineering
 
 This, probably, has been the most unexpected type of engineering that I've been doing a lot recently. [^3]
 
-As our GTM motion has matured, I have figured out some key things that work and don't work, and I've set out to create a tool that does these really well. 
+As our GTM motion has matured, I have figured out some key things that work and don't work, and I've set out to create a tool that does these really well.  I've been using it internally for the couple of weeks and have doubled my reply rates!
 
-I've been using it internally for the couple of weeks and have doubled my reply rates!
-
-It all starts by finding the correct people who want what I've built[^4]. Using Sales Navigator, LinkedIn Search, and data from my past sales, the AI finds more people with similar titles. It favors people that are closer connections or the company they work at are similar to the existing customers I have.
+It all starts by finding people who I think want what I've built[^4]. Using Sales Navigator, LinkedIn Search, and data from my past sales, the AI finds similar people.
 
 <figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering-3.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" class="img-medium"></figure>
 
-It then performs multi-day sequences on LinkedIn: sending a connection request, liking, messaging, etc.
+It then automates my LinkedIn to run multi-day sequences: sending a connection request, liking, messaging, and so on.
 
-It actually tests these out, and identifies statistically significant results based on reply rates and meetings booked.
+It rigorously tests each sequence out, and tries to find statistically significant results from reply rates and meetings booked.
 
 <figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering-5.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" class="img-medium"></figure>
 
-It also automatically identifies my competitors, and follows their posts to find people who engaged with it and runs a different sequence on them.
+It also automatically identifies my competitors, follows their posts, finds people who engaged with it, filters them for relevancy, and sends them sequences.
 
 <figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering-4.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" class="img-medium"></figure>
 
-Whenever someone replies, it pings me on Slack and automatically drafts a reply for me.
+And the best part -- whenever someone replies, it pings me on Slack and automatically drafts a reply for me.
 
 <figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" class="img-medium"></figure>
 
 <figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering-2.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" class="img-medium"></figure>
 
-I approached it differently than what you'd expect most "vibe coded" projects to be like -- I spent careful time designing the architecture, data model, and observability -- because I was my own user and the better software I built the more valuable it is for me!
+I spent careful time designing the architecture, data model, and observability -- because I was my own user. This means that despite using a lot of AI, I built it differently than what you'd expect most "vibe coded" projects to be like. [I've been letting a few friends try it and it's gotten amazing reactions!](#lead-10k-lines)
 
 {% include catalyst_lead_form.html
    form_name="blog-10k-lines-multiplier"
    form_id="lead-10k-lines"
-   heading="This GTM system is a product now"
+   heading="psst... sneak peek"
    blurb="Multiplier runs the whole loop I just described — find buyers, test messages, ping you on Slack when someone replies. Leave your work email and I'll show you how it'd work for you." %}
 
 ## Customer-Specific Work
 
-As part of selling to larger customers, we have to do a lot of work integrating with their authentication and API systems.
+As part of selling to larger customers, we have to do a lot of work integrating with their authentication and APIs.
 
-It's complex work. It involves digging through legacy codebases and esoteric data sources, but that's essentially what the larger businesses pay us for.
+It's complex work. It involves digging through legacy codebases and esoteric data sources. That's essentially what the larger businesses pay us for.
 
-In the last couple of weeks, we have:
+In just the last couple of weeks, we have:
 
-* Resolved an issue where different customer deployments used different authentication secrets -- but they look very similar so no one really got to know till we deployed and broke stuff
-* Added support for snowflake database connections with different schemas per-tenant that actually mean the same thing
-* Integrated authentication where one administrator token is used to get specific privileges for user sub-accounts.
+* Resolved an issue where different customer deployments used different authentication secrets -- but they look very similar and the original dev who wrote that code was long gone so no one really got to know till we broke stuff
+* Added support for snowflake database connections with different schemas per tenant
+* Integrated authentication where one administrator token is used to get specific privileges for user sub-accounts
+* Set up a brand new caching system because one customer had static files in the 50mb range that our old cache wasn't handling well.
 
-etc etc.
+...and much more.
 
 Although mundane, this work is rewarding because of how it encompasses problems around data modelling, performance, quality tradeoffs, which excite the engineer in me.
 
-This work often requires going through a lot of documentation and writing rigorous API tests to prevent regressions, and is something that humans hate to do. This unique combination makes it apt for AI.
+It's mundane because it often requires going through a lot of documentation, discovering undocumented code by trial and error, and writing rigorous API tests to prevent regressions. Fortunately, this unique combination makes it apt for AI, which is why we've been able to accelerate a lot here as well.
 
 ## So... Is 10,000 lines like a lot?
-
-_TL;DR It is, but for some type of companies, it's not._
 
 In almost all of the cases where you're seeing people write tens of thousands of lines, it is going to be new code and greenfield projects. 
 
 It probably will have something to do with third-party integrations and most likely to be something that is easy to test and verify quickly.
 
-AI still creates a lot of opportunities to lose your brain to psychosis, where the sycophancy convinces you that every new feature you build is world-changing. So whether the generated code will be _valuable_ or create _outcomes_ is still uncertain.
+Whether the generated code will be _valuable_ or create _outcomes_ is still uncertain: AI still creates a lot of opportunities to lose your brain to psychosis, where the sycophancy convinces you that every new feature you build is world-changing. 
 
-If you're an experienced programmer in a larger company, it is probably a very bad idea to ship 10,000 lines of code. Your job mostly depends on not breaking things for the thousands of customers you have.
+But that's fine for some people. The young founder is desperate and has no paying customers, so they can Move Really Fast And Break Things™
 
-A few hundred lines of code can deliver thousands of dollars in additional revenue for an established company, so a senior developer is slow[^6]. 
-
-On the other hand, the young founder is desperate and no users, so they can Move Really Fast And Break Things™
+Of course, if you're an experienced programmer in a larger company, a critical part of your job is to not break things for the thousands of customers you have. So for you, it is probably a very bad idea to ship 10,000 lines of code. 
 
 So what about you, where do you stand? How many lines of (effective) code are you able to write, and how much of that changed with AI?
 
@@ -129,7 +124,4 @@ So what about you, where do you stand? How many lines of (effective) code are yo
 
 [^4]: a.k.a. "leads" in marketing-speak, but I never really liked that word
 
-[^5]: yes, I cringed as I wrote this out myself, but I sorta think it's real.
-
-[^6]: unless you're working in a company where millions of lines of code can result in millions of additional revenue e.g. Anthropic
 
