@@ -13,13 +13,13 @@ twitter_card: summary_large_image
 #   views: "XXX"
 ---
 
-<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/what-do-the-13-000-lines.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do"></figure>
+<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/what-do-the-12-000-lines.png' | relative_url }}" alt="What do the 12,000 lines per day I write actually do"></figure>
 
 pg recently [retweeted](https://xcancel.com/paulg/status/2086976755718664253) this from when he posted this last year, which made me check out how much lines of code I ship. 
 
 I've attached a picture below. Only a couple of years ago this would’ve been a good LoC count for a month!
 
-<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/what-do-the-13-000-lines-3.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do"></figure>
+<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/what-do-the-12-000-lines-3.png' | relative_url }}" alt="What do the 12,000 lines per day I write actually do"></figure>
 
 Of course, shipping tens of thousands of lines of code is considered the "new normal" these days. I focus on growth as a CEO, so this isn't something I'd consider very high now. But I still got a chuckle out of seeing 12,000/day.
 
@@ -41,7 +41,7 @@ We also use Devin because it has great browser automation with cloud agents, so 
 
 I've been working on an AI agent embedded inside SaaS software. Our customers are SaaS companies, who use us to [allow their customers to build  and apps.]((https://gigacatalyst.com/dashboard-analytics-bi)
 
-<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/product-work-2.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do"></figure>
+<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/product-work-2.png' | relative_url }}" alt="What do the 12,000 lines per day I write actually do"></figure>
 
 These days, I'm taking the time to think from first principles and really improve the architecture and data model, making our platform much more configurable and easier to self-serve.
 
@@ -59,23 +59,23 @@ As our GTM motion has matured, I have figured out some key things that work and 
 
 It all starts by finding people who I think want what I've built[^3]. Using Sales Navigator, LinkedIn Search, and data from my past sales, the AI finds similar people. This involved a lot of queuing work, because there's various states a lead can be in and sources it can come from.
 
-<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering-3.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do"></figure>
+<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering-3.png' | relative_url }}" alt="What do the 12,000 lines per day I write actually do"></figure>
 
 It then automates my LinkedIn to run multi-day sequences: sending a connection request, liking, messaging, and so on. This was a very complicated state machine -- from the outside it looks to have only a few states, but really there are many more failure states to accommodate. 
 
 It rigorously tests each sequence out, and tries to find statistically significant results from reply rates and meetings booked.
 
-<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering-5.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do"></figure>
+<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering-5.png' | relative_url }}" alt="What do the 12,000 lines per day I write actually do"></figure>
 
 It also automatically identifies my competitors, follows their posts, finds people who engaged with it, filters them for relevancy, and sends them sequences.
 
-<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering-4.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do"></figure>
+<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering-4.png' | relative_url }}" alt="What do the 12,000 lines per day I write actually do"></figure>
 
 And the best part -- whenever someone replies, it pings me on Slack and automatically drafts a reply for me.
 
-<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do"></figure>
+<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering.png' | relative_url }}" alt="What do the 12,000 lines per day I write actually do"></figure>
 
-<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering-2.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do"></figure>
+<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering-2.png' | relative_url }}" alt="What do the 12,000 lines per day I write actually do"></figure>
 
 I spent careful time designing the architecture, data model, and observability -- because I was my own user. This means that despite using a lot of AI, I built it differently than what you'd expect most "vibe coded" projects to be like. [I've been letting a few friends try it and it's gotten amazing reactions!](#lead-10k-lines)
 
