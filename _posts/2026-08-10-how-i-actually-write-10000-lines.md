@@ -13,13 +13,13 @@ twitter_card: summary_large_image
 #   views: "XXX"
 ---
 
-<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/what-do-the-13-000-lines.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" class="img-medium"></figure>
+<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/what-do-the-13-000-lines.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" style="max-width: 30em; width: 100%;"></figure>
 
 pg recently [retweeted](https://xcancel.com/paulg/status/2086976755718664253) this from when he posted this last year, which made me check out how much lines of code I ship. 
 
 I've attached a picture below. Only a couple of years ago this would’ve been a good LoC count for a month!
 
-<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/what-do-the-13-000-lines-3.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" class="img-medium"></figure>
+<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/what-do-the-13-000-lines-3.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" style="max-width: 30em; width: 100%;"></figure>
 
 Of course, shipping tens of thousands of lines of code is considered the "new normal" these days. I focus on growth as a CEO, so this isn't something I'd consider very high now. But I still got a chuckle out of seeing 12,000/day.
 
@@ -39,9 +39,9 @@ We also use Devin because it has great browser automation with cloud agents, so 
 
 ## Product Work
 
-I've been working on an AI agent embedded inside SaaS software. Our customers are SaaS companies, who use us to allow their customers to build [dashboards](https://gigacatalyst.com/dashboard-analytics-bi) and apps.
+I've been working on an AI agent embedded inside SaaS software. Our customers are SaaS companies, who use us to [allow their customers to build  and apps.](https://gigacatalyst.com/dashboard-analytics-bi)
 
-<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/product-work-2.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" class="img-medium"></figure>
+<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/product-work-2.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" style="max-width: 30em; width: 100%;"></figure>
 
 These days, I'm taking the time to think from first principles and really improve the architecture and data model, making our platform much more configurable and easier to self-serve.
 
@@ -59,23 +59,23 @@ As our GTM motion has matured, I have figured out some key things that work and 
 
 It all starts by finding people who I think want what I've built[^3]. Using Sales Navigator, LinkedIn Search, and data from my past sales, the AI finds similar people.
 
-<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering-3.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" class="img-medium"></figure>
+<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering-3.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" style="max-width: 30em; width: 100%;"></figure>
 
 It then automates my LinkedIn to run multi-day sequences: sending a connection request, liking, messaging, and so on.
 
 It rigorously tests each sequence out, and tries to find statistically significant results from reply rates and meetings booked.
 
-<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering-5.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" class="img-medium"></figure>
+<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering-5.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" style="max-width: 30em; width: 100%;"></figure>
 
 It also automatically identifies my competitors, follows their posts, finds people who engaged with it, filters them for relevancy, and sends them sequences.
 
-<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering-4.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" class="img-medium"></figure>
+<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering-4.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" style="max-width: 30em; width: 100%;"></figure>
 
 And the best part -- whenever someone replies, it pings me on Slack and automatically drafts a reply for me.
 
-<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" class="img-medium"></figure>
+<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" style="max-width: 30em; width: 100%;"></figure>
 
-<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering-2.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" class="img-medium"></figure>
+<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering-2.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" style="max-width: 30em; width: 100%;"></figure>
 
 I spent careful time designing the architecture, data model, and observability -- because I was my own user. This means that despite using a lot of AI, I built it differently than what you'd expect most "vibe coded" projects to be like. [I've been letting a few friends try it and it's gotten amazing reactions!](#lead-10k-lines)
 
@@ -84,7 +84,7 @@ I spent careful time designing the architecture, data model, and observability -
    form_id="lead-10k-lines"
    modal=true
    heading="psst... sneak peek"
-   blurb="If you're interested in the loop I described — find buyers, test messages, and get pinged on Slack when someone replies. Leave your work email and I'll show you how it'd work for you." %}
+   blurb="If you're interested in the loop I described and want find buyers, test messages, and get pinged on Slack when someone replies -- Leave your work email or phone and I'll show you how it'd work for you." %}
 
 ## Customer-Specific Work
 
@@ -119,10 +119,11 @@ Of course, if you're an experienced programmer in a larger company, a critical p
 
 What about you, my dear reader, where do you stand? How many lines of (effective) code do you to write, and how has that changed with AI?
 
-[^1]: which out to really be called Jevons law tbh
+[^1]: which ought to really be called Jevons law tbh but i digress
 
 [^2]: I think [Clay](https://www.clay.com/blog/gtm-engineering) invented the term a few years ago. But it is much more advanced now!
 
 [^3]: a.k.a. "leads" in marketing-speak, but I never really liked that word
+
 
 

@@ -1113,12 +1113,13 @@ ed.addEventListener('click', (e) => {
 
 /* -------------------------------------------------------- media: paste & drop */
 
+// Matches what the rest of the blog hand-writes, rather than inventing a class.
 const IMG_SNIPPET = (url, alt) =>
-  `<figure><img src="{{ '${url}' | relative_url }}" alt="${alt}" class="img-medium"></figure>`;
+  `<figure><img src="{{ '${url}' | relative_url }}" alt="${alt}" style="max-width: 30em; width: 100%;"></figure>`;
 
 // `figure img` is centred by the site stylesheet; video needs it spelled out.
 const VIDEO_SNIPPET = (url) =>
-  `<figure><video src="{{ '${url}' | relative_url }}" class="img-medium" style="display: block; margin: 0 auto;" controls muted loop playsinline></video></figure>`;
+  `<figure><video src="{{ '${url}' | relative_url }}" style="max-width: 30em; width: 100%; display: block; margin: 0 auto;" controls muted loop playsinline></video></figure>`;
 
 const slugify = (s) =>
   String(s).toLowerCase().replace(/['’]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
