@@ -254,6 +254,19 @@
     box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,.12);
   }
   .chip:hover { color: var(--ink); border-color: var(--ink-faint); }
+  .chipbar {
+    display: flex; align-items: center; gap: 0.125rem;
+    padding: 0.1875rem; cursor: default;
+  }
+  .chipbar button {
+    border: 0; background: none; cursor: pointer;
+    padding: 0.1875rem 0.4375rem; border-radius: 62.5rem;
+    font-size: 0.6875rem; color: var(--ink-soft); font-family: inherit;
+  }
+  .chipbar button:hover { background: rgba(127,127,127,.16); color: var(--ink); }
+  .chipbar button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+  .chipbar__sep { width: 0.0625rem; height: 0.875rem; background: var(--line); margin: 0 0.1875rem; }
+  .chipbar__danger:hover { background: rgba(180,40,40,.14); color: #a33; }
   button.action.ok { color: var(--accent); border-color: var(--accent); }
   button.action.primary.ok { background: var(--accent); color: #fff; }
   #savedAt { color: var(--ink-faint); }
@@ -284,6 +297,7 @@
     <button class="action ghost" id="fnBtn" title="Add a footnote (⌘⇧F)">+ note</button>
     <span class="spacer"></span>
     <button class="action warn" id="fnFix" hidden></button>
+    <span class="action warn" id="markupFix" hidden style="cursor:default"></span>
     <span id="count"></span>
     <span id="savedAt"></span>
     <button class="action" id="toggleMeta" title="Metadata (⌘I)">Details</button>
@@ -365,7 +379,14 @@
   </details>
 </div>
 
-<button class="chip" id="mediaChip" hidden>Rename file</button>
+<div class="chip chipbar" id="mediaBar" hidden>
+  <button data-style="medium" title="30em wide (img-medium)">medium</button>
+  <button data-style="full" title="Fills the column">full</button>
+  <button data-style="wide" title="Wider than the column (figure.xlarge)">wide</button>
+  <span class="chipbar__sep"></span>
+  <button data-act="rename">rename</button>
+  <button data-act="remove" class="chipbar__danger">remove</button>
+</div>
 
 <div class="rename" id="deployPanel" hidden style="width:32rem">
   <div class="rn-label" id="dp-label">Deploy to GitHub Pages</div>
@@ -1061,6 +1082,27 @@ function renumberFootnotes() {
   toast(notes.join(' · '));
 }
 
+// Folded markup is invisible, so a stray keystroke can truncate a tag without
+// showing anything. Check the figures every render and say so in the bar.
+function brokenFigures(src = text) {
+  const bad = [];
+  src.split('\n').forEach((line, i) => {
+    if (!/<figure|<img|<video/.test(line)) return;
+    const opens = (line.match(/<figure\b/g) || []).length;
+    const closes = (line.match(/<\/figure>/g) || []).length;
+    if (opens && opens !== closes) bad.push(i + 1);
+    else if (/<img\b/.test(line) && !/>/.test(line.split('<img')[1] || '')) bad.push(i + 1);
+  });
+  return bad;
+}
+
+function paintMarkupChip() {
+  const chipEl = $('markupFix');
+  const bad = brokenFigures();
+  chipEl.hidden = !bad.length;
+  if (bad.length) chipEl.textContent = `broken figure markup on line ${bad.join(', ')}`;
+}
+
 function paintFootnoteChip() {
   const chip = $('fnFix');
   const st = footnoteState();
@@ -1113,13 +1155,14 @@ ed.addEventListener('click', (e) => {
 
 /* -------------------------------------------------------- media: paste & drop */
 
-// Matches what the rest of the blog hand-writes, rather than inventing a class.
+// Plain by default — no class, no inline styles. Width is chosen per image
+// from the toolbar that appears over the preview.
 const IMG_SNIPPET = (url, alt) =>
-  `<figure><img src="{{ '${url}' | relative_url }}" alt="${alt}" style="max-width: 30em; width: 100%;"></figure>`;
+  `<figure><img src="{{ '${url}' | relative_url }}" alt="${alt}"></figure>`;
 
 // `figure img` is centred by the site stylesheet; video needs it spelled out.
 const VIDEO_SNIPPET = (url) =>
-  `<figure><video src="{{ '${url}' | relative_url }}" style="max-width: 30em; width: 100%; display: block; margin: 0 auto;" controls muted loop playsinline></video></figure>`;
+  `<figure><video src="{{ '${url}' | relative_url }}" style="display: block; margin: 0 auto;" controls muted loop playsinline></video></figure>`;
 
 const slugify = (s) =>
   String(s).toLowerCase().replace(/['’]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -1199,10 +1242,83 @@ $('rn-input').addEventListener('keydown', (e) => {
 });
 $('rn-input').addEventListener('blur', () => { if (renaming) closeRename(); });
 
-// Hovering a preview offers a Rename chip. It lives outside the editable so it
-// can never leak into the text; clicking the preview itself works too.
-const chip = $('mediaChip');
-let chipFor = null;
+/* --------------------------------------------------- editing a placed image */
+
+// Which width treatment a figure line uses. The two "medium" forms render
+// identically: the class, and the inline style the blog has always hand-written.
+function mediaWidth(line) {
+  if (/<figure[^>]*\bxlarge\b/.test(line)) return 'wide';
+  if (/img-medium/.test(line) || /max-width:\s*30em/.test(line)) return 'medium';
+  return 'full';
+}
+
+// Older posts spread a figure over three lines, so <figure> may sit above the
+// <img>. Find the whole block the media line belongs to.
+function figureBlock(lines, index) {
+  let open = index;
+  while (open > 0 && !/<figure/.test(lines[open]) && index - open < 3) open--;
+  if (!/<figure/.test(lines[open] || '')) open = index;
+  let close = index;
+  while (close < lines.length - 1 && !/<\/figure>/.test(lines[close]) && close - index < 3) close++;
+  if (!/<\/figure>/.test(lines[close] || '')) close = index;
+  return { open, close };
+}
+
+const stripWidth = (line) => line
+  .replace(/\s*class="img-medium"/g, '')
+  .replace(/\s*style="([^"]*)"/g, (whole, css) => {
+    const rest = css
+      .replace(/max-width:\s*30em;?\s*/g, '')
+      .replace(/width:\s*100%;?\s*/g, '')
+      .trim();
+    return rest ? ` style="${rest}"` : '';
+  });
+
+// Rewrite the figure this line belongs to, in place, to the given width.
+function applyMediaWidth(lines, index, want) {
+  const { open } = figureBlock(lines, index);
+  lines[index] = stripWidth(lines[index]);
+  lines[open] = lines[open].replace(/<figure class="xlarge"/, '<figure');
+
+  if (want === 'wide') {
+    lines[open] = lines[open].replace(/<figure/, '<figure class="xlarge"');
+    return lines;
+  }
+  if (want !== 'medium') return lines;
+
+  if (/<img/.test(lines[index])) {
+    lines[index] = lines[index].replace(/<img/, '<img class="img-medium"');
+  } else if (/style="/.test(lines[index])) {
+    // <video> has no such class in the stylesheet; use the inline equivalent.
+    lines[index] = lines[index].replace(/style="/, 'style="max-width: 30em; width: 100%; ');
+  } else {
+    lines[index] = lines[index].replace(/<video/, '<video style="max-width: 30em; width: 100%;"');
+  }
+  return lines;
+}
+
+const lineIndexOf = (div) => [...ed.children].indexOf(div);
+
+function removeMediaLine(index) {
+  const lines = text.split('\n');
+  const media = mediaUrl(lines[index] || '');
+  // Take the whole <figure>…</figure>, not just the <img> line, or the wrapper
+  // tags are left behind as orphans.
+  const { open, close } = figureBlock(lines, index);
+  lines.splice(open, close - open + 1);
+  // Collapse the blank lines the figure used to sit between.
+  while (open > 0 && !(lines[open - 1] || '').trim() && !(lines[open] || '').trim()) {
+    lines.splice(open, 1);
+  }
+  pushUndo(true);
+  setText(lines.join('\n'), null);
+  setDirty(true);
+  toast(media ? `Removed — ${media.url} is still in assets/` : 'Removed');
+}
+
+// The toolbar lives outside the editable, so it can never leak into the text.
+const bar = $('mediaBar');
+let barFor = null;
 
 function previewUnder(e) {
   const ln = e.target.closest && e.target.closest('.ln.img, .ln.vid');
@@ -1214,29 +1330,61 @@ function previewUnder(e) {
   return media ? { ln, rect, pad, url: media.url } : null;
 }
 
+function showBar(hit) {
+  barFor = { url: hit.url, index: lineIndexOf(hit.ln) };
+  const current = mediaWidth(hit.ln.textContent);
+  for (const b of bar.querySelectorAll('[data-style]')) {
+    b.setAttribute('aria-pressed', String(b.dataset.style === current));
+  }
+  bar.hidden = false;
+  bar.style.top = (hit.rect.bottom - hit.pad) / 16 + 0.25 + 'rem';
+  bar.style.left = hit.rect.left / 16 + 0.5 + 'rem';
+}
+
+function hideBar() {
+  if (bar.matches(':hover')) return;
+  bar.hidden = true;
+  barFor = null;
+}
+
 ed.addEventListener('mousemove', (e) => {
   const hit = previewUnder(e);
-  if (!hit) return hideChip();
-  chipFor = hit.url;
-  chip.hidden = false;
-  chip.style.top = (hit.rect.bottom - hit.pad) / 16 + 0.25 + 'rem';
-  chip.style.left = hit.rect.left / 16 + 0.5 + 'rem';
+  hit ? showBar(hit) : hideBar();
 });
-function hideChip() {
-  if (chip.matches(':hover')) return;
-  chip.hidden = true;
-  chipFor = null;
-}
-ed.addEventListener('mouseleave', hideChip);
-chip.addEventListener('click', () => { if (chipFor) openRename(chipFor, 'Rename file'); });
+ed.addEventListener('mouseleave', hideBar);
+bar.addEventListener('mouseleave', () => { bar.hidden = true; barFor = null; });
+
+bar.addEventListener('click', (e) => {
+  const btn = e.target.closest('button');
+  if (!btn || !barFor) return;
+  const { index, url } = barFor;
+
+  if (btn.dataset.style) {
+    const lines = text.split('\n');
+    const before = lines.join('\n');
+    applyMediaWidth(lines, index, btn.dataset.style);
+    const after = lines.join('\n');
+    if (after !== before) {
+      pushUndo(true);
+      setText(after, null);
+      setDirty(true);
+    }
+    for (const b of bar.querySelectorAll('[data-style]')) {
+      b.setAttribute('aria-pressed', String(b.dataset.style === btn.dataset.style));
+    }
+    return;
+  }
+  if (btn.dataset.act === 'rename') { bar.hidden = true; return openRename(url, 'Rename file'); }
+  if (btn.dataset.act === 'remove') {
+    if (!confirm('Remove this image from the post?\n\nThe file stays in assets/.')) return;
+    bar.hidden = true;
+    removeMediaLine(index);
+  }
+});
 
 ed.addEventListener('click', () => markCaretLine());
-ed.addEventListener('mousedown', (e) => {
-  const hit = previewUnder(e);
-  if (!hit) return;
-  e.preventDefault();
-  openRename(hit.url, 'Rename file');
-});
+// Clicking the preview keeps the caret out of the folded markup.
+ed.addEventListener('mousedown', (e) => { if (previewUnder(e)) e.preventDefault(); });
 
 const isMedia = (f) => f.type.startsWith('image/') || f.type.startsWith('video/') || /\.(mp4|webm|mov|m4v)$/i.test(f.name || '');
 
@@ -1632,6 +1780,7 @@ function autosizeTitle() {
 }
 function updateCount() {
   paintFootnoteChip();
+  paintMarkupChip();
   const words = text.replace(/<[^>]*>/g, ' ').trim().split(/\s+/).filter(Boolean).length;
   $('count').textContent = words ? `${words} words · ${Math.max(1, Math.round(words / 220))} min` : '';
 }
