@@ -5,10 +5,18 @@
 {% assign product_url = include.product_url | default: 'https://gigacatalyst.com/multiplier' %}
 {% assign booking_url = include.booking_url | default: 'https://cal.com/namanyayg/25m' %}
 {% assign utm = '?utm_source=blog&utm_medium=post&utm_campaign=' | append: form_name %}
+{% assign modal = include.modal | default: false %}
 
-<section class="mx-lead" id="{{ form_id }}" data-form-name="{{ form_name }}">
+{% if modal %}
+<div class="mx-lead-modal" id="{{ form_id }}-modal" hidden>
+  <div class="mx-lead-modal__backdrop" data-lead-close></div>
+  <div class="mx-lead-modal__panel" role="dialog" aria-modal="true" aria-labelledby="{{ form_id }}-title">
+    <button class="mx-lead-modal__x" type="button" data-lead-close aria-label="Close">&times;</button>
+{% endif %}
+
+<section class="mx-lead{% if modal %} mx-lead--modal{% endif %}" id="{{ form_id }}" data-form-name="{{ form_name }}">
   <div class="mx-lead__head">
-    <h3 class="mx-lead__title">{{ heading }}</h3>
+    <h3 class="mx-lead__title" id="{{ form_id }}-title">{{ heading }}</h3>
     <p class="mx-lead__sub">{{ blurb }}</p>
   </div>
 
@@ -67,7 +75,63 @@
   </div>
 </section>
 
+{% if modal %}
+  </div>
+</div>
+{% endif %}
+
 <style>
+{% if modal %}
+/* Modal: the form costs no space in the page until the link is clicked. */
+.mx-lead-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+}
+.mx-lead-modal[hidden] { display: none; }
+.mx-lead-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 8, 12, 0.72);
+  backdrop-filter: blur(0.15rem);
+}
+.mx-lead-modal__panel {
+  position: relative;
+  width: 100%;
+  max-width: 44rem;
+  max-height: calc(100vh - 2.5rem);
+  overflow-y: auto;
+  border-radius: 1rem;
+  animation: mx-lead-in 0.16s ease-out;
+}
+@keyframes mx-lead-in {
+  from { opacity: 0; transform: translateY(0.5rem); }
+  to { opacity: 1; transform: none; }
+}
+.mx-lead-modal__x {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  z-index: 1;
+  border: 0;
+  background: none;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 1.75rem;
+  line-height: 1;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+.mx-lead-modal__x:hover { color: #fff; }
+/* Two classes deep so it wins regardless of where .mx-lead is declared below. */
+.mx-lead-modal .mx-lead { margin: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .mx-lead-modal__panel { animation: none; }
+}
+{% endif %}
 .mx-lead {
   margin: 2.5rem 0;
   padding: 1.75rem;
@@ -274,6 +338,40 @@
   var grid = root.querySelector('.mx-lead__grid');
   var leadId = null;
   var creating = null;
+
+  {% if modal %}
+  // Opened by any link pointing at the form's anchor, so the prose keeps using
+  // a plain markdown link and the form takes up no room in the page.
+  var modal = document.getElementById('{{ form_id }}-modal');
+  var lastFocus = null;
+
+  function openModal() {
+    lastFocus = document.activeElement;
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    var first = form.hidden ? modal.querySelector('a, button') : emailInput;
+    if (first) first.focus({ preventScroll: true });
+  }
+
+  function closeModal() {
+    modal.hidden = true;
+    document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+  }
+
+  document.addEventListener('click', function (event) {
+    var link = event.target.closest && event.target.closest('a[href$="#{{ form_id }}"]');
+    if (link) { event.preventDefault(); openModal(); return; }
+    if (event.target.closest && event.target.closest('[data-lead-close]')) closeModal();
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && !modal.hidden) closeModal();
+  });
+
+  // Deep link: /post#lead-id opens it on arrival.
+  if (window.location.hash === '#{{ form_id }}') openModal();
+  {% endif %}
 
   try { leadId = sessionStorage.getItem(STORAGE_KEY); } catch (e) {}
 

@@ -13,7 +13,7 @@ twitter_card: summary_large_image
 #   views: "XXX"
 ---
 
-[^6]<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/what-do-the-13-000-lines.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" class="img-medium"></figure>
+<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/what-do-the-13-000-lines.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" class="img-medium"></figure>
 
 pg recently [retweeted](https://xcancel.com/paulg/status/2086976755718664253) this from when he posted this last year, which made me check out how much lines of code I ship. 
 
@@ -21,15 +21,15 @@ I've attached a picture below. Only a couple of years ago this would’ve been a
 
 <figure><img src="{{ '/assets/how-i-actually-write-10000-lines/what-do-the-13-000-lines-3.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" class="img-medium"></figure>
 
-To be honest, I focus on growth as a CEO, so this isn't something I'd consider very high. But I still got a chuckle out of seeing 12,000/day.
+Of course, shipping tens of thousands of lines of code is considered the "new normal" these days. I focus on growth as a CEO, so this isn't something I'd consider very high now. But I still got a chuckle out of seeing 12,000/day.
 
-Of course, shipping tens of thousands of lines of code is considered the "new normal" these days. But I notice a lot of people on HackerNews being skeptical (rightfully so), so I'll tell you a little bit about what I actually ship in a day.
+I notice a lot of people on HackerNews being skeptical (rightfully so), so I'll tell you a little bit about what I actually ship in a day.
 
 <!--more-->
 
 ## Tooling
 
-Using AI as an effective tool for code generation vs blindly vibing means you have to pay close attention to context and testing harnesses. That’s where I invest ~10% of my development time and have countless skills and scripts built over the last year.
+Using AI as an effective tool for code generation vs blindly vibing means you have to pay close attention to context and testing harnesses. That’s why I have countless skills and scripts that I've been honing over the last year.
 
 I usually have 3 or 4 sessions of Codex in the ChatGPT app, and 4 terminals of Claude on Ghostty.
 
@@ -41,23 +41,23 @@ We also use Devin because it has great browser automation with cloud agents, so 
 
 I've been working on an AI agent embedded inside SaaS software. Our customers are SaaS companies, who use us to allow their customers to build [dashboards](https://gigacatalyst.com/dashboard-analytics-bi) and apps.
 
-These days, I'm taking the time to think from first principles and really improve the architecture and data model, making our platform much more configurable and easier to self-serve.
-
 <figure><img src="{{ '/assets/how-i-actually-write-10000-lines/product-work-2.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" class="img-medium"></figure>
+
+These days, I'm taking the time to think from first principles and really improve the architecture and data model, making our platform much more configurable and easier to self-serve.
 
 If you're a programmer, you know how it works: you create the MVP product with some assumptions, but when your users actually use it, you realize that there are so many things you misunderstood while designing the original architecture.
 
 Since we have real customers, we are able to generate a lot of synthetic test cases and scenarios modeled from our real-world usage. Using that as a reference and strict testing, we are able to get AI to generate reliable code. With the correct restraints and plans, it's really impressive to fire off agents overnight and still see them come up with working solutions!
 
-I'm really seeing [Jevons paradox](https://en.wikipedia.org/wiki/Jevons_paradox)[^2] play out in action. This refactor wouldn't exist in a pre-AI world. We'd probably would've chugged along for longer in our old codebase without AI -- but because we can write more code with confidence, we are braving a refactor.
+I'm really seeing [Jevons paradox](https://en.wikipedia.org/wiki/Jevons_paradox)[^1] play out in action. This refactor wouldn't exist in a pre-AI world. We'd probably would've chugged along for longer in our old codebase without AI -- but because we can write more code with confidence, we are braving a refactor.
 
 ## GTM Engineering
 
-This, probably, has been the most unexpected type of engineering that I've been doing a lot recently. [^3]
+This, probably, has been the most unexpected type of engineering that I've been doing a lot recently. [^2]
 
-As our GTM motion has matured, I have figured out some key things that work and don't work, and I've set out to create a tool that does these really well.  I've been using it internally for the couple of weeks and have doubled my reply rates!
+As our GTM motion has matured, I have figured out some key things that work and don't work, and I've set out to create a tool that does these really well. I've been using it internally for the couple of weeks and have doubled my reply rates!
 
-It all starts by finding people who I think want what I've built[^4]. Using Sales Navigator, LinkedIn Search, and data from my past sales, the AI finds similar people.
+It all starts by finding people who I think want what I've built[^3]. Using Sales Navigator, LinkedIn Search, and data from my past sales, the AI finds similar people.
 
 <figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering-3.png' | relative_url }}" alt="What do the 13,000 lines per day I write actually do" class="img-medium"></figure>
 
@@ -82,6 +82,7 @@ I spent careful time designing the architecture, data model, and observability -
 {% include catalyst_lead_form.html
    form_name="blog-10k-lines-multiplier"
    form_id="lead-10k-lines"
+   modal=true
    heading="psst... sneak peek"
    blurb="Multiplier runs the whole loop I just described — find buyers, test messages, ping you on Slack when someone replies. Leave your work email and I'll show you how it'd work for you." %}
 
@@ -102,7 +103,7 @@ In just the last couple of weeks, we have:
 
 Although mundane, this work is rewarding because of how it encompasses problems around data modelling, performance, quality tradeoffs, which excite the engineer in me.
 
-It's mundane because it often requires going through a lot of documentation, discovering undocumented code by trial and error, and writing rigorous API tests to prevent regressions. Fortunately, this unique combination makes it apt for AI, which is why we've been able to accelerate a lot here as well.
+Because it often requires going through a lot of documentation, discovering undocumented code by trial and error, and writing rigorous API tests to prevent regressions; this unique combination makes it apt for AI, which is why we've been able to accelerate a lot here as well.
 
 ## So... Is 10,000 lines like a lot?
 
@@ -112,16 +113,16 @@ It probably will have something to do with third-party integrations and most lik
 
 Whether the generated code will be _valuable_ or create _outcomes_ is still uncertain: AI still creates a lot of opportunities to lose your brain to psychosis, where the sycophancy convinces you that every new feature you build is world-changing. 
 
-But that's fine for some people. The young founder is desperate and has no paying customers, so they can Move Really Fast And Break Things™
+But that's fine for some people. The young founder is desperate and has no paying customers, so they can Move Fast And Really Break Things™
 
 Of course, if you're an experienced programmer in a larger company, a critical part of your job is to not break things for the thousands of customers you have. So for you, it is probably a very bad idea to ship 10,000 lines of code. 
 
-So what about you, where do you stand? How many lines of (effective) code are you able to write, and how much of that changed with AI?
+What about you, my dear reader, where do you stand? How many lines of (effective) code do you to write, and how has that changed with AI?
 
-[^2]: which out to really be called Jevons law tbh
+[^1]: which out to really be called Jevons law tbh
 
-[^3]: I think [Clay](https://www.clay.com/blog/gtm-engineering) invented the term a few years ago. But it is much more advanced now!
+[^2]: I think [Clay](https://www.clay.com/blog/gtm-engineering) invented the term a few years ago. But it is much more advanced now!
 
-[^4]: a.k.a. "leads" in marketing-speak, but I never really liked that word
+[^3]: a.k.a. "leads" in marketing-speak, but I never really liked that word
 
 
