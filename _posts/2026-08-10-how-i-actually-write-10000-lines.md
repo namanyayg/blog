@@ -39,7 +39,7 @@ We also use Devin because it has great browser automation with cloud agents, so 
 
 ## Product Work
 
-I've been working on an AI agent embedded inside SaaS software. Our customers are SaaS companies, who use us to [allow their customers to build  and apps.]((https://gigacatalyst.com/dashboard-analytics-bi)
+I've been working on an AI agent embedded inside SaaS software. Our customers are SaaS companies, who use us to allow their customers to build [dashboards](https://gigacatalyst.com/dashboard-analytics-bi) and apps.
 
 <figure><img src="{{ '/assets/how-i-actually-write-10000-lines/product-work-2.png' | relative_url }}" alt="What do the 12,000 lines per day I write actually do"></figure>
 
@@ -72,9 +72,6 @@ It also automatically identifies my competitors, follows their posts, finds peop
 <figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering-4.png' | relative_url }}" alt="What do the 12,000 lines per day I write actually do"></figure>
 
 And the best part -- whenever someone replies, it pings me on Slack and automatically drafts a reply for me.
-
-<figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering.png' | relative_url }}" alt="What do the 12,000 lines per day I write actually do"></figure>
-
 <figure><img src="{{ '/assets/how-i-actually-write-10000-lines/gtm-engineering-2.png' | relative_url }}" alt="What do the 12,000 lines per day I write actually do"></figure>
 
 I spent careful time designing the architecture, data model, and observability -- because I was my own user. This means that despite using a lot of AI, I built it differently than what you'd expect most "vibe coded" projects to be like. [I've been letting a few friends try it and it's gotten amazing reactions!](#lead-10k-lines)
@@ -124,6 +121,7 @@ What about you, my dear reader, where do you stand? How many lines of (effective
 [^2]: I think [Clay](https://www.clay.com/blog/gtm-engineering) invented the term a few years ago. But it is much more advanced now!
 
 [^3]: a.k.a. "leads" in marketing-speak, but I never really liked that word
+
 
 
 
