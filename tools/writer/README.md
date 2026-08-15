@@ -2,6 +2,9 @@
 
 A small local writing app for this blog. No dependencies, no build step.
 
+Double-click **`tools/writer/Writer.command`** in Finder — it starts the server
+and opens the browser. (First time, macOS may want right-click → Open.) Or:
+
 ```sh
 node tools/writer/server.js      # → http://localhost:4321
 ```
@@ -82,9 +85,24 @@ also references it, you get a warning listing which ones before anything moves.
 `alt` defaults to the post title — worth editing. Supported: png, jpg, gif,
 webp, avif, svg, heic, mp4, webm, mov, m4v.
 
+## Local build
+
+**Preview** runs `jekyll serve --drafts --unpublished` for reading the rendered
+page. **Publish…** runs a real `bundle exec jekyll build --drafts` first and
+refuses to commit or push if it fails, showing the error — the same build
+GitHub Pages runs, so a green build here means a green deploy. It takes about
+four seconds on this repo.
+
 ## Footnotes
 
-`⌘⇧F` (or the *Footnote* button) inserts `[^n]` at the cursor, appends
+When the numbering drifts — because you moved or deleted things — a chip
+appears in the bar saying what is wrong (`out of order`, an uncited note, or a
+marker with no note). Clicking it renumbers everything `1..n` by order of
+appearance and moves the notes to match. A marker with no note is left exactly
+as it is and named in the message: that is usually a typo, and inventing an
+empty note would hide it.
+
+`⌘⇧F` (or the *+ note* button) inserts `[^n]` at the cursor, appends
 `[^n]: ` at the bottom of the post, and puts you there to write the note.
 `Esc` — or `⌘⇧F` again — jumps back to exactly where you left off. Clicking any
 `[^n]` in the prose jumps to its definition. Numbering picks the next free
