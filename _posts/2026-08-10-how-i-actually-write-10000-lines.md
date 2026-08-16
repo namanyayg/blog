@@ -1,5 +1,5 @@
 ---
-title: What do the 12,000 lines per day I write actually do
+title: Writing 300k+ lines of code per month is the new normal, i guess
 layout: post
 date: 2026-08-10
 categories:
