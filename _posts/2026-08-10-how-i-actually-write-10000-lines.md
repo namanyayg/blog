@@ -1,5 +1,5 @@
 ---
-title: Writing 300k+ lines of code per month is the new normal, i guess
+title: I wrote 300k+ lines of code this month thanks to AI
 layout: post
 date: 2026-08-10
 categories:
@@ -123,6 +123,7 @@ What about you, my dear reader, where do you stand? How many lines of (effective
 [^2]: I think [Clay](https://www.clay.com/blog/gtm-engineering) invented the term a few years ago. But it is much more advanced now!
 
 [^3]: a.k.a. "leads" in marketing-speak, but I never really liked that word
+
 
 
 
