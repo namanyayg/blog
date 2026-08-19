@@ -6,7 +6,7 @@ categories:
  - saas
  - ai
 excerpt_separator: <!--more-->
-post_promotion_type: giga-catalyst
+post_promotion_type: gigamultiplier
 image: /assets/make-something-people-want/namanyay-ycombinator-sign-gigacatalyst.jpeg
 twitter_image: /assets/make-something-people-want/namanyay-ycombinator-sign-gigacatalyst.jpeg
 twitter_card: summary_large_image

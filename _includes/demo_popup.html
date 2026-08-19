@@ -3,18 +3,27 @@
   <button onclick="closeDemoPopup()" class="newsletter-popup-close" aria-label="Close modal">&times;</button>
 
   <div class="demo-popup-content">
-    <h2 class="demo-popup-title">Give your sales team superpowers</h2>
+{% assign popup_promotion_type = include.post_promotion_type | default: page.post_promotion_type | default: 'giga-catalyst' %}
+    <h2 class="demo-popup-title">{% if popup_promotion_type == 'gigamultiplier' %}Book more meetings and earn more{% else %}Stop building dashboards one by one{% endif %}</h2>
     <div style="display: flex; align-items: center; justify-content: center; margin: 0.75em 0;">
       <a href="https://www.ycombinator.com/companies/gigacatalyst" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.4em; padding: 0.375em 0.75em; border: 0.0625em solid #FF6600; border-radius: 0.3em; transition: all 0.2s ease;">
         <span style="display: flex; align-items: center; justify-content: center; background: #FF6600; border-radius: 0.15em; width: 1.25em; height: 1.25em; flex-shrink: 0; font-size: 0.75em; font-weight: 700; color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">Y</span>
         <span style="font-size: 0.75em; font-weight: 600; color: #FF6600; letter-spacing: -0.01em;">Backed by Y Combinator</span>
       </a>
     </div>
-    <div class="demo-popup-description"><p>Gigacatalyst allows your sales team to build features that prospects ask for, so they never lose a deal to product gaps.</p><p>My customers say that this is the best way to <strong>increase sales</strong> in 2026.</p></div>
+    {% if popup_promotion_type == 'gigamultiplier' %}
+    <div class="demo-popup-description"><p>Gigacatalyst finds the buyers who are ready to engage, drafts your LinkedIn outreach for you to approve, and learns from the replies and meetings it books.</p><p>It's <strong>free to try for 14 days</strong> &mdash; no card needed.</p></div>
 
     <div class="demo-cta-container">
-      <a href="https://gigacatalyst.com" target="_blank" rel="noopener noreferrer" class="demo-cta-button">Learn More</a>
+      <a href="https://gigacatalyst.com/multiplier?utm_source=blog&utm_medium=popup&utm_campaign=post-promotion&utm_content=gigamultiplier" target="_blank" rel="noopener noreferrer" class="demo-cta-button">Find my buyers</a>
     </div>
+    {% else %}
+    <div class="demo-popup-description"><p>Gigacatalyst puts AI-native dashboards, reports, and spreadsheet workflows inside your product, so your customers build what they need on your own APIs instead of filing feature requests.</p><p>My customers say that this is the best way to <strong>cut their backlog and keep accounts</strong> in 2026.</p></div>
+
+    <div class="demo-cta-container">
+      <a href="https://gigacatalyst.com?utm_source=blog&utm_medium=popup&utm_campaign=post-promotion&utm_content=giga-catalyst" target="_blank" rel="noopener noreferrer" class="demo-cta-button">Learn More</a>
+    </div>
+    {% endif %}
   </div>
 </div>
 
@@ -225,7 +234,7 @@ function handleDemoEscapeKey(event) {
   const postPromotionType = '{{ post_promotion_type }}';
   const autoShowPopup = '{{ auto_show_post_promotion_popup }}' === 'true';
 
-  if (postPromotionType === 'giga-catalyst' && autoShowPopup) {
+  if ((postPromotionType === 'giga-catalyst' || postPromotionType === 'gigamultiplier') && autoShowPopup) {
     let hasTriggered = false;
 
     function checkScrollAndTrigger() {

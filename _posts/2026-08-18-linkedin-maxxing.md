@@ -18,7 +18,7 @@ tags:
  - growth
  - mcp
 excerpt_separator: <!--more-->
-post_promotion_type: giga-catalyst
+post_promotion_type: gigamultiplier
 image: /assets/linkedin-maxxing/linkedin-maxxing.jpg
 twitter_image: /assets/linkedin-maxxing/linkedin-maxxing.jpg
 twitter_card: summary_large_image
@@ -66,7 +66,7 @@ There are many tools for this, but I ended up building my own, with the perfect 
 
 <figure><img src="{{ '/assets/linkedin-maxxing/2-start-sending-connection-requests-and-messages-3.jpg' | relative_url }}" alt="Linkedin-maxxing early-stage GTM guide to sell quicker"></figure>
 
-I am releasing it for free for this week (no credit card needed) - if I can help you get even one sale or improve your fundraise then it'll feel great! Sign up at [gigacatalyst.com/multiplier](https://gigacatalyst.com/multiplier).
+It's part of [Gigacatalyst](https://gigacatalyst.com/multiplier?utm_source=blog&utm_medium=post&utm_campaign=post-promotion&utm_content=linkedin-maxxing) now, and it's free to try for 14 days (no credit card needed) - if I can help you get even one sale or improve your fundraise then it'll feel great!
 
 ## 3. Post as much as you can aka maximize your luck surface area
 

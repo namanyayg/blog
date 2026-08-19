@@ -6,7 +6,7 @@ categories:
  - saas
  - ai
 excerpt_separator: <!--more-->
-post_promotion_type: giga-catalyst
+post_promotion_type: gigamultiplier
 image: /assets/how-i-actually-write-10000-lines/product-work-2.png
 twitter_image: /assets/how-i-actually-write-10000-lines/product-work-2.png
 twitter_card: summary_large_image
