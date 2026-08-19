@@ -1,3 +1,4 @@
 .env
 .notion.json
 .backups/
+.kit.json
