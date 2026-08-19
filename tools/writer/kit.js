@@ -129,7 +129,11 @@ function wrap(paragraphs) {
 
 // Everything before the <!--more--> cut is the hook the post itself leads with,
 // which is exactly what the email should tease.
-function teaser({ body, title, url, blurb }) {
+//
+// The wording around it stays generic on purpose — the letter is assembled from
+// the post's own opening, so nothing here should assume what the post is about.
+// Pass `blurb` and `ask` (--blurb / --ask) for a line written for the piece.
+function teaser({ body, title, url, blurb, ask }) {
   const above = body.split('<!--more-->')[0];
   const paras = above
     .split('\n\n')
@@ -141,8 +145,8 @@ function teaser({ body, title, url, blurb }) {
   return wrap([
     'Hey,',
     ...paras,
-    blurb ? inline(blurb) : `I wrote up the whole playbook — the list, the messages, and the tooling I use to run it: <a href="${url}" target="_blank" class="ck-link" rel="noopener noreferrer">${url}</a>.`,
-    'Has LinkedIn worked for you, or have you written it off? Hit reply — I read everything.',
+    `${blurb ? inline(blurb) + ' ' : 'I wrote the whole thing up here: '}<a href="${url}" target="_blank" class="ck-link" rel="noopener noreferrer">${url}</a>.`,
+    ask ? inline(ask) : 'What do you think? Hit reply — I read everything.',
     'Keep shipping,',
     'Namanyay',
   ]);
@@ -172,7 +176,7 @@ function fullBody({ body, url }) {
 // ---------------------------------------------------------------- api
 
 async function syndicate({
-  relPath, subject, previewText = '', from = '', full = false, blurb = '',
+  relPath, subject, previewText = '', from = '', full = false, blurb = '', ask = '',
   dir = __dirname, root = ROOT,
 } = {}) {
   const key = apiKey(dir);
@@ -182,7 +186,7 @@ async function syndicate({
   const { front, body, slug } = parsePost(abs);
   const url = `${SITE}/${slug}`;
   const title = front.title || slug;
-  const content = full ? fullBody({ body, url }) : teaser({ body, title, url, blurb });
+  const content = full ? fullBody({ body, url }) : teaser({ body, title, url, blurb, ask });
 
   const payload = {
     email_template_id: TEMPLATE_ID,
@@ -231,7 +235,7 @@ if (require.main === module) {
   };
   const relPath = argv.find((a) => !a.startsWith('--') && a.endsWith('.md'));
   if (!relPath) {
-    console.error('usage: node kit.js _posts/<file>.md --subject "…" [--preview "…"] [--from addr] [--full]');
+    console.error('usage: node kit.js _posts/<file>.md --subject "…" [--preview "…"] [--blurb "…"] [--ask "…"] [--from addr] [--full]');
     process.exit(1);
   }
   syndicate({
@@ -240,6 +244,7 @@ if (require.main === module) {
     previewText: opt('preview'),
     from: opt('from'),
     blurb: opt('blurb'),
+    ask: opt('ask'),
     full: argv.includes('--full'),
   })
     .then((r) => {
