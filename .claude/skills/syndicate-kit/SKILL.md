@@ -65,6 +65,18 @@ better for the piece and pass it:
 Never edit those defaults to suit one post; that is how a reusable tool quietly
 becomes a single-use one. Pass the copy in instead.
 
+## The baseurl trap
+
+The site is served under a baseurl, so **both** posts and assets live beneath
+it: `https://nmn.gl/blog/<slug>` and `https://nmn.gl/blog/assets/…`. Frontmatter
+and figures store the path without it (`image: /assets/…`), so every absolute
+URL an email needs is `https://nmn.gl/blog` + that path.
+
+Getting this wrong fails silently in the worst way: the broadcast saves, the
+send succeeds, and every image is just blank in the inbox. **Curl each image URL
+the tool emits and confirm 200** before telling the user images work — a live
+post does not mean the email's URLs are right.
+
 ## API notes
 
 - Auth is `X-Kit-Api-Key`, key in `tools/writer/.env` (gitignored — this repo is
@@ -77,6 +89,20 @@ becomes a single-use one. Pass the copy in instead.
   (gitignored, per-machine bookkeeping).
 - Sending addresses on the account: `mail@namanyayg.com` (default),
   `hello@gigamind.dev`, `n@usegigamind.com`.
+
+## `--full`
+
+Inlines the whole article, images and all. Check the rendered body, not just
+that the call succeeded:
+
+- Posts usually sign off themselves ("keep shipping, / Namanyay"). The tool
+  slips the "Originally posted at" credit in above an existing sign-off instead
+  of stacking a second one — verify there is exactly one.
+- Single newlines inside a paragraph become `<br/>`; HTML would collapse them
+  and run a sign-off onto one line.
+- Inspect the raw HTML when something looks wrong. A quick regex written to
+  eyeball the content will mangle nested tags and invent bugs that are not
+  there.
 
 ## Not the same as `prevent_syndication`
 

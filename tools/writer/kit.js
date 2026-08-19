@@ -27,6 +27,12 @@ const API = 'https://api.kit.com/v4';
 // Matches the account's existing broadcasts so a syndicated post looks like
 // every other letter the list has had.
 const TEMPLATE_ID = 4173676;          // "N Text"
+
+// The site is served under a baseurl, so BOTH posts and assets live beneath it:
+// https://nmn.gl/blog/<slug> and https://nmn.gl/blog/assets/… . Frontmatter and
+// figures store the path without it (`/assets/…`), so every absolute URL an
+// email needs is SITE + that path. Dropping the baseurl 404s silently — the
+// email still sends, the images just never load.
 const SITE = 'https://nmn.gl/blog';
 
 // ---------------------------------------------------------------- env / state
@@ -118,6 +124,9 @@ function inline(md) {
   s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
   s = s.replace(/(^|[^*])\*([^*]+)\*/g, '$1<em>$2</em>');
   s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
+  // A single newline inside a paragraph is a line break the writer meant to
+  // keep (a sign-off, an address); HTML would otherwise collapse it.
+  s = s.replace(/\n/g, '<br/>');
   return s;
 }
 
@@ -161,15 +170,19 @@ function fullBody({ body, url }) {
     if (!p || p === '<!--more-->') continue;
     const fig = /<img\s+src="\{\{\s*'([^']+)'\s*\|\s*relative_url\s*\}\}"[^>]*alt="([^"]*)"/.exec(p);
     if (fig) {
-      out.push(`<img src="https://nmn.gl${fig[1]}" alt="${esc(fig[2])}" style="max-width:100%;height:auto" />`);
+      out.push(`<img src="${SITE}${fig[1]}" alt="${esc(fig[2])}" style="max-width:100%;height:auto" />`);
       continue;
     }
     if (p.startsWith('<')) continue;
     const h = /^#{1,6}\s+(.*)$/.exec(p);
     out.push(h ? `<strong>${inline(h[1])}</strong>` : inline(p));
   }
-  out.push(`Originally posted at <a href="${url}" target="_blank" class="ck-link" rel="noopener noreferrer">${url}</a>.`,
-    'Keep shipping,', 'Namanyay');
+  // Posts usually sign off themselves. Slip the credit in above that rather
+  // than stacking a second "Keep shipping, / Namanyay" underneath it.
+  const credit = `Originally posted at <a href="${url}" target="_blank" class="ck-link" rel="noopener noreferrer">${url}</a>.`;
+  const signoff = out.findIndex((p) => /^(keep shipping|cheers|thanks|best)\b/i.test(p));
+  if (signoff === -1) out.push(credit, 'Keep shipping,', 'Namanyay');
+  else out.splice(signoff, 0, credit);
   return wrap(out);
 }
 
@@ -201,7 +214,7 @@ async function syndicate({
   };
   if (previewText) payload.preview_text = previewText;
   if (from) payload.email_address = from;
-  if (front.image) payload.thumbnail_url = `https://nmn.gl${front.image}`;
+  if (front.image) payload.thumbnail_url = `${SITE}${front.image}`;
   if (front.image) payload.thumbnail_alt = title;
 
   const st = store(dir);
