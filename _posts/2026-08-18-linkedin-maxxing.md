@@ -1,5 +1,5 @@
 ---
-title: Linkedin-maxxing early-stage GTM guide to sell quicker
+title: "Linkedin-maxxing: An early-stage GTM guide to sell your product"
 layout: post
 date: 2026-08-18
 categories:
@@ -18,7 +18,6 @@ tags:
  - growth
  - mcp
 excerpt_separator: <!--more-->
-post_promotion_type: gigamultiplier
 image: /assets/linkedin-maxxing/linkedin-maxxing.jpg
 twitter_image: /assets/linkedin-maxxing/linkedin-maxxing.jpg
 twitter_card: summary_large_image
@@ -86,3 +85,4 @@ Has LinkedIn been useful for you? Feel free to reply below - I've helped a few o
 
 keep shipping,
 Namanyay
+
