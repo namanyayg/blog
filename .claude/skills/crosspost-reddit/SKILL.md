@@ -39,9 +39,27 @@ document order, which is what `--reuse` consumes.
 **Still unverified:** whether a `preview.redd.it` URL carried into a *new* post
 gets rendered inline, or shows as a bare link. Reddit builds `media_metadata`
 at upload time and it is not certain it does so for a reused URL. Check the
-first crosspost after posting; if the images come through as links, upload them
-in the composer instead (the toolbar's image button) and the prose is still
-done for you.
+first crosspost after posting.
+
+### Uploading new images cannot be automated
+
+Tried and failed, so don't spend the time again:
+
+- `DOM.setFileInputFiles` on the composer's hidden image input **does** fire the
+  real upload (the file reaches `reddit-uploaded-media.s3-accelerate.amazonaws.com`)
+  but the markdown textarea stays empty — nothing is inserted, so the position
+  is not yours to choose.
+- In the **rich text editor** the same file input does nothing at all, and
+  `Input.dispatchDragEvent` with a file is ignored too.
+- The rich text editor also does **not** honour markdown shortcuts: typing
+  `# ` leaves a literal `# ` in a paragraph. So RTE buys nothing over markdown
+  mode, which renders headings correctly on submit.
+
+So: automate the prose, hand over the images. The body arrives with
+`[IMAGE n — upload here]` markers; the user drags each file onto its marker.
+For a post with a handful of images that is seconds of work, and it is a
+**one-time** cost — once posted, `--reuse` harvests those URLs for every later
+subreddit.
 
 ## The cover image
 

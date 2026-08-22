@@ -48,42 +48,64 @@ function parsePost(abs) {
 
 // Reddit's flavour is close to the blog's but not identical:
 //   * `##` renders small; the account's existing posts use `#` for sections.
-//   * HTML is stripped entirely — a <figure> is not an image, it is nothing.
+//   * HTML is dropped — a <figure> is not an image on Reddit, it is nothing.
 //   * Liquid means nothing here, so `{{ … | relative_url }}` has to go.
 //   * A bare image URL on its own line is what Reddit expands inline.
+//   * Footnotes have no equivalent, and are dropped along with their markers.
+//
+// This works line by line rather than paragraph by paragraph. Posts do not
+// reliably leave a blank line after a heading or around a <figure>, and a
+// paragraph-based pass silently leaves those headings at `##` and spills the
+// raw <figure> HTML into the post as text.
+//
 // `cover` is the frontmatter `image:` path. The blog opens a post with its
 // cover figure; Reddit posts don't repeat it (the subreddit shows a thumbnail
-// already), and leaving it in silently shifts every later image into the wrong
-// slot when reusing URLs from an earlier crosspost. Skipped unless asked for.
+// already), and leaving it in shifts every later image into the wrong slot when
+// reusing URLs from an earlier crosspost. Skipped unless asked for.
 function toReddit({ body, images = [], cover = '', withCover = false }) {
   const out = [];
+  let para = [];
   let used = 0;
 
-  for (const raw of body.split('\n\n')) {
-    const block = raw.trim();
-    if (!block || block === '<!--more-->') continue;
+  const flush = () => {
+    if (!para.length) return;
+    const text = inline(para.join('\n'));
+    if (text) out.push(text);
+    para = [];
+  };
 
-    if (!withCover && cover && /^<figure/.test(block) && block.includes(cover)) continue;
+  for (const line of body.split('\n')) {
+    const t = line.trim();
 
-    // A figure becomes the image URL on its own line, and its caption becomes
-    // the paragraph under it — which is how the existing Reddit posts read.
-    if (/^<figure/.test(block)) {
-      const url = images[used];
-      out.push(url || `[IMAGE ${used + 1} — upload here]`);
+    if (!t || t === '<!--more-->') { flush(); continue; }
+
+    const h = /^(#{1,6})\s+(.*)$/.exec(t);
+    if (h) { flush(); out.push(`# ${h[2].trim()}`); continue; }
+
+    if (/^<figure/.test(t) || /^<img/.test(t)) {
+      flush();
+      if (!withCover && cover && t.includes(cover)) continue;
+      out.push(images[used] || `[IMAGE ${used + 1} — upload here]`);
       used += 1;
-      const cap = /<figcaption[^>]*>([\s\S]*?)<\/figcaption>/.exec(block);
+      const cap = /<figcaption[^>]*>([\s\S]*?)<\/figcaption>/.exec(t);
       if (cap) out.push(stripTags(cap[1]).trim());
       continue;
     }
-    if (/^</.test(block)) continue;               // any other raw HTML
 
-    // Headings: the blog's ## is Reddit's #.
-    const h = /^(#{1,6})\s+(.*)$/.exec(block);
-    if (h) { out.push(`# ${h[2].trim()}`); continue; }
+    // A footnote definition owns its whole line; drop it.
+    if (/^\[\^\d+\]:/.test(t)) { flush(); continue; }
 
-    out.push(inline(block));
+    if (/^<\/?[a-z]/i.test(t)) { flush(); continue; }   // any other raw HTML
+
+    para.push(t);
   }
-  return { markdown: out.join('\n\n').trim() + '\n', slots: used, filled: Math.min(used, images.length) };
+  flush();
+
+  return {
+    markdown: out.join('\n\n').trim() + '\n',
+    slots: used,
+    filled: Math.min(used, images.length),
+  };
 }
 
 const stripTags = (s) => s.replace(/<[^>]+>/g, '');
@@ -92,10 +114,10 @@ function inline(s) {
   return s
     .replace(/\{\{\s*'([^']+)'\s*\|\s*relative_url\s*\}\}/g, `${SITE}$1`)   // liquid → real URL
     .replace(/\{%[^%]*%\}/g, '')                                            // liquid tags
-    .replace(/\[\^(\d+)\]:\s*/g, '')                                        // footnote defs
-    .replace(/\[\^(\d+)\]/g, '')                                            // footnote markers
+    .replace(/\[\^\d+\]/g, '')                                                // footnote markers
     .trim();
 }
+
 
 // ---------------------------------------------------------------- reddit reads
 
