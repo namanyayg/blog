@@ -21,6 +21,7 @@ excerpt_separator: <!--more-->
 image: /assets/linkedin-maxxing/linkedin-maxxing.jpg
 twitter_image: /assets/linkedin-maxxing/linkedin-maxxing.jpg
 twitter_card: summary_large_image
+post_promotion_type: gigamultiplier
 ---
 
 <figure><img src="{{ '/assets/linkedin-maxxing/linkedin-maxxing.jpg' | relative_url }}" alt="Linkedin-maxxing early-stage GTM guide to sell quicker"></figure>
