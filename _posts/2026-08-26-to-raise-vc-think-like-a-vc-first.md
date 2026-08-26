@@ -37,7 +37,7 @@ This may sound surprising or obvious, but always remember:
 
 They don't want to sit around and put their money in an index fund. They are just *waiting* for a founder to come in with incredible energy, a great product.
 
-Because if they find the next Zuckerburg before anyone else, this means they get a share at the lowest valuation, and gain the most in subsequent rounds.
+Because if they find the next Zuckerberg before anyone else, this means they get a share at the lowest valuation, and gain the most in subsequent rounds.
 
 The practical implication is that you *never* should go into a VC call with a beggar mentality.
 
@@ -91,7 +91,7 @@ Paul Graham famously regards Sam Altman to be one of the best at fundraising, an
 
 ## Conclusion
 
-When you start thinking like a VC, you'll see that there are genuinely no need of tricks.
+When you start thinking like a VC, you'll see that there's genuinely no need for tricks.
 
 Ultimately, it's two humans making a business decision. VCs cannot exist without startups, but startups existed long before VCs.
 
